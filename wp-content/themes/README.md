@@ -1,4 +1,4 @@
-# Unity WP Website Starter Template
+# Unity WP Starter Template
 
 ## Local Dev Environment
 
@@ -11,26 +11,25 @@ Create new project in Local by Flywheel:
 
 ## Git Repo
 
-Clone the Starter Template repo without big commit history
+Create a new repository in Unity's GitHub organization: https://github.com/organizations/unitymakesus/repositories/new
+
+**Do not initialize it with a README, license, or .gitignore files.**
+
+Then clone the starter-template repo without commit history. Move the starter-template files into the project directory and initialize a new repo for the new project:
 
 ````shell
 # @ app/public/
 $ git clone --depth 1 https://github.com/unitymakesus/starter-template.git
-````
-
-Remove .git files
-
-````shell
-# @ app/public/
 $ rm -rf starter-template/.git
+$ cp -r starter-template/. .
+$ rm -rf starter-template
+$ git init
+$ git add .
+$ git commit -m "Initial commit"
+$ git remote add origin *remote repository URL*
+$ git remote -v
+$ git push -u origin master
 ````
-
-
-Move Starter Template files into project directory
-
-````shell
-# @ app/public/
-$
 
 ## Install Sage
 
@@ -44,7 +43,7 @@ Make sure all dependencies have been installed:
 Install Sage using Composer from your WordPress themes directory (replace `your-theme-name` below with the name of your theme):
 
 ```shell
-# @ wp-content/themes/
+# @ app/public/wp-content/themes/
 $ composer create-project roots/sage your-theme-name dev-master
 ```
 
@@ -70,6 +69,6 @@ During theme installation you will have the options to:
 From the command line on your host machine (not on your Vagrant box), navigate to the theme directory then run `yarn`:
 
 ```shell
-# @ themes/your-theme-name/
+# @ app/public/wp-content/themes/your-theme-name/
 $ yarn
 ```

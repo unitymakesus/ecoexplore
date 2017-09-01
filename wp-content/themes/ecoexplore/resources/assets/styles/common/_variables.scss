@@ -1,5 +1,27 @@
-/** Colors */
-$brand-primary:         #27ae60;
+/** Brand Colors */
+$red-dark:          #99140C;
+$red:               #C93B3E;
+$red-light:         #F4989A;
+$orange-dark:       #C27811;
+$orange:            #E98B3B;
+$orange-light:      #EDC57B;
+$green-dark:        #688127;
+$green:             #9AB83C;
+$green-light:       #E0F0C2;
+$teal-dark:         #308593;
+$teal:              #4CBED8;
+$teal-light:        #AAE1EA;
+$brand-primary:     $teal;
+
+/** Neutral Colors */
+$gray:              #2F2F2F;
+$navy:              #000349;
+$ice:               #CFF3FF;
+
+/** Utility Colors */
+$error:             $red-dark;
+$success:           $green-dark;
+$shadow:            rgba(#0B004B, 0.19);
 
 /** Box Model  */
-$spacer:                2rem;
+$spacer:            2rem;

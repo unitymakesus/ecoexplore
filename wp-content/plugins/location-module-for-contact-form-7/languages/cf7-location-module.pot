@@ -1,0 +1,170 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Location Module (Lite) for Contact Form 7\n"
+"POT-Creation-Date: 2016-03-30 09:47+0200\n"
+"PO-Revision-Date: 2016-03-30 09:46+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: cf7-location-module.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: admin/cf7-location-module-admin.php:17
+#: admin/cf7-location-module-admin.php:20
+msgid "Field type"
+msgstr ""
+
+#: admin/cf7-location-module-admin.php:21
+msgid "Required field"
+msgstr ""
+
+#: admin/cf7-location-module-admin.php:26
+msgid "Name"
+msgstr ""
+
+#: admin/cf7-location-module-admin.php:30
+msgid "Class (optional)"
+msgstr ""
+
+#: admin/cf7-location-module-admin.php:34
+msgid "Placeholder(optional)"
+msgstr ""
+
+#: admin/cf7-location-module-admin.php:39
+msgid "Now you can use this tags on Mail Section:"
+msgstr ""
+
+#: admin/cf7-location-module-admin.php:41
+msgid "Location longitude"
+msgstr ""
+
+#: admin/cf7-location-module-admin.php:42
+msgid "Location latitude"
+msgstr ""
+
+#: admin/cf7-location-module-admin.php:43
+msgid "Google Maps Link with marker"
+msgstr ""
+
+#: admin/cf7-location-module-admin.php:55
+msgid "Insert Tag"
+msgstr ""
+
+#: admin/cf7-location-module-admin.php:60
+#, php-format
+msgid ""
+"To use the value input through this field in a mail field, you need to "
+"insert the corresponding mail-tag (%s) into the field on the Mail tab."
+msgstr ""
+
+#: admin/cf7-location-module-options.php:34
+msgid "Latitude Invalid"
+msgstr ""
+
+#: admin/cf7-location-module-options.php:47
+msgid "Longitude Invalid"
+msgstr ""
+
+#: admin/cf7-location-module-options.php:58
+msgid "Zoom Invalid, must be between 1 and 15"
+msgstr ""
+
+#: admin/cf7-location-module-options.php:73
+msgid "Start Location"
+msgstr ""
+
+#: admin/cf7-location-module-options.php:73
+msgid "Latitude / Longitude"
+msgstr ""
+
+#: admin/cf7-location-module-options.php:79
+msgid "Start Zoom Level"
+msgstr ""
+
+#: cf7-location-module.php:20
+msgid ""
+"Plugin Contact Form 7 not found or not activated. Please install and "
+"activate it to use the extension \"Contact Form 7 Location Module (lite)\""
+msgstr ""
+
+#: cf7-location-module.php:62
+msgid "Error while geocoding your address. Please retry."
+msgstr ""
+
+#: cf7-location-module.php:136
+msgid "SET"
+msgstr ""
+
+#: cf7-location-module.php:183
+msgid "No HTML tags are allowed"
+msgstr ""
+
+#: cf7-location-module.php:188
+msgid ""
+"No Location set, enter your address then press \"SET\" to get the location."
+msgstr ""
+
+#: cf7-location-module.php:193 cf7-location-module.php:198
+#: cf7-location-module.php:205
+msgid "Malformed Data, please re-enter your address then press \"SET\""
+msgstr ""
+
+#: cf7-location-module.php:220 cf7-location-module.php:222
+msgid "Location Module"
+msgstr ""
+
+#: cf7-location-module.php:230
+#, php-format
+msgid ""
+"Generate a form tag for an address text field with a map below it that show "
+"the geocoded position of given address. For more details, see %s."
+msgstr ""
+
+#: cf7-location-module.php:231
+msgid "https://wordpress.org/plugins/cf7-location-module"
+msgstr ""
+
+#: cf7-location-module.php:231
+msgid "the plugin page on WordPress.org"
+msgstr ""
+
+#: cf7-location-module.php:267
+msgid "Settings"
+msgstr ""
+
+#: cf7-location-module.php:268
+msgid "Support This Plugin"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Location Module (Lite) for Contact Form 7"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://wordpress.org/extend/plugins/cf7-location-module/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Location Module (Lite) is a Contact Form 7 Plugin extension to let users "
+"search their location, adjust and send it."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Nicola Bavaro"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://www.nicolabavaro.it"
+msgstr ""

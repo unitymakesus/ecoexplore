@@ -40,7 +40,9 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
     register_nav_menus([
-        'primary_navigation' => __('Primary Navigation', 'sage')
+        'primary_navigation' => __('Primary Navigation', 'sage'),
+        'logged_in' => __('Logged In', 'sage'),
+        'logged_out' => __('Logged Out', 'sage')
     ]);
 
     /**
@@ -65,7 +67,17 @@ add_action('after_setup_theme', function () {
      * Use main stylesheet for visual editor
      * @see resources/assets/styles/layouts/_tinymce.scss
      */
-    add_editor_style(asset_path('styles/main.css'));
+    // add_editor_style(asset_path('styles/main.css'));
+
+    /**
+     * Enable logo uploader in customizer
+     */
+     add_image_size('ecoexplore-logo', 175, 67, false);
+     add_image_size('ecoexplore-logo-2x', 350, 134, false);
+     add_theme_support('custom-logo', array(
+       'size' => 'ecoexplore-logo-2x'
+     ));
+
 }, 20);
 
 /**

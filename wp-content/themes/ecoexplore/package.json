@@ -71,7 +71,8 @@
   "stylelint": {
     "extends": "stylelint-config-standard",
     "rules": {
-      "no-empty-source": null
+      "no-empty-source": null,
+      "color-hex-case": "upper"
     }
   },
   "scripts": {
@@ -126,6 +127,8 @@
     "yargs": "~8.0"
   },
   "dependencies": {
-    "jquery": "1.12.4 - 3"
+    "jquery": "1.12.4 - 3",
+    "materialize-css": "^0.100.2",
+    "webfontloader": "^1.6.28"
   }
 }

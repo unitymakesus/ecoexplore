@@ -1,0 +1,51 @@
+#cf7-location-container {
+    overflow: hidden;
+}
+#cf7-location-form {
+
+}
+#cf7-geocode-address {
+display: inline-block;
+}
+#cf7-location-map{
+    height:300px;
+	clear: both;
+}
+#cf7-location-form-row {
+    width: 100%;
+}
+#cf7-location-address{
+    width: 100%;
+    margin-bottom: 5px;
+}
+#cf7-location-address input{
+    float:left;
+    display:table-cell;
+    overflow: hidden;
+    width:auto;
+}
+
+.cf7-loc-button:before {
+    font-size:22px;
+}
+.cf7-loc-button{
+    height: 100%;
+    padding: 0 5px 0 5px;
+    text-align: center;
+    background: #1a1a1a;
+    color: #fff;
+    cursor: pointer;
+    display:table-cell;
+}
+.cf7-geocode-reset{
+    height: 100%;
+    padding: 0 5px 0 5px;
+    float:right;
+    cursor: pointer;
+    display:table-cell;
+}
+.cf7-loc-button:hover {
+    background: #1a1a1a;
+    border: 0;
+    color: #fff;
+}

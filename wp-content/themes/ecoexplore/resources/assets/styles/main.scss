@@ -9,7 +9,9 @@
  * Prefix your imports with `~` to grab from node_modules/
  * @see https://github.com/webpack-contrib/sass-loader#imports
  */
-// @import "~some-node-module";
+$roboto-font-path: "~materialize-css/dist/fonts/roboto/";
+
+@import "~materialize-css/sass/materialize";
 
 /** Import theme styles */
 @import "common/global";
