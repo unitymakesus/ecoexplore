@@ -1,0 +1,22 @@
+.um-cover {
+  overflow: hidden;
+}
+
+.um-cover-e {
+  height: 100%;
+  width: 100%;
+  padding-bottom: 8px;
+  position: relative;
+  background: $ice;
+  border-bottom: 1px solid $navy;
+
+  img {
+    position: relative;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+    border-bottom: 1px solid $navy;
+  }
+}
