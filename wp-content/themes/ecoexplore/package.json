@@ -73,7 +73,20 @@
     "rules": {
       "no-empty-source": null,
       "color-hex-case": "upper",
-      "selector-list-comma-newline-after": "never-multi-line"
+      "selector-list-comma-newline-after": "never-multi-line",
+      "at-rule-empty-line-before": [
+        "always",
+        {
+          "except": [
+            "blockless-after-same-name-blockless",
+            "first-nested",
+            "after-same-name"
+          ],
+          "ignore": [
+            "after-comment"
+          ]
+        }
+      ]
     }
   },
   "scripts": {

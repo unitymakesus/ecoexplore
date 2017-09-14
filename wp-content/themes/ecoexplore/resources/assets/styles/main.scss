@@ -15,6 +15,7 @@ $roboto-font-path: "~materialize-css/dist/fonts/roboto/";
 
 /** Import theme styles */
 @import "common/global";
+@import "common/grid";
 @import "components/buttons";
 @import "components/comments";
 @import "components/forms";
