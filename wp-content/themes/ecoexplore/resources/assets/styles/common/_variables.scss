@@ -17,6 +17,7 @@ $brand-primary:     $teal;
 $gray:              #2F2F2F;
 $navy:              #000349;
 $ice:               #CFF3FF;
+$white:             #FFF;
 
 /** Utility Colors */
 $error:             $red-dark;
@@ -25,3 +26,7 @@ $shadow:            rgba(#0B004B, 0.19);
 
 /** Box Model  */
 $spacer:            2rem;
+
+/** Fonts */
+$font-family-serif: "Zilla Slab", serif;
+$font-family-sans-serif: "Montserrat", sans-serif;

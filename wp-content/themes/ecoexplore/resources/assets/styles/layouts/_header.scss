@@ -1,3 +1,121 @@
+// Shape mixin
+@mixin triangle($side) {
+  $border-width: null;
+  $border-side: null;
+  $offset-top: 0;
+
+  @if $side == "right" {
+    $border-width: 85px 20px 0 0;
+    $border-side: "border-top";
+    $offset-top: 0;
+  }
+
+  @elseif $side == "left" {
+    $border-width: 0 0 85px 20px;
+    $border-side: "border-bottom";
+    $offset-top: -1px;
+  }
+
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: $border-width;
+    border-color: transparent;
+  }
+
+  &::before {
+    #{$side}: -21px;
+    #{$border-side}-color: $navy;
+    z-index: -2;
+  }
+
+  &::after {
+    top: $offset-top;
+    #{$side}: -20px;
+    #{$border-side}-color: $white;
+    z-index: -1;
+  }
+}
+
+.nav-wrapper {
+  display: flex;
+  align-items: stretch;
+
+  & > * {
+    flex: 1 1 auto;
+  }
+}
+
 nav {
   background: $ice;
+  height: 94px;
+  border-bottom: 1px solid $navy;
+  box-shadow: none;
+  padding-bottom: 8px;
+
+  .brand-logo {
+    display: block;
+    position: relative;
+    background: $white;
+    height: 100%;
+    padding: 10px 25px;
+    margin-right: 29px;
+    border-bottom: 1px solid $navy;
+    border-right: 1px solid $navy;
+    z-index: 0;
+
+    @include triangle("right");
+  }
+
+  ul.menu {
+    position: relative;
+    display: block;
+    background: $white;
+    height: 100%;
+    padding: 10px 25px;
+    border: 1px solid $navy;
+    border-top: none;
+    z-index: 1;
+
+    @include triangle("left");
+
+    a {
+      font-family: $font-family-serif;
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    &.primary {
+      margin-right: 29px;
+      flex: 2 1 50%;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+
+      li {
+        float: none;
+        display: block;
+      }
+
+      a {
+        color: $navy;
+      }
+
+      & > li:last-child {
+        @include triangle("right");
+      }
+    }
+
+    &.secondary {
+      border-right: none;
+
+      a {
+        color: $red-dark;
+      }
+    }
+  }
 }

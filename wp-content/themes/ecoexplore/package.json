@@ -72,7 +72,8 @@
     "extends": "stylelint-config-standard",
     "rules": {
       "no-empty-source": null,
-      "color-hex-case": "upper"
+      "color-hex-case": "upper",
+      "selector-list-comma-newline-after": "never-multi-line"
     }
   },
   "scripts": {
