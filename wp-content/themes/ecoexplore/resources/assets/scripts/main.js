@@ -18,7 +18,7 @@ var WebFont = require('webfontloader');
 
 WebFont.load({
  google: {
-   families: ['Montserrat:400,400i,700', 'Zilla+Slab:400,700', 'Material+Icons'],
+   families: ['Montserrat:400,400i,700', 'Zilla+Slab:400,700', 'Material+Icons', 'Boogaloo'],
  },
 });
 

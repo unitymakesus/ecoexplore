@@ -3,15 +3,15 @@ $red-dark:          #99140C;
 $red:               #C93B3E;
 $red-light:         #F4989A;
 $orange-dark:       #C27811;
-$orange:            #E98B3B;
+$orange-med:        #E98B3B;
 $orange-light:      #EDC57B;
 $green-dark:        #688127;
-$green:             #9AB83C;
+$green-med:         #9AB83C;
 $green-light:       #E0F0C2;
-$teal-dark:         #308593;
-$teal:              #4CBED8;
-$teal-light:        #AAE1EA;
-$brand-primary:     $teal;
+$aqua-dark:         #308593;
+$aqua:              #4CBED8;
+$aqua-light:        #AAE1EA;
+$brand-primary:     $aqua;
 
 /** Neutral Colors */
 $gray:              #2F2F2F;
@@ -28,5 +28,6 @@ $shadow:            rgba(#0B004B, 0.19);
 $spacer:            2rem;
 
 /** Fonts */
+$font-comic: "Boogaloo";
 $font-family-serif: "Zilla Slab", serif;
 $font-family-sans-serif: "Montserrat", sans-serif;

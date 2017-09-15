@@ -4,6 +4,7 @@
   @while(have_posts()) @php(the_post())
     <section class="hero">
       <img src="{{ App\asset_path('images/hero-banner.jpg') }}" alt="Kids showing their discovery to a scientist" />
+      <div class="border-div"></div>
 
       <div class="hero-text container">
         <div class="row">

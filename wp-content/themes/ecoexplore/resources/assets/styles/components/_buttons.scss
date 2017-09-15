@@ -1,0 +1,118 @@
+//Global button variables
+
+@mixin btn-global {
+  box-shadow: 7px 8px $shadow;
+  color: white;
+  display: inline-block;
+  font-family: $font-comic;
+  font-size: 46px;
+  text-transform: uppercase;
+  transform: translate(0, 0);
+  transition: all 0.3s ease;
+  padding: 10px 15px;
+  position: relative;
+}
+@mixin btn-before-global {
+  content: " ";
+  position: absolute;
+  z-index: -1;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+}
+@mixin btn-hover-global {
+  box-shadow: 2px 4px $shadow;
+  transform: translate(2px, 2px);
+}
+
+//Primary Blue CTA Button
+
+.btn-primary {
+  @include btn-global;
+
+  background-color: $aqua;
+  border: 6px solid $aqua-light;
+  text-shadow: 2px 4px $aqua-dark;
+
+  &::before {
+    @include btn-before-global;
+
+    border: 2px solid $aqua-dark;
+  }
+
+  &:hover {
+    @include btn-hover-global;
+
+    background-color: $aqua-light;
+    border: 6px solid $aqua;
+  }
+
+  &:active {
+    background-color: $aqua;
+    border: 6px solid $aqua-dark;
+    box-shadow: 0 0;
+  }
+}
+
+//Secondary Green CTA button
+
+.btn-secondary {
+  @include btn-global;
+
+  background-color: $green-med;
+  border: 6px solid $green-light;
+  font-size: 36px;
+  padding: 2px 40px;
+  text-shadow: 2px 4px $green-dark;
+
+  &::before {
+    @include btn-before-global;
+
+    border: 2px solid $green-dark;
+  }
+
+  &:hover {
+    @include btn-hover-global;
+
+    background-color: $green-light;
+    border: 6px solid $green-med;
+  }
+
+  &:active {
+    background-color: $green-med;
+    border: 6px solid $green-dark;
+    box-shadow: 0 0;
+  }
+}
+
+//Tertiary Orange CTA Button
+
+.btn-tertiary {
+  @include btn-global;
+
+  background-color: $orange-med;
+  border: 6px solid $orange-light;
+  font-size: 36px;
+  padding: 2px 20px;
+  text-shadow: 2px 4px $orange-dark;
+
+  &::before {
+    @include btn-before-global;
+
+    border: 2px solid $orange-dark;
+  }
+
+  &:hover {
+    @include btn-hover-global;
+
+    background-color: $orange-light;
+    border: 6px solid $orange-med;
+  }
+
+  &:active {
+    background-color: $orange-med;
+    border: 6px solid $orange-dark;
+    box-shadow: 0 0;
+  }
+}
