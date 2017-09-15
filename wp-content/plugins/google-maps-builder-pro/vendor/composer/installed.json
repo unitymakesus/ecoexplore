@@ -1,0 +1,35 @@
+[
+    {
+        "name": "wordimpress/maps-builder-core",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/WordImpress/maps-builder-core.git",
+            "reference": "053caadc866fd49722bbd8f3a882000a3472073a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/WordImpress/maps-builder-core/zipball/053caadc866fd49722bbd8f3a882000a3472073a",
+            "reference": "053caadc866fd49722bbd8f3a882000a3472073a",
+            "shasum": ""
+        },
+        "time": "2017-07-10T17:44:56+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "license": [
+            "GLPv2+"
+        ],
+        "authors": [
+            {
+                "name": "Devin Walker",
+                "email": "Devin@WordImpress.com"
+            }
+        ],
+        "description": "Shared code between Maps Builder Pro and free.",
+        "support": {
+            "source": "https://github.com/WordImpress/maps-builder-core/tree/master",
+            "issues": "https://github.com/WordImpress/maps-builder-core/issues"
+        }
+    }
+]
