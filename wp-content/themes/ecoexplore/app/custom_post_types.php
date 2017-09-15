@@ -151,7 +151,7 @@ add_action( 'init', function() {
 			'show_ui' => true,
 			'show_in_nav_menus' => false,
 			'menu_position' => 8,
-			'menu_icon' => 'dashicons-search',
+			'menu_icon' => 'dashicons-nametag',
 			'capability_type' => 'page',
 			'hierarchical' => true,
 			'supports' => array( 'title', 'editor', 'thumbnail'),
