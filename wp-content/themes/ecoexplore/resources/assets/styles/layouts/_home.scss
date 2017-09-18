@@ -1,7 +1,131 @@
+//Observation card styling mixin
+@mixin observation-cards {
+  box-shadow: 8px 8px $shadow;
+  height: 109px;
+  width: 383px;
+
+  h3 {
+    font-size: 18px;
+    margin: 5px 0;
+
+    a {
+      color: white;
+    }
+  }
+
+  p {
+    font-size: 14px;
+  }
+}
+
+//Hero section
+
 .hero img {
   width: 100%;
 }
 
 .border-div {
-  border-bottom: 10px solid $ice;
+  background-color: $ice;
+  border-bottom: 1px solid $navy;
+  border-top: 1px solid $navy;
+  height: 10px;
+  margin-top: -8px;
+}
+
+//Observation/Leaderboard
+
+.gray-halftone {
+  background-image: url(./images/gray-halftone.svg);
+  background-position: bottom;
+  background-repeat: repeat-x;
+
+  h2 {
+    color: $navy;
+    font-family: $font-family-serif;
+    font-size: 30px;
+    margin: 10px;
+  }
+}
+
+.observation.one {
+  @include observation-cards;
+
+  background: $orange-med;
+  border: 1px solid $orange-dark;
+
+  h3 a {
+    text-shadow: 2px 2px $orange-dark;
+  }
+}
+
+.observation.two {
+  @include observation-cards;
+
+  background: $green-med;
+  border: 1px solid $green-dark;
+
+  h3 a {
+    text-shadow: 2px 2px $green-dark;
+  }
+}
+
+.observation.three {
+  @include observation-cards;
+
+  background: $red-med;
+  border: 1px solid $red-dark;
+
+  h3 a {
+    text-shadow: 2px 2px $red-dark;
+  }
+}
+
+.observation.four {
+  @include observation-cards;
+
+  background: $aqua;
+  border: 1px solid $aqua-dark;
+
+  h3 a {
+    text-shadow: 2px 2px $aqua-dark;
+  }
+}
+
+.card {
+  margin: 20px 40px;
+
+  .card-content {
+    padding: 10px 0;
+  }
+}
+
+.card-image {
+  border: 2px solid white;
+  height: 80px;
+  margin: 13px;
+  width: 80px;
+}
+
+.material-icons {
+  font-size: 14px;
+}
+
+.leaderboard {
+  background-color: $green-med;
+  height: 642px;
+  padding: 10px;
+  width: 457px;
+}
+
+.striped {
+  background-color: white;
+
+  tr {
+    height: 50px;
+  }
+
+  .name {
+    color: $navy;
+    font-size: 18px;
+  }
 }

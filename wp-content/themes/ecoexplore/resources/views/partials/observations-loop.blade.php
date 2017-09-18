@@ -1,4 +1,4 @@
-<div class="observation card horizontal">
+<div class="observation card horizontal one">
   <a href="#" class="mega-link" aria-hidden="true"></a>
   <div class="card-image">
     <img src="http://lorempixel.com/100/100/nature?100" />
@@ -16,7 +16,7 @@
   </div>
 </div>
 
-<div class="observation card horizontal">
+<div class="observation card horizontal two">
   <a href="#" class="mega-link" aria-hidden="true"></a>
   <div class="card-image">
     <img src="http://lorempixel.com/100/100/nature?200" />
@@ -34,7 +34,7 @@
   </div>
 </div>
 
-<div class="observation card horizontal">
+<div class="observation card horizontal three">
   <a href="#" class="mega-link" aria-hidden="true"></a>
   <div class="card-image">
     <img src="http://lorempixel.com/100/100/nature?300" />
@@ -52,7 +52,7 @@
   </div>
 </div>
 
-<div class="observation card horizontal">
+<div class="observation card horizontal four">
   <a href="#" class="mega-link" aria-hidden="true"></a>
   <div class="card-image">
     <img src="http://lorempixel.com/100/100/nature?100" />
