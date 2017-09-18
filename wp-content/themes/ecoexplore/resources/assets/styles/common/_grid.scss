@@ -7,3 +7,35 @@
     width: 90%;
   }
 }
+
+// Block grid
+.block-grid {
+  display: flex;
+  flex-flow: row wrap;
+
+  @for $i from 1 through 6 {
+    &.up-s#{$i} {
+      @media #{$small-and-down} {
+        .col {
+          width: 100% / $i;
+        }
+      }
+    }
+
+    &.up-m#{$i} {
+      @media #{$medium-and-up} {
+        .col {
+          width: 100% / $i;
+        }
+      }
+    }
+
+    &.up-l#{$i} {
+      @media #{$large-and-up} {
+        .col {
+          width: 100% / $i;
+        }
+      }
+    }
+  }
+}

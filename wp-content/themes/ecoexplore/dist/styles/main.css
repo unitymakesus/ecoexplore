@@ -10268,6 +10268,124 @@ button.picker__close:focus {
   }
 }
 
+.block-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+@media only screen and (max-width: 600px) {
+  .block-grid.up-s1 .col {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  .block-grid.up-m1 .col {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  .block-grid.up-l1 .col {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .block-grid.up-s2 .col {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  .block-grid.up-m2 .col {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  .block-grid.up-l2 .col {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .block-grid.up-s3 .col {
+    width: 33.33333%;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  .block-grid.up-m3 .col {
+    width: 33.33333%;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  .block-grid.up-l3 .col {
+    width: 33.33333%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .block-grid.up-s4 .col {
+    width: 25%;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  .block-grid.up-m4 .col {
+    width: 25%;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  .block-grid.up-l4 .col {
+    width: 25%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .block-grid.up-s5 .col {
+    width: 20%;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  .block-grid.up-m5 .col {
+    width: 20%;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  .block-grid.up-l5 .col {
+    width: 20%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .block-grid.up-s6 .col {
+    width: 16.66667%;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  .block-grid.up-m6 .col {
+    width: 16.66667%;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  .block-grid.up-l6 .col {
+    width: 16.66667%;
+  }
+}
+
 html {
   color: #2F2F2F;
   font-size: 18px;
@@ -10319,6 +10437,15 @@ h6 {
   font-size: 18px;
   font-weight: 700;
   text-transform: uppercase;
+}
+
+.hentry ul {
+  list-style-type: disc;
+  padding-left: 2em;
+}
+
+.hentry li {
+  list-style-type: inherit !important;
 }
 
 .btn-primary {
@@ -10696,6 +10823,39 @@ nav ul.menu.secondary a {
 
 .border-div {
   border-bottom: 10px solid #CFF3FF;
+}
+
+.page-header {
+  position: relative;
+  background-size: cover;
+  background-position: 50% 60%;
+  min-height: 250px;
+  overflow: hidden;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+}
+
+.page-header::before,
+.page-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.page-header::before {
+  background: #000349;
+  -webkit-clip-path: polygon(0 calc(80% - 10px), 100% calc(100% - 10px), 100% 100%, 0 80%);
+          clip-path: polygon(0 calc(80% - 10px), 100% calc(100% - 10px), 100% 100%, 0 80%);
+  z-index: 1;
+}
+
+.page-header::after {
+  background: #CFF3FF;
+  -webkit-clip-path: polygon(0 calc(80% - 9px), 100% calc(100% - 9px), 100% calc(100% - 1px), 0 calc(80% - 1px));
+          clip-path: polygon(0 calc(80% - 9px), 100% calc(100% - 9px), 100% calc(100% - 1px), 0 calc(80% - 1px));
+  z-index: 2;
 }
 
 .um-cover {
