@@ -32,7 +32,7 @@
   margin-top: -8px;
 }
 
-//Observation/Leaderboard
+//Observations/Leaderboard
 
 .gray-halftone {
   background-image: url(./images/gray-halftone.svg);
@@ -44,6 +44,10 @@
     font-family: $font-family-serif;
     font-size: 30px;
     margin: 10px;
+  }
+
+  .row:nth-child(2) {
+    margin-top: 25px;
   }
 }
 
@@ -112,20 +116,41 @@
 
 .leaderboard {
   background-color: $green-med;
-  height: 642px;
-  padding: 10px;
+  border: 1px solid $green-dark;
+  box-shadow: 8px 8px $shadow;
+  padding: 15px;
   width: 457px;
+
+  h2 {
+    color: white;
+    margin: 1px;
+    text-shadow: 2px 2px $green-dark;
+    vertical-align: middle;
+
+    svg {
+      height: 54px;
+    }
+  }
 }
 
 .striped {
   background-color: white;
 
   tr {
-    height: 50px;
+    height: 45px;
   }
 
   .name {
     color: $navy;
     font-size: 18px;
+  }
+
+  .score {
+    color: $navy;
+    font-family: $font-family-serif;
+    font-size: 36px;
+    font-weight: bold;
+    padding: 1px;
+    text-shadow: 2px 2px $shadow;
   }
 }
