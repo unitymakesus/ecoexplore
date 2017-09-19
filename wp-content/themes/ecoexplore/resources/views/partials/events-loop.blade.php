@@ -1,5 +1,5 @@
-<div class="col s12 m4">
-  <div class="event botany">
+<div class="col s12 m4 future-events one">
+  <div class="event one botany">
     <a href="#" class="mega-link" aria-hidden="true"></a>
     <img src="http://lorempixel.com/640/480/nature/2" alt="" />
     <div class="date">
@@ -7,13 +7,13 @@
       <span class="day">17</span>
     </div>
     <div class="title">
-      <h2><a href="#">Exploring Insects</a></h2>
+      <h2><a href="#" class="event-title">Exploring Insects</a></h2>
     </div>
   </div>
 </div>
 
-<div class="col s12 m4">
-  <div class="event herpetology">
+<div class="col s12 m4 future-events two">
+  <div class="event two herpetology">
     <a href="#" class="mega-link" aria-hidden="true"></a>
     <img src="http://lorempixel.com/640/480/nature/3" alt="" />
     <div class="date">
@@ -21,13 +21,13 @@
       <span class="day">2</span>
     </div>
     <div class="title">
-      <h2><a href="#">Skill Session: Great Sunflower Project</a></h2>
+      <h2><a href="#" class="event-title">Skill Session: Great Sunflower Project</a></h2>
     </div>
   </div>
 </div>
 
-<div class="col s12 m4">
-  <div class="event ornithology">
+<div class="col s12 m4 future-events three">
+  <div class="event three ornithology">
     <a href="#" class="mega-link" aria-hidden="true"></a>
     <img src="http://lorempixel.com/640/480/nature/4" alt="" />
     <div class="date">
@@ -35,7 +35,7 @@
       <span class="day">9</span>
     </div>
     <div class="title">
-      <h2><a href="#">Exploring Insects</a></h2>
+      <h2><a href="#" class="event-title">Exploring Insects</a></h2>
     </div>
   </div>
 </div>

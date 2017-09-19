@@ -71,11 +71,11 @@
               {!! file_get_contents(App\asset_path('images/badge-entomology.svg')) !!}
             </div>
             <p>Complete challenges to earn a badge and share observations of wildlife belonging to this season for a bonus point!</p>
-            <p><a href="#" class="btn">Learn More</a>
+            <p><a href="#" class="learn-more-btn">Learn More</a>
           </div>
         </div>
 
-        <div class="col s12 m6">
+        <div class="col s12 m6 season-end">
           <!-- Season-ending event goes here -->
           <div class="event entomology">
             <a href="#" class="mega-link" aria-hidden="true"></a>
@@ -87,7 +87,7 @@
             </div>
             <div class="title">
               <span class="label">Season Summit Event</span>
-              <h2><a href="#">Monarch Butterfly Day</a></h2>
+              <h2><a href="#" class="event-title">Monarch Butterfly Day</a></h2>
             </div>
           </div>
         </div>
