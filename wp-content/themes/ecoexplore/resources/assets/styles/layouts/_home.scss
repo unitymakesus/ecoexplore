@@ -34,31 +34,9 @@
 
 //Events
 
-.learn-more-btn {
-  background-color: $aqua;
-  border: 6px solid $aqua-light;
-  color: white;
-  font-family: $font-comic;
-  font-size: 26px;
-  outline: $aqua-dark;
-  padding: 9px 30px;
-  text-shadow: 4px 3px $shadow;
-  text-transform: uppercase;
-
-  &::before {
-    content: " ";
-    position: absolute;
-    z-index: -1;
-    top: -6px;
-    left: -6px;
-    right: -6px;
-    bottom: -6px;
-    border 2 px solid
-  }
-}
-
 .events {
   background-color: $ice;
+  margin-bottom: 50px;
   padding: 10px;
 
   .badge svg {
@@ -72,23 +50,11 @@
   }
 }
 
-.season-content {
-  height: 540px;
-  padding: 25px;
-}
-
 .future-events {
   width: 33%;
 
   .event img {
     max-width: 410px;
-    position: relative;
-  }
-}
-
-.season-end {
-  img {
-    max-width: 400px;
     position: relative;
   }
 }
