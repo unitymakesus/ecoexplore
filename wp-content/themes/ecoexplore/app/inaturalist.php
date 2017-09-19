@@ -62,3 +62,9 @@ function inat_get_access_tokens() {
   // Save access tokens for all users
   update_field('inaturalist_accounts', $inat_users, 'option');
 }
+
+// Uncomment this section to get access tokens for any newly added accounts.
+// Then load any page on the website. Comment this section out when done.
+// add_action('init', function() {
+//   inat_get_access_tokens();
+// });
