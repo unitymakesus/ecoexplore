@@ -58,7 +58,7 @@ array_map(function ($file) use ($sage_error) {
     if (!locate_template($file, true, true)) {
         $sage_error(sprintf(__('Error locating <code>%s</code> for inclusion.', 'sage'), $file), 'File not found');
     }
-}, ['helpers', 'setup', 'filters', 'admin', 'mobile_nav_walker', 'custom_post_types', 'form_processor']);
+}, ['helpers', 'setup', 'filters', 'admin', 'mobile_nav_walker', 'custom_post_types', 'form_processor', 'inaturalist']);
 
 /**
  * Here's what's happening with these hooks:
