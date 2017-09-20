@@ -17,13 +17,6 @@
 						<li class="when"><i class="material-icons" aria-label="When">access_time</i> {{ date("M j, Y", strtotime($o->created_at)) }}</li>
 					</ul>
 				</div>
-
-				<div class="card-action">
-					<ul>
-						<li><i class="material-icons" aria-label="Points">star_border</i> Points</li>
-						<li><i class="material-icons" aira-hidden="true">cloud_upload</i> See on iNaturalist</li>
-					</ul>
-				</div>
 			</div>
 		</div>
 	@endforeach

@@ -12,30 +12,17 @@
   margin-top: -8px;
 }
 
-//Events
+.splat {
+  background-image: url(./images/splat-green.svg);
 
-.learn-more-btn {
-  background-color: $aqua;
-  border: 6px solid $aqua-light;
-  color: white;
-  font-family: $font-comic;
-  font-size: 26px;
-  outline: $aqua-dark;
-  padding: 9px 30px;
-  text-shadow: 4px 3px $shadow;
-  text-transform: uppercase;
-
-  &::before {
-    content: " ";
-    position: absolute;
-    z-index: -1;
-    top: -6px;
-    left: -6px;
-    right: -6px;
-    bottom: -6px;
-    border: 2px solid $navy;
+  h1 {
+    color: $gray;
+    font-size: 18px;
+    font-family: $font-family-serif;
   }
 }
+
+//Events
 
 .events {
   background-color: $ice;
@@ -48,7 +35,7 @@
   }
 
   .gray-halftone {
-    height: 540px;
+    max-height: 350px;
     background-color: white;
   }
 }
@@ -59,6 +46,12 @@
   .event img {
     max-width: 410px;
     position: relative;
+  }
+
+  h2 {
+    line-height: 1;
+    margin: 0;
+    vertical-align: middle;
   }
 }
 
@@ -80,6 +73,10 @@
     font-family: $font-family-serif;
     font-size: 30px;
     margin: 10px;
+  }
+
+  .explore-more {
+    text-align: center;
   }
 
   .row:nth-child(2) {
