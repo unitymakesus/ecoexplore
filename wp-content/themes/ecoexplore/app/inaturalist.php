@@ -18,6 +18,49 @@ if (function_exists('acf_add_options_page')) {
   ]);
 }
 
+function post_observation() {
+  // Get list of iNat accounts
+  $inat_users = get_field('inaturalist_accounts', 'option');
+
+  // Find this user's library's account
+  foreach ($inat_users as $key => $user) {
+    if ($user['library_account_map'] == $library) {
+      $inat_key = $key;
+    }
+  }
+}
+
+// Get observations
+function get_observations($username = '') {
+  // iNaturalist API stuff
+  $inat_base_url = get_field('inat_base_url', 'option');
+
+  $params = [
+    'per_page' => 4
+  ];
+  $args = [];
+
+  // Set search query for a specific username
+  if (!empty($username)) {
+    $params['q'] = $username;
+  }
+
+  // Use WordPress's built in HTTP GET method
+  $inat_url = add_query_arg($params, $inat_base_url . '/observations/project/ecoexplore.json');
+  $observations = wp_remote_get($inat_url, $args);
+
+  // If the POST is a success
+  if ($observations['response']['code'] == '200') {
+    // Get the returned JSON object
+    $response_json = $observations['body'];
+    $response = json_decode($response_json);
+
+    return $response;
+  }
+
+  return false;
+}
+
 
 // This is a utility function that we ran once to get access tokens for each of the ecoEXPLORE accounts
 // It won't be needed again unless there are more accounts added

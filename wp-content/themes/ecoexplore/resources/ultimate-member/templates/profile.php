@@ -1,3 +1,10 @@
+<?php
+// This user's data
+$user_id = um_profile_id();
+$username = um_user('user_login');
+$library = get_field('library', $user_id);
+?>
+
 <div class="um <?php echo $this->get_class( $mode ); ?> um-<?php echo $form_id; ?> um-role-<?php echo um_user('role'); ?> ">
 
 	<div class="um-form">
@@ -42,7 +49,7 @@
 							$recent_obs = new WP_Query([
 								'post_type' => 'observation',
 								'posts_per_page' => 4,
-								'author' => um_profile_id()
+								'author' => $user_id
 							]);
 						?>
 
@@ -77,9 +84,42 @@
 							<?php } ?>
 						<?php } else { ?>
 
-							<p>You haven't submitted any observations yet.<br />
-							<a href="/submit-new-observation/">Send us your first one now!</a></p>
+							<?php $observations = App\get_observations('jman'); ?>
+							<?php //print_r($observations); ?>
 
+							<?php if (!empty($observations)) { ?>
+								<?php foreach($observations as $o) { ?>
+
+									<div class="observation card horizontal">
+										<a href="<?php echo $o->uri; ?>" target="_blank" rel="noopener" class="mega-link" aria-hidden="true"></a>
+										<div class="card-image">
+											<img src="<?php echo $o->photos[0]->square_url; ?>" alt="" />
+										</div>
+
+										<div class="card-stacked">
+											<div class="card-content">
+												<h3><a href="<?php echo $o->uri; ?>" target="_blank" rel="noopener"><?php echo $o->species_guess ?></a></h3>
+												<ul>
+													<li><i class="material-icons" aria-label="Where">location_on</i> <?php echo $o->place_guess ?></li>
+													<li><i class="material-icons" aria-label="When">access_time</i> <?php echo date("M j, Y", strtotime($o->created_at)); ?></li>
+												</ul>
+											</div>
+
+											<div class="card-action">
+												<ul>
+													<li><i class="material-icons" aira-hidden="true">cloud_upload</i> See on iNaturalist</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+
+								<?php } ?>
+							<?php } else { ?>
+
+								<p>You haven't submitted any observations yet.<br />
+								<a href="/submit-new-observation/">Send us your first one now!</a></p>
+
+							<?php } ?>
 						<?php } ?>
 
 						<?php wp_reset_postdata(); ?>
