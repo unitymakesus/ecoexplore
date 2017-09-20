@@ -39,6 +39,7 @@
 
 .events {
   background-color: $ice;
+  margin-bottom: 50px;
   padding: 10px;
 
   .badge svg {
@@ -52,23 +53,11 @@
   }
 }
 
-.season-content {
-  height: 540px;
-  padding: 25px;
-}
-
 .future-events {
   width: 33%;
 
   .event img {
     max-width: 410px;
-    position: relative;
-  }
-}
-
-.season-end {
-  img {
-    max-width: 400px;
     position: relative;
   }
 }
