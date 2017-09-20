@@ -10601,6 +10601,102 @@ h6 {
 
 /** Search form */
 
+.observation.card {
+  -webkit-box-shadow: 8px 8px rgba(11, 0, 75, 0.19);
+          box-shadow: 8px 8px rgba(11, 0, 75, 0.19);
+  border-radius: 0;
+  margin: 20px 0;
+  position: relative;
+  color: #000349;
+}
+
+.observation.card a.mega-link {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
+
+.observation.card img {
+  border: 2px solid white;
+  margin: 13px !important;
+}
+
+.observation.card .card-content {
+  padding: 10px 0;
+}
+
+.observation.card .material-icons {
+  font-size: 18px;
+  vertical-align: top;
+}
+
+.observation.card h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+.observation.card h3 a {
+  color: white;
+}
+
+.observation.card p {
+  font-size: 14px;
+}
+
+.observation.card ul {
+  margin: 0;
+}
+
+.observation.card li {
+  font-size: 12px;
+  display: inline-block;
+}
+
+.observation.card li:first-child {
+  padding-right: 20px;
+}
+
+.observation.card:nth-child(4n-7) {
+  background: #E98B3B;
+  border: 1px solid #C27811;
+}
+
+.observation.card:nth-child(4n-7) h3 a {
+  text-shadow: 2px 2px #C27811;
+}
+
+.observation.card:nth-child(4n-6) {
+  background: #9AB83C;
+  border: 1px solid #688127;
+}
+
+.observation.card:nth-child(4n-6) h3 a {
+  text-shadow: 2px 2px #688127;
+}
+
+.observation.card:nth-child(4n-5) {
+  background: #C93B3E;
+  border: 1px solid #99140C;
+}
+
+.observation.card:nth-child(4n-5) h3 a {
+  text-shadow: 2px 2px #99140C;
+}
+
+.observation.card:nth-child(4n) {
+  background: #4CBED8;
+  border: 1px solid #308593;
+}
+
+.observation.card:nth-child(4n) h3 a {
+  text-shadow: 2px 2px #308593;
+}
+
 /**
  * WordPress Generated Classes
  * @see http://codex.wordpress.org/CSS#WordPress_Generated_Classes
@@ -10908,129 +11004,6 @@ nav ul.menu.secondary a {
 
 .gray-halftone .row:nth-child(2) {
   margin-top: 25px;
-}
-
-.observation.one {
-  -webkit-box-shadow: 8px 8px rgba(11, 0, 75, 0.19);
-          box-shadow: 8px 8px rgba(11, 0, 75, 0.19);
-  height: 109px;
-  width: 383px;
-  background: #E98B3B;
-  border: 1px solid #C27811;
-}
-
-.observation.one h3 {
-  font-size: 18px;
-  margin: 5px 0;
-}
-
-.observation.one h3 a {
-  color: white;
-}
-
-.observation.one p {
-  font-size: 14px;
-}
-
-.observation.one h3 a {
-  text-shadow: 2px 2px #C27811;
-}
-
-.observation.two {
-  -webkit-box-shadow: 8px 8px rgba(11, 0, 75, 0.19);
-          box-shadow: 8px 8px rgba(11, 0, 75, 0.19);
-  height: 109px;
-  width: 383px;
-  background: #9AB83C;
-  border: 1px solid #688127;
-}
-
-.observation.two h3 {
-  font-size: 18px;
-  margin: 5px 0;
-}
-
-.observation.two h3 a {
-  color: white;
-}
-
-.observation.two p {
-  font-size: 14px;
-}
-
-.observation.two h3 a {
-  text-shadow: 2px 2px #688127;
-}
-
-.observation.three {
-  -webkit-box-shadow: 8px 8px rgba(11, 0, 75, 0.19);
-          box-shadow: 8px 8px rgba(11, 0, 75, 0.19);
-  height: 109px;
-  width: 383px;
-  background: #C93B3E;
-  border: 1px solid #99140C;
-}
-
-.observation.three h3 {
-  font-size: 18px;
-  margin: 5px 0;
-}
-
-.observation.three h3 a {
-  color: white;
-}
-
-.observation.three p {
-  font-size: 14px;
-}
-
-.observation.three h3 a {
-  text-shadow: 2px 2px #99140C;
-}
-
-.observation.four {
-  -webkit-box-shadow: 8px 8px rgba(11, 0, 75, 0.19);
-          box-shadow: 8px 8px rgba(11, 0, 75, 0.19);
-  height: 109px;
-  width: 383px;
-  background: #4CBED8;
-  border: 1px solid #308593;
-}
-
-.observation.four h3 {
-  font-size: 18px;
-  margin: 5px 0;
-}
-
-.observation.four h3 a {
-  color: white;
-}
-
-.observation.four p {
-  font-size: 14px;
-}
-
-.observation.four h3 a {
-  text-shadow: 2px 2px #308593;
-}
-
-.card {
-  margin: 20px 40px;
-}
-
-.card .card-content {
-  padding: 10px 0;
-}
-
-.card-image {
-  border: 2px solid white;
-  height: 80px;
-  margin: 13px;
-  width: 80px;
-}
-
-.material-icons {
-  font-size: 14px;
 }
 
 .leaderboard {
