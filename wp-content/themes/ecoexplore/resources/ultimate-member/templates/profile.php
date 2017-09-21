@@ -55,9 +55,13 @@ $library = get_field('library', $user_id);
 
 						<?php if ($recent_obs->have_posts()) { ?>
 							<?php while ($recent_obs->have_posts()) { ?>
-								<?php $recent_obs->the_post(); ?>
+								<?php
+									$recent_obs->the_post();
+									$obs_time = get_field('observation_time');
+								?>
 
-								<div class="card horizontal">
+								<div class="observation card horizontal">
+									<a href="#" target="_blank" rel="noopener" class="mega-link" aria-hidden="true"></a>
 									<div class="card-image">
 										<?php the_post_thumbnail('thumbnail'); ?>
 									</div>
@@ -65,10 +69,9 @@ $library = get_field('library', $user_id);
 									<div class="card-stacked">
 										<div class="card-content">
 											<h3><?php the_title(); ?></h3>
-											<p>spotted by <?php the_author(); ?></p>
 											<ul>
 												<li><i class="material-icons" aria-label="Where">location_on</i> Location</li>
-												<li><i class="material-icons" aria-label="When">access_time</i> Time</li>
+												<li><i class="material-icons" aria-label="When">access_time</i> <?php echo date("M j, Y", strtotime($obs_time)); ?></li>
 											</ul>
 										</div>
 

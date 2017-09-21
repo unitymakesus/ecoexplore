@@ -10625,6 +10625,11 @@ h6 {
   margin: 13px !important;
 }
 
+.observation.card.horizontal img {
+  max-width: 75px !important;
+  height: auto;
+}
+
 .observation.card .card-content {
   padding: 10px 0;
 }
