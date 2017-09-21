@@ -11,7 +11,9 @@
         <div class="row">
           <div class="col s12 m9 l6">
             <div class="splat">
-              {!! file_get_contents(App\asset_path('images/scientists-need-your-help.svg')) !!}
+              <div class="scientists">
+                {!! file_get_contents(App\asset_path('images/scientists-need-your-help.svg')) !!}
+              </div>
               <h1>Be an ecoEXPLORER! Share wildlife observations to earn points, badges, &amp; prizes.</h1>
             </div>
           </div>

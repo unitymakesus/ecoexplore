@@ -176,9 +176,10 @@ add_action('save_post_observation', function($post_id, $post, $update) {
             $body .= 'Content-Type: ' . $photo_type . "\r\n\r\n";
             $body .= file_get_contents($photo_sized) . "\r\n";
             $body .= '--' . $boundary . "\r\n";
-            // $body .= 'Content-Disposition: form-data; name="observation_photo"' . "\r\n";
+            $body .= 'Content-Disposition: form-data; name="observation_photo[observation_id]"' . "\r\n";
             $body .= 'Content-Type: application/json' . "\r\n\r\n";
-            $body .= json_encode(['observation_photo' => ['observation_id' => $inat_id]]) . "\r\n";
+            // $body .= json_encode(['observation_photo' => ['observation_id' => $inat_id]]) . "\r\n";
+            $body .= $inat_id . "\r\n";
             $body .= '--' . $boundary . '--' . "\r\n";
 
             // Post photo to observation

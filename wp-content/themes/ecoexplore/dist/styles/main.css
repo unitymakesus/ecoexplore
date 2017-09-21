@@ -10481,7 +10481,7 @@ h6 {
   display: inline-block;
   font-family: "Boogaloo";
   font-size: 46px;
-  margin: 25px;
+  margin: 50px;
   text-transform: uppercase;
   -webkit-transform: translate(0, 0);
        -o-transform: translate(0, 0);
@@ -10531,7 +10531,7 @@ h6 {
   display: inline-block;
   font-family: "Boogaloo";
   font-size: 46px;
-  margin: 25px;
+  margin: 50px;
   text-transform: uppercase;
   -webkit-transform: translate(0, 0);
        -o-transform: translate(0, 0);
@@ -10583,7 +10583,7 @@ h6 {
   display: inline-block;
   font-family: "Boogaloo";
   font-size: 46px;
-  margin: 25px;
+  margin: 50px;
   text-transform: uppercase;
   -webkit-transform: translate(0, 0);
        -o-transform: translate(0, 0);
@@ -11081,14 +11081,14 @@ nav ul.menu.secondary a {
   color: #99140C;
 }
 
-.hero .img-wrapper {
+.hero {
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
           clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
   position: relative;
 }
 
-.hero .img-wrapper::before,
-.hero .img-wrapper::after {
+.hero::before,
+.hero::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -11096,14 +11096,14 @@ nav ul.menu.secondary a {
   height: 100%;
 }
 
-.hero .img-wrapper::before {
+.hero::before {
   background: #000349;
   -webkit-clip-path: polygon(0 calc(100% - 10px), 100% calc(80% - 10px), 100% 80%, 0 100%);
           clip-path: polygon(0 calc(100% - 10px), 100% calc(80% - 10px), 100% 80%, 0 100%);
   z-index: 1;
 }
 
-.hero .img-wrapper::after {
+.hero::after {
   background: #CFF3FF;
   -webkit-clip-path: polygon(0 calc(100% - 9px), 100% calc(80% - 9px), 100% calc(80% - 1px), 0 calc(100% - 1px));
           clip-path: polygon(0 calc(100% - 9px), 100% calc(80% - 9px), 100% calc(80% - 1px), 0 calc(100% - 1px));
@@ -11115,22 +11115,39 @@ nav ul.menu.secondary a {
   display: block;
 }
 
-.border-div {
-  background-color: #CFF3FF;
-  border-bottom: 1px solid #000349;
-  border-top: 1px solid #000349;
-  height: 10px;
-  margin-top: -8px;
+.hero-text {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate3d(0, -50%, 0);
+          transform: translate3d(0, -50%, 0);
+  left: 5%;
 }
 
 .splat {
+  background-repeat: no-repeat;
   background-image: url(/wp-content/themes/ecoexplore/dist/images/splat-green.svg);
+  background-size: 100% 100%;
+  padding: 10% 0 13%;
+  max-width: 480px;
+  position: relative;
+}
+
+.splat .scientists {
+  position: relative;
+  overflow: hidden;
+}
+
+.splat .scientists svg {
+  margin: 0 auto 10px;
+  display: block;
 }
 
 .splat h1 {
+  clear: both;
   color: #2F2F2F;
   font-size: 18px;
-  font-family: "Zilla Slab", serif;
+  font-family: "Montserrat", sans-serif;
+  margin: 0 20% 20px 23%;
 }
 
 .see-snap-share .row.panels {

@@ -1,11 +1,9 @@
 //Hero section
 
 .hero {
-  .img-wrapper {
-    @include slanted('normal');
+  @include slanted('normal');
 
-    position: relative;
-  }
+  position: relative;
 
   img {
     width: 100%;
@@ -13,21 +11,37 @@
   }
 }
 
-.border-div {
-  background-color: $ice;
-  border-bottom: 1px solid $navy;
-  border-top: 1px solid $navy;
-  height: 10px;
-  margin-top: -8px;
+.hero-text {
+  position: absolute;
+  top: 50%;
+  transform: translate3d(0, -50%, 0);
+  left: 5%;
 }
 
 .splat {
+  background-repeat: no-repeat;
   background-image: url(./images/splat-green.svg);
+  background-size: 100% 100%;
+  padding: 10% 0 13%;
+  max-width: 480px;
+  position: relative;
+
+  .scientists {
+    position: relative;
+    overflow: hidden;
+
+    svg {
+      margin: 0 auto 10px;
+      display: block;
+    }
+  }
 
   h1 {
+    clear: both;
     color: $gray;
     font-size: 18px;
-    font-family: $font-family-serif;
+    font-family: $font-family-sans-serif;
+    margin: 0 20% 20px 23%;
   }
 }
 //See-Snap-Share
