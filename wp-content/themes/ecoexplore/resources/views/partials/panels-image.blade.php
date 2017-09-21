@@ -1,6 +1,6 @@
 @foreach ($panels as $panel)
 <div class="col s12 m4">
-  <div class="splat">
+  <div class="mini-splat">
     {!! file_get_contents($panel['splat']) !!}
   </div>
 
