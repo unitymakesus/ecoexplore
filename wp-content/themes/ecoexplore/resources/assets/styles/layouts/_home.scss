@@ -21,6 +21,42 @@
     font-family: $font-family-serif;
   }
 }
+//See-Snap-Share
+
+.see-snap-share .row.panels {
+  background-color: $ice;
+  border: 1px solid $navy;
+  position: relative;
+
+  img {
+    border: 1px solid $navy;
+    min-width: 100%;
+    margin: 10px;
+  }
+
+  .mini-splat {
+    position: absolute;
+    z-index: 1;
+  }
+
+  .col:nth-child(even) {
+    position: relative;
+
+    .mini-splat {
+      left: -15px;
+      top: -50px;
+    }
+  }
+
+  .col:nth-child(odd) {
+    position: relative;
+
+    .mini-splat {
+      bottom: -50px;
+      left: -15px;
+    }
+  }
+}
 
 //Events
 

@@ -6,6 +6,7 @@
   display: inline-block;
   font-family: $font-comic;
   font-size: 46px;
+  margin: 25px;
   text-transform: uppercase;
   transform: translate(0, 0);
   transition: all 0.3s ease;
@@ -26,7 +27,7 @@
   transform: translate(2px, 2px);
 }
 
-//Primary Blue CTA Button
+//Primary $aqua CTA Button
 
 .btn-primary {
   @include btn-global;
@@ -55,7 +56,7 @@
   }
 }
 
-//Secondary Green CTA button
+//Secondary $green-med CTA button
 
 .btn-secondary {
   @include btn-global;
@@ -86,7 +87,7 @@
   }
 }
 
-//Tertiary Orange CTA Button
+//Tertiary $orange-med CTA Button
 
 .btn-tertiary {
   @include btn-global;
