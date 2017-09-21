@@ -27,11 +27,16 @@
   background-color: $ice;
   border: 1px solid $navy;
   position: relative;
+  padding: 0 5px;
 
   img {
     border: 1px solid $navy;
     width: 100%;
+<<<<<<< HEAD
     margin: 10px;
+=======
+    display: block;
+>>>>>>> cf73c12bae8c3e4d2cb9c8551915f5de894b4fca
   }
 
   .mini-splat {
@@ -39,21 +44,22 @@
     z-index: 1;
   }
 
-  .col:nth-child(even) {
+  .col {
     position: relative;
+    padding: 10px 5px;
 
-    .mini-splat {
-      left: -15px;
-      top: -50px;
+    &:nth-child(even) {
+      .mini-splat {
+        left: -15px;
+        top: -50px;
+      }
     }
-  }
 
-  .col:nth-child(odd) {
-    position: relative;
-
-    .mini-splat {
-      bottom: -50px;
-      left: -15px;
+    &:nth-child(odd) {
+      .mini-splat {
+        bottom: -50px;
+        left: -15px;
+      }
     }
   }
 }
@@ -100,10 +106,6 @@
 
 //Observations/Leaderboard
 .gray-halftone {
-  background-image: url(./images/gray-halftone.svg);
-  background-position: bottom;
-  background-repeat: repeat-x;
-
   h2 {
     color: $navy;
     font-family: $font-family-serif;
