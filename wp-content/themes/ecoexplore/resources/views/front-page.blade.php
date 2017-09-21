@@ -112,7 +112,9 @@
           <div class="col s12 m6 l5">
             <h2 class="center-align">What's Buzzing</h2>
             @include('partials.observations-loop')
-            <a href="#" class="explore-more center-align">Explore More</a>
+            <div class="explore-more">
+              <a href="#">Explore More</a>
+            </div>
           </div>
 
           <div class="col s12 m6 l6 push-l1">
