@@ -1,7 +1,11 @@
 //Hero section
 
-.hero img {
-  width: 100%;
+.hero {
+  position: relative;
+
+  img {
+    width: 100%;
+  }
 }
 
 .border-div {
@@ -13,12 +17,23 @@
 }
 
 .splat {
+  background-repeat: no-repeat;
   background-image: url(./images/splat-green.svg);
+  height: 100%;
+  position: absolute;
+  top: 300px;
+
+  .scientists {
+    left: 25px;
+    position: absolute;
+    top: 45px;
+  }
 
   h1 {
     color: $gray;
     font-size: 18px;
     font-family: $font-family-serif;
+    position: relative;
   }
 }
 //See-Snap-Share
@@ -32,11 +47,7 @@
   img {
     border: 1px solid $navy;
     width: 100%;
-<<<<<<< HEAD
-    margin: 10px;
-=======
     display: block;
->>>>>>> cf73c12bae8c3e4d2cb9c8551915f5de894b4fca
   }
 
   .mini-splat {
