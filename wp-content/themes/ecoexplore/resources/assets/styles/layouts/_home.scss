@@ -87,10 +87,12 @@
 
 .events {
   background-color: $ice;
+  border-bottom: 1px solid $navy;
+  border-top: 1px solid $navy;
   margin-bottom: 50px;
-  padding: 10px;
 
   .badge svg {
+    text-shadow: 8px 8px $shadow;
     width: 162px;
     height: 162px;
   }
@@ -99,13 +101,18 @@
     max-height: 350px;
     background-color: white;
   }
+
+  .row .col {
+    padding-right: 10px;
+  }
 }
 
 .future-events {
   width: 33%;
 
   .event img {
-    max-width: 410px;
+    display: block;
+    max-width: 100%;
     position: relative;
   }
 
@@ -118,8 +125,10 @@
 
 .event-title {
   color: white;
-  font-family: $font-family-serif;
+  font-family: $font-family-sans-serif;
   font-size: 24px;
+  font-weight: normal;
+  padding: 25px;
   text-shadow: 2px 4px $shadow;
 }
 
@@ -141,7 +150,14 @@
   }
 
   .explore-more {
+    font-family: $font-comic;
+    font-size: 26px;
     text-align: center;
+    text-transform: uppercase;
+
+    a {
+      color: $green-dark;
+    }
   }
 
   .row:nth-child(2) {
@@ -189,3 +205,5 @@
     text-shadow: 2px 2px $shadow;
   }
 }
+
+//Footer

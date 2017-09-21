@@ -7,9 +7,31 @@
 }
 
 .bottom-bar {
+  background-color: $ice;
+  border-top: 1px solid $navy;
   font-size: 12px;
+  padding: 10px 0 5px;
+
+  .row {
+    margin-bottom: 0;
+  }
+}
+
+.footer-logo {
+  font-size: 12px;
+  font-family: $font-family-sans-serif;
 }
 
 .svg-unity-logo {
   height: 22px;
+}
+
+.social-media a, .footer-menu a {
+  color: $navy;
+  font-family: $font-family-sans-serif;
+  font-size: 16px;
+}
+
+.arboretum-logo {
+  max-width: 100%;
 }

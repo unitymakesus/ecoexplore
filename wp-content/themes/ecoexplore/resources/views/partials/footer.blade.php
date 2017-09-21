@@ -9,7 +9,7 @@
     <div class="row">
       <div class="col s6 m8 l6">
         <div class="row">
-          <div class="col s12 m6">
+          <div class="col s12 m6 social-media">
             <ul>
               <li>
                 <a href="#">
@@ -32,7 +32,7 @@
             </ul>
           </div>
 
-          <div class="col s12 m6">
+          <div class="col s12 m6 footer-menu">
             <ul>
               <li><a href="#">About ecoEXPLORE</a></li>
               <li><a href="#">Science Mentors</a></li>
@@ -42,9 +42,11 @@
         </div>
       </div>
 
-      <div class="col s12 m4 l3">
+      <div class="col s12 m4 l3 footer-logo">
         <p>An initiative of</p>
-        {!! file_get_contents(App\asset_path('images/TNCA_logo.svg')) !!}
+        <div class="arboretum-logo">
+          {!! file_get_contents(App\asset_path('images/TNCA_logo.svg')) !!}
+        </div>
       </div>
     </div>
   </div>

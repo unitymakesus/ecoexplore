@@ -10736,10 +10736,45 @@ h6 {
   padding: 25px;
 }
 
+.season-end {
+  position: relative;
+}
+
 .season-end img {
   max-width: 100%;
   max-height: 350px;
-  position: relative;
+}
+
+.season-end .date {
+  -webkit-box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
+          box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  left: 25px;
+  line-height: 1;
+  padding: 10px;
+  position: absolute;
+  text-align: center;
+  top: 15px;
+  width: 100px;
+  background-color: #4CBED8;
+  border: 6px solid #AAE1EA;
+}
+
+.season-end .date::before {
+  content: " ";
+  position: absolute;
+  z-index: -1;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border: 2px solid #308593;
 }
 
 .future-events {
@@ -10747,7 +10782,11 @@ h6 {
   position: relative;
 }
 
-.future-events .month {
+.future-events .event {
+  max-height: 310px;
+}
+
+.month {
   color: white;
   font-family: "Montserrat", sans-serif;
   font-size: 28px;
@@ -10755,7 +10794,7 @@ h6 {
   text-transform: uppercase;
 }
 
-.future-events .day {
+.day {
   color: white;
   font-family: "Zilla Slab", serif;
   font-size: 48px;
@@ -10820,9 +10859,6 @@ h6 {
 }
 
 .future-events .date {
-  background-color: #4CBED8;
-  border: 6px solid #AAE1EA;
-  bottom: 300px;
   -webkit-box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
           box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
   display: -webkit-box;
@@ -10837,7 +10873,10 @@ h6 {
   padding: 10px;
   position: absolute;
   text-align: center;
+  top: 15px;
   width: 100px;
+  background-color: #4CBED8;
+  border: 6px solid #AAE1EA;
 }
 
 .future-events .date::before {
@@ -10862,7 +10901,9 @@ h6 {
 .title {
   background-color: #4CBED8;
   border-top: 9px solid #AAE1EA;
+  bottom: 105px;
   min-height: 105px;
+  position: relative;
 }
 
 /**
@@ -11185,11 +11226,13 @@ nav ul.menu.secondary a {
 
 .events {
   background-color: #CFF3FF;
+  border-bottom: 1px solid #000349;
+  border-top: 1px solid #000349;
   margin-bottom: 50px;
-  padding: 10px;
 }
 
 .events .badge svg {
+  text-shadow: 8px 8px rgba(11, 0, 75, 0.19);
   width: 162px;
   height: 162px;
 }
@@ -11199,12 +11242,17 @@ nav ul.menu.secondary a {
   background-color: white;
 }
 
+.events .row .col {
+  padding-right: 10px;
+}
+
 .future-events {
   width: 33%;
 }
 
 .future-events .event img {
-  max-width: 410px;
+  display: block;
+  max-width: 100%;
   position: relative;
 }
 
@@ -11216,8 +11264,10 @@ nav ul.menu.secondary a {
 
 .event-title {
   color: white;
-  font-family: "Zilla Slab", serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 24px;
+  font-weight: normal;
+  padding: 25px;
   text-shadow: 2px 4px rgba(11, 0, 75, 0.19);
 }
 
@@ -11262,7 +11312,14 @@ nav ul.menu.secondary a {
 }
 
 .buzzing-leaders .explore-more {
+  font-family: "Boogaloo";
+  font-size: 26px;
   text-align: center;
+  text-transform: uppercase;
+}
+
+.buzzing-leaders .explore-more a {
+  color: #688127;
 }
 
 .buzzing-leaders .row:nth-child(2) {
@@ -11320,11 +11377,34 @@ nav ul.menu.secondary a {
 }
 
 .bottom-bar {
+  background-color: #CFF3FF;
+  border-top: 1px solid #000349;
   font-size: 12px;
+  padding: 10px 0 5px;
+}
+
+.bottom-bar .row {
+  margin-bottom: 0;
+}
+
+.footer-logo {
+  font-size: 12px;
+  font-family: "Montserrat", sans-serif;
 }
 
 .svg-unity-logo {
   height: 22px;
+}
+
+.social-media a,
+.footer-menu a {
+  color: #000349;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+}
+
+.arboretum-logo {
+  max-width: 100%;
 }
 
 .page-header {

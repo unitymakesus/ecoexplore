@@ -1,5 +1,5 @@
-<div class="col s12 m4 future-events one">
-  <div class="event one botany">
+<div class="col s12 m4 future-events">
+  <div class="event botany">
     <a href="#" class="mega-link" aria-hidden="true"></a>
     <img src="http://lorempixel.com/640/480/nature/2" alt="" />
     <div class="date">
@@ -12,8 +12,8 @@
   </div>
 </div>
 
-<div class="col s12 m4 future-events two">
-  <div class="event two herpetology">
+<div class="col s12 m4 future-events">
+  <div class="event herpetology">
     <a href="#" class="mega-link" aria-hidden="true"></a>
     <img src="http://lorempixel.com/640/480/nature/3" alt="" />
     <div class="date">
@@ -26,8 +26,8 @@
   </div>
 </div>
 
-<div class="col s12 m4 future-events three">
-  <div class="event three ornithology">
+<div class="col s12 m4 future-events">
+  <div class="event ornithology">
     <a href="#" class="mega-link" aria-hidden="true"></a>
     <img src="http://lorempixel.com/640/480/nature/4" alt="" />
     <div class="date">
