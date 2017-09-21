@@ -63,8 +63,8 @@
       </div>
     </section>
 
-    <section class="events">
-      <div class="row">
+    <section class="events-loop">
+      <div class="row flex-grid">
         <div class="col s12 m6 gray-halftone">
           <!-- Current season goes here -->
           <div class="season-content entomology">
@@ -96,7 +96,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row flex-grid">
         @include('partials.events-loop')
       </div>
     </section>

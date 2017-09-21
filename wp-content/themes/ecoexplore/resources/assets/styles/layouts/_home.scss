@@ -85,16 +85,20 @@
 
 //Events
 
-.events {
+.events-loop {
   background-color: $ice;
   border-bottom: 1px solid $navy;
   border-top: 1px solid $navy;
   margin-bottom: 50px;
 
-  .badge svg {
-    text-shadow: 8px 8px $shadow;
-    width: 162px;
-    height: 162px;
+  .badge {
+    float: left;
+
+    svg {
+      text-shadow: 8px 8px $shadow;
+      width: 162px;
+      height: 162px;
+    }
   }
 
   .gray-halftone {
@@ -102,34 +106,45 @@
     background-color: white;
   }
 
-  .row .col {
-    padding-right: 10px;
+  .row {
+    margin: 0 -6px 10px;
   }
-}
 
-.future-events {
-  width: 33%;
-
-  .event img {
-    display: block;
-    max-width: 100%;
+  .event {
+    border: 1px solid $navy;
     position: relative;
+    overflow: hidden;
+    height: 100%;
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
   }
 
-  h2 {
-    line-height: 1;
-    margin: 0;
-    vertical-align: middle;
-  }
-}
+  .title {
+    width: 100%;
+    padding: 20px;
+    min-height: 105px;
 
-.event-title {
-  color: white;
-  font-family: $font-family-sans-serif;
-  font-size: 24px;
-  font-weight: normal;
-  padding: 25px;
-  text-shadow: 2px 4px $shadow;
+    h2 {
+      line-height: 1.2;
+      margin: 0;
+      vertical-align: middle;
+      font-family: $font-family-sans-serif;
+      font-size: 24px;
+      font-weight: normal;
+    }
+
+    a {
+      color: white;
+      text-shadow: 2px 4px $shadow;
+    }
+  }
+
+  .future-events {
+    padding: 0 5px;
+  }
 }
 
 //Observations/Leaderboard
@@ -170,7 +185,6 @@
   border: 1px solid $green-dark;
   box-shadow: 8px 8px $shadow;
   padding: 15px;
-  width: 457px;
 
   h2 {
     color: white;
@@ -189,6 +203,10 @@
 
   tr {
     height: 45px;
+
+    &:nth-child(odd) {
+      background-color: rgba($shadow, 0.19) !important;
+    }
   }
 
   .name {

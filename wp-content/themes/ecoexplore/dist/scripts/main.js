@@ -111,7 +111,7 @@ var WebFont = __webpack_require__(12);
 
 WebFont.load({
  google: {
-   families: ['Montserrat:400,400i,700', 'Zilla+Slab:400,700', 'Material+Icons', 'Boogaloo'],
+   families: ['Montserrat:400,400i,600', 'Zilla+Slab:400,600', 'Material+Icons', 'Boogaloo'],
  },
 });
 

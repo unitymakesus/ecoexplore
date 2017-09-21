@@ -10294,6 +10294,34 @@ button.picker__close:focus {
   }
 }
 
+.flex-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.flex-grid .col.col {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  margin-right: 0;
+}
+
+.flex-grid .col.col:not([class*="offset"]) {
+  margin-left: 0;
+}
+
+.flex-grid .card-panel {
+  height: calc(100% - 1.5em);
+}
+
 .block-grid {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -10426,42 +10454,42 @@ h1 {
   color: #4CBED8;
   font-family: "Zilla Slab", serif;
   font-size: 60px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 h2 {
   color: #9AB83C;
   font-family: "Montserrat", sans-serif;
   font-size: 46px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 h3 {
   color: #000349;
   font-family: "Zilla Slab", serif;
   font-size: 30px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 h4 {
   color: #000349;
   font-family: "Montserrat", sans-serif;
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 h5 {
   color: #2F2F2F;
   font-family: "Zilla Slab", serif;
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 h6 {
   color: #2F2F2F;
   font-family: "Montserrat", sans-serif;
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
 }
 
@@ -10480,6 +10508,7 @@ h6 {
   color: white;
   display: inline-block;
   font-family: "Boogaloo";
+  font-weight: normal;
   font-size: 46px;
   margin: 50px;
   text-transform: uppercase;
@@ -10530,6 +10559,7 @@ h6 {
   color: white;
   display: inline-block;
   font-family: "Boogaloo";
+  font-weight: normal;
   font-size: 46px;
   margin: 50px;
   text-transform: uppercase;
@@ -10582,6 +10612,7 @@ h6 {
   color: white;
   display: inline-block;
   font-family: "Boogaloo";
+  font-weight: normal;
   font-size: 46px;
   margin: 50px;
   text-transform: uppercase;
@@ -10655,7 +10686,7 @@ h6 {
 }
 
 .observation.card.horizontal img {
-  max-width: 75px !important;
+  max-width: 75px;
   height: auto;
 }
 
@@ -10782,10 +10813,6 @@ h6 {
   position: relative;
 }
 
-.future-events .event {
-  max-height: 310px;
-}
-
 .month {
   color: white;
   font-family: "Montserrat", sans-serif;
@@ -10854,11 +10881,18 @@ h6 {
           box-shadow: 0 0;
 }
 
-.future-events {
+.future-events,
+.season-end {
   padding: 0;
 }
 
-.future-events .date {
+.future-events .event,
+.season-end .event {
+  background: #4CBED8;
+}
+
+.future-events .date,
+.season-end .date {
   -webkit-box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
           box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
   display: -webkit-box;
@@ -10879,7 +10913,8 @@ h6 {
   border: 6px solid #AAE1EA;
 }
 
-.future-events .date::before {
+.future-events .date::before,
+.season-end .date::before {
   content: " ";
   position: absolute;
   z-index: -1;
@@ -10890,20 +10925,19 @@ h6 {
   border: 2px solid #308593;
 }
 
-.future-events .month {
+.future-events .month,
+.season-end .month {
   text-shadow: 2px 4px #308593;
 }
 
-.future-events .day {
+.future-events .day,
+.season-end .day {
   text-shadow: 2px 4px #308593;
 }
 
-.title {
-  background-color: #4CBED8;
+.future-events .title,
+.season-end .title {
   border-top: 9px solid #AAE1EA;
-  bottom: 105px;
-  min-height: 105px;
-  position: relative;
 }
 
 /**
@@ -11224,51 +11258,66 @@ nav ul.menu.secondary a {
   left: -15px;
 }
 
-.events {
+.events-loop {
   background-color: #CFF3FF;
   border-bottom: 1px solid #000349;
   border-top: 1px solid #000349;
   margin-bottom: 50px;
 }
 
-.events .badge svg {
+.events-loop .badge {
+  float: left;
+}
+
+.events-loop .badge svg {
   text-shadow: 8px 8px rgba(11, 0, 75, 0.19);
   width: 162px;
   height: 162px;
 }
 
-.events .gray-halftone {
+.events-loop .gray-halftone {
   max-height: 350px;
   background-color: white;
 }
 
-.events .row .col {
-  padding-right: 10px;
+.events-loop .row {
+  margin: 0 -6px 10px;
 }
 
-.future-events {
-  width: 33%;
+.events-loop .event {
+  border: 1px solid #000349;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
 }
 
-.future-events .event img {
+.events-loop .event img {
   display: block;
   max-width: 100%;
-  position: relative;
 }
 
-.future-events h2 {
-  line-height: 1;
+.events-loop .title {
+  width: 100%;
+  padding: 20px;
+  min-height: 105px;
+}
+
+.events-loop .title h2 {
+  line-height: 1.2;
   margin: 0;
   vertical-align: middle;
-}
-
-.event-title {
-  color: white;
   font-family: "Montserrat", sans-serif;
   font-size: 24px;
   font-weight: normal;
-  padding: 25px;
+}
+
+.events-loop .title a {
+  color: white;
   text-shadow: 2px 4px rgba(11, 0, 75, 0.19);
+}
+
+.events-loop .future-events {
+  padding: 0 5px;
 }
 
 .buzzing-leaders {
@@ -11332,7 +11381,6 @@ nav ul.menu.secondary a {
   -webkit-box-shadow: 8px 8px rgba(11, 0, 75, 0.19);
           box-shadow: 8px 8px rgba(11, 0, 75, 0.19);
   padding: 15px;
-  width: 457px;
 }
 
 .leaderboard h2 {
@@ -11352,6 +11400,10 @@ nav ul.menu.secondary a {
 
 .striped tr {
   height: 45px;
+}
+
+.striped tr:nth-child(odd) {
+  background-color: rgba(11, 0, 75, 0.19) !important;
 }
 
 .striped .name {

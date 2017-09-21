@@ -21,7 +21,7 @@
       <span class="day">2</span>
     </div>
     <div class="title">
-      <h2><a href="#" class="event-title">Skill Session: Great Sunflower Project</a></h2>
+      <h2><a href="#" class="event-title">Skill Session: Great Sunflower Project asdklfjalsdjkf alksdjf alsdjfa s;dklfja sdlkfja;slkdjf</a></h2>
     </div>
   </div>
 </div>

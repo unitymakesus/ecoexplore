@@ -76,10 +76,6 @@
 .future-events {
   padding: 0;
   position: relative;
-
-  .event {
-    max-height: 310px;
-  }
 }
 
 .month {
@@ -130,8 +126,12 @@
   }
 }
 
-.future-events {
+.future-events, .season-end {
   padding: 0;
+
+  .event {
+    background: $aqua;
+  }
 
   .date {
     @include date;
@@ -153,14 +153,10 @@
   .day {
     text-shadow: 2px 4px $aqua-dark;
   }
-}
 
-.title {
-  background-color: $aqua;
-  border-top: 9px solid $aqua-light;
-  bottom: 105px;
-  min-height: 105px;
-  position: relative;
+  .title {
+    border-top: 9px solid $aqua-light;
+  }
 }
 // Herpetology ($orange-med)
 //Ornithology ($red-med)
