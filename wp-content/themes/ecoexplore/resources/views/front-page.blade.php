@@ -3,8 +3,9 @@
 @section('content')
   @while(have_posts()) @php(the_post())
     <section class="hero">
-      <img src="{{ App\asset_path('images/hero-banner.jpg') }}" alt="Kids showing their discovery to a scientist" />
-      <div class="border-div"></div>
+      <div class="img-wrapper">
+        <img src="{{ App\asset_path('images/hero-banner.jpg') }}" alt="Kids showing their discovery to a scientist" />
+      </div>
 
       <div class="hero-text container">
         <div class="row">
@@ -98,29 +99,31 @@
       </div>
     </section>
 
-    <section class="gray-halftone">
-      <div class="container">
-        <div class="row">
-          <div class="col s12 center-align">
-            <a class="btn-tertiary" href="{{ get_permalink(get_page_by_path('events')) }}">More Events</a>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col s12 m6 l5">
-            <h2 class="center-align">What's Buzzing</h2>
-            @include('partials.observations-loop')
-            <a href="#" class="explore-more center-align">Explore More</a>
+    <section class="buzzing-leaders">
+      <div class="gray-halftone">
+        <div class="container">
+          <div class="row">
+            <div class="col s12 center-align">
+              <a class="btn-tertiary" href="{{ get_permalink(get_page_by_path('events')) }}">More Events</a>
+            </div>
           </div>
 
-          <div class="col s12 m6 l6 push-l1">
-            <div class="leaderboard">
-              <h2>
-                {!! file_get_contents(App\asset_path('images/leaderboard.svg')) !!}
-                Leaderboard
-              </h2>
-              <div class="leaders">
-                @include('partials.leaders-loop')
+          <div class="row">
+            <div class="col s12 m6 l5">
+              <h2 class="center-align">What's Buzzing</h2>
+              @include('partials.observations-loop')
+              <a href="#" class="explore-more center-align">Explore More</a>
+            </div>
+
+            <div class="col s12 m6 l6 push-l1">
+              <div class="leaderboard">
+                <h2>
+                  {!! file_get_contents(App\asset_path('images/leaderboard.svg')) !!}
+                  Leaderboard
+                </h2>
+                <div class="leaders">
+                  @include('partials.leaders-loop')
+                </div>
               </div>
             </div>
           </div>

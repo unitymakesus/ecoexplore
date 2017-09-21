@@ -4,25 +4,6 @@
   background-position: 50% 60%;
   min-height: 250px;
   overflow: hidden;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
 
-  &::before, &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  &::before {
-    background: $navy;
-    clip-path: polygon(0 calc(80% - 10px), 100% calc(100% - 10px), 100% 100%, 0 80%);
-    z-index: 1;
-  }
-
-  &::after {
-    background: $ice;
-    clip-path: polygon(0 calc(80% - 9px), 100% calc(100% - 9px), 100% calc(100% - 1px), 0 calc(80% - 1px));
-    z-index: 2;
-  }
+  @include slanted('right');
 }

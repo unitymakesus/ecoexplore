@@ -1,5 +1,4 @@
 <footer class="content-info">
-  <div class="top-border"></div>
   <div class="container">
     <div class="row">
       <div class="col s12">

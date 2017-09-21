@@ -1,7 +1,16 @@
 //Hero section
 
-.hero img {
-  width: 100%;
+.hero {
+  .img-wrapper {
+    @include slanted('normal');
+
+    position: relative;
+  }
+
+  img {
+    width: 100%;
+    display: block;
+  }
 }
 
 .border-div {
@@ -101,7 +110,15 @@
 }
 
 //Observations/Leaderboard
-.gray-halftone {
+.buzzing-leaders {
+  @include slanted('shallow');
+
+  position: relative;
+
+  .gray-halftone {
+    padding-bottom: 10%;
+  }
+
   h2 {
     color: $navy;
     font-family: $font-family-serif;

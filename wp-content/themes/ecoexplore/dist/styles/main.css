@@ -11081,8 +11081,38 @@ nav ul.menu.secondary a {
   color: #99140C;
 }
 
+.hero .img-wrapper {
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+  position: relative;
+}
+
+.hero .img-wrapper::before,
+.hero .img-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero .img-wrapper::before {
+  background: #000349;
+  -webkit-clip-path: polygon(0 calc(100% - 10px), 100% calc(80% - 10px), 100% 80%, 0 100%);
+          clip-path: polygon(0 calc(100% - 10px), 100% calc(80% - 10px), 100% 80%, 0 100%);
+  z-index: 1;
+}
+
+.hero .img-wrapper::after {
+  background: #CFF3FF;
+  -webkit-clip-path: polygon(0 calc(100% - 9px), 100% calc(80% - 9px), 100% calc(80% - 1px), 0 calc(100% - 1px));
+          clip-path: polygon(0 calc(100% - 9px), 100% calc(80% - 9px), 100% calc(80% - 1px), 0 calc(100% - 1px));
+  z-index: 2;
+}
+
 .hero img {
   width: 100%;
+  display: block;
 }
 
 .border-div {
@@ -11174,18 +11204,51 @@ nav ul.menu.secondary a {
   text-shadow: 2px 4px rgba(11, 0, 75, 0.19);
 }
 
-.gray-halftone h2 {
+.buzzing-leaders {
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
+  position: relative;
+}
+
+.buzzing-leaders::before,
+.buzzing-leaders::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.buzzing-leaders::before {
+  background: #000349;
+  -webkit-clip-path: polygon(0 calc(90% - 10px), 100% calc(100% - 10px), 100% 100%, 0 90%);
+          clip-path: polygon(0 calc(90% - 10px), 100% calc(100% - 10px), 100% 100%, 0 90%);
+  z-index: 1;
+}
+
+.buzzing-leaders::after {
+  background: #CFF3FF;
+  -webkit-clip-path: polygon(0 calc(90% - 9px), 100% calc(100% - 9px), 100% calc(100% - 1px), 0 calc(90% - 1px));
+          clip-path: polygon(0 calc(90% - 9px), 100% calc(100% - 9px), 100% calc(100% - 1px), 0 calc(90% - 1px));
+  z-index: 2;
+}
+
+.buzzing-leaders .gray-halftone {
+  padding-bottom: 10%;
+}
+
+.buzzing-leaders h2 {
   color: #000349;
   font-family: "Zilla Slab", serif;
   font-size: 30px;
   margin: 10px;
 }
 
-.gray-halftone .explore-more {
+.buzzing-leaders .explore-more {
   text-align: center;
 }
 
-.gray-halftone .row:nth-child(2) {
+.buzzing-leaders .row:nth-child(2) {
   margin-top: 25px;
 }
 
