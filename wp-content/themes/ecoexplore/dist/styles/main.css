@@ -10256,6 +10256,32 @@ button.picker__close:focus {
 
 /** Import theme styles */
 
+.gray-halftone {
+  position: relative;
+  overflow: hidden;
+}
+
+.gray-halftone > * {
+  position: relative;
+  z-index: 1;
+}
+
+.gray-halftone::before {
+  content: '';
+  background-image: url(/wp-content/themes/ecoexplore/dist/images/gray-halftone.svg);
+  background-position: bottom;
+  background-repeat: repeat-x;
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: rotate(-4deg) scale(1.05);
+       -o-transform: rotate(-4deg) scale(1.05);
+          transform: rotate(-4deg) scale(1.05);
+  z-index: 0;
+}
+
 @media only screen and (min-width: 993px) {
   .container {
     width: 95%;
@@ -11081,12 +11107,13 @@ nav ul.menu.secondary a {
   background-color: #CFF3FF;
   border: 1px solid #000349;
   position: relative;
+  padding: 0 5px;
 }
 
 .see-snap-share .row.panels img {
   border: 1px solid #000349;
-  min-width: 100%;
-  margin: 10px;
+  width: 100%;
+  display: block;
 }
 
 .see-snap-share .row.panels .mini-splat {
@@ -11094,17 +11121,14 @@ nav ul.menu.secondary a {
   z-index: 1;
 }
 
-.see-snap-share .row.panels .col:nth-child(even) {
+.see-snap-share .row.panels .col {
   position: relative;
+  padding: 10px 5px;
 }
 
 .see-snap-share .row.panels .col:nth-child(even) .mini-splat {
   left: -15px;
   top: -50px;
-}
-
-.see-snap-share .row.panels .col:nth-child(odd) {
-  position: relative;
 }
 
 .see-snap-share .row.panels .col:nth-child(odd) .mini-splat {
@@ -11148,12 +11172,6 @@ nav ul.menu.secondary a {
   font-family: "Zilla Slab", serif;
   font-size: 24px;
   text-shadow: 2px 4px rgba(11, 0, 75, 0.19);
-}
-
-.gray-halftone {
-  background-image: url(/wp-content/themes/ecoexplore/dist/images/gray-halftone.svg);
-  background-position: bottom;
-  background-repeat: repeat-x;
 }
 
 .gray-halftone h2 {

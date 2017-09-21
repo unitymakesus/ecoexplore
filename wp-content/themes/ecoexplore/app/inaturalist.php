@@ -176,9 +176,9 @@ add_action('save_post_observation', function($post_id, $post, $update) {
             $body .= 'Content-Type: ' . $photo_type . "\r\n\r\n";
             $body .= file_get_contents($photo_sized) . "\r\n";
             $body .= '--' . $boundary . "\r\n";
-            $body .= 'Content-Disposition: form-data; name="observation_photo"' . "\r\n";
+            // $body .= 'Content-Disposition: form-data; name="observation_photo"' . "\r\n";
             $body .= 'Content-Type: application/json' . "\r\n\r\n";
-            $body .= json_encode(['observation_id' => $inat_id]) . "\r\n";
+            $body .= json_encode(['observation_photo' => ['observation_id' => $inat_id]]) . "\r\n";
             $body .= '--' . $boundary . '--' . "\r\n";
 
             // Post photo to observation
@@ -203,10 +203,10 @@ add_action('save_post_observation', function($post_id, $post, $update) {
               // ]
             ];
             // var_dump($photo_payload);
-            // echo '<pre>';
+            echo '<pre>';
             // print_r($photo_payload);
-            // echo '</pre>';
-            // print_r($body);
+            print_r($body);
+            echo '</pre>';
             // echo "<pre>$body</pre>";
             $post_photo = wp_remote_post($inat_base_url . '/observation_photos', $photo_payload);
             // $post_photo = wp_remote_post('https://requestb.in/1gdsso01', $photo_payload);
