@@ -87,6 +87,12 @@
   }
 }
 
+@media only screen and (max-width: 425px) {
+  .see-snap-share .row.panels .col:nth-child(even) .mini-splat {
+    left: 250px;
+    top: 250px;
+  }
+}
 //Events
 
 .events-loop {
@@ -228,4 +234,13 @@
   }
 }
 
+@media only screen and (max-width: 425px) {
+  .leaderboard {
+    margin-bottom: 200px;
+  }
+
+  .gray-halftone::before {
+    left: -50px;
+  }
+}
 //Footer

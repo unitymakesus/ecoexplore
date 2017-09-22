@@ -47,32 +47,6 @@
   transform: translate(2px, 2px);
 }
 
-.season-content {
-  padding: 25px;
-}
-
-.season-end {
-  position: relative;
-
-  img {
-    max-width: 100%;
-    max-height: 350px;
-  }
-
-  .date {
-    @include date;
-
-    background-color: $aqua;
-    border: 6px solid $aqua-light;
-
-    &::before {
-      @include date-before;
-
-      border: 2px solid $aqua-dark;
-    }
-  }
-}
-
 .future-events {
   padding: 0;
   position: relative;
@@ -98,6 +72,32 @@
 }
 
 // Entomology ($aqua)
+
+.season-content {
+  padding: 25px;
+}
+
+.season-end {
+  position: relative;
+
+  img {
+    max-width: 100%;
+    max-height: 350px;
+  }
+
+  .date {
+    @include date;
+
+    background-color: $aqua;
+    border: 6px solid $aqua-light;
+
+    &::before {
+      @include date-before;
+
+      border: 2px solid $aqua-dark;
+    }
+  }
+}
 
 .learn-more-btn {
   @include learn-more-btn;
@@ -126,12 +126,10 @@
   }
 }
 
-.future-events, .season-end {
-  padding: 0;
-
-  .event {
-    background: $aqua;
-  }
+// .future-events, .season-end {
+//   padding: 0;
+.event.entomology {
+  background: $aqua;
 
   .date {
     @include date;
@@ -158,6 +156,7 @@
     border-top: 9px solid $aqua-light;
   }
 }
+//}
 // Herpetology ($orange-med)
 //Ornithology ($red-med)
 //Botany ($green-med)
