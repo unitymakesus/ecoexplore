@@ -1,26 +1,4 @@
 //Global mixins for seasons
-
-@mixin date {
-  box-shadow: 7px 8px $shadow;
-  display: flex;
-  flex-direction: column;
-  left: 25px;
-  line-height: 1;
-  padding: 10px;
-  position: absolute;
-  text-align: center;
-  top: 15px;
-  width: 100px;
-}
-@mixin date-before {
-  content: " ";
-  position: absolute;
-  z-index: -1;
-  top: -6px;
-  left: -6px;
-  right: -6px;
-  bottom: -6px;
-}
 @mixin learn-more-btn {
   box-shadow: 7px 8px $shadow;
   color: white;
@@ -71,12 +49,6 @@
   position: absolute;
 }
 
-// Entomology ($aqua)
-
-.season-content {
-  padding: 25px;
-}
-
 .season-end {
   position: relative;
 
@@ -84,79 +56,63 @@
     max-width: 100%;
     max-height: 350px;
   }
+}
 
-  .date {
-    @include date;
+// Entomology ($aqua)
+.entomology {
+  .learn-more-btn {
+    @include learn-more-btn;
 
     background-color: $aqua;
     border: 6px solid $aqua-light;
+    text-shadow: 2px 4px $aqua-dark;
 
     &::before {
-      @include date-before;
+      @include learn-more-btn-before;
 
       border: 2px solid $aqua-dark;
+    }
+
+    &:hover {
+      @include learn-more-btn-hover;
+
+      background-color: $aqua-light;
+      border: 6px solid $aqua;
+    }
+
+    &:active {
+      background-color: $aqua;
+      border: 6px solid $aqua-dark;
+      box-shadow: 0 0;
+    }
+  }
+
+  &.event {
+    background: $aqua;
+
+    .date {
+      background-color: $aqua;
+      border: 6px solid $aqua-light;
+
+      &::before {
+        border: 2px solid $aqua-dark;
+      }
+    }
+
+    .month {
+      text-shadow: 2px 4px $aqua-dark;
+    }
+
+    .day {
+      text-shadow: 2px 4px $aqua-dark;
+    }
+
+    .title {
+      border-top: 9px solid $aqua-light;
     }
   }
 }
 
-.learn-more-btn {
-  @include learn-more-btn;
-
-  background-color: $aqua;
-  border: 6px solid $aqua-light;
-  text-shadow: 2px 4px $aqua-dark;
-
-  &::before {
-    @include learn-more-btn-before;
-
-    border: 2px solid $aqua-dark;
-  }
-
-  &:hover {
-    @include learn-more-btn-hover;
-
-    background-color: $aqua-light;
-    border: 6px solid $aqua;
-  }
-
-  &:active {
-    background-color: $aqua;
-    border: 6px solid $aqua-dark;
-    box-shadow: 0 0;
-  }
-}
-
-// .future-events, .season-end {
-//   padding: 0;
-.event.entomology {
-  background: $aqua;
-
-  .date {
-    @include date;
-
-    background-color: $aqua;
-    border: 6px solid $aqua-light;
-
-    &::before {
-      @include date-before;
-
-      border: 2px solid $aqua-dark;
-    }
-  }
-
-  .month {
-    text-shadow: 2px 4px $aqua-dark;
-  }
-
-  .day {
-    text-shadow: 2px 4px $aqua-dark;
-  }
-
-  .title {
-    border-top: 9px solid $aqua-light;
-  }
-}
-//}
 // Herpetology ($orange-med)
 //Ornithology ($red-med)
 //Botany ($green-med)

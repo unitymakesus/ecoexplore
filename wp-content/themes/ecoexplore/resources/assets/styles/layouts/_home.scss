@@ -116,6 +116,10 @@
     background-color: white;
   }
 
+  .season-content {
+    padding: 25px;
+  }
+
   .row {
     margin: 0 -6px 10px;
   }
@@ -129,6 +133,29 @@
     img {
       display: block;
       max-width: 100%;
+    }
+
+    .date {
+      box-shadow: 7px 8px $shadow;
+      display: flex;
+      flex-direction: column;
+      left: 25px;
+      line-height: 1;
+      padding: 10px;
+      position: absolute;
+      text-align: center;
+      top: 15px;
+      width: 100px;
+
+      &::before {
+        content: " ";
+        position: absolute;
+        z-index: -1;
+        top: -6px;
+        left: -6px;
+        right: -6px;
+        bottom: -6px;
+      }
     }
   }
 

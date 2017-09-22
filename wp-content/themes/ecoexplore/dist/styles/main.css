@@ -10888,10 +10888,6 @@ input {
   position: absolute;
 }
 
-.season-content {
-  padding: 25px;
-}
-
 .season-end {
   position: relative;
 }
@@ -10901,39 +10897,7 @@ input {
   max-height: 350px;
 }
 
-.season-end .date {
-  -webkit-box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
-          box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  left: 25px;
-  line-height: 1;
-  padding: 10px;
-  position: absolute;
-  text-align: center;
-  top: 15px;
-  width: 100px;
-  background-color: #4CBED8;
-  border: 6px solid #AAE1EA;
-}
-
-.season-end .date::before {
-  content: " ";
-  position: absolute;
-  z-index: -1;
-  top: -6px;
-  left: -6px;
-  right: -6px;
-  bottom: -6px;
-  border: 2px solid #308593;
-}
-
-.learn-more-btn {
+.entomology .learn-more-btn {
   -webkit-box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
           box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
   color: white;
@@ -10954,7 +10918,7 @@ input {
   text-shadow: 2px 4px #308593;
 }
 
-.learn-more-btn::before {
+.entomology .learn-more-btn::before {
   content: " ";
   position: absolute;
   z-index: -1;
@@ -10965,7 +10929,7 @@ input {
   border: 2px solid #308593;
 }
 
-.learn-more-btn:hover {
+.entomology .learn-more-btn:hover {
   -webkit-box-shadow: 2px 4px rgba(11, 0, 75, 0.19);
           box-shadow: 2px 4px rgba(11, 0, 75, 0.19);
   -webkit-transform: translate(2px, 2px);
@@ -10975,58 +10939,35 @@ input {
   border: 6px solid #4CBED8;
 }
 
-.learn-more-btn:active {
+.entomology .learn-more-btn:active {
   background-color: #4CBED8;
   border: 6px solid #308593;
   -webkit-box-shadow: 0 0;
           box-shadow: 0 0;
 }
 
-.event.entomology {
+.entomology.event {
   background: #4CBED8;
 }
 
-.event.entomology .date {
-  -webkit-box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
-          box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  left: 25px;
-  line-height: 1;
-  padding: 10px;
-  position: absolute;
-  text-align: center;
-  top: 15px;
-  width: 100px;
+.entomology.event .date {
   background-color: #4CBED8;
   border: 6px solid #AAE1EA;
 }
 
-.event.entomology .date::before {
-  content: " ";
-  position: absolute;
-  z-index: -1;
-  top: -6px;
-  left: -6px;
-  right: -6px;
-  bottom: -6px;
+.entomology.event .date::before {
   border: 2px solid #308593;
 }
 
-.event.entomology .month {
+.entomology.event .month {
   text-shadow: 2px 4px #308593;
 }
 
-.event.entomology .day {
+.entomology.event .day {
   text-shadow: 2px 4px #308593;
 }
 
-.event.entomology .title {
+.entomology.event .title {
   border-top: 9px solid #AAE1EA;
 }
 
@@ -11382,6 +11323,10 @@ nav ul.menu.secondary a {
   background-color: white;
 }
 
+.events-loop .season-content {
+  padding: 25px;
+}
+
 .events-loop .row {
   margin: 0 -6px 10px;
 }
@@ -11396,6 +11341,35 @@ nav ul.menu.secondary a {
 .events-loop .event img {
   display: block;
   max-width: 100%;
+}
+
+.events-loop .event .date {
+  -webkit-box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
+          box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  left: 25px;
+  line-height: 1;
+  padding: 10px;
+  position: absolute;
+  text-align: center;
+  top: 15px;
+  width: 100px;
+}
+
+.events-loop .event .date::before {
+  content: " ";
+  position: absolute;
+  z-index: -1;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
 }
 
 .events-loop .title {
