@@ -74,6 +74,7 @@ input[type="submit"].um-button {
   background-color: $green-med;
   border: 6px solid $green-light;
   padding: 2px 40px;
+  margin: 50px;
   text-shadow: 2px 4px $green-dark;
 
   &::before {
@@ -105,6 +106,7 @@ input[type="submit"].um-button {
   border: 6px solid $orange-light;
   font-size: 36px;
   padding: 2px 20px;
+  margin: 50px 0;
   text-shadow: 2px 4px $orange-dark;
 
   &::before {
