@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="row block-grid up-s1 up-m3 up-l4">
+<div class="container prizes">
+  <div class="row block-grid up-s1 up-m3 up-l4 prize-card">
     @php
       $prizes = new WP_Query([
         'post_type' => 'prize',
