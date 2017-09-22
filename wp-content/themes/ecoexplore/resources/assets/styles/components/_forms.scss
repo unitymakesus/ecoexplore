@@ -1,5 +1,8 @@
-/** Search form */
-// TODO: .search-form {}
-// TODO: .search-form label {}
-// TODO: .search-form .search-field {}
-// TODO: .search-form .search-submit {}
+input {
+  font-family: $font-family-serif;
+  color: $aqua-dark;
+}
+
+label {
+  @extend h6;
+}

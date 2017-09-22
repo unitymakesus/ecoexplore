@@ -15,9 +15,11 @@ $library = get_field('library', $user_id);
 			<form method="post" action="">
 		<?php } ?>
 
-			<?php do_action('um_profile_header_cover_area', $args ); ?>
+			<?php do_action('eco_um_profile_header_cover_area', $args ); ?>
 
 			<?php do_action('um_profile_header', $args ); ?>
+
+			<a class="waves-effect waves-light btn-primary"><i class="material-icons left" aria-hidden="true">photo_camera</i> Submit Observation</a>
 
 			<?php do_action('um_profile_navbar', $args ); ?>
 
@@ -29,7 +31,7 @@ $library = get_field('library', $user_id);
 			<div class="um-profile-body <?php echo $nav; ?> <?php echo $nav . '-' . $subnav; ?>">
 				<div class="row">
 					<div class="col m8">
-						<h2>Notes from ecoEXPLORE</h2>
+						<h3>Notes from ecoEXPLORE</h3>
 
 						<!-- Recent comments on my observations -->
 
@@ -40,9 +42,8 @@ $library = get_field('library', $user_id);
 					</div>
 
 					<div class="col m4">
-						<a class="waves-effect waves-light btn-large"><i class="material-icons left" aria-hidden="true">photo_camera</i> Submit New Observation</a>
 
-						<h2>My recent observations</h2>
+						<h3>My recent observations</h3>
 
 						<!-- Recent observations -->
 						<?php
@@ -61,7 +62,10 @@ $library = get_field('library', $user_id);
 								?>
 
 								<div class="observation card horizontal">
-									<a href="#" target="_blank" rel="noopener" class="mega-link" aria-hidden="true"></a>
+									<?php if (!empty($inat_id = get_field('inat_id'))) { ?>
+										<a href="https://www.inaturalist.org/observations/<?php echo $inat_id; ?>" target="_blank" rel="noopener" class="mega-link" aria-hidden="true"></a>
+									<?php } ?>
+
 									<div class="card-image">
 										<?php the_post_thumbnail('thumbnail'); ?>
 									</div>
@@ -77,8 +81,10 @@ $library = get_field('library', $user_id);
 
 										<div class="card-action">
 											<ul>
-												<li><i class="material-icons" aria-label="Points">star_border</i> Points</li>
-												<li><i class="material-icons" aira-hidden="true">cloud_upload</i> See on iNaturalist</li>
+												<li><i class="material-icons" aria-label="Points">star_border</i> <?php the_field('points'); ?></li>
+												<?php if (!empty($inat_id = get_field('inat_id'))) { ?>
+													<li><a href="https://www.inaturalist.org/observations/<?php echo $inat_id; ?>" target="_blank" rel="noopener"><i class="material-icons" aira-hidden="true">cloud_upload</i> See on iNaturalist</a></li>
+												<?php } ?>
 											</ul>
 										</div>
 									</div>
@@ -88,7 +94,6 @@ $library = get_field('library', $user_id);
 						<?php } else { ?>
 
 							<?php $observations = App\get_observations('jman'); ?>
-							<?php //print_r($observations); ?>
 
 							<?php if (!empty($observations)) { ?>
 								<?php foreach($observations as $o) { ?>

@@ -6,13 +6,13 @@
   display: inline-block;
   font-family: $font-comic;
   font-weight: normal;
-  font-size: 46px;
-  margin: 50px;
+  font-size: 36px;
   text-transform: uppercase;
   transform: translate(0, 0);
   transition: all 0.3s ease;
-  padding: 10px 15px;
+  padding: 10px 15px !important;
   position: relative;
+  border-radius: 0 !important;
 }
 @mixin btn-before-global {
   content: " ";
@@ -28,9 +28,18 @@
   transform: translate(2px, 2px);
 }
 
+// Ultimate member buttons
+input[type="submit"].um-button {
+  border: 1px solid $aqua-dark !important;
+}
+
+.um-button.um-alt {
+  border: 1px solid $green-dark !important;
+}
+
 //Primary $aqua CTA Button
 
-.btn-primary {
+.btn-primary, input[type="submit"].um-button {
   @include btn-global;
 
   background-color: $aqua;
@@ -59,12 +68,11 @@
 
 //Secondary $green-med CTA button
 
-.btn-secondary {
+.btn-secondary, .um-button.um-alt {
   @include btn-global;
 
   background-color: $green-med;
   border: 6px solid $green-light;
-  font-size: 36px;
   padding: 2px 40px;
   text-shadow: 2px 4px $green-dark;
 

@@ -66,7 +66,7 @@ class UM_Avatar_Suggestions_Api {
 	 * @since  0.0.1
 	 */
 	public function hooks() {
-		add_filter( 'um_user_photo_menu_edit', array( $this, 'avatar_picker_link' ), 12, 1 );
+		// add_filter( 'um_user_photo_menu_edit', array( $this, 'avatar_picker_link' ), 12, 1 );
 		add_action( 'init', array( $this, 'register_cpt' ) );
 		add_action( 'wp_footer', array( $this, 'add_modal_content' ) );
 		add_action( 'save_post_' . $this->post_type, array( $this, 'cache_avatars' ), 12, 1 );
