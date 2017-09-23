@@ -10666,6 +10666,7 @@ input[type="submit"].um-button:active {
   background-color: #9AB83C;
   border: 6px solid #C4DE95;
   padding: 2px 40px;
+  margin: 50px;
   text-shadow: 2px 4px #688127;
 }
 
@@ -10727,6 +10728,7 @@ input[type="submit"].um-button:active {
   border: 6px solid #EDC57B;
   font-size: 36px;
   padding: 2px 20px;
+  margin: 50px 0;
   text-shadow: 2px 4px #C27811;
 }
 
@@ -10859,7 +10861,7 @@ input {
 }
 
 .observation.card:nth-child(4n-7) {
-  background: #E98B3B;
+  background: #EDC57B;
   border: 1px solid #C27811;
 }
 
@@ -11072,6 +11074,228 @@ input {
 
 .entomology.event .title {
   border-top: 9px solid #AAE1EA;
+}
+
+.herpetology .learn-more-btn {
+  -webkit-box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
+          box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
+  color: white;
+  display: inline-block;
+  font-family: "Boogaloo";
+  font-size: 26px;
+  text-transform: uppercase;
+  -webkit-transform: translate(0, 0);
+       -o-transform: translate(0, 0);
+          transform: translate(0, 0);
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  padding: 5px 30px;
+  position: relative;
+  background-color: #E98B3B;
+  border: 6px solid #EDC57B;
+  text-shadow: 2px 4px #C27811;
+}
+
+.herpetology .learn-more-btn::before {
+  content: " ";
+  position: absolute;
+  z-index: -1;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border: 2px solid #C27811;
+}
+
+.herpetology .learn-more-btn:hover {
+  -webkit-box-shadow: 2px 4px rgba(11, 0, 75, 0.19);
+          box-shadow: 2px 4px rgba(11, 0, 75, 0.19);
+  -webkit-transform: translate(2px, 2px);
+       -o-transform: translate(2px, 2px);
+          transform: translate(2px, 2px);
+  background-color: #EDC57B;
+  border: 6px solid #E98B3B;
+}
+
+.herpetology .learn-more-btn:active {
+  background-color: #E98B3B;
+  border: 6px solid #C27811;
+  -webkit-box-shadow: 0 0;
+          box-shadow: 0 0;
+}
+
+.herpetology.event {
+  background: #E98B3B;
+}
+
+.herpetology.event .date {
+  background-color: #E98B3B;
+  border: 6px solid #EDC57B;
+}
+
+.herpetology.event .date::before {
+  border: 2px solid #C27811;
+}
+
+.herpetology.event .month {
+  text-shadow: 2px 4px #C27811;
+}
+
+.herpetology.event .day {
+  text-shadow: 2px 4px #C27811;
+}
+
+.herpetology.event .title {
+  border-top: 9px solid #EDC57B;
+}
+
+.ornithology .learn-more-btn {
+  -webkit-box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
+          box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
+  color: white;
+  display: inline-block;
+  font-family: "Boogaloo";
+  font-size: 26px;
+  text-transform: uppercase;
+  -webkit-transform: translate(0, 0);
+       -o-transform: translate(0, 0);
+          transform: translate(0, 0);
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  padding: 5px 30px;
+  position: relative;
+  background-color: #C93B3E;
+  border: 6px solid #F4989A;
+  text-shadow: 2px 4px #99140C;
+}
+
+.ornithology .learn-more-btn::before {
+  content: " ";
+  position: absolute;
+  z-index: -1;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border: 2px solid #99140C;
+}
+
+.ornithology .learn-more-btn:hover {
+  -webkit-box-shadow: 2px 4px rgba(11, 0, 75, 0.19);
+          box-shadow: 2px 4px rgba(11, 0, 75, 0.19);
+  -webkit-transform: translate(2px, 2px);
+       -o-transform: translate(2px, 2px);
+          transform: translate(2px, 2px);
+  background-color: #F4989A;
+  border: 6px solid #C93B3E;
+}
+
+.ornithology .learn-more-btn:active {
+  background-color: #C93B3E;
+  border: 6px solid #99140C;
+  -webkit-box-shadow: 0 0;
+          box-shadow: 0 0;
+}
+
+.ornithology.event {
+  background: #C93B3E;
+}
+
+.ornithology.event .date {
+  background-color: #C93B3E;
+  border: 6px solid #F4989A;
+}
+
+.ornithology.event .date::before {
+  border: 2px solid #99140C;
+}
+
+.ornithology.event .month {
+  text-shadow: 2px 4px #99140C;
+}
+
+.ornithology.event .day {
+  text-shadow: 2px 4px #99140C;
+}
+
+.ornithology.event .title {
+  border-top: 9px solid #F4989A;
+}
+
+.botany .learn-more-btn {
+  -webkit-box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
+          box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
+  color: white;
+  display: inline-block;
+  font-family: "Boogaloo";
+  font-size: 26px;
+  text-transform: uppercase;
+  -webkit-transform: translate(0, 0);
+       -o-transform: translate(0, 0);
+          transform: translate(0, 0);
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  padding: 5px 30px;
+  position: relative;
+  background-color: #9AB83C;
+  border: 6px solid #C4DE95;
+  text-shadow: 2px 4px #688127;
+}
+
+.botany .learn-more-btn::before {
+  content: " ";
+  position: absolute;
+  z-index: -1;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border: 2px solid #688127;
+}
+
+.botany .learn-more-btn:hover {
+  -webkit-box-shadow: 2px 4px rgba(11, 0, 75, 0.19);
+          box-shadow: 2px 4px rgba(11, 0, 75, 0.19);
+  -webkit-transform: translate(2px, 2px);
+       -o-transform: translate(2px, 2px);
+          transform: translate(2px, 2px);
+  background-color: #C4DE95;
+  border: 6px solid #9AB83C;
+}
+
+.botany .learn-more-btn:active {
+  background-color: #9AB83C;
+  border: 6px solid #688127;
+  -webkit-box-shadow: 0 0;
+          box-shadow: 0 0;
+}
+
+.botany.event {
+  background: #9AB83C;
+}
+
+.botany.event .date {
+  background-color: #9AB83C;
+  border: 6px solid #C4DE95;
+}
+
+.botany.event .date::before {
+  border: 2px solid #688127;
+}
+
+.botany.event .month {
+  text-shadow: 2px 4px #688127;
+}
+
+.botany.event .day {
+  text-shadow: 2px 4px #688127;
+}
+
+.botany.event .title {
+  border-top: 9px solid #C4DE95;
 }
 
 /**

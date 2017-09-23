@@ -114,5 +114,167 @@
 }
 
 // Herpetology ($orange-med)
+
+.herpetology {
+  .learn-more-btn {
+    @include learn-more-btn;
+
+    background-color: $orange-med;
+    border: 6px solid $orange-light;
+    text-shadow: 2px 4px $orange-dark;
+
+    &::before {
+      @include learn-more-btn-before;
+
+      border: 2px solid $orange-dark;
+    }
+
+    &:hover {
+      @include learn-more-btn-hover;
+
+      background-color: $orange-light;
+      border: 6px solid $orange-med;
+    }
+
+    &:active {
+      background-color: $orange-med;
+      border: 6px solid $orange-dark;
+      box-shadow: 0 0;
+    }
+  }
+
+  &.event {
+    background: $orange-med;
+
+    .date {
+      background-color: $orange-med;
+      border: 6px solid $orange-light;
+
+      &::before {
+        border: 2px solid $orange-dark;
+      }
+    }
+
+    .month {
+      text-shadow: 2px 4px $orange-dark;
+    }
+
+    .day {
+      text-shadow: 2px 4px $orange-dark;
+    }
+
+    .title {
+      border-top: 9px solid $orange-light;
+    }
+  }
+}
 //Ornithology ($red-med)
+
+.ornithology {
+  .learn-more-btn {
+    @include learn-more-btn;
+
+    background-color: $red-med;
+    border: 6px solid $red-light;
+    text-shadow: 2px 4px $red-dark;
+
+    &::before {
+      @include learn-more-btn-before;
+
+      border: 2px solid $red-dark;
+    }
+
+    &:hover {
+      @include learn-more-btn-hover;
+
+      background-color: $red-light;
+      border: 6px solid $red-med;
+    }
+
+    &:active {
+      background-color: $red-med;
+      border: 6px solid $red-dark;
+      box-shadow: 0 0;
+    }
+  }
+
+  &.event {
+    background: $red-med;
+
+    .date {
+      background-color: $red-med;
+      border: 6px solid $red-light;
+
+      &::before {
+        border: 2px solid $red-dark;
+      }
+    }
+
+    .month {
+      text-shadow: 2px 4px $red-dark;
+    }
+
+    .day {
+      text-shadow: 2px 4px $red-dark;
+    }
+
+    .title {
+      border-top: 9px solid $red-light;
+    }
+  }
+}
 //Botany ($green-med)
+
+.botany {
+  .learn-more-btn {
+    @include learn-more-btn;
+
+    background-color: $green-med;
+    border: 6px solid $green-light;
+    text-shadow: 2px 4px $green-dark;
+
+    &::before {
+      @include learn-more-btn-before;
+
+      border: 2px solid $green-dark;
+    }
+
+    &:hover {
+      @include learn-more-btn-hover;
+
+      background-color: $green-light;
+      border: 6px solid $green-med;
+    }
+
+    &:active {
+      background-color: $green-med;
+      border: 6px solid $green-dark;
+      box-shadow: 0 0;
+    }
+  }
+
+  &.event {
+    background: $green-med;
+
+    .date {
+      background-color: $green-med;
+      border: 6px solid $green-light;
+
+      &::before {
+        border: 2px solid $green-dark;
+      }
+    }
+
+    .month {
+      text-shadow: 2px 4px $green-dark;
+    }
+
+    .day {
+      text-shadow: 2px 4px $green-dark;
+    }
+
+    .title {
+      border-top: 9px solid $green-light;
+    }
+  }
+}
