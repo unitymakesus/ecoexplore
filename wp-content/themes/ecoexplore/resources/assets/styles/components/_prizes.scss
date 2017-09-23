@@ -1,6 +1,7 @@
 .prize-card .card {
   background-color: $ice;
   border: 1px solid $navy;
+  padding: 10px;
   border-radius: 0;
   color: $navy;
   height: 100%;
@@ -8,6 +9,7 @@
 
   .card-reveal {
     background-color: $ice;
+    padding: 10px;
 
     p {
       font-family: $font-family-sans-serif;
@@ -17,6 +19,7 @@
 
   .card-image img {
     border-radius: 0;
+    border: 1px solid $navy;
   }
 }
 
@@ -32,7 +35,7 @@
 }
 
 .prizes .card-content {
-  border-top: 1px solid $navy;
+  padding: 0;
 
   p {
     font-family: $font-family-sans-serif;

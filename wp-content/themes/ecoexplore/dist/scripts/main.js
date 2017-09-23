@@ -12952,7 +12952,8 @@ Router.prototype.loadEvents = function loadEvents () {
       closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
       draggable: true, // Choose whether you can drag to open on touch screens
     });
-
+  },
+  finalize: function finalize() {
     // Lazy load images a la David Walsh
     // https://davidwalsh.name/lazyload-image-fade
     [].forEach.call(document.querySelectorAll('noscript'), function(noscript) {
@@ -12966,10 +12967,6 @@ Router.prototype.loadEvents = function loadEvents () {
       img.alt = noscript.getAttribute('alt');
       img.className = noscript.getAttribute('class');
     });
-
-  },
-  finalize: function finalize() {
-    // JavaScript to be fired on all pages, after page specific JS is fired
   },
 });
 

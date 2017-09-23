@@ -10,3 +10,7 @@
 @if(is_page('prizes'))
   @include('partials.prizes-loop')
 @endif
+
+@if(is_page('field-season'))
+  @include('partials.field-season-loop')
+@endif

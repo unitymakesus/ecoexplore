@@ -6,3 +6,39 @@ input {
 label {
   @extend h6;
 }
+
+.page-submit-new-observation-data {
+  div[id="map_canvas"] {
+    width: 100% !important;
+  }
+}
+
+.wpcf7-textarea {
+  @extend .materialize-textarea;
+}
+
+.wpcf7-form-control-wrap.photo {
+  display: block;
+}
+
+.wpcf7-latlong {
+  display: none;
+}
+
+.wpcf7-form {
+  fieldset {
+    position: relative;
+    border: 1px solid $navy;
+    padding: 10px 10px 0;
+    margin-bottom: 20px;
+    background: $ice;
+  }
+
+  .row {
+    position: relative;
+    margin: 0 0 10px;
+    border: 1px solid $navy;
+    background: white;
+    padding: 20px;
+  }
+}

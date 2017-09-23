@@ -44,9 +44,7 @@
 
       <div class="col s12 m4 l3 footer-logo">
         <p>An initiative of</p>
-        <div class="arboretum-logo">
-          {!! file_get_contents(App\asset_path('images/TNCA_logo.svg')) !!}
-        </div>
+        {!! file_get_contents(App\asset_path('images/TNCA_logo.svg')) !!}
       </div>
     </div>
   </div>

@@ -60,4 +60,21 @@ h6 {
   li {
     list-style-type: inherit !important;
   }
+
+  a {
+    color: $aqua-dark;
+    text-decoration: underline;
+    font-weight: bold;
+    transition: 0.2s;
+
+    &:hover, &:focus {
+      background: $aqua-light;
+      text-decoration: none;
+    }
+
+    &:active {
+      color: $navy;
+      background: $shadow;
+    }
+  }
 }

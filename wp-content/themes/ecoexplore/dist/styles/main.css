@@ -4,6 +4,8 @@
 
 /** Utility Colors */
 
+/** Form Colors */
+
 /** Box Model  */
 
 /** Fonts */
@@ -4809,7 +4811,7 @@ html {
 
 h1,
 h2,
-.um.um .um-name.um-name a,
+.um .um-name.um-name a,
 h3,
 h4,
 h5,
@@ -4821,7 +4823,7 @@ label {
 
 h1 a,
 h2 a,
-.um.um .um-name.um-name a a,
+.um .um-name.um-name a a,
 h3 a,
 h4 a,
 h5 a,
@@ -4837,7 +4839,7 @@ h1 {
 }
 
 h2,
-.um.um .um-name.um-name a {
+.um .um-name.um-name a {
   font-size: 3.56rem;
   line-height: 110%;
   margin: 1.78rem 0 1.424rem 0;
@@ -6031,8 +6033,8 @@ button.btn-floating {
 
 .modal h1,
 .modal h2,
-.modal .um.um .um-name.um-name a,
-.um.um .um-name.um-name .modal a,
+.modal .um .um-name.um-name a,
+.um .um-name.um-name .modal a,
 .modal h3,
 .modal h4 {
   margin-top: 0;
@@ -6389,7 +6391,8 @@ input[type=datetime-local]:not(.browser-default),
 input[type=tel]:not(.browser-default),
 input[type=number]:not(.browser-default),
 input[type=search]:not(.browser-default),
-textarea.materialize-textarea {
+textarea.materialize-textarea,
+textarea.wpcf7-textarea {
   background-color: transparent;
   border: none;
   border-bottom: 1px solid #9e9e9e;
@@ -6434,7 +6437,9 @@ input[type=number]:not(.browser-default)[readonly="readonly"],
 input[type=search]:not(.browser-default):disabled,
 input[type=search]:not(.browser-default)[readonly="readonly"],
 textarea.materialize-textarea:disabled,
-textarea.materialize-textarea[readonly="readonly"] {
+textarea.wpcf7-textarea:disabled,
+textarea.materialize-textarea[readonly="readonly"],
+textarea[readonly="readonly"].wpcf7-textarea {
   color: rgba(0, 0, 0, 0.42);
   border-bottom: 1px dotted rgba(0, 0, 0, 0.42);
 }
@@ -6464,7 +6469,9 @@ input[type=number]:not(.browser-default)[readonly="readonly"] + label,
 input[type=search]:not(.browser-default):disabled + label,
 input[type=search]:not(.browser-default)[readonly="readonly"] + label,
 textarea.materialize-textarea:disabled + label,
-textarea.materialize-textarea[readonly="readonly"] + label {
+textarea.wpcf7-textarea:disabled + label,
+textarea.materialize-textarea[readonly="readonly"] + label,
+textarea[readonly="readonly"].wpcf7-textarea + label {
   color: rgba(0, 0, 0, 0.42);
 }
 
@@ -6480,10 +6487,11 @@ input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
 input[type=tel]:not(.browser-default):focus:not([readonly]),
 input[type=number]:not(.browser-default):focus:not([readonly]),
 input[type=search]:not(.browser-default):focus:not([readonly]),
-textarea.materialize-textarea:focus:not([readonly]) {
-  border-bottom: 1px solid #26a69a;
-  -webkit-box-shadow: 0 1px 0 0 #26a69a;
-          box-shadow: 0 1px 0 0 #26a69a;
+textarea.materialize-textarea:focus:not([readonly]),
+textarea.wpcf7-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #000349;
+  -webkit-box-shadow: 0 1px 0 0 #000349;
+          box-shadow: 0 1px 0 0 #000349;
 }
 
 input:not([type]):focus:not([readonly]) + label,
@@ -6498,8 +6506,9 @@ input[type=datetime-local]:not(.browser-default):focus:not([readonly]) + label,
 input[type=tel]:not(.browser-default):focus:not([readonly]) + label,
 input[type=number]:not(.browser-default):focus:not([readonly]) + label,
 input[type=search]:not(.browser-default):focus:not([readonly]) + label,
-textarea.materialize-textarea:focus:not([readonly]) + label {
-  color: #26a69a;
+textarea.materialize-textarea:focus:not([readonly]) + label,
+textarea.wpcf7-textarea:focus:not([readonly]) + label {
+  color: #000349;
 }
 
 input:not([type]).validate + label,
@@ -6514,7 +6523,8 @@ input[type=datetime-local]:not(.browser-default).validate + label,
 input[type=tel]:not(.browser-default).validate + label,
 input[type=number]:not(.browser-default).validate + label,
 input[type=search]:not(.browser-default).validate + label,
-textarea.materialize-textarea.validate + label {
+textarea.materialize-textarea.validate + label,
+textarea.validate.wpcf7-textarea + label {
   width: 100%;
 }
 
@@ -6543,7 +6553,9 @@ input[type=number]:not(.browser-default).valid + label:after,
 input[type=search]:not(.browser-default).invalid + label:after,
 input[type=search]:not(.browser-default).valid + label:after,
 textarea.materialize-textarea.invalid + label:after,
-textarea.materialize-textarea.valid + label:after {
+textarea.invalid.wpcf7-textarea + label:after,
+textarea.materialize-textarea.valid + label:after,
+textarea.valid.wpcf7-textarea + label:after {
   display: none;
 }
 
@@ -6572,7 +6584,9 @@ input[type=number]:not(.browser-default).valid + label.active:after,
 input[type=search]:not(.browser-default).invalid + label.active:after,
 input[type=search]:not(.browser-default).valid + label.active:after,
 textarea.materialize-textarea.invalid + label.active:after,
-textarea.materialize-textarea.valid + label.active:after {
+textarea.invalid.wpcf7-textarea + label.active:after,
+textarea.materialize-textarea.valid + label.active:after,
+textarea.valid.wpcf7-textarea + label.active:after {
   display: block;
 }
 
@@ -6603,7 +6617,9 @@ input[type=number].valid:not(.browser-default):focus,
 input[type=search].valid:not(.browser-default),
 input[type=search].valid:not(.browser-default):focus,
 textarea.materialize-textarea.valid,
+textarea.valid.wpcf7-textarea,
 textarea.materialize-textarea.valid:focus,
+textarea.valid.wpcf7-textarea:focus,
 .select-wrapper.valid > input.select-dropdown {
   border-bottom: 1px solid #4CAF50;
   -webkit-box-shadow: 0 1px 0 0 #4CAF50;
@@ -6635,7 +6651,9 @@ input[type=number].invalid:not(.browser-default):focus,
 input[type=search].invalid:not(.browser-default),
 input[type=search].invalid:not(.browser-default):focus,
 textarea.materialize-textarea.invalid,
+textarea.invalid.wpcf7-textarea,
 textarea.materialize-textarea.invalid:focus,
+textarea.invalid.wpcf7-textarea:focus,
 .select-wrapper.invalid > input.select-dropdown {
   border-bottom: 1px solid #F44336;
   -webkit-box-shadow: 0 1px 0 0 #F44336;
@@ -6667,7 +6685,9 @@ input[type=number]:not(.browser-default):focus.valid + label:after,
 input[type=search]:not(.browser-default).valid + label:after,
 input[type=search]:not(.browser-default):focus.valid + label:after,
 textarea.materialize-textarea.valid + label:after,
+textarea.valid.wpcf7-textarea + label:after,
 textarea.materialize-textarea:focus.valid + label:after,
+textarea.wpcf7-textarea:focus.valid + label:after,
 .select-wrapper.valid + label:after {
   content: attr(data-success);
   color: #4CAF50;
@@ -6702,7 +6722,9 @@ input[type=number]:not(.browser-default):focus.invalid + label:after,
 input[type=search]:not(.browser-default).invalid + label:after,
 input[type=search]:not(.browser-default):focus.invalid + label:after,
 textarea.materialize-textarea.invalid + label:after,
+textarea.invalid.wpcf7-textarea + label:after,
 textarea.materialize-textarea:focus.invalid + label:after,
+textarea.wpcf7-textarea:focus.invalid + label:after,
 .select-wrapper.invalid + label:after {
   content: attr(data-error);
   color: #F44336;
@@ -6725,6 +6747,7 @@ input[type=tel]:not(.browser-default) + label:after,
 input[type=number]:not(.browser-default) + label:after,
 input[type=search]:not(.browser-default) + label:after,
 textarea.materialize-textarea + label:after,
+textarea.wpcf7-textarea + label:after,
 .select-wrapper + label:after {
   display: block;
   content: "";
@@ -6804,7 +6827,7 @@ textarea.materialize-textarea + label:after,
 }
 
 .input-field .prefix.active {
-  color: #26a69a;
+  color: #000349;
 }
 
 .input-field .prefix ~ input,
@@ -6890,7 +6913,8 @@ textarea {
   background-color: transparent;
 }
 
-textarea.materialize-textarea {
+textarea.materialize-textarea,
+textarea.wpcf7-textarea {
   overflow-y: hidden;
   /* prevents scroll bar flash */
   padding: .8rem 0 1.6rem 0;
@@ -6899,15 +6923,18 @@ textarea.materialize-textarea {
   min-height: 3rem;
 }
 
-textarea.materialize-textarea.validate + label {
+textarea.materialize-textarea.validate + label,
+textarea.validate.wpcf7-textarea + label {
   height: 100%;
 }
 
-textarea.materialize-textarea.validate + label::after {
+textarea.materialize-textarea.validate + label::after,
+textarea.validate.wpcf7-textarea + label::after {
   top: calc(100% - 12px);
 }
 
-textarea.materialize-textarea.validate + label:not(.label-icon).active {
+textarea.materialize-textarea.validate + label:not(.label-icon).active,
+textarea.validate.wpcf7-textarea + label:not(.label-icon).active {
   -webkit-transform: translateY(-25px);
        -o-transform: translateY(-25px);
           transform: translateY(-25px);
@@ -8993,8 +9020,8 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .carousel.carousel-slider .carousel-item h2,
-.carousel.carousel-slider .carousel-item .um.um .um-name.um-name a,
-.um.um .um-name.um-name .carousel.carousel-slider .carousel-item a {
+.carousel.carousel-slider .carousel-item .um .um-name.um-name a,
+.um .um-name.um-name .carousel.carousel-slider .carousel-item a {
   font-size: 24px;
   font-weight: 500;
   line-height: 32px;
@@ -10468,7 +10495,7 @@ h1 {
 }
 
 h2,
-.um.um .um-name.um-name a {
+.um .um-name.um-name a {
   color: #9AB83C;
   font-family: "Montserrat", sans-serif;
   font-size: 46px;
@@ -10512,6 +10539,26 @@ label {
 
 .hentry li {
   list-style-type: inherit !important;
+}
+
+.hentry a {
+  color: #308593;
+  text-decoration: underline;
+  font-weight: bold;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.hentry a:hover,
+.hentry a:focus {
+  background: #AAE1EA;
+  text-decoration: none;
+}
+
+.hentry a:active {
+  color: #000349;
+  background: rgba(11, 0, 75, 0.19);
 }
 
 input[type="submit"].um-button {
@@ -10595,7 +10642,8 @@ input[type="submit"].um-button:active {
 }
 
 .btn-secondary,
-.um-button.um-alt {
+.um-button.um-alt,
+.wpcf7-submit {
   -webkit-box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
           box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
   color: white;
@@ -10622,7 +10670,8 @@ input[type="submit"].um-button:active {
 }
 
 .btn-secondary::before,
-.um-button.um-alt::before {
+.um-button.um-alt::before,
+.wpcf7-submit::before {
   content: " ";
   position: absolute;
   z-index: -1;
@@ -10634,7 +10683,8 @@ input[type="submit"].um-button:active {
 }
 
 .btn-secondary:hover,
-.um-button.um-alt:hover {
+.um-button.um-alt:hover,
+.wpcf7-submit:hover {
   -webkit-box-shadow: 2px 4px rgba(11, 0, 75, 0.19);
           box-shadow: 2px 4px rgba(11, 0, 75, 0.19);
   -webkit-transform: translate(2px, 2px);
@@ -10645,7 +10695,8 @@ input[type="submit"].um-button:active {
 }
 
 .btn-secondary:active,
-.um-button.um-alt:active {
+.um-button.um-alt:active,
+.wpcf7-submit:active {
   background-color: #9AB83C;
   border: 6px solid #688127;
   -webkit-box-shadow: 0 0;
@@ -10710,6 +10761,34 @@ input[type="submit"].um-button:active {
 input {
   font-family: "Zilla Slab", serif;
   color: #308593;
+}
+
+.page-submit-new-observation-data div[id="map_canvas"] {
+  width: 100% !important;
+}
+
+.wpcf7-form-control-wrap.photo {
+  display: block;
+}
+
+.wpcf7-latlong {
+  display: none;
+}
+
+.wpcf7-form fieldset {
+  position: relative;
+  border: 1px solid #000349;
+  padding: 10px 10px 0;
+  margin-bottom: 20px;
+  background: #CFF3FF;
+}
+
+.wpcf7-form .row {
+  position: relative;
+  margin: 0 0 10px;
+  border: 1px solid #000349;
+  background: white;
+  padding: 20px;
 }
 
 .observation.card {
@@ -10818,6 +10897,7 @@ input {
 .prize-card .card {
   background-color: #CFF3FF;
   border: 1px solid #000349;
+  padding: 10px;
   border-radius: 0;
   color: #000349;
   height: 100%;
@@ -10827,6 +10907,7 @@ input {
 
 .prize-card .card .card-reveal {
   background-color: #CFF3FF;
+  padding: 10px;
 }
 
 .prize-card .card .card-reveal p {
@@ -10836,6 +10917,7 @@ input {
 
 .prize-card .card .card-image img {
   border-radius: 0;
+  border: 1px solid #000349;
 }
 
 .page-prizes-data .row .col {
@@ -10850,7 +10932,7 @@ input {
 }
 
 .prizes .card-content {
-  border-top: 1px solid #000349;
+  padding: 0;
 }
 
 .prizes .card-content p {
@@ -11400,8 +11482,8 @@ nav ul.menu.secondary a {
 }
 
 .events-loop .title h2,
-.events-loop .title .um.um .um-name.um-name a,
-.um.um .um-name.um-name .events-loop .title a {
+.events-loop .title .um .um-name.um-name a,
+.um .um-name.um-name .events-loop .title a {
   line-height: 1.2;
   margin: 0;
   vertical-align: middle;
@@ -11420,8 +11502,8 @@ nav ul.menu.secondary a {
 }
 
 .buzzing-leaders {
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
-          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 60px));
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 60px));
   position: relative;
 }
 
@@ -11437,15 +11519,15 @@ nav ul.menu.secondary a {
 
 .buzzing-leaders::before {
   background: #000349;
-  -webkit-clip-path: polygon(0 calc(90% - 10px), 100% calc(100% - 10px), 100% 100%, 0 90%);
-          clip-path: polygon(0 calc(90% - 10px), 100% calc(100% - 10px), 100% 100%, 0 90%);
+  -webkit-clip-path: polygon(0 calc(100% - 70px), 100% calc(100% - 10px), 100% 100%, 0 calc(100% - 60px));
+          clip-path: polygon(0 calc(100% - 70px), 100% calc(100% - 10px), 100% 100%, 0 calc(100% - 60px));
   z-index: 1;
 }
 
 .buzzing-leaders::after {
   background: #CFF3FF;
-  -webkit-clip-path: polygon(0 calc(90% - 9px), 100% calc(100% - 9px), 100% calc(100% - 1px), 0 calc(90% - 1px));
-          clip-path: polygon(0 calc(90% - 9px), 100% calc(100% - 9px), 100% calc(100% - 1px), 0 calc(90% - 1px));
+  -webkit-clip-path: polygon(0 calc(100% - 69px), 100% calc(100% - 9px), 100% calc(100% - 1px), 0 calc(100% - 61px));
+          clip-path: polygon(0 calc(100% - 69px), 100% calc(100% - 9px), 100% calc(100% - 1px), 0 calc(100% - 61px));
   z-index: 2;
 }
 
@@ -11454,8 +11536,8 @@ nav ul.menu.secondary a {
 }
 
 .buzzing-leaders h2,
-.buzzing-leaders .um.um .um-name.um-name a,
-.um.um .um-name.um-name .buzzing-leaders a {
+.buzzing-leaders .um .um-name.um-name a,
+.um .um-name.um-name .buzzing-leaders a {
   color: #000349;
   font-family: "Zilla Slab", serif;
   font-size: 30px;
@@ -11486,8 +11568,8 @@ nav ul.menu.secondary a {
 }
 
 .leaderboard h2,
-.leaderboard .um.um .um-name.um-name a,
-.um.um .um-name.um-name .leaderboard a {
+.leaderboard .um .um-name.um-name a,
+.um .um-name.um-name .leaderboard a {
   color: white;
   margin: 1px;
   text-shadow: 2px 2px #688127;
@@ -11495,8 +11577,8 @@ nav ul.menu.secondary a {
 }
 
 .leaderboard h2 svg,
-.leaderboard .um.um .um-name.um-name a svg,
-.um.um .um-name.um-name .leaderboard a svg {
+.leaderboard .um .um-name.um-name a svg,
+.um .um-name.um-name .leaderboard a svg {
   height: 54px;
 }
 
@@ -11536,6 +11618,27 @@ nav ul.menu.secondary a {
   }
 }
 
+.content-info .row {
+  margin-bottom: 0;
+}
+
+.content-info a {
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.content-info a:hover,
+.content-info a:focus {
+  background: #AAE1EA;
+  text-decoration: none;
+}
+
+.content-info a:active {
+  color: #000349;
+  background: rgba(11, 0, 75, 0.19);
+}
+
 .top-border {
   background-color: #CFF3FF;
   border-bottom: 1px solid #000349;
@@ -11549,10 +11652,6 @@ nav ul.menu.secondary a {
   border-top: 1px solid #000349;
   font-size: 12px;
   padding: 10px 0 5px;
-}
-
-.bottom-bar .row {
-  margin-bottom: 0;
 }
 
 .footer-logo {
@@ -11571,7 +11670,11 @@ nav ul.menu.secondary a {
   font-size: 16px;
 }
 
-.arboretum-logo {
+.footer-logo p {
+  margin: 0;
+}
+
+.footer-logo svg {
   max-width: 100%;
 }
 
@@ -11609,35 +11712,15 @@ nav ul.menu.secondary a {
   z-index: 2;
 }
 
-.um-cover {
-  background: white;
-}
-
-.um-cover .btn-primary {
-  position: absolute;
-  right: 15px;
-  bottom: -30px;
-  z-index: 100;
-}
-
-.um-cover.um-trigger-menu-on-click .um-cover-e:hover .um-cover-overlay {
-  display: block;
-  z-index: 1;
-}
-
-.um-cover-e {
-  height: 100%;
-  width: 100%;
-  padding-bottom: 8px;
+.page:not(.home) .wrap {
   position: relative;
-  background: #CFF3FF;
-  border-bottom: 1px solid #000349;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
-          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
+  padding-bottom: 80px;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 60px));
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 60px));
 }
 
-.um-cover-e::before,
-.um-cover-e::after {
+.page:not(.home) .wrap::before,
+.page:not(.home) .wrap::after {
   content: '';
   position: absolute;
   left: 0;
@@ -11646,21 +11729,89 @@ nav ul.menu.secondary a {
   height: 100%;
 }
 
-.um-cover-e::before {
+.page:not(.home) .wrap::before {
   background: #000349;
-  -webkit-clip-path: polygon(0 calc(90% - 10px), 100% calc(100% - 10px), 100% 100%, 0 90%);
-          clip-path: polygon(0 calc(90% - 10px), 100% calc(100% - 10px), 100% 100%, 0 90%);
+  -webkit-clip-path: polygon(0 calc(100% - 70px), 100% calc(100% - 10px), 100% 100%, 0 calc(100% - 60px));
+          clip-path: polygon(0 calc(100% - 70px), 100% calc(100% - 10px), 100% 100%, 0 calc(100% - 60px));
   z-index: 1;
 }
 
-.um-cover-e::after {
+.page:not(.home) .wrap::after {
   background: #CFF3FF;
-  -webkit-clip-path: polygon(0 calc(90% - 9px), 100% calc(100% - 9px), 100% calc(100% - 1px), 0 calc(90% - 1px));
-          clip-path: polygon(0 calc(90% - 9px), 100% calc(100% - 9px), 100% calc(100% - 1px), 0 calc(90% - 1px));
+  -webkit-clip-path: polygon(0 calc(100% - 69px), 100% calc(100% - 9px), 100% calc(100% - 1px), 0 calc(100% - 61px));
+          clip-path: polygon(0 calc(100% - 69px), 100% calc(100% - 9px), 100% calc(100% - 1px), 0 calc(100% - 61px));
   z-index: 2;
 }
 
-.um-cover-e img {
+.google-maps-builder-wrap {
+  border: 1px solid #000349;
+  background: #CFF3FF;
+  padding: 10px;
+}
+
+.google-maps-builder-wrap .google-maps-builder {
+  border: 1px solid #000349;
+}
+
+.page-locations-data .col img.alignleft {
+  position: absolute;
+  left: -8.33333%;
+  float: none;
+  margin: 0;
+}
+
+.um .um-cover {
+  background: white;
+}
+
+.um .um-cover .btn-primary {
+  position: absolute;
+  right: 15px;
+  bottom: -30px;
+  z-index: 100;
+}
+
+.um .um-cover.um-trigger-menu-on-click .um-cover-e:hover .um-cover-overlay {
+  display: block;
+  z-index: 1;
+}
+
+.um .um-cover-e {
+  height: 100%;
+  width: 100%;
+  padding-bottom: 8px;
+  position: relative;
+  background: #CFF3FF;
+  border-bottom: 1px solid #000349;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 60px));
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 60px));
+}
+
+.um .um-cover-e::before,
+.um .um-cover-e::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.um .um-cover-e::before {
+  background: #000349;
+  -webkit-clip-path: polygon(0 calc(100% - 70px), 100% calc(100% - 10px), 100% 100%, 0 calc(100% - 60px));
+          clip-path: polygon(0 calc(100% - 70px), 100% calc(100% - 10px), 100% 100%, 0 calc(100% - 60px));
+  z-index: 1;
+}
+
+.um .um-cover-e::after {
+  background: #CFF3FF;
+  -webkit-clip-path: polygon(0 calc(100% - 69px), 100% calc(100% - 9px), 100% calc(100% - 1px), 0 calc(100% - 61px));
+          clip-path: polygon(0 calc(100% - 69px), 100% calc(100% - 9px), 100% calc(100% - 1px), 0 calc(100% - 61px));
+  z-index: 2;
+}
+
+.um .um-cover-e img {
   position: relative;
   display: block;
   -o-object-fit: cover;
@@ -11672,65 +11823,69 @@ nav ul.menu.secondary a {
   border-bottom: 1px solid #000349;
 }
 
-.um-profile-edit {
+.um .um-profile-edit {
   display: none !important;
 }
 
-.um-header {
+.um .um-name.um-name a {
+  color: #9AB83C;
+}
+
+.um .um-header {
   border-bottom: none;
   padding-top: 20px;
 }
 
-.um-header .btn-primary {
+.um .um-header .btn-primary {
   float: right;
   z-index: 100;
 }
 
-.um-profile-photo.um-trigger-menu-on-click:hover .um-profile-photo-overlay {
+.um .um-profile-photo.um-trigger-menu-on-click:hover .um-profile-photo-overlay {
   display: block;
 }
 
-.um-main-meta {
+.um .um-main-meta {
   float: left;
 }
 
-.um-main-meta .um-name {
+.um .um-main-meta .um-name {
   color: #9AB83C;
 }
 
-.um-main-meta .um-name:hover {
+.um .um-main-meta .um-name:hover {
   color: #9AB83C;
 }
 
-.um-profile-nav {
+.um .um-profile-nav {
   background: #CFF3FF;
   border-top: 1px solid #000349;
   border-bottom: 1px solid #000349;
 }
 
-.um-profile-nav-item a {
+.um .um-profile-nav-item a {
   color: #2F2F2F !important;
   border: 1px solid transparent !important;
 }
 
-.um-profile-nav-item a:hover,
-.um-profile-nav-item a:active,
-.um-profile-nav-item a:focus {
+.um .um-profile-nav-item a:hover,
+.um .um-profile-nav-item a:active,
+.um .um-profile-nav-item a:focus {
   background: #FFF;
   border: 1px solid #4CBED8 !important;
 }
 
-.badge.col {
+.um .badge.col {
   padding: 5px;
   position: relative;
 }
 
-.badge.col img {
+.um .badge.col img {
   width: 100%;
   height: auto;
 }
 
-.badge.col .btn-floating {
+.um .badge.col .btn-floating {
   position: absolute;
   bottom: 0;
   right: 0;

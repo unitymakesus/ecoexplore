@@ -7,3 +7,33 @@
 
   @include slanted('right');
 }
+
+.page:not(.home) {
+  .wrap {
+    position: relative;
+    padding-bottom: 80px;
+
+    @include slanted('shallow');
+  }
+}
+
+.google-maps-builder-wrap {
+  border: 1px solid $navy;
+  background: $ice;
+  padding: 10px;
+
+  .google-maps-builder {
+    border: 1px solid $navy;
+  }
+}
+
+.page-locations-data {
+  .col {
+    img.alignleft {
+      position: absolute;
+      left: -8.33333%;
+      float: none;
+      margin: 0;
+    }
+  }
+}

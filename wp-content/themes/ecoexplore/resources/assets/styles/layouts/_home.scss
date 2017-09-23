@@ -242,7 +242,7 @@
     height: 45px;
 
     &:nth-child(odd) {
-      background-color: rgba($shadow, 0.19) !important;
+      background-color: $shadow !important;
     }
   }
 

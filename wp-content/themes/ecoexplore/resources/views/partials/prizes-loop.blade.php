@@ -25,12 +25,12 @@
             </div>
 
             <div class="card-content">
-              <span class="card-title activator">{{ the_title() }}</span>
+              <span class="card-title activator">{{ the_title() }} <i class="material-icons right">info_outline</i></span>
               <p>{{ the_field('points') }} points</p>
             </div>
 
             <div class="card-reveal">
-              <span class="card-title">{{ the_title() }}</span>
+              <span class="card-title">{{ the_title() }} <i class="material-icons right">close</i></span>
               <p>{{ the_field('points') }} points</p>
               <p>{{ the_content() }}</p>
             </div>

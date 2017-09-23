@@ -33,9 +33,9 @@
     $ice-clip-path: polygon(0 calc(80% - 9px), 100% calc(100% - 9px), 100% calc(100% - 1px), 0 calc(80% - 1px));
   }
   @if $type == 'shallow' {
-    $main-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
-    $navy-clip-path: polygon(0 calc(90% - 10px), 100% calc(100% - 10px), 100% 100%, 0 90%);
-    $ice-clip-path: polygon(0 calc(90% - 9px), 100% calc(100% - 9px), 100% calc(100% - 1px), 0 calc(90% - 1px));
+    $main-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 60px));
+    $navy-clip-path: polygon(0 calc(100% - 70px), 100% calc(100% - 10px), 100% 100%, 0 calc(100% - 60px));
+    $ice-clip-path: polygon(0 calc(100% - 69px), 100% calc(100% - 9px), 100% calc(100% - 1px), 0 calc(100% - 61px));
   }
 
   clip-path: $main-clip-path;

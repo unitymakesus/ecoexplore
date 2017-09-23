@@ -7,7 +7,8 @@ export default {
       closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
       draggable: true, // Choose whether you can drag to open on touch screens
     });
-
+  },
+  finalize() {
     // Lazy load images a la David Walsh
     // https://davidwalsh.name/lazyload-image-fade
     [].forEach.call(document.querySelectorAll('noscript'), function(noscript) {
@@ -21,9 +22,5 @@ export default {
       img.alt = noscript.getAttribute('alt');
       img.className = noscript.getAttribute('class');
     });
-
-  },
-  finalize() {
-    // JavaScript to be fired on all pages, after page specific JS is fired
   },
 };

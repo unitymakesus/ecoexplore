@@ -67,6 +67,7 @@ array_map(function ($file) use ($sage_error) {
     'custom_post_types',
     'form_processor',
     'inaturalist',
+    'shortcodes',
     'ultimate-member'
   ]);
 

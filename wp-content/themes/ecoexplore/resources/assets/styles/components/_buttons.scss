@@ -82,7 +82,7 @@ input[type="submit"].um-button {
 
 //Secondary $green-med CTA button
 
-.btn-secondary, .um-button.um-alt {
+.btn-secondary, .um-button.um-alt, .wpcf7-submit {
   @include btn-global;
 
   background-color: $green-med;

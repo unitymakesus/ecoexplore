@@ -1,3 +1,23 @@
+.content-info {
+  .row {
+    margin-bottom: 0;
+  }
+
+  a {
+    transition: 0.2s;
+
+    &:hover, &:focus {
+      background: $aqua-light;
+      text-decoration: none;
+    }
+
+    &:active {
+      color: $navy;
+      background: $shadow;
+    }
+  }
+}
+
 .top-border {
   background-color: $ice;
   border-bottom: 1px solid $navy;
@@ -11,10 +31,6 @@
   border-top: 1px solid $navy;
   font-size: 12px;
   padding: 10px 0 5px;
-
-  .row {
-    margin-bottom: 0;
-  }
 }
 
 .footer-logo {
@@ -32,6 +48,12 @@
   font-size: 16px;
 }
 
-.arboretum-logo {
-  max-width: 100%;
+.footer-logo {
+  p {
+    margin: 0;
+  }
+
+  svg {
+    max-width: 100%;
+  }
 }
