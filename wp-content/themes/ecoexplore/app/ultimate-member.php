@@ -11,7 +11,9 @@ add_filter('um_user_photo_menu_view', function($items) {
   return $items;
 });
 
-// Profile tabs
+
+// Profile tabs\
+
 add_filter('um_user_profile_tabs', function($tabs) {
   $tabs = [
     'main' => [
@@ -25,6 +27,13 @@ add_filter('um_user_profile_tabs', function($tabs) {
   ];
 
   return $tabs;
+});
+
+
+// Add observation button to profile header
+
+add_action('um_after_header_meta', function() {
+  echo '<a class="btn-submit-obs waves-effect waves-light btn-primary"><i class="material-icons left" aria-hidden="true">photo_camera</i> Submit Observation</a>';
 });
 
 
@@ -69,9 +78,9 @@ add_action('eco_um_profile_header_cover_area', function($args) {
 
 			<?php $ultimatemember->fields->add_hidden_field( 'cover_photo' ); ?>
 
-			<?php echo $overlay; ?>
-
 			<div class="um-cover-e">
+
+  			<?php echo $overlay; ?>
 
 				<?php if ( um_profile('cover_photo') ) { ?>
 
@@ -106,6 +115,8 @@ add_action('eco_um_profile_header_cover_area', function($args) {
 				} ?>
 
 			</div>
+
+      <!-- <a class="btn-primary"><i class="material-icons left" aria-hidden="true">photo_camera</i> Submit Observation</a> -->
 
 		</div>
 

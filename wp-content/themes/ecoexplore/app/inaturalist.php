@@ -223,12 +223,12 @@ add_action('save_post_observation', function($post_id, $post, $update) {
  * @param  string $username
  * @return object the observations from the iNat API. False if error or none.
  */
-function get_observations($username = '') {
+function get_observations($number = 4, $username = '') {
   // iNaturalist API stuff
   $inat_base_url = get_field('inat_base_url', 'option');
 
   $params = [
-    'per_page' => 4
+    'per_page' => $number
   ];
   $args = [];
 
