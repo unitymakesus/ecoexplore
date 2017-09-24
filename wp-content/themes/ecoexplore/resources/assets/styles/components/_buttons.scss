@@ -11,19 +11,23 @@
   text-transform: uppercase;
   transform: translate(0, 0);
   transition: all 0.3s ease;
-  padding: 10px 15px !important;
+  padding: 5px 25px !important;
   position: relative;
   border-radius: 0 !important;
+  border-width: 8px;
+  border-style: solid;
   cursor: pointer;
 }
 @mixin btn-before-global {
   content: " ";
   position: absolute;
   z-index: -1;
-  top: -6px;
-  left: -6px;
-  right: -6px;
-  bottom: -6px;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border-width: 2px;
+  border-style: solid;
 }
 @mixin btn-hover-global {
   box-shadow: 2px 4px $shadow;
@@ -32,11 +36,11 @@
 
 // Ultimate member buttons
 input[type="submit"].um-button {
-  border: 1px solid $aqua-dark !important;
+  border: 2px solid $aqua-dark !important;
 }
 
 .um-button.um-alt {
-  border: 1px solid $green-dark !important;
+  border: 2px solid $green-dark !important;
 }
 
 //Primary $aqua CTA Button
@@ -45,37 +49,37 @@ input[type="submit"].um-button {
   @include btn-global;
 
   background-color: $aqua;
-  border: 6px solid $aqua-light;
-  text-shadow: 2px 4px $aqua-dark;
+  border-color: $aqua-light;
+  text-shadow: 4px 2px $aqua-dark;
 
   .um.um & {
-    border: 6px solid $aqua-light !important;
+    border: 8px solid $aqua-light !important;
 
     &:hover {
-      border: 6px solid $aqua !important;
+      border: 8px solid $aqua !important;
     }
 
-    &:active {
-      border: 6px solid $aqua-dark !important;
+    &:active, &:focus {
+      border: 8px solid $aqua-dark !important;
     }
   }
 
   &::before {
     @include btn-before-global;
 
-    border: 2px solid $aqua-dark;
+    border-color: $aqua-dark;
   }
 
   &:hover {
     @include btn-hover-global;
 
     background-color: $aqua-light;
-    border: 6px solid $aqua;
+    border-color: $aqua;
   }
 
-  &:active {
+  &:active, &:focus {
     background-color: $aqua;
-    border: 6px solid $aqua-dark;
+    border-color: $aqua-dark;
     box-shadow: 0 0;
   }
 }
@@ -86,27 +90,25 @@ input[type="submit"].um-button {
   @include btn-global;
 
   background-color: $green-med;
-  border: 6px solid $green-light;
-  padding: 2px 40px;
-  margin: 50px;
-  text-shadow: 2px 4px $green-dark;
+  border-color: $green-light;
+  text-shadow: 4px 2px $green-dark;
 
   &::before {
     @include btn-before-global;
 
-    border: 2px solid $green-dark;
+    border-color: $green-dark;
   }
 
   &:hover {
     @include btn-hover-global;
 
     background-color: $green-light;
-    border: 6px solid $green-med;
+    border-color: $green-med;
   }
 
-  &:active {
+  &:active, &:focus {
     background-color: $green-med;
-    border: 6px solid $green-dark;
+    border-color: $green-dark;
     box-shadow: 0 0;
   }
 }
@@ -117,28 +119,25 @@ input[type="submit"].um-button {
   @include btn-global;
 
   background-color: $orange-med;
-  border: 6px solid $orange-light;
-  font-size: 36px;
-  padding: 2px 20px;
-  margin: 50px 0;
-  text-shadow: 2px 4px $orange-dark;
+  border-color: $orange-light;
+  text-shadow: 4px 2px $orange-dark;
 
   &::before {
     @include btn-before-global;
 
-    border: 2px solid $orange-dark;
+    border-color: $orange-dark;
   }
 
   &:hover {
     @include btn-hover-global;
 
     background-color: $orange-light;
-    border: 6px solid $orange-med;
+    border-color: $orange-med;
   }
 
-  &:active {
+  &:active, &:focus {
     background-color: $orange-med;
-    border: 6px solid $orange-dark;
+    border-color: $orange-dark;
     box-shadow: 0 0;
   }
 }

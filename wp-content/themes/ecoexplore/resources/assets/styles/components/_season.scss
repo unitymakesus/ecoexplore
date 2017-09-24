@@ -45,19 +45,6 @@
   font-weight: bold;
 }
 
-.save-date {
-  position: absolute;
-}
-
-.season-end {
-  position: relative;
-
-  img {
-    max-width: 100%;
-    max-height: 350px;
-  }
-}
-
 // Entomology ($aqua)
 .entomology {
   .learn-more-btn {
@@ -65,7 +52,7 @@
 
     background-color: $aqua;
     border: 6px solid $aqua-light;
-    text-shadow: 2px 4px $aqua-dark;
+    text-shadow: 4px 2px $aqua-dark;
 
     &::before {
       @include learn-more-btn-before;
@@ -100,11 +87,11 @@
     }
 
     .month {
-      text-shadow: 2px 4px $aqua-dark;
+      text-shadow: 4px 2px $aqua-dark;
     }
 
     .day {
-      text-shadow: 2px 4px $aqua-dark;
+      text-shadow: 4px 2px $aqua-dark;
     }
 
     .title {
@@ -121,7 +108,7 @@
 
     background-color: $orange-med;
     border: 6px solid $orange-light;
-    text-shadow: 2px 4px $orange-dark;
+    text-shadow: 4px 2px $orange-dark;
 
     &::before {
       @include learn-more-btn-before;
@@ -156,11 +143,11 @@
     }
 
     .month {
-      text-shadow: 2px 4px $orange-dark;
+      text-shadow: 4px 2px $orange-dark;
     }
 
     .day {
-      text-shadow: 2px 4px $orange-dark;
+      text-shadow: 4px 2px $orange-dark;
     }
 
     .title {
@@ -176,7 +163,7 @@
 
     background-color: $red-med;
     border: 6px solid $red-light;
-    text-shadow: 2px 4px $red-dark;
+    text-shadow: 4px 2px $red-dark;
 
     &::before {
       @include learn-more-btn-before;
@@ -211,11 +198,11 @@
     }
 
     .month {
-      text-shadow: 2px 4px $red-dark;
+      text-shadow: 4px 2px $red-dark;
     }
 
     .day {
-      text-shadow: 2px 4px $red-dark;
+      text-shadow: 4px 2px $red-dark;
     }
 
     .title {
@@ -231,7 +218,7 @@
 
     background-color: $green-med;
     border: 6px solid $green-light;
-    text-shadow: 2px 4px $green-dark;
+    text-shadow: 4px 2px $green-dark;
 
     &::before {
       @include learn-more-btn-before;
@@ -266,11 +253,11 @@
     }
 
     .month {
-      text-shadow: 2px 4px $green-dark;
+      text-shadow: 4px 2px $green-dark;
     }
 
     .day {
-      text-shadow: 2px 4px $green-dark;
+      text-shadow: 4px 2px $green-dark;
     }
 
     .title {

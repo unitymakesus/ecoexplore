@@ -78,6 +78,12 @@ add_action('after_setup_theme', function () {
        'size' => 'ecoexplore-logo-2x'
      ));
 
+     /**
+      * Add image sizes
+      */
+     add_image_size('event-square', 400, 400, true);
+     add_image_size('event-landscape', 600, 400, true);
+
 }, 20);
 
 /**

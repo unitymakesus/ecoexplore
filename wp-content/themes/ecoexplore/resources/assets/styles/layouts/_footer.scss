@@ -5,13 +5,15 @@
 
   a {
     transition: 0.2s;
+    font-weight: bold;
 
-    &:hover, &:focus {
+    &:hover {
+      color: $aqua-dark;
       background: $aqua-light;
       text-decoration: none;
     }
 
-    &:active {
+    &:focus, &:active {
       color: $navy;
       background: $shadow;
     }

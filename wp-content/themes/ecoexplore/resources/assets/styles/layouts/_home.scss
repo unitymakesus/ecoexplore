@@ -1,9 +1,13 @@
 //Hero section
 
 .hero {
-  @include slanted('normal');
-
   position: relative;
+
+  .img-wrapper {
+    position: relative;
+
+    @include slanted('normal');
+  }
 
   img {
     width: 100%;
@@ -14,8 +18,21 @@
 .hero-text {
   position: absolute;
   top: 50%;
-  transform: translate3d(0, -50%, 0);
   left: 5%;
+  right: 5%;
+
+  .col {
+    position: relative;
+  }
+
+  .btn-primary {
+    font-size: 46px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    white-space: nowrap;
+  }
 }
 
 .splat {
@@ -23,7 +40,7 @@
   background-image: url(./images/splat-green.svg);
   background-size: 100% 100%;
   padding: 10% 0 13%;
-  max-width: 480px;
+  max-width: 540px;
   position: relative;
 
   .scientists {
@@ -33,6 +50,8 @@
     svg {
       margin: 0 auto 10px;
       display: block;
+      position: relative;
+      transform: translate3d(-20px, 0, 0);
     }
   }
 
@@ -41,24 +60,81 @@
     color: $gray;
     font-size: 18px;
     font-family: $font-family-sans-serif;
-    margin: 0 20% 20px 23%;
+    margin: 0 20% 40px 23%;
   }
 }
 //See-Snap-Share
 
 .see-snap-share {
-  margin-top: 250px;
+  margin-top: 130px;
 
   .row.panels {
     background-color: $ice;
     border: 1px solid $navy;
     position: relative;
     padding: 0 5px;
+    margin-bottom: 50px;
+
+    .panel-inner, .panel-img {
+      position: relative;
+      overflow: hidden;
+      background: $navy;
+    }
+
+    .col:nth-child(1) {
+      .panel-inner {
+        clip-path: polygon(0 0, 80% 0, 100% 100%, 0 100%);
+        transform: scale(1.1, 1);
+        transform-origin: center left;
+      }
+
+      .panel-img {
+        clip-path: polygon(1px 1px, calc(80% - 1px) 1px, calc(100% - 1px) calc(100% - 1px), 1px calc(100% - 1px));
+      }
+
+      img {
+        transform: scale(1, 1.1);
+        transform-origin: center;
+      }
+    }
+
+    .col:nth-child(2) {
+      .panel-inner {
+        clip-path: polygon(0 0, 100% 0, 82% 100%, 18% 100%);
+        transform: scale(1.23, 1);
+        transform-origin: center center;
+      }
+
+      .panel-img {
+        clip-path: polygon(1px 1px, calc(100% - 1px) 1px, calc(82% - 1px) calc(100% - 1px), calc(18% + 1px) calc(100% - 1px));
+      }
+
+      img {
+        transform: scale(1, 1.23);
+        transform-origin: center;
+      }
+    }
+
+    .col:nth-child(3) {
+      .panel-inner {
+        clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+        transform: scale(1.1, 1);
+        transform-origin: center right;
+      }
+
+      .panel-img {
+        clip-path: polygon(calc(20% + 1px) 1px, calc(100% - 1px) 1px, calc(100% - 1px) calc(100% - 1px), 1px calc(100% - 1px));
+      }
+
+      img {
+        transform: scale(1, 1.1);
+        transform-origin: center;
+      }
+    }
 
     img {
-      border: 1px solid $navy;
-      width: 100%;
       display: block;
+      width: 100%;
     }
 
     .mini-splat {
@@ -93,35 +169,77 @@
     top: 250px;
   }
 }
+
 //Events
+.rotate-wrap {
+  overflow: hidden;
+  position: relative;
+  padding: 50px 0;
+
+  .rotate-straighten {
+    position: relative;
+    transform: rotate(-2deg);
+    transform-origin: top left;
+  }
+}
 
 .events-loop {
   background-color: $ice;
   border-bottom: 1px solid $navy;
   border-top: 1px solid $navy;
-  margin-bottom: 50px;
-
-  .badge {
-    float: left;
-
-    svg {
-      text-shadow: 8px 8px $shadow;
-      width: 162px;
-      height: 162px;
-    }
-  }
-
-  .gray-halftone {
-    max-height: 350px;
-    background-color: white;
-  }
-
-  .season-content {
-    padding: 25px;
-  }
+  padding-top: 10px;
+  position: relative;
+  transform: rotate(2deg);
+  transform-origin: center center;
+  left: -20px;
+  right: -20px;
+  width: calc(100% + 40px);
+  margin-bottom: 40px;
 
   .row {
     margin: 0 -6px 10px;
+  }
+
+  .col {
+    padding: 0 5px;
+  }
+
+  .gray-halftone {
+    background-color: white;
+
+    &::before {
+      transform: rotate(-6deg) scale(1.05);
+    }
+  }
+
+  .season-content {
+    border: 1px solid $navy;
+    height: 100%;
+    padding: 50px;
+
+    .date {
+      font-size: 14px;
+      padding-left: 80px;
+    }
+
+    h2 {
+      font-size: 30px;
+      font-family: $font-family-serif;
+      color: $navy;
+      margin: 0 0 20px;
+      padding-left: 80px;
+    }
+
+    .badge {
+      float: left;
+      margin-right: 20px;
+    }
+  }
+
+  .save-date {
+    position: absolute;
+    left: 100px;
+    top: 20px;
   }
 
   .event {
@@ -132,7 +250,8 @@
 
     img {
       display: block;
-      max-width: 100%;
+      width: 100%;
+      height: auto;
     }
 
     .date {
@@ -146,6 +265,8 @@
       text-align: center;
       top: 15px;
       width: 100px;
+      transform: rotate(-2deg);
+      transform-origin: top right;
 
       &::before {
         content: " ";
@@ -162,7 +283,6 @@
   .title {
     width: 100%;
     padding: 20px;
-    min-height: 105px;
 
     h2 {
       line-height: 1.2;
@@ -173,14 +293,18 @@
       font-weight: normal;
     }
 
+    .label {
+      color: $navy;
+    }
+
     a {
       color: white;
-      text-shadow: 2px 4px $shadow;
+      text-shadow: 4px 2px $shadow;
     }
   }
 
-  .future-events {
-    padding: 0 5px;
+  .row:nth-child(2) > .col:first-child .title {
+    padding-left: 60px;
   }
 }
 
@@ -225,12 +349,14 @@
 
   h2 {
     color: white;
-    margin: 1px;
+    margin: 0 0 10px;
     text-shadow: 2px 2px $green-dark;
     vertical-align: middle;
 
     svg {
       height: 54px;
+      float: left;
+      margin-bottom: 10px;
     }
   }
 }
@@ -242,13 +368,18 @@
     height: 45px;
 
     &:nth-child(odd) {
-      background-color: $shadow !important;
+      background-color: rgba($shadow, 0.1) !important;
     }
+  }
+
+  .rank {
+    text-align: center;
   }
 
   .name {
     color: $navy;
     font-size: 18px;
+    font-weight: bold;
   }
 
   .score {

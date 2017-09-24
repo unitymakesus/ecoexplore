@@ -29,7 +29,7 @@
       <h1>It's @php(the_title()) Season!</h1>
       <p class="h6">{{ date('F j, Y', get_field('start_date')) }} - {{ date('F j, Y', get_field('end_date')) }}</p>
 
-      @include('partials.content-field-season')
+      @include('partials.content-single-field-season')
 
     @endwhile
     @php (wp_reset_postdata())

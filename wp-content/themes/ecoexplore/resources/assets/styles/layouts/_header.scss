@@ -87,6 +87,17 @@ nav {
       font-family: $font-family-serif;
       font-weight: bold;
       font-size: 24px;
+      color: $navy;
+
+      &:hover {
+        background: $aqua-light;
+        color: $aqua-dark;
+      }
+
+      &:focus, &:active {
+        background: $shadow;
+        color: $navy;
+      }
     }
 
     &.primary {
@@ -101,10 +112,6 @@ nav {
         display: block;
       }
 
-      a {
-        color: $navy;
-      }
-
       & > li:last-child {
         @include triangle("right");
       }
@@ -115,6 +122,24 @@ nav {
 
       a {
         color: $red-dark;
+        display: inline-block;
+
+        &:hover {
+          background: $orange-light;
+        }
+
+        &:focus, &:active {
+          background: $shadow;
+        }
+      }
+
+      .menu-log-in::after {
+        content: '';
+        display: inline-block;
+        background-image: url('../images/or.svg');
+        background-repeat: no-repeat;
+        width: 17px;
+        height: 15px;
       }
     }
   }

@@ -22,6 +22,15 @@
   }
 }
 
+.mega-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+}
+
 @mixin slanted($type: 'normal') {
   $main-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
   $navy-clip-path: polygon(0 calc(100% - 10px), 100% calc(80% - 10px), 100% 80%, 0 100%);
