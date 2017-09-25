@@ -60,7 +60,11 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
+<<<<<<< HEAD
 /******/ 	var hotCurrentHash = "a49e3de479ca57f94b73"; // eslint-disable-line no-unused-vars
+=======
+/******/ 	var hotCurrentHash = "2ab95e51e2b56c601db3"; // eslint-disable-line no-unused-vars
+>>>>>>> e92a6f18ac538a7126d0627dcff1a431ff32bf1e
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -721,9 +725,15 @@ module.exports = jQuery;
 
 /***/ }),
 /* 1 */
+<<<<<<< HEAD
 /*!**************************************************************************************************************************************************!*\
   !*** /Users/leighbryant/Desktop/Unity/Sites/Ecoexplore/app/public/wp-content/themes/ecoexplore/node_modules/html-entities/lib/html5-entities.js ***!
   \**************************************************************************************************************************************************/
+=======
+/*!******************************************************************************************************************************!*\
+  !*** /Users/unity/Sites/ecoexplore/app/public/wp-content/themes/ecoexplore/node_modules/html-entities/lib/html5-entities.js ***!
+  \******************************************************************************************************************************/
+>>>>>>> e92a6f18ac538a7126d0627dcff1a431ff32bf1e
 /*! no static exports found */
 /*! all exports used */
 /***/ (function(module, exports) {
@@ -1239,9 +1249,15 @@ if (module) {
 
 /***/ }),
 /* 5 */
+<<<<<<< HEAD
 /*!***************************************************************************************************************************************!*\
   !*** /Users/leighbryant/Desktop/Unity/Sites/Ecoexplore/app/public/wp-content/themes/ecoexplore/node_modules/querystring-es3/index.js ***!
   \***************************************************************************************************************************************/
+=======
+/*!*******************************************************************************************************************!*\
+  !*** /Users/unity/Sites/ecoexplore/app/public/wp-content/themes/ecoexplore/node_modules/querystring-es3/index.js ***!
+  \*******************************************************************************************************************/
+>>>>>>> e92a6f18ac538a7126d0627dcff1a431ff32bf1e
 /*! no static exports found */
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1255,9 +1271,15 @@ exports.encode = exports.stringify = __webpack_require__(/*! ./encode */ 7);
 
 /***/ }),
 /* 6 */
+<<<<<<< HEAD
 /*!****************************************************************************************************************************************!*\
   !*** /Users/leighbryant/Desktop/Unity/Sites/Ecoexplore/app/public/wp-content/themes/ecoexplore/node_modules/querystring-es3/decode.js ***!
   \****************************************************************************************************************************************/
+=======
+/*!********************************************************************************************************************!*\
+  !*** /Users/unity/Sites/ecoexplore/app/public/wp-content/themes/ecoexplore/node_modules/querystring-es3/decode.js ***!
+  \********************************************************************************************************************/
+>>>>>>> e92a6f18ac538a7126d0627dcff1a431ff32bf1e
 /*! no static exports found */
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1351,9 +1373,15 @@ var isArray = Array.isArray || function (xs) {
 
 /***/ }),
 /* 7 */
+<<<<<<< HEAD
 /*!****************************************************************************************************************************************!*\
   !*** /Users/leighbryant/Desktop/Unity/Sites/Ecoexplore/app/public/wp-content/themes/ecoexplore/node_modules/querystring-es3/encode.js ***!
   \****************************************************************************************************************************************/
+=======
+/*!********************************************************************************************************************!*\
+  !*** /Users/unity/Sites/ecoexplore/app/public/wp-content/themes/ecoexplore/node_modules/querystring-es3/encode.js ***!
+  \********************************************************************************************************************/
+>>>>>>> e92a6f18ac538a7126d0627dcff1a431ff32bf1e
 /*! no static exports found */
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1448,9 +1476,15 @@ var objectKeys = Object.keys || function (obj) {
 
 /***/ }),
 /* 8 */
+<<<<<<< HEAD
 /*!**********************************************************************************************************************************!*\
   !*** /Users/leighbryant/Desktop/Unity/Sites/Ecoexplore/app/public/wp-content/themes/ecoexplore/node_modules/strip-ansi/index.js ***!
   \**********************************************************************************************************************************/
+=======
+/*!**************************************************************************************************************!*\
+  !*** /Users/unity/Sites/ecoexplore/app/public/wp-content/themes/ecoexplore/node_modules/strip-ansi/index.js ***!
+  \**************************************************************************************************************/
+>>>>>>> e92a6f18ac538a7126d0627dcff1a431ff32bf1e
 /*! no static exports found */
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1466,9 +1500,15 @@ module.exports = function (str) {
 
 /***/ }),
 /* 9 */
+<<<<<<< HEAD
 /*!**********************************************************************************************************************************!*\
   !*** /Users/leighbryant/Desktop/Unity/Sites/Ecoexplore/app/public/wp-content/themes/ecoexplore/node_modules/ansi-regex/index.js ***!
   \**********************************************************************************************************************************/
+=======
+/*!**************************************************************************************************************!*\
+  !*** /Users/unity/Sites/ecoexplore/app/public/wp-content/themes/ecoexplore/node_modules/ansi-regex/index.js ***!
+  \**************************************************************************************************************/
+>>>>>>> e92a6f18ac538a7126d0627dcff1a431ff32bf1e
 /*! no static exports found */
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1572,9 +1612,15 @@ function problemType (type) {
 
 /***/ }),
 /* 11 */
+<<<<<<< HEAD
 /*!*********************************************************************************************************************************!*\
   !*** /Users/leighbryant/Desktop/Unity/Sites/Ecoexplore/app/public/wp-content/themes/ecoexplore/node_modules/ansi-html/index.js ***!
   \*********************************************************************************************************************************/
+=======
+/*!*************************************************************************************************************!*\
+  !*** /Users/unity/Sites/ecoexplore/app/public/wp-content/themes/ecoexplore/node_modules/ansi-html/index.js ***!
+  \*************************************************************************************************************/
+>>>>>>> e92a6f18ac538a7126d0627dcff1a431ff32bf1e
 /*! no static exports found */
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1760,9 +1806,15 @@ ansiHTML.reset()
 
 /***/ }),
 /* 12 */
+<<<<<<< HEAD
 /*!*************************************************************************************************************************************!*\
   !*** /Users/leighbryant/Desktop/Unity/Sites/Ecoexplore/app/public/wp-content/themes/ecoexplore/node_modules/html-entities/index.js ***!
   \*************************************************************************************************************************************/
+=======
+/*!*****************************************************************************************************************!*\
+  !*** /Users/unity/Sites/ecoexplore/app/public/wp-content/themes/ecoexplore/node_modules/html-entities/index.js ***!
+  \*****************************************************************************************************************/
+>>>>>>> e92a6f18ac538a7126d0627dcff1a431ff32bf1e
 /*! no static exports found */
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1777,9 +1829,15 @@ module.exports = {
 
 /***/ }),
 /* 13 */
+<<<<<<< HEAD
 /*!************************************************************************************************************************************************!*\
   !*** /Users/leighbryant/Desktop/Unity/Sites/Ecoexplore/app/public/wp-content/themes/ecoexplore/node_modules/html-entities/lib/xml-entities.js ***!
   \************************************************************************************************************************************************/
+=======
+/*!****************************************************************************************************************************!*\
+  !*** /Users/unity/Sites/ecoexplore/app/public/wp-content/themes/ecoexplore/node_modules/html-entities/lib/xml-entities.js ***!
+  \****************************************************************************************************************************/
+>>>>>>> e92a6f18ac538a7126d0627dcff1a431ff32bf1e
 /*! no static exports found */
 /*! all exports used */
 /***/ (function(module, exports) {
@@ -1943,9 +2001,15 @@ module.exports = XmlEntities;
 
 /***/ }),
 /* 14 */
+<<<<<<< HEAD
 /*!**************************************************************************************************************************************************!*\
   !*** /Users/leighbryant/Desktop/Unity/Sites/Ecoexplore/app/public/wp-content/themes/ecoexplore/node_modules/html-entities/lib/html4-entities.js ***!
   \**************************************************************************************************************************************************/
+=======
+/*!******************************************************************************************************************************!*\
+  !*** /Users/unity/Sites/ecoexplore/app/public/wp-content/themes/ecoexplore/node_modules/html-entities/lib/html4-entities.js ***!
+  \******************************************************************************************************************************/
+>>>>>>> e92a6f18ac538a7126d0627dcff1a431ff32bf1e
 /*! no static exports found */
 /*! all exports used */
 /***/ (function(module, exports) {
@@ -2280,7 +2344,11 @@ module.exports = function(hash, moduleMap, options) {
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! /Users/leighbryant/Desktop/Unity/Sites/Ecoexplore/app/public/wp-content/themes/ecoexplore/resources/assets/build/util/../helpers/hmr-client.js */3);
+=======
+__webpack_require__(/*! /Users/unity/Sites/ecoexplore/app/public/wp-content/themes/ecoexplore/resources/assets/build/util/../helpers/hmr-client.js */3);
+>>>>>>> e92a6f18ac538a7126d0627dcff1a431ff32bf1e
 module.exports = __webpack_require__(/*! ./scripts/customizer.js */46);
 
 
