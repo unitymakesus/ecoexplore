@@ -10,34 +10,15 @@
       <div class="col s6 m8 l6">
         <div class="row">
           <div class="col s12 m6 social-media">
-            <ul>
-              <li>
-                <a href="#">
-                  {!! file_get_contents(App\asset_path('images/icon-chat.svg')) !!}
-                  Contact Us
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  {!! file_get_contents(App\asset_path('images/icon-facebook.svg')) !!}
-                  Facebook
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  {!! file_get_contents(App\asset_path('images/icon-instagram.svg')) !!}
-                  Instagram
-                </a>
-              </li>
-            </ul>
+            @if (has_nav_menu('footer_left'))
+              {!! wp_nav_menu(['theme_location' => 'footer_left']) !!}
+            @endif
           </div>
 
           <div class="col s12 m6 footer-menu">
-            <ul>
-              <li><a href="#">About ecoEXPLORE</a></li>
-              <li><a href="#">Science Mentors</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-            </ul>
+            @if (has_nav_menu('footer_right'))
+              {!! wp_nav_menu(['theme_location' => 'footer_right']) !!}
+            @endif
           </div>
         </div>
       </div>

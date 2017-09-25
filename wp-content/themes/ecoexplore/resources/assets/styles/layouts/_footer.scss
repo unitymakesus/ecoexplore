@@ -18,6 +18,43 @@
       background: $shadow;
     }
   }
+
+  .menu {
+    @mixin menu-icon {
+      &::before {
+        content: '';
+        position: relative;
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        margin-right: 3px;
+      }
+    }
+
+    .menu-contact-us {
+      @include menu-icon;
+
+      &::before {
+        background-image: url('../images/icon-chat.svg');
+      }
+    }
+
+    .menu-facebook {
+      @include menu-icon;
+
+      &::before {
+        background-image: url('../images/icon-facebook.svg');
+      }
+    }
+
+    .menu-instagram {
+      @include menu-icon;
+
+      &::before {
+        background-image: url('../images/icon-instagram.svg');
+      }
+    }
+  }
 }
 
 .top-border {
