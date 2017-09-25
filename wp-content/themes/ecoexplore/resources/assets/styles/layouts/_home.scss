@@ -278,11 +278,16 @@
         bottom: -6px;
       }
     }
+
+    &:hover .title {
+      transform: translateY(-20px);
+    }
   }
 
   .title {
     width: 100%;
     padding: 20px;
+    transition: all ease-in-out 0.3s;
 
     h2 {
       line-height: 1.2;
@@ -330,9 +335,14 @@
     font-size: 26px;
     text-align: center;
     text-transform: uppercase;
+    transition: all ease 0.3s;
 
     a {
       color: $green-dark;
+    }
+
+    &:hover {
+      font-size: 30px;
     }
   }
 
@@ -343,7 +353,7 @@
 
 .leaderboard {
   background-color: $green-med;
-  border: 1px solid $green-dark;
+  border: 2px solid $green-dark;
   box-shadow: 8px 8px $shadow;
   padding: 15px;
 
