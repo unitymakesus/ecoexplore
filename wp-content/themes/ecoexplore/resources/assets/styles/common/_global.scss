@@ -29,6 +29,10 @@
   right: 0;
   bottom: 0;
   display: block;
+
+  &:hover, &:focus, &:active {
+    background: none !important;
+  }
 }
 
 @mixin slanted($type: 'normal') {

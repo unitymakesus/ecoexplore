@@ -61,7 +61,7 @@ h6 {
     list-style-type: inherit !important;
   }
 
-  a {
+  a:not(.btn-primary) {
     color: $aqua-dark;
     text-decoration: underline;
     font-weight: bold;

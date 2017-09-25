@@ -33,7 +33,7 @@ add_filter('um_user_profile_tabs', function($tabs) {
 // Add observation button to profile header
 
 add_action('um_after_header_meta', function() {
-  echo '<a class="btn-submit-obs waves-effect waves-light btn-primary"><i class="material-icons left" aria-hidden="true">photo_camera</i> Submit Observation</a>';
+  echo '<a class="btn-submit-obs btn-primary" href="/submit-new-observation/"><i class="material-icons" aria-hidden="true">photo_camera</i> Submit Observation</a>';
 });
 
 

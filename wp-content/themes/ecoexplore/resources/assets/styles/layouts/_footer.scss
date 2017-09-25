@@ -75,6 +75,10 @@
 .footer-logo {
   font-size: 12px;
   font-family: $font-family-sans-serif;
+
+  a {
+    background: none !important;
+  }
 }
 
 .svg-unity-logo {

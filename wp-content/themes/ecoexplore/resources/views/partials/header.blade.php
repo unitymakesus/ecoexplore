@@ -9,7 +9,7 @@
         @if (is_user_logged_in())
           <ul class="menu secondary hide-on-med-and-down">
             <li>
-              <a class="dropdown-button" href="#!" data-activates="account-dropdown">
+              <a class="dropdown-button" href="#!" data-activates="account-dropdown" data-beloworigin="true">
                 @php
                   $user = wp_get_current_user();
                 @endphp

@@ -4813,7 +4813,7 @@ html {
 
 h1,
 h2,
-.um .um-name.um-name a,
+.um.um .um-name.um-name a,
 h3,
 h4,
 h5,
@@ -4825,7 +4825,7 @@ label {
 
 h1 a,
 h2 a,
-.um .um-name.um-name a a,
+.um.um .um-name.um-name a a,
 h3 a,
 h4 a,
 h5 a,
@@ -4841,7 +4841,7 @@ h1 {
 }
 
 h2,
-.um .um-name.um-name a {
+.um.um .um-name.um-name a {
   font-size: 3.56rem;
   line-height: 110%;
   margin: 1.78rem 0 1.424rem 0;
@@ -6035,8 +6035,8 @@ button.btn-floating {
 
 .modal h1,
 .modal h2,
-.modal .um .um-name.um-name a,
-.um .um-name.um-name .modal a,
+.modal .um.um .um-name.um-name a,
+.um.um .um-name.um-name .modal a,
 .modal h3,
 .modal h4 {
   margin-top: 0;
@@ -9022,8 +9022,8 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .carousel.carousel-slider .carousel-item h2,
-.carousel.carousel-slider .carousel-item .um .um-name.um-name a,
-.um .um-name.um-name .carousel.carousel-slider .carousel-item a {
+.carousel.carousel-slider .carousel-item .um.um .um-name.um-name a,
+.um.um .um-name.um-name .carousel.carousel-slider .carousel-item a {
   font-size: 24px;
   font-weight: 500;
   line-height: 32px;
@@ -10330,6 +10330,12 @@ button.picker__close:focus {
   display: block;
 }
 
+.mega-link:hover,
+.mega-link:focus,
+.mega-link:active {
+  background: none !important;
+}
+
 @media only screen and (min-width: 993px) {
   .container {
     width: 95%;
@@ -10506,7 +10512,7 @@ h1 {
 }
 
 h2,
-.um .um-name.um-name a {
+.um.um .um-name.um-name a {
   color: #9AB83C;
   font-family: "Montserrat", sans-serif;
   font-size: 46px;
@@ -10552,7 +10558,7 @@ label {
   list-style-type: inherit !important;
 }
 
-.hentry a {
+.hentry a:not(.btn-primary) {
   color: #308593;
   text-decoration: underline;
   font-weight: bold;
@@ -10561,13 +10567,13 @@ label {
   transition: 0.2s;
 }
 
-.hentry a:hover,
-.hentry a:focus {
+.hentry a:not(.btn-primary):hover,
+.hentry a:not(.btn-primary):focus {
   background: #AAE1EA;
   text-decoration: none;
 }
 
-.hentry a:active {
+.hentry a:not(.btn-primary):active {
   color: #000349;
   background: rgba(11, 0, 75, 0.19);
 }
@@ -10609,9 +10615,16 @@ input[type="submit"].um-button {
   border-width: 8px;
   border-style: solid;
   cursor: pointer;
+  will-change: transform;
   background-color: #4CBED8;
   border-color: #AAE1EA;
   text-shadow: 4px 2px #308593;
+}
+
+.btn-primary .material-icons,
+input[type="submit"].um-button .material-icons {
+  font-size: 36px;
+  vertical-align: -6px;
 }
 
 .btn-primary::before,
@@ -10681,9 +10694,17 @@ a.um-button.um-alt,
   border-width: 8px;
   border-style: solid;
   cursor: pointer;
+  will-change: transform;
   background-color: #9AB83C;
   border-color: #C4DE95;
   text-shadow: 4px 2px #688127;
+}
+
+.btn-secondary .material-icons,
+a.um-button.um-alt .material-icons,
+.wpcf7-submit .material-icons {
+  font-size: 36px;
+  vertical-align: -6px;
 }
 
 .btn-secondary::before,
@@ -10757,9 +10778,15 @@ a.um-button.um-alt:focus,
   border-width: 8px;
   border-style: solid;
   cursor: pointer;
+  will-change: transform;
   background-color: #E98B3B;
   border-color: #EDC57B;
   text-shadow: 4px 2px #C27811;
+}
+
+.btn-tertiary .material-icons {
+  font-size: 36px;
+  vertical-align: -6px;
 }
 
 .btn-tertiary::before {
@@ -10907,7 +10934,7 @@ input {
   transition: all 0.3s ease;
 }
 
-.observation.card:nth-child(4n-7) h3 a {
+.observation.card:nth-child(4n-7) h3 {
   text-shadow: 2px 2px #C27811;
 }
 
@@ -10924,7 +10951,7 @@ input {
   transition: all 0.3s ease;
 }
 
-.observation.card:nth-child(4n-6) h3 a {
+.observation.card:nth-child(4n-6) h3 {
   text-shadow: 2px 2px #688127;
 }
 
@@ -10941,7 +10968,7 @@ input {
   transition: all 0.3s ease;
 }
 
-.observation.card:nth-child(4n-5) h3 a {
+.observation.card:nth-child(4n-5) h3 {
   text-shadow: 2px 2px #99140C;
 }
 
@@ -10958,7 +10985,7 @@ input {
   transition: all 0.3s ease;
 }
 
-.observation.card:nth-child(4n) h3 a {
+.observation.card:nth-child(4n) h3 {
   text-shadow: 2px 2px #308593;
 }
 
@@ -11670,6 +11697,11 @@ nav ul.menu.secondary .menu-log-in::after {
   height: 15px;
 }
 
+nav ul.menu .dropdown-content a {
+  display: block;
+  font-size: 18px;
+}
+
 .hero {
   position: relative;
 }
@@ -11950,8 +11982,8 @@ nav ul.menu.secondary .menu-log-in::after {
 }
 
 .events-loop .season-content h2,
-.events-loop .season-content .um .um-name.um-name a,
-.um .um-name.um-name .events-loop .season-content a {
+.events-loop .season-content .um.um .um-name.um-name a,
+.um.um .um-name.um-name .events-loop .season-content a {
   font-size: 30px;
   font-family: "Zilla Slab", serif;
   color: #000349;
@@ -12033,8 +12065,8 @@ nav ul.menu.secondary .menu-log-in::after {
 }
 
 .events-loop .title h2,
-.events-loop .title .um .um-name.um-name a,
-.um .um-name.um-name .events-loop .title a {
+.events-loop .title .um.um .um-name.um-name a,
+.um.um .um-name.um-name .events-loop .title a {
   line-height: 1.2;
   margin: 0;
   vertical-align: middle;
@@ -12091,8 +12123,8 @@ nav ul.menu.secondary .menu-log-in::after {
 }
 
 .buzzing-leaders h2,
-.buzzing-leaders .um .um-name.um-name a,
-.um .um-name.um-name .buzzing-leaders a {
+.buzzing-leaders .um.um .um-name.um-name a,
+.um.um .um-name.um-name .buzzing-leaders a {
   color: #000349;
   font-family: "Zilla Slab", serif;
   font-size: 30px;
@@ -12130,8 +12162,8 @@ nav ul.menu.secondary .menu-log-in::after {
 }
 
 .leaderboard h2,
-.leaderboard .um .um-name.um-name a,
-.um .um-name.um-name .leaderboard a {
+.leaderboard .um.um .um-name.um-name a,
+.um.um .um-name.um-name .leaderboard a {
   color: white;
   margin: 0 0 10px;
   text-shadow: 2px 2px #688127;
@@ -12139,8 +12171,8 @@ nav ul.menu.secondary .menu-log-in::after {
 }
 
 .leaderboard h2 svg,
-.leaderboard .um .um-name.um-name a svg,
-.um .um-name.um-name .leaderboard a svg {
+.leaderboard .um.um .um-name.um-name a svg,
+.um.um .um-name.um-name .leaderboard a svg {
   height: 54px;
   float: left;
   margin-bottom: 10px;
@@ -12269,6 +12301,10 @@ nav ul.menu.secondary .menu-log-in::after {
   font-family: "Montserrat", sans-serif;
 }
 
+.footer-logo a {
+  background: none !important;
+}
+
 .svg-unity-logo {
   height: 22px;
 }
@@ -12370,23 +12406,23 @@ nav ul.menu.secondary .menu-log-in::after {
   margin: 0;
 }
 
-.um .um-cover {
+.um.um .um-cover {
   background: white;
 }
 
-.um .um-cover .btn-primary {
+.um.um .um-cover .btn-primary {
   position: absolute;
   right: 15px;
   bottom: -30px;
   z-index: 100;
 }
 
-.um .um-cover.um-trigger-menu-on-click .um-cover-e:hover .um-cover-overlay {
+.um.um .um-cover.um-trigger-menu-on-click .um-cover-e:hover .um-cover-overlay {
   display: block;
   z-index: 1;
 }
 
-.um .um-cover-e {
+.um.um .um-cover-e {
   height: 100%;
   width: 100%;
   padding-bottom: 8px;
@@ -12397,8 +12433,8 @@ nav ul.menu.secondary .menu-log-in::after {
           clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 60px));
 }
 
-.um .um-cover-e::before,
-.um .um-cover-e::after {
+.um.um .um-cover-e::before,
+.um.um .um-cover-e::after {
   content: '';
   position: absolute;
   left: 0;
@@ -12407,21 +12443,21 @@ nav ul.menu.secondary .menu-log-in::after {
   height: 100%;
 }
 
-.um .um-cover-e::before {
+.um.um .um-cover-e::before {
   background: #000349;
   -webkit-clip-path: polygon(0 calc(100% - 70px), 100% calc(100% - 10px), 100% 100%, 0 calc(100% - 60px));
           clip-path: polygon(0 calc(100% - 70px), 100% calc(100% - 10px), 100% 100%, 0 calc(100% - 60px));
   z-index: 1;
 }
 
-.um .um-cover-e::after {
+.um.um .um-cover-e::after {
   background: #CFF3FF;
   -webkit-clip-path: polygon(0 calc(100% - 69px), 100% calc(100% - 9px), 100% calc(100% - 1px), 0 calc(100% - 61px));
           clip-path: polygon(0 calc(100% - 69px), 100% calc(100% - 9px), 100% calc(100% - 1px), 0 calc(100% - 61px));
   z-index: 2;
 }
 
-.um .um-cover-e img {
+.um.um .um-cover-e img {
   position: relative;
   display: block;
   -o-object-fit: cover;
@@ -12433,69 +12469,78 @@ nav ul.menu.secondary .menu-log-in::after {
   border-bottom: 1px solid #000349;
 }
 
-.um .um-profile-edit {
+.um.um .um-profile-edit {
   display: none !important;
 }
 
-.um .um-name.um-name a {
+.um.um .um-name.um-name a {
   color: #9AB83C;
 }
 
-.um .um-header {
+.um.um .um-header {
   border-bottom: none;
   padding-top: 20px;
 }
 
-.um .um-header .btn-primary {
+.um.um .um-header .btn-primary {
+  border-bottom: 8px solid #AAE1EA !important;
   float: right;
   z-index: 100;
 }
 
-.um .um-profile-photo.um-trigger-menu-on-click:hover .um-profile-photo-overlay {
+.um.um .um-header .btn-primary:hover {
+  border-bottom-color: #4CBED8 !important;
+}
+
+.um.um .um-profile-photo.um-trigger-menu-on-click:hover .um-profile-photo-overlay {
   display: block;
 }
 
-.um .um-main-meta {
+.um.um .um-main-meta {
   float: left;
 }
 
-.um .um-main-meta .um-name {
+.um.um .um-main-meta .um-name {
   color: #9AB83C;
 }
 
-.um .um-main-meta .um-name:hover {
+.um.um .um-main-meta .um-name:hover {
   color: #9AB83C;
 }
 
-.um .um-profile-nav {
+.um.um .um-profile-nav {
   background: #CFF3FF;
   border-top: 1px solid #000349;
   border-bottom: 1px solid #000349;
 }
 
-.um .um-profile-nav-item a {
+.um.um .um-profile-nav-item a {
   color: #2F2F2F !important;
   border: 1px solid transparent !important;
 }
 
-.um .um-profile-nav-item a:hover,
-.um .um-profile-nav-item a:active,
-.um .um-profile-nav-item a:focus {
+.um.um .um-profile-nav-item a:hover,
+.um.um .um-profile-nav-item a:active,
+.um.um .um-profile-nav-item a:focus {
   background: #FFF;
   border: 1px solid #4CBED8 !important;
 }
 
-.um .badge.col {
+.um.um .um-profile-nav-item.active a {
+  color: #FFF !important;
+}
+
+.um.um .badge.col {
   padding: 5px;
   position: relative;
 }
 
-.um .badge.col img {
+.um.um .badge.col img {
   width: 100%;
   height: auto;
 }
 
-.um .badge.col .btn-floating {
+.um.um .badge.col .btn-floating {
   position: absolute;
   bottom: 0;
   right: 0;

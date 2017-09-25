@@ -17,6 +17,12 @@
   border-width: 8px;
   border-style: solid;
   cursor: pointer;
+  will-change: transform;
+
+  .material-icons {
+    font-size: 36px;
+    vertical-align: -6px;
+  }
 
   &::before {
     content: " ";
