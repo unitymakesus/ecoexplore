@@ -83,7 +83,8 @@
             "after-same-name"
           ],
           "ignore": [
-            "after-comment"
+            "after-comment",
+            "blockless-after-blockless"
           ]
         }
       ]

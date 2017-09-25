@@ -156,7 +156,7 @@ add_action( 'init', function() {
 			'hierarchical' => true,
 			'supports' => array( 'title', 'editor', 'thumbnail'),
 			'public' => true,
-			'has_archive' => true,
+			'has_archive' => false,
 			'rewrite' => true,
 			'query_var' => true
 		)

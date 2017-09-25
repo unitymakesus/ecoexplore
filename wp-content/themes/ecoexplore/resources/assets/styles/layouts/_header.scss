@@ -83,6 +83,12 @@ nav {
 
     @include triangle("left");
 
+    li {
+      &.active {
+        background: none;
+      }
+    }
+
     a {
       font-family: $font-family-serif;
       font-weight: bold;

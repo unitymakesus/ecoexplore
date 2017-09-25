@@ -1,57 +1,13 @@
-.prize-card .card {
-  background-color: $ice;
-  border: 1px solid $navy;
-  padding: 10px;
-  border-radius: 0;
-  color: $navy;
-  height: 100%;
-  box-shadow: 5px 5px $shadow;
-
-  .card-reveal {
-    background-color: $ice;
-    padding: 10px;
-
-    p {
-      font-family: $font-family-sans-serif;
-      font-size: 14px;
-    }
-  }
-
-  .card-image img {
-    border-radius: 0;
-    border: 1px solid $navy;
-  }
-}
-
-.page-prizes-data .row .col {
-  padding: 15px;
-}
-
-.card-title {
-  font-family: $font-family-serif;
-  font-size: 18px;
-  line-height: 1;
-  text-shadow: 1px 2px $shadow;
-}
-
-.prizes .card-content {
-  padding: 0;
-
-  p {
-    font-family: $font-family-sans-serif;
-    font-size: 14px;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .page-prizes-data .row .col {
-    padding: 10px;
-  }
-
-  .card .card-content,.card .card-reveal {
+.prizes {
+  .row .col {
     padding: 15px;
   }
+
+  .card {
+    @include photo-card;
+  }
 }
+
 @media only screen and (max-width: 425px) {
   .card .card-content, .card .card-reveal {
     padding: 25px;

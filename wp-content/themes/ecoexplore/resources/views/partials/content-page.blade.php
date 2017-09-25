@@ -1,4 +1,4 @@
-@if(!is_page('user'))
+@if (!is_page('user'))
   @php($class = 'container')
 @endif
 
@@ -7,10 +7,14 @@
   {!! wp_link_pages(['echo' => 0, 'before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']) !!}
 </div>
 
-@if(is_page('prizes'))
+@if (is_page('prizes'))
   @include('partials.prizes-loop')
 @endif
 
-@if(is_page('field-season'))
+@if (is_page('field-season'))
   @include('partials.field-season-loop')
+@endif
+
+@if (is_page('science-mentors'))
+  @include('partials.scientists-loop')
 @endif

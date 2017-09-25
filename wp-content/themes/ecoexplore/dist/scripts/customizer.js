@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "2ab95e51e2b56c601db3"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "a26cdea1bc375d6a9351"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -705,7 +705,7 @@
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return hotCreateRequire(45)(__webpack_require__.s = 45);
+/******/ 	return hotCreateRequire(48)(__webpack_require__.s = 48);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -2272,7 +2272,10 @@ module.exports = function(hash, moduleMap, options) {
 /* 42 */,
 /* 43 */,
 /* 44 */,
-/* 45 */
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */
 /*!***************************************************************************!*\
   !*** multi ./build/util/../helpers/hmr-client.js ./scripts/customizer.js ***!
   \***************************************************************************/
@@ -2281,11 +2284,11 @@ module.exports = function(hash, moduleMap, options) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /Users/unity/Sites/ecoexplore/app/public/wp-content/themes/ecoexplore/resources/assets/build/util/../helpers/hmr-client.js */3);
-module.exports = __webpack_require__(/*! ./scripts/customizer.js */46);
+module.exports = __webpack_require__(/*! ./scripts/customizer.js */49);
 
 
 /***/ }),
-/* 46 */
+/* 49 */
 /*!*******************************!*\
   !*** ./scripts/customizer.js ***!
   \*******************************/

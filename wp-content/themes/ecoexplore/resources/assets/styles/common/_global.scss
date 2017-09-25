@@ -70,3 +70,51 @@
     z-index: 2;
   }
 }
+@mixin photo-card {
+  background-color: $ice;
+  border: 1px solid $navy;
+  padding: 10px;
+  border-radius: 0;
+  color: $navy;
+  height: 100%;
+  box-shadow: 5px 5px $shadow;
+
+  .card-image img {
+    border-radius: 0;
+    border: 1px solid $navy;
+  }
+
+  .card-content, .card-reveal {
+    font-family: $font-family-sans-serif;
+    padding: 0;
+
+    .card-title {
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 1;
+      text-shadow: 1px 2px $shadow;
+      padding-top: 10px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+
+    @media only screen and (max-width: 768px) {
+      padding: 25px;
+
+      .card-title {
+        font-size: 30px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .card-reveal {
+    background-color: $ice;
+    padding: 10px;
+  }
+}
