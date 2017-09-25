@@ -12427,8 +12427,6 @@ nav ul.menu .dropdown-content a {
   width: 100%;
   padding-bottom: 8px;
   position: relative;
-  background: #CFF3FF;
-  border-bottom: 1px solid #000349;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 60px));
           clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 60px));
 }
