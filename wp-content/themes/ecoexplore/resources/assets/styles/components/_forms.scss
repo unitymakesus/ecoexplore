@@ -7,25 +7,13 @@ label {
   @extend h6;
 }
 
-.page-submit-new-observation-data {
-  div[id="map_canvas"] {
-    width: 100% !important;
-  }
-}
-
-.wpcf7-textarea {
-  @extend .materialize-textarea;
-}
-
-.wpcf7-form-control-wrap.photo {
-  display: block;
-}
-
-.wpcf7-latlong {
-  display: none;
-}
-
+// Submission form styles
 .wpcf7-form {
+  input[type="text"] {
+    margin-bottom: 0;
+    font-size: 25px;
+  }
+
   fieldset {
     position: relative;
     border: 1px solid $navy;
@@ -40,5 +28,100 @@ label {
     border: 1px solid $navy;
     background: white;
     padding: 20px;
+  }
+
+  .wpcf7-form-control-wrap {
+    display: block;
+    position: relative;
+
+    &.photo {
+      position: static;
+    }
+  }
+
+  .wpcf7-textarea {
+    @extend .materialize-textarea;
+  }
+
+  .file-field {
+    .btn {
+      background: $aqua;
+      box-shadow: none !important;
+      border-radius: 0;
+      font-family: $font-comic;
+      font-size: 25px;
+      text-shadow: 4px 2px $aqua-dark;
+    }
+  }
+
+  .input-field.inline {
+    width: 100%;
+
+    input {
+      display: inline-block;
+      width: 50%;
+      margin: 0;
+
+      &[type="button"] {
+        width: auto;
+        background: $orange-med;
+        box-shadow: none !important;
+        border-radius: 0;
+        font-family: $font-comic;
+        text-shadow: 4px 2px $orange-dark;
+        @extend .btn;
+
+        &:hover, &:focus, &:active {
+          background: $orange-dark;
+        }
+      }
+    }
+  }
+}
+
+// Hidden input fields
+.wpcf7-latlong, input[name="datetime"] {
+  display: none;
+}
+
+.flatpickr-calendar {
+  border-radius: 0;
+
+  .numInputWrapper {
+    &:hover {
+      background: rgba($shadow, 0.1);
+    }
+  }
+
+  input.numInput {
+    font-size: inherit;
+  }
+
+  .flatpickr-day {
+    &.selected {
+      background: $aqua;
+      border-color: $aqua-dark;
+    }
+
+    &:hover {
+      background: rgba($shadow, 0.1);
+    }
+  }
+
+  .flatpickr-time {
+    height: auto !important;
+    max-height: none;
+
+    .numInputWrapper {
+      height: auto;
+    }
+  }
+}
+
+div[id="map_canvas"] {
+  width: 100% !important;
+
+  .gm-style-pbt {
+    text-align: center;
   }
 }

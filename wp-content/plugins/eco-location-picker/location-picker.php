@@ -353,8 +353,8 @@ function wpcf7_tg_pane_location( $contact_form, $args = '' ) {
 
 		function wpcf7_mapcanvas_shortcode_handler( $tag ) {
 
-			$html = sprintf( ' <div id="map_canvas" style="width: 400px; height: 400px;"></div>
-			<p class="small" style="text-align: center">Click to set the marker or drag to pan.</p>');
+			$html = sprintf( ' <p>Click to drop a pin on the map.</p>
+			<div id="map_canvas" style="width: 400px; height: 400px;"></div>');
 
 			return $html;
 		}
@@ -475,7 +475,7 @@ function wpcf7_tg_pane_location( $contact_form, $args = '' ) {
 
 			$atts = wpcf7_format_atts( $atts );
 
-			$html = sprintf( '<input %1$s />%2$s <input type="button" onclick="search();" value="Show" class="formandu-button">', $atts, $validation_error );
+			$html = sprintf( '<input %1$s />%2$s <input type="button" onclick="search();" value="Find on map" class="formandu-button">', $atts, $validation_error );
 
 			return $html;
 		}

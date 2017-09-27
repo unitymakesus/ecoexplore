@@ -1,5 +1,13 @@
 <?php
 
+// Include subscribers in list of authors for observations
+add_filter( 'wp_dropdown_users_args', function( $query_args, $r ) {
+
+  $query_args['who'] = '';
+  return $query_args;
+
+}, 10, 2);
+
 // Replace avatar upload with avatar picker
 
 add_filter('um_user_photo_menu_view', function($items) {

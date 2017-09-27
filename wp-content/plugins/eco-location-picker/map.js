@@ -30,19 +30,17 @@ function init() {
   var myOptions = {
     zoom: zoom,
     center: latlng,
-    streetViewControl: true,
+    streetViewControl: false,
     disableDefaultUI: false,
+    fullscreenControl: false,
     panControl:true,
     rotateControl:true,
     scaleControl:true,
     overviewMapControl:true,
-    mapTypeId: google.maps.MapTypeId.TERRAIN,
+    mapTypeId: 'roadmap',
     zoomControl: true,
     zoomControlOptions: { position: google.maps.ControlPosition.TL, style: google.maps.ZoomControlStyle.SMALL },
-    mapTypeControl:true,
-    mapTypeControlOptions: {
-      style:google.maps.MapTypeControlStyle.DROPDOWN_MENU
-    }
+    mapTypeControl: false,
   };
 
   map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);

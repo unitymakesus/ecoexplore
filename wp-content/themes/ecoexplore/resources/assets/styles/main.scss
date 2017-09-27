@@ -12,6 +12,7 @@
 $roboto-font-path: "~materialize-css/dist/fonts/roboto/";
 
 @import "~materialize-css/sass/materialize";
+@import "~flatpickr/dist/flatpickr";
 
 /** Import theme styles */
 @import "common/global";

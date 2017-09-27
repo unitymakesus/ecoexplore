@@ -4,16 +4,23 @@ function observations_loop($number, $username) {
   $recent_obs = new WP_Query([
     'post_type' => 'observation',
     'posts_per_page' => $number,
-    'author_name' => $username
+    'author_name' => $username,
+    'post_status' => ['publish', 'pending']
   ]);
 
   if ($recent_obs->have_posts()) {
     while ($recent_obs->have_posts()) {
       $recent_obs->the_post();
       $obs_time = get_field('observation_time');
+      $points = get_field('points');
+
+      $status = '';
+      if (get_post_status() == 'pending') {
+        $status = 'pending';
+      }
       ?>
 
-      <div class="observation card horizontal">
+      <div class="observation card horizontal <?php echo $status; ?>">
         <?php if (!empty($inat_id = get_field('inat_id'))) { ?>
           <a href="https://www.inaturalist.org/observations/<?php echo $inat_id; ?>" target="_blank" rel="noopener" class="mega-link" aria-hidden="true"></a>
         <?php } ?>
@@ -26,19 +33,26 @@ function observations_loop($number, $username) {
           <div class="card-content">
             <h3><?php the_title(); ?></h3>
             <ul>
-              <li><i class="material-icons" aria-label="Where">location_on</i> Location</li>
+              <li><i class="material-icons" aria-label="Where">location_on</i> <?php the_field('city_state'); ?></li>
               <li><i class="material-icons" aria-label="When">access_time</i> <?php echo date("M j, Y", strtotime($obs_time)); ?></li>
             </ul>
           </div>
 
           <div class="card-action">
-            <ul>
-              <li><i class="material-icons" aria-label="Points">star_border</i> <?php the_field('points'); ?></li>
-              <?php if (!empty($inat_id = get_field('inat_id'))) { ?>
-                <li><a href="https://www.inaturalist.org/observations/<?php echo $inat_id; ?>" target="_blank" rel="noopener"><i class="material-icons" aira-hidden="true">cloud_upload</i> See on iNaturalist</a></li>
-              <?php } ?>
-            </ul>
+            <?php if ($status == 'pending') { ?>
+              <ul>
+                <li><i class="material-icons" aria-hidden="true">hourglass_empty</i> This observation is pending review!</li>
+              </ul>
+            <?php } else { ?>
+              <ul>
+                <li><i class="material-icons" aria-label="Points">star_border</i> <?php echo $points; ?> Point<?php if ($points > 1) { echo 's'; }; ?></li>
+                <?php if (!empty($inat_id = get_field('inat_id'))) { ?>
+                  <li><a href="https://www.inaturalist.org/observations/<?php echo $inat_id; ?>" target="_blank" rel="noopener"><i class="material-icons" aira-hidden="true">cloud_upload</i> See on iNaturalist</a></li>
+                <?php } ?>
+              </ul>
+            <?php } ?>
           </div>
+
         </div>
       </div>
 

@@ -163,9 +163,45 @@ add_action('save_post_observation', function($post_id, $post, $update) {
     }
   }
 
-  // If new observation, let's geocode the coordinates to get town, state
-  if ($update == false) {
+  // If no geocode, let's try using the coordinates to get town, state
+  if (empty($_POST['acf']['field_59caa3fa222d5'])) {
+    $google_api_url = 'https://maps.googleapis.com/maps/api/geocode/json';
+    $geocode_api_key = 'AIzaSyD5IF_rp6nUrCw6ficzMBgFApZtucUfjdk';
 
+    // Separate latitude and longitude
+    $coords = $_POST['acf']['field_59a75086b34b4'];
+    preg_match("/\((.*?),/", $coords, $lat, PREG_OFFSET_CAPTURE, 0);
+    preg_match("/, (.*?)\)/", $coords, $lng, PREG_OFFSET_CAPTURE, 0);
+
+    $params = [
+      'latlng' => round($lat[1][0], 6) . ',' . round($lng[1][0], 6),
+      'location_type' => 'APPROXIMATE',
+      'result_type' => 'political',
+      'key' => $geocode_api_key
+    ];
+    $args = [];
+
+    $reverse_geocode_url = add_query_arg($params, $google_api_url);
+    $geocode_results = wp_remote_get($reverse_geocode_url, $args);
+
+    if ($geocode_results['response']['code'] == '200') {
+      $response_body = json_decode($geocode_results['body']);
+
+      // Get the address and remove USA
+      $address = $response_body->results[0]->formatted_address;
+      $address = str_replace(', USA', '', $address);
+
+
+      // Save new meta data
+      $_POST['acf']['field_59caa3fa222d5'] = $address;
+      update_post_meta($post_id, 'city_state', $address);
+      update_post_meta($post_id, '_city_state', 'field_59caa3fa222d5');
+
+    } else {
+      $error = new \WP_Error('geocode-error', 'There was an error with the reverse geocode.', var_dump($geocode_results));
+      echo $error->get_error_message();
+      exit;
+    }
   }
 
 }, 10, 3);

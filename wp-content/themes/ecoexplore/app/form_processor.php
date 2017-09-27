@@ -19,16 +19,44 @@ add_filter( 'wpcf7_before_send_mail', function( $form ) {
       'post_content' => '',
 			'post_author' => get_current_user_id(),
       'post_status' => 'pending'
-			// 'post_date' => strtotime($posted_data['datetime']),
 		);
 
 		$post_id = wp_insert_post($args, $wp_error);
 
 		if (!is_wp_error($post_id)){
 			if (isset($posted_data['location'])) {
-        // Set custom fields
-				update_post_meta($post_id, 'observation_location', $posted_data['location']);
-        update_post_meta($post_id, 'observation_time', $posted_data['datetime']);
+			  // Let's geocode the coordinates to get town, state
+		    $google_api_url = 'https://maps.googleapis.com/maps/api/geocode/json';
+		    $geocode_api_key = 'AIzaSyD5IF_rp6nUrCw6ficzMBgFApZtucUfjdk';
+
+		    // Separate latitude and longitude
+		    $coords = $posted_data['location'];
+		    preg_match("/\((.*?),/", $coords, $lat, PREG_OFFSET_CAPTURE, 0);
+		    preg_match("/, (.*?)\)/", $coords, $lng, PREG_OFFSET_CAPTURE, 0);
+
+		    $params = [
+		      'latlng' => round($lat[1][0], 6) . ',' . round($lng[1][0], 6),
+		      'location_type' => 'APPROXIMATE',
+		      'result_type' => 'political',
+		      'key' => $geocode_api_key
+		    ];
+		    $args = [];
+
+		    $reverse_geocode_url = add_query_arg($params, $google_api_url);
+		    $geocode_results = wp_remote_get($reverse_geocode_url, $args);
+
+		    if ($geocode_results['response']['code'] == '200') {
+		      $response_body = json_decode($geocode_results['body']);
+
+		      // Get the address and remove USA
+		      $address = $response_body->results[0]->formatted_address;
+		      $address = str_replace(', USA', '', $address);
+
+					// Set custom fields
+		      update_post_meta($post_id, 'city_state', $address);
+					update_post_meta($post_id, 'observation_location', $coords);
+					update_post_meta($post_id, 'observation_time', $posted_data['datetime']);
+		    }
 			}
 
       if (isset($posted_data['photo']) && isset($uploaded_files['photo'])) {
