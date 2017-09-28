@@ -12,7 +12,7 @@
     ])
   </div>
 
-  <div class="card-content">
+  <div class="card-content" aria-label="hidden">
     <span class="card-title activator">{{ the_title() }}, {{ get_field('affiliation') }} <i class="material-icons right">info_outline</i></span>
     <p>{{ get_the_title($season_id) }} Science Mentor</p>
   </div>

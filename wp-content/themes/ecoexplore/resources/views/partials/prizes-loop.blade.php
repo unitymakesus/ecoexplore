@@ -24,7 +24,7 @@
               ])
             </div>
 
-            <div class="card-content">
+            <div class="card-content" aria-label="hidden">
               <span class="card-title activator">{{ the_title() }} <i class="material-icons right">info_outline</i></span>
               <p>{{ the_field('points') }} points</p>
             </div>
