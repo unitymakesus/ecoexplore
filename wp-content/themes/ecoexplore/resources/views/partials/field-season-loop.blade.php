@@ -21,17 +21,20 @@
   ]);
 @endphp
 
-<div @php(post_class('container current-season'))>
-  @if ($this_season->have_posts())
-    @while ($this_season->have_posts())
-      @php ($this_season->the_post())
+@if ($this_season->have_posts())
+  @while ($this_season->have_posts())
+    @php ($this_season->the_post())
+    @php ($banner = get_the_post_thumbnail_url(get_the_id(), 'large'))
 
-      <h1>It's @php(the_title()) Season!</h1>
-      <p class="h6">{{ date('F j, Y', get_field('start_date')) }} - {{ date('F j, Y', get_field('end_date')) }}</p>
+    <div class="page-header" style="background-image: url('{{ $banner }}')"></div>
 
-      @include('partials.content-single-field-season')
+    <div @php(post_class('container current-season ' . get_post_field('post_name')))>
+          <p class="h6">{{ date('F j, Y', get_field('start_date')) }} - {{ date('F j, Y', get_field('end_date')) }}</p>
+          <h1>It's @php(the_title()) Season!</h1>
 
-    @endwhile
-    @php (wp_reset_postdata())
-  @endif
-</div>
+          @include('partials.content-single-field-season')
+    </div>
+
+  @endwhile
+  @php (wp_reset_postdata())
+@endif

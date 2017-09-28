@@ -14,7 +14,7 @@
               <div class="scientists">
                 {!! file_get_contents(App\asset_path('images/scientists-need-your-help.svg')) !!}
               </div>
-              <h1>Be an ecoEXPLORER! Share wildlife observations to earn points, badges, &amp; prizes.</h1>
+              <h1>Be an ecoEXPLORER! Share wildlife observations to earn points, badges &amp; prizes.</h1>
             </div>
           </div>
 
