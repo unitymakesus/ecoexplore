@@ -77,7 +77,9 @@ include('observations-loop.php');
 
 							<!-- Badges, points, n stuff -->
 
-							<h2><span class="points-val"><?php echo $points; ?></span> Points</h2>
+							<?php if (!empty($points)) { ?>
+								<h2><span class="points-val"><?php echo $points; ?></span> Points</h2>
+							<?php } ?>
 
 							<?php if (!empty($badges)) { ?>
 
@@ -89,8 +91,12 @@ include('observations-loop.php');
 											<div class="col badge">
 												<?php
 													$season = get_page_by_title($badge, 'OBJECT', 'field-season');
-													echo get_the_post_thumbnail($season->ID, 'thumbnail');
+													$badge = get_field('badge', $season->ID);
+												?>
 
+												<img class="alignleft badge" src="<?php echo $badge['sizes']['thumbnail']; ?>" alt="<?php echo get_the_title($season->ID); ?> Season Badge" />
+
+												<?php
 													if (count($val) > 1) {
 														echo '<div class="btn-floating">' . count($val) . '</div>';
 													}

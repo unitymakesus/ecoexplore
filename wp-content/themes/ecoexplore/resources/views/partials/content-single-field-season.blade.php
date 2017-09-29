@@ -13,7 +13,7 @@
             $badge = get_field('badge');
             $season = get_the_id();
           @endphp
-          <img class="alignleft badge" src="{{ $badge['sizes']['medium'] }}" alt="{{ get_the_title }} Season Badge" />
+          <img class="alignleft badge" src="{{ $badge['sizes']['medium'] }}" alt="{{ get_the_title() }} Season Badge" />
 
           @php(the_content())
 
@@ -59,7 +59,7 @@
                 <a href="{{ the_permalink() }}" class="mega-link"></a>
                 <div class="card-image">
                   @php ($badge = get_field('badge'))
-                  <img src="{{ $badge['sizes']['medium'] }}" alt="{{ get_the_title }} Season Badge" />
+                  <img src="{{ $badge['sizes']['medium'] }}" alt="{{ get_the_title() }} Season Badge" />
                 </div>
 
                 <div class="card-content">

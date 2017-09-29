@@ -47,12 +47,13 @@ add_action('save_post_observation', function($post_id, $post, $update) {
   $status = get_post_status($post_id);
   $inat_push = $_POST['acf']['field_59c27c4ddb770'];
   $inat_id = $_POST['acf']['field_59c2cdc4b2634'];
+  $user_id = $_POST['post_author'];
+  $user = get_userdata($user_id);
 
   // Check if it needs to go to iNaturalist
   if ($update == true && $status == 'publish' && $inat_push == true && empty($inat_id)) {
 
     $inat_base_url = get_field('inat_base_url', 'option');
-    $user_id = $_POST['post_author'];
     $library = get_user_meta($user_id, 'library', false);
 
     // Find this user's library's account
@@ -85,7 +86,7 @@ add_action('save_post_observation', function($post_id, $post, $update) {
       'body' => [
         'observation' => [
           'species_guess' => $_POST['post_title'],
-          'description' => 'ecoEXPLORE Username: ' . get_user_meta($user_id, 'nickname', true),
+          'description' => 'ecoEXPLORE Username: ' . $user->display_name,
           'observed_on_string' => $_POST['acf']['field_59a7511ab34b5'],
           'latitude' => $lat[1][0],
           'longitude' => $long[1][0],
@@ -163,6 +164,27 @@ add_action('save_post_observation', function($post_id, $post, $update) {
     }
   }
 
+  // Do user points calculations
+  $points_old = get_post_meta($post_id, 'points', true);  // Old value
+  $points_new = $_POST['acf']['field_59a880cd6c1ac'];     // New value
+
+  if ($points_old !== $points_new) {
+    // Get user points
+    $running_points = get_user_meta($user_id, 'running_points', true);
+    $total_points = get_user_meta($user_id, 'total_points', true);
+
+    // Get difference in points for this observation
+    $points_change = $points_new - $points_old;
+
+    // Calculate new points values
+    $running_points_new = $running_points + $points_change;
+    $total_points_new = $total_points + $points_change;
+
+    // Save new points total for this user
+    $test1 = update_user_meta($user_id, 'running_points', $running_points_new);
+    $test2 = update_user_meta($user_id, 'total_points', $total_points_new);
+  }
+
   // If no geocode, let's try using the coordinates to get town, state
   if (empty($_POST['acf']['field_59caa3fa222d5'])) {
     $google_api_url = 'https://maps.googleapis.com/maps/api/geocode/json';
@@ -213,33 +235,39 @@ add_action('save_post_observation', function($post_id, $post, $update) {
  * @return object the observations from the iNat API. False if error or none.
  */
 function get_observations($number = 4, $username = '') {
-  // iNaturalist API stuff
-  $inat_base_url = get_field('inat_base_url', 'option');
+  // Use WP transients for caching
+  if ( false === ( $observations = get_transient( 'inat_obs' ) ) ) {
+    // iNaturalist API stuff
+    $inat_base_url = get_field('inat_base_url', 'option');
 
-  $params = [
-    'per_page' => $number
-  ];
-  $args = [];
+    $params = [
+      'per_page' => $number
+    ];
+    $args = [];
 
-  // Set search query for a specific username
-  if (!empty($username)) {
-    $params['q'] = $username;
+    // Set search query for a specific username
+    if (!empty($username)) {
+      $params['q'] = $username;
+    }
+
+    // Use WordPress's built in HTTP GET method
+    $inat_url = add_query_arg($params, $inat_base_url . '/observations/project/ecoexplore.json');
+    $observations = wp_remote_get($inat_url, $args);
+
+    // If the POST is a success
+    if ($observations['response']['code'] == '200') {
+      // Get the returned JSON object
+      $response_json = $observations['body'];
+      $observations = json_decode($response_json);
+
+      set_transient( 'inat_obs', $observations, 1 * HOUR_IN_SECONDS );
+    } else {
+      // If this didn't work...
+      $observations = false;
+    }
   }
 
-  // Use WordPress's built in HTTP GET method
-  $inat_url = add_query_arg($params, $inat_base_url . '/observations/project/ecoexplore.json');
-  $observations = wp_remote_get($inat_url, $args);
-
-  // If the POST is a success
-  if ($observations['response']['code'] == '200') {
-    // Get the returned JSON object
-    $response_json = $observations['body'];
-    $response = json_decode($response_json);
-
-    return $response;
-  }
-
-  return false;
+  return $observations;
 }
 
 

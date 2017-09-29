@@ -339,10 +339,10 @@
 
     a {
       color: $green-dark;
-    }
 
-    &:hover {
-      font-size: 30px;
+      &:hover, &:focus, &:active {
+        font-size: 30px;
+      }
     }
   }
 
