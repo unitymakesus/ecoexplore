@@ -33,6 +33,10 @@
   display: flex;
   flex-flow: row wrap;
 
+  .col {
+    margin-bottom: 30px;
+  }
+
   @for $i from 1 through 6 {
     &.up-s#{$i} {
       @media #{$small-and-down} {

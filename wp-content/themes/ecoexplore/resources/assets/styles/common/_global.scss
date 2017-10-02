@@ -82,10 +82,16 @@
   color: $navy;
   height: 100%;
   box-shadow: 5px 5px $shadow;
+  margin: 0;
 
-  .card-image img {
-    border-radius: 0;
+  .card-image {
     border: 1px solid $navy;
+    border-radius: 0;
+
+    img {
+      border: none;
+      border-radius: 0;
+    }
   }
 
   .card-content, .card-reveal {

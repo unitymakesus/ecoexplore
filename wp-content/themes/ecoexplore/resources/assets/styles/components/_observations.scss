@@ -1,3 +1,23 @@
+.obs-meta {
+  margin: 0;
+  padding: 0;
+
+  li {
+    font-size: 12px;
+    display: inline-block;
+    padding-left: 20px;
+
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+
+  .material-icons {
+    font-size: 18px;
+    vertical-align: top;
+  }
+}
+
 .observation.card {
   box-shadow: 8px 8px $shadow;
   border-radius: 0;
@@ -17,13 +37,30 @@
 
   img {
     border: 2px solid white;
-    margin: 13px !important;
+    border-radius: 0;
   }
 
   &.horizontal {
     img {
       max-width: 75px;
       height: auto;
+      margin: 13px !important;
+      border-radius: 0;
+    }
+  }
+
+  .card-image.square {
+    overflow: hidden;
+    height: 0;
+    padding-bottom: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
     }
   }
 
@@ -36,16 +73,10 @@
     }
   }
 
-  .material-icons {
-    font-size: 18px;
-    vertical-align: top;
-  }
-
   h3 {
     font-family: $font-family-sans-serif;
     font-size: 18px;
     margin: 5px 0;
-    color: white;
   }
 
   p {
@@ -53,80 +84,93 @@
   }
 
   ul {
+    @extend .obs-meta;
+  }
+
+  &.solid {
+    @include photo-card;
+
     margin: 0;
-    padding: 0;
-  }
+    box-sizing: border-box;
 
-  li {
-    font-size: 12px;
-    display: inline-block;
+    h3 {
+      color: $navy !important;
+      margin: 10px 0;
+    }
 
-    &:first-child {
-      padding-right: 20px;
+    a {
+      color: $navy !important;
+      font-weight: normal;
     }
   }
 
-  // 1, 5, 9, etc
-  &:nth-child(4n-7) {
-    background: $orange-med;
-    border: 2px solid $orange-dark;
-    transition: all 0.3s ease;
-
-    h3, a {
-      text-shadow: 2px 2px $orange-dark;
+  &:not(.solid) {
+    h3 {
+      color: white;
     }
 
-    &:hover {
-      background: $orange-light;
-      border: 2px solid $orange-med;
-    }
-  }
+    // 1, 5, 9, etc
+    &:nth-child(4n-7) {
+      background: $orange-med;
+      border: 2px solid $orange-dark;
+      transition: all 0.3s ease;
 
-  // 2, 6, 10, etc
-  &:nth-child(4n-6) {
-    background: $green-med;
-    border: 2px solid $green-dark;
-    transition: all 0.3s ease;
+      h3, a {
+        text-shadow: 2px 2px $orange-dark;
+      }
 
-    h3, a {
-      text-shadow: 2px 2px $green-dark;
-    }
-
-    &:hover {
-      background: $green-light;
-      border: 2px solid $green-med;
-    }
-  }
-
-  // 3, 7, 11, etc
-  &:nth-child(4n-5) {
-    background: $red-med;
-    border: 2px solid $red-dark;
-    transition: all 0.3s ease;
-
-    h3, a {
-      text-shadow: 2px 2px $red-dark;
+      &:hover {
+        background: $orange-light;
+        border: 2px solid $orange-med;
+      }
     }
 
-    &:hover {
-      background: $red-light;
-      border: 2px solid $red-med;
+    // 2, 6, 10, etc
+    &:nth-child(4n-6) {
+      background: $green-med;
+      border: 2px solid $green-dark;
+      transition: all 0.3s ease;
+
+      h3, a {
+        text-shadow: 2px 2px $green-dark;
+      }
+
+      &:hover {
+        background: $green-light;
+        border: 2px solid $green-med;
+      }
     }
-  }
 
-  // 4, 8, 12, etc
-  &:nth-child(4n) {
-    background: $aqua;
-    border: 2px solid $aqua-dark;
-    transition: all 0.3s ease;
+    // 3, 7, 11, etc
+    &:nth-child(4n-5) {
+      background: $red-med;
+      border: 2px solid $red-dark;
+      transition: all 0.3s ease;
 
-    h3, a {
-      text-shadow: 2px 2px $aqua-dark;
+      h3, a {
+        text-shadow: 2px 2px $red-dark;
+      }
+
+      &:hover {
+        background: $red-light;
+        border: 2px solid $red-med;
+      }
     }
 
-    &:hover {
-      background: $aqua-light;
-      border: 2px solid $aqua;
+    // 4, 8, 12, etc
+    &:nth-child(4n) {
+      background: $aqua;
+      border: 2px solid $aqua-dark;
+      transition: all 0.3s ease;
+
+      h3, a {
+        text-shadow: 2px 2px $aqua-dark;
+      }
+
+      &:hover {
+        background: $aqua-light;
+        border: 2px solid $aqua;
+      }
     }
   }
 }

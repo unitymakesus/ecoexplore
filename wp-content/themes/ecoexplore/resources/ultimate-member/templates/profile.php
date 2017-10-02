@@ -110,14 +110,14 @@ include('observations-loop.php');
 
 							<h3>My Recent Observations</h3>
 
-							<?php observations_loop('4', $username); ?>
+							<?php observations_loop(4, $username, 'horizontal'); ?>
 
 						</div>
 					</div>
 				<?php } else { ?>
 					<div class="row block-grid up-s1 up-m3 up-l4">
 
-						<?php observations_loop('-1', $username); ?>
+						<?php observations_loop(-1, $username, 'has-modal solid', 'col'); ?>
 
 					</div>
 				<?php } ?>

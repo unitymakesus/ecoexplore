@@ -64,6 +64,7 @@ array_map(function ($file) use ($sage_error) {
     'filters',
     'admin',
     'mobile_nav_walker',
+    'comments-callback',
     'custom_post_types',
     'form_processor',
     'inaturalist',

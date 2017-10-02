@@ -1,5 +1,25 @@
-// TODO: .comment-list {}
-// TODO: .comment-list ol {}
-// TODO: .comment-form p {}
-// TODO: .comment-form input {}
-// TODO: .comment-form textarea {}
+.collection-item {
+  &.avatar.avatar {
+    img {
+      position: absolute;
+      width: 42px;
+      height: 42px;
+      overflow: hidden;
+      left: 15px;
+      display: inline-block;
+      vertical-align: middle;
+      border: none;
+    }
+  }
+
+  &.comment {
+    font-size: 14px;
+    line-height: normal;
+    color: $navy;
+
+    .comment-meta {
+      color: lighten($gray, 40);
+      font-size: 12px;
+    }
+  }
+}

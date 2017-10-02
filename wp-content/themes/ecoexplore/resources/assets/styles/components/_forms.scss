@@ -7,6 +7,31 @@ label {
   @extend h6;
 }
 
+.comment-form {
+  textarea {
+    background: white;
+    border: 1px solid $navy;
+  }
+
+  .form-submit {
+    margin: 0;
+  }
+
+  .submit {
+    width: auto;
+    background: $orange-med;
+    box-shadow: none !important;
+    border-radius: 0;
+    font-family: $font-comic;
+    text-shadow: 4px 2px $orange-dark;
+    @extend .btn;
+
+    &:hover, &:focus, &:active {
+      background: $orange-dark;
+    }
+  }
+}
+
 // Submission form styles
 .wpcf7-form {
   input[type="text"] {

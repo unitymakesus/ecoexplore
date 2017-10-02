@@ -236,7 +236,7 @@ add_action('save_post_observation', function($post_id, $post, $update) {
  */
 function get_observations($number = 4, $username = '') {
   // Use WP transients for caching
-  if ( false === ( $observations = get_transient( 'inat_obs' ) ) ) {
+  if ( false === ( $observations = get_transient( 'inat_obs_' . $username . $number ) ) ) {
     // iNaturalist API stuff
     $inat_base_url = get_field('inat_base_url', 'option');
 
@@ -260,7 +260,7 @@ function get_observations($number = 4, $username = '') {
       $response_json = $observations['body'];
       $observations = json_decode($response_json);
 
-      set_transient( 'inat_obs', $observations, 1 * HOUR_IN_SECONDS );
+      set_transient( 'inat_obs_' . $username . $number, $observations, 1 * HOUR_IN_SECONDS );
     } else {
       // If this didn't work...
       $observations = false;

@@ -9,6 +9,7 @@ import 'materialize-css';
 import Router from './util/Router';
 import common from './routes/common';
 import home from './routes/home';
+import user from './routes/user';
 import submitNewObservation from './routes/submit';
 
 /**
@@ -30,6 +31,8 @@ const routes = new Router({
   home,
   // About Us page, note the change from about-us to aboutUs.
   submitNewObservation,
+  // User profile page
+  user,
 });
 
 // Load Events
