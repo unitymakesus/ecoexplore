@@ -1,4 +1,4 @@
-<article @php(post_class())>
+<article @php(post_class('container'))>
   @if ($post->post_type == 'field-season')
     <header>
       <p class="h6">{{ date('F j, Y', get_field('start_date')) }} - {{ date('F j, Y', get_field('end_date')) }}</p>
@@ -32,6 +32,7 @@
             $mentor = get_field('season_mentor');
             $post = $mentor[0];
             setup_postdata($post);
+            $format = 'horizontal';
           @endphp
           @include('partials.content-scientist')
           @php(wp_reset_postdata())

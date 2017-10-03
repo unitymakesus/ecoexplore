@@ -11,6 +11,9 @@
 
 @section('content')
   @while(have_posts()) @php(the_post())
+    @if (get_post_type() == 'field-season')
+      @include('partials.page-header')
+    @endif
     @include('partials.content-single-'.get_post_type())
   @endwhile
 @endsection

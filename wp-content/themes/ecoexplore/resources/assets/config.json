@@ -9,8 +9,11 @@
     ]
   },
   "publicPath": "/wp-content/themes/ecoexplore",
+<<<<<<< HEAD
   "devUrl": "http://ecoexplore2.dev",
   "proxyUrl": "http://localhost:3000",
+=======
+>>>>>>> 65e92c87566749d6465693ebdaf827cf5720d751
   "cacheBusting": "[name]_[hash:8]",
   "watch": [
     "app/**/*.php",
