@@ -24,7 +24,7 @@
 @if ($this_season->have_posts())
   @while ($this_season->have_posts())
     @php ($this_season->the_post())
-    @php ($banner = get_the_post_thumbnail_url(get_the_id(), 'large'))
+    @php ($banner = get_the_post_thumbnail_url(get_the_id(), 'full'))
 
     <div class="page-header" style="background-image: url('{{ $banner }}')"></div>
 

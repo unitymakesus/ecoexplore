@@ -269,3 +269,11 @@
     }
   }
 }
+
+.field-season {
+  .card {
+    @include photo-card;
+
+    margin-bottom: 20px;
+  }
+}

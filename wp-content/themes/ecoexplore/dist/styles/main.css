@@ -11438,6 +11438,7 @@ span.flatpickr-weekday {
   right: 0;
   bottom: 0;
   display: block;
+  z-index: 5;
 }
 
 .mega-link:hover,
@@ -12856,6 +12857,71 @@ body.admin-bar .modal {
 .botany.event .title {
   border-top: 9px solid #C4DE95;
   background-color: #9AB83C;
+}
+
+.field-season .card {
+  background-color: #CFF3FF;
+  border: 1px solid #000349;
+  padding: 10px;
+  border-radius: 0;
+  color: #000349;
+  height: 100%;
+  -webkit-box-shadow: 5px 5px rgba(11, 0, 75, 0.19);
+          box-shadow: 5px 5px rgba(11, 0, 75, 0.19);
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.field-season .card .card-image {
+  border: 1px solid #000349;
+  border-radius: 0;
+}
+
+.field-season .card .card-image img {
+  border: none;
+  border-radius: 0;
+}
+
+.field-season .card .card-content,
+.field-season .card .card-reveal {
+  font-family: "Montserrat", sans-serif;
+  padding: 0;
+}
+
+.field-season .card .card-content .card-title,
+.field-season .card .card-reveal .card-title {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1;
+  text-shadow: 1px 2px rgba(11, 0, 75, 0.19);
+  padding-top: 10px;
+}
+
+.field-season .card .card-content p,
+.field-season .card .card-reveal p {
+  font-size: 14px;
+}
+
+@media only screen and (max-width: 768px) {
+  .field-season .card .card-content,
+  .field-season .card .card-reveal {
+    padding: 25px;
+  }
+
+  .field-season .card .card-content .card-title,
+  .field-season .card .card-reveal .card-title {
+    font-size: 30px;
+  }
+
+  .field-season .card .card-content p,
+  .field-season .card .card-reveal p {
+    font-size: 16px;
+  }
+}
+
+.field-season .card .card-reveal {
+  background-color: #CFF3FF;
+  padding: 10px;
 }
 
 /**
