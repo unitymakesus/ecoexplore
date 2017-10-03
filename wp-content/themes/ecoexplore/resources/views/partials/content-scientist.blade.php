@@ -8,7 +8,7 @@
 @endif
 
 <div class="card {{ $format }}">
-  <div class="card-image waves-effect waves-block waves-light">
+  <div class="card-image waves-effect waves-block waves-light mini-scientist">
     @include('partials.lazy-image', [
       'src'   => get_the_post_thumbnail_url(get_the_id(), 'event-square'),
       'alt' => '',

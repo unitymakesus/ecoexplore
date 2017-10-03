@@ -86,7 +86,6 @@
   margin: 0;
 
   .card-image {
-    border: 1px solid $navy;
     border-radius: 0;
 
     img {
@@ -127,5 +126,10 @@
   .card-reveal {
     background-color: $ice;
     padding: 10px;
+  }
+
+  .mini-scientist {
+    padding: 12px;
+    width: 175%;
   }
 }
