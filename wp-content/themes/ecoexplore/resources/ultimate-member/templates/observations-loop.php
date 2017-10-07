@@ -30,7 +30,7 @@ function observations_loop($number, $username, $format = null, $wrapper = null) 
         <?php if (stristr($format, 'has-modal') !== FALSE) { ?>
           <a href="#obs<?php echo $slug; ?>" class="mega-link modal-trigger" aria-hidden="true"></a>
         <?php } else { ?>
-          <?php if (!empty($inat_id = get_field('inat_id'))) { ?>
+          <?php if (get_field('add_to_inaturalist') == 1 && !empty($inat_id = get_field('inat_id'))) { ?>
             <a href="https://www.inaturalist.org/observations/<?php echo $inat_id; ?>" target="_blank" rel="noopener" class="mega-link" aria-hidden="true"></a>
           <?php } ?>
         <?php } ?>
@@ -66,7 +66,7 @@ function observations_loop($number, $username, $format = null, $wrapper = null) 
             <?php } else { ?>
               <ul>
                 <li><i class="material-icons" aria-label="Points">star_border</i> <?php echo $points; ?> Point<?php if ($points > 1) { echo 's'; }; ?></li>
-                <?php if (!empty($inat_id = get_field('inat_id'))) { ?>
+                <?php if (get_field('add_to_inaturalist') == 1 && !empty($inat_id = get_field('inat_id'))) { ?>
                   <li><a href="https://www.inaturalist.org/observations/<?php echo $inat_id; ?>" target="_blank" rel="noopener"><i class="material-icons" aira-hidden="true">cloud_upload</i> See on iNaturalist</a></li>
                 <?php } ?>
               </ul>
@@ -118,7 +118,7 @@ function observations_loop($number, $username, $format = null, $wrapper = null) 
           <?php } ?>
         </div>
         <div class="modal-footer">
-          <?php if (!empty($inat_id = get_field('inat_id'))) { ?>
+          <?php if (get_field('add_to_inaturalist') == 1 && !empty($inat_id = get_field('inat_id'))) { ?>
             <a href="https://www.inaturalist.org/observations/<?php echo $inat_id; ?>" target="_blank" rel="noopener" class="modal-action modal-close btn-secondary"><i class="material-icons" aira-hidden="true">cloud_upload</i> See on iNaturalist</a>
           <?php } ?>
         </div>

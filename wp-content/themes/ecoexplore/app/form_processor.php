@@ -56,6 +56,8 @@ add_filter( 'wpcf7_before_send_mail', function( $form ) {
 		      update_post_meta($post_id, 'city_state', $address);
 					update_post_meta($post_id, 'observation_location', $coords);
 					update_post_meta($post_id, 'observation_time', $posted_data['datetime']);
+					update_post_meta($post_id, 'at_hotspot', $posted_data['choice']);
+					update_post_meta($post_id, 'which_hotspot', $posted_data['hotspot']);
 		    }
 			}
 

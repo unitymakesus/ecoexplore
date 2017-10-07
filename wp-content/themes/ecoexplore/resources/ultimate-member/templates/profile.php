@@ -62,8 +62,84 @@ include('observations-loop.php');
 
 								// var_dump($comments);
 
+								$now = date('Ymd', current_time('timestamp'));
+
+	              $this_season = new WP_Query([
+	                'post_type' => 'field-season',
+	                'posts_per_page' => -1,
+	                'meta_query' => [
+	                  'relation' => 'AND',
+	                  [
+	                    'key' => 'start_date',
+	                    'compare' => '<=',
+	                    'value' => $now,
+	                    'type' => 'NUMERIC'
+	                  ], [
+	                    'key' => 'end_date',
+	                    'compare' => '>=',
+	                    'value' => $now,
+	                    'type' => 'NUMERIC'
+	                  ]
+	                ]
+	              ]);
+
+								$season_id = $this_season->posts[0]->ID;
+								$after = get_field('start_date', $season_id);
+								$before = get_field('end_date', $season_id);
+
+								$season_observations = new WP_Query([
+									'post_type' => 'observation',
+									'posts_per_page' => -1,
+									'post_author' => $user_id,
+									'date_query' => [
+										[
+											'after' => [
+												'year' => date('Y', $after),
+												'month' => date('m', $after),
+												'day' => date('j', $after)
+											],
+											'before' => [
+												'year' => date('Y', $before),
+												'month' => date('m', $before),
+												'day' => date('j', $before)
+											],
+											'inclusive' => true,
+										]
+									],
+									'meta_query' => [
+										[
+											'key' => 'field_season_observation',
+											'compare' => '=',
+											'value' => TRUE
+										]
+									]
+								]);
+
+								// var_dump($season_observations);
+
+								$inat_obs = App\get_observations($number, $username);
+								// echo '<pre>';
+								// print_r($inat_obs);
+								// echo '</pre>';
 
 							?>
+
+							<div class="card">
+								<div class="card-content">
+									<h4 class="card-title">How to earn your <?php echo $this_season->posts[0]->post_title; ?> badge:</h4>
+
+									<div class="progress">
+										<div class="determinate" style="width: <?php echo ($season_observations->found_posts/4)*100; ?>%"></div>
+									</div>
+
+									<ul>
+										<li>You have submitted <strong><?php echo $season_observations->found_posts; ?> of 3</strong> observations for the current field season. <a href="/submit-new-observation/">Submit an observation!</a></li>
+										<li>Complete the <?php echo $this_season->posts[0]->post_title; ?> challenge:<br />
+											<?php echo get_field('challenge', $season_id); ?>
+										</li>
+									</ul>
+								</div>
+							</div>
 
 							<!-- Recent comments on my observations -->
 
@@ -110,7 +186,7 @@ include('observations-loop.php');
 
 							<h3>My Recent Observations</h3>
 
-							<?php observations_loop(4, $username, 'horizontal'); ?>
+							<?php observations_loop(4, $username, 'has-modal horizontal'); ?>
 
 						</div>
 					</div>

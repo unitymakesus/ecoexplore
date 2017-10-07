@@ -11,6 +11,7 @@ import common from './routes/common';
 import home from './routes/home';
 import user from './routes/user';
 import submitNewObservation from './routes/submit';
+// import register from './routes/register';
 
 /**
  * Web Font Loader
@@ -29,10 +30,12 @@ const routes = new Router({
   common,
   // Home page
   home,
-  // About Us page, note the change from about-us to aboutUs.
+  // Submit new observation page
   submitNewObservation,
   // User profile page
   user,
+  // Registration page
+  // register,
 });
 
 // Load Events

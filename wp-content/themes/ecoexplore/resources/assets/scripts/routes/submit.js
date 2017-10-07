@@ -21,6 +21,18 @@ export default {
       }
     });
 
+    // Conditional fields -- show HotSpot dropdown or map depending on answer
+    $('#choice input[type="radio"]').on('change', function() {
+      if (this.value == "Yes") {
+        $('#hotspot-wrap').addClass('active');
+        $('#location-wrap').removeClass('active');
+      } else if (this.value == "No") {
+        $('#hotspot-wrap').removeClass('active');
+        $('#location-wrap').addClass('active');
+        // google.maps.event.trigger(map, 'resize');
+      }
+    });
+
     // // Redirect to dashboard after form successfully submitted
     // document.addEventListener( 'wpcf7mailsent', function() {
     //   window.location.href = '/user/';

@@ -58,8 +58,8 @@ add_action('save_post_observation', function($post_id, $post, $update) {
 
     // Find this user's library's account
     $inat_users = get_field('inaturalist_accounts', 'option');
-    foreach ($inat_users as $key => $user) {
-      if ($user['library_account_map'] == $library) {
+    foreach ($inat_users as $key => $iuser) {
+      if ($iuser['library_account_map'] == $library) {
         $inat_key = $key;
       }
     }
@@ -69,10 +69,25 @@ add_action('save_post_observation', function($post_id, $post, $update) {
       $inat_key = '13';
     }
     $auth = $inat_users[$inat_key]['access_token'];
-    var_dump($auth);
+
+    // Was this at a HotSpot?
+    if ($_POST['acf']['field_59d8e80c867f5'] == "Yes") {
+      $hotspot_coords = get_field('hotspot_coordinates', 'option');
+      $hotspot = $_POST['acf']['field_59d8e86f867f6'];
+
+      // Get the coordinates for this HotSpot
+      foreach ($hotspot_coords as $key => $hsc) {
+        if ($hsc['hotspot_name'] == $hotspot) {
+          $coord_key = $key;
+        }
+      }
+      $coords = $hotspot_coords[$coord_key]['coordinates'];
+    } else {
+      // Use the coords provided by user in submission
+      $coords = $_POST['acf']['field_59a75086b34b4'];
+    }
 
     // Separate latitude and longitude
-    $coords = $_POST['acf']['field_59a75086b34b4'];
     preg_match("/\((.*?),/", $coords, $lat, PREG_OFFSET_CAPTURE, 0);
     preg_match("/, (.*?)\)/", $coords, $long, PREG_OFFSET_CAPTURE, 0);
 
@@ -94,6 +109,8 @@ add_action('save_post_observation', function($post_id, $post, $update) {
         ]
       ]
     ];
+    // var_dump($payload);
+    // exit;
     $post_obs = wp_remote_post($inat_base_url . '/observations.json', $payload);
 
     // If the POST is a success
