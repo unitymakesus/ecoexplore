@@ -57,7 +57,6 @@ function init() {
   google.maps.event.addListener(map, 'click', function(event) {
     mapclicked(event.latLng);
   });
-
 }
 
 function search() {
