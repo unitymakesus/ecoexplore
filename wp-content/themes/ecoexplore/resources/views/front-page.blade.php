@@ -18,7 +18,7 @@
             </div>
           </div>
 
-          <div class="col s12 m4 l6">
+          <div class="col s12 m4 l6 center">
             <a class="btn-primary" href="{{ get_permalink(get_page_by_path('register')) }}">Get Started</a>
           </div>
         </div>

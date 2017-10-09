@@ -26,18 +26,18 @@
             {!! wp_nav_menu(['theme_location' => 'logged_out', 'menu_class' => 'menu secondary hide-on-med-and-down']) !!}
           @endif
         @endif
-        <a href="#" data-activates="mobile-menu" id="mobile-menu-button" class="right button-collapse" aria-hidden="true"><i class="fa fa-bars">menu</i></a>
+        <a href="#" data-activates="mobile-menu" id="mobile-menu-button" class="right button-collapse" aria-hidden="true"><i class="material-icons">menu</i></a>
         <div aria-hidden="true" class="hide-on-large-only">
           <ul class="side-nav" id="mobile-menu">
             {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'walker' => new App\MobileNavWalker()]) !!}
 
             @if (is_user_logged_in())
               @if (has_nav_menu('logged_in'))
-                {!! wp_nav_menu(['theme_location' => 'logged_in', 'walker' => new App\MobileNavWalker()]) !!}
+                {!! wp_nav_menu(['theme_location' => 'logged_in', 'menu_class' => 'menu secondary', 'walker' => new App\MobileNavWalker()]) !!}
               @endif
             @else
               @if (has_nav_menu('logged_out'))
-                {!! wp_nav_menu(['theme_location' => 'logged_out', 'walker' => new App\MobileNavWalker()]) !!}
+                {!! wp_nav_menu(['theme_location' => 'logged_out', 'menu_class' => 'menu secondary', 'walker' => new App\MobileNavWalker()]) !!}
               @endif
             @endif
           </ul>

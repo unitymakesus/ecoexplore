@@ -44,6 +44,8 @@
 .nav-wrapper {
   display: flex;
   align-items: stretch;
+  background: white;
+  border-bottom: 1px solid $navy;
 
   & > * {
     flex: 1 1 auto;
@@ -57,31 +59,38 @@ nav {
   box-shadow: none;
   padding-bottom: 8px;
 
-  .brand-logo {
+  .brand-logo.brand-logo {
     display: block;
     position: relative;
-    background: $white;
-    height: 100%;
-    padding: 10px 25px;
-    margin-right: 29px;
-    border-bottom: 1px solid $navy;
-    border-right: 1px solid $navy;
-    z-index: 0;
+    padding: 10px;
 
-    @include triangle("right");
+    @media #{$medium-and-up} {
+      background: $white;
+      height: 100%;
+      padding: 10px 25px;
+      margin-right: 29px;
+      border-bottom: 1px solid $navy;
+      border-right: 1px solid $navy;
+      z-index: 0;
+
+      @include triangle("right");
+    }
   }
 
   ul.menu {
     position: relative;
     display: block;
     background: $white;
-    height: 100%;
     padding: 10px 25px;
     border: 1px solid $navy;
-    border-top: none;
-    z-index: 1;
 
-    @include triangle("left");
+    @media #{$medium-and-up} {
+      height: 100%;
+      border-top: none;
+      z-index: 1;
+
+      @include triangle("left");
+    }
 
     li {
       &.active {
@@ -124,11 +133,8 @@ nav {
     }
 
     &.secondary {
-      border-right: none;
-
       a {
         color: $red-dark;
-        display: inline-block;
 
         &:hover {
           background: $orange-light;
@@ -147,6 +153,14 @@ nav {
         width: 17px;
         height: 15px;
       }
+
+      @media #{$medium-and-up} {
+        border-right: none;
+
+        a {
+          display: inline-block;
+        }
+      }
     }
 
     .dropdown-content {
@@ -155,5 +169,33 @@ nav {
         font-size: 18px;
       }
     }
+  }
+
+  .button-collapse {
+    text-align: center;
+    margin: 0;
+    padding: 10px 0;
+    height: auto;
+
+    i {
+      color: $navy;
+      font-size: 36px;
+    }
+
+    & + div {
+      max-width: 0;
+    }
+  }
+}
+
+.side-nav.right-aligned {
+  border: 1px solid $navy;
+  background: $ice;
+  padding: 10px;
+  border-radius: 0;
+
+  ul.menu {
+    padding: 0;
+    margin-bottom: 10px;
   }
 }

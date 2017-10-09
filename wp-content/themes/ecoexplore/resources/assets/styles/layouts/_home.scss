@@ -16,22 +16,27 @@
 }
 
 .hero-text {
-  position: absolute;
-  top: 50%;
-  left: 5%;
-  right: 5%;
-
   .col {
     position: relative;
   }
 
   .btn-primary {
-    font-size: 46px;
+    white-space: nowrap;
+  }
+
+  @media #{$medium-and-up} {
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate3d(-50%, -50%, 0);
-    white-space: nowrap;
+    left: 5%;
+    right: 5%;
+
+    .btn-primary {
+      font-size: 46px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+    }
   }
 }
 
@@ -43,30 +48,49 @@
   max-width: 540px;
   position: relative;
 
+  @media #{$small-and-down} {
+    margin-top: -50px;
+  }
+
   .scientists {
     position: relative;
     overflow: hidden;
 
     svg {
-      margin: 0 auto 10px;
+      margin: -20px auto 0;
+      max-width: 80%;
       display: block;
       position: relative;
-      transform: translate3d(-20px, 0, 0);
+
+      @media #{$medium-and-up} {
+        margin: 0 auto 10px;
+        transform: translate3d(-20px, 0, 0);
+      }
     }
   }
 
   h1 {
     clear: both;
     color: $gray;
-    font-size: 18px;
+    font-size: 13px;
     font-family: $font-family-sans-serif;
-    margin: 0 20% 40px 23%;
+    margin: -10px 20% 40px;
+
+    @media #{$medium-and-up} {
+      font-size: 18px;
+      margin: 0 20% 40px 23%;
+    }
   }
 }
 //See-Snap-Share
 
 .see-snap-share {
-  margin-top: 130px;
+  margin-top: 60px;
+  overflow: hidden;
+
+  @media #{$medium-and-up} {
+    margin-top: 130px;
+  }
 
   .row.panels {
     background-color: $ice;
@@ -81,60 +105,67 @@
       background: $navy;
     }
 
-    .col:nth-child(1) {
-      .panel-inner {
-        clip-path: polygon(0 0, 80% 0, 100% 100%, 0 100%);
-        transform: scale(1.1, 1);
-        transform-origin: center left;
-      }
-
-      .panel-img {
-        clip-path: polygon(1px 1px, calc(80% - 1px) 1px, calc(100% - 1px) calc(100% - 1px), 1px calc(100% - 1px));
-      }
-
+    @media #{$large-and-up} {
       img {
-        transform: scale(1, 1.1);
-        transform-origin: center;
-      }
-    }
-
-    .col:nth-child(2) {
-      .panel-inner {
-        clip-path: polygon(0 0, 100% 0, 82% 100%, 18% 100%);
-        transform: scale(1.23, 1);
-        transform-origin: center center;
+        border: none;
       }
 
-      .panel-img {
-        clip-path: polygon(1px 1px, calc(100% - 1px) 1px, calc(82% - 1px) calc(100% - 1px), calc(18% + 1px) calc(100% - 1px));
+      .col:nth-child(1) {
+        .panel-inner {
+          clip-path: polygon(0 0, 80% 0, 100% 100%, 0 100%);
+          transform: scale(1.1, 1);
+          transform-origin: center left;
+        }
+
+        .panel-img {
+          clip-path: polygon(1px 1px, calc(80% - 1px) 1px, calc(100% - 1px) calc(100% - 1px), 1px calc(100% - 1px));
+        }
+
+        img {
+          transform: scale(1, 1.1);
+          transform-origin: center;
+        }
       }
 
-      img {
-        transform: scale(1, 1.23);
-        transform-origin: center;
-      }
-    }
+      .col:nth-child(2) {
+        .panel-inner {
+          clip-path: polygon(0 0, 100% 0, 82% 100%, 18% 100%);
+          transform: scale(1.23, 1);
+          transform-origin: center center;
+        }
 
-    .col:nth-child(3) {
-      .panel-inner {
-        clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
-        transform: scale(1.1, 1);
-        transform-origin: center right;
+        .panel-img {
+          clip-path: polygon(1px 1px, calc(100% - 1px) 1px, calc(82% - 1px) calc(100% - 1px), calc(18% + 1px) calc(100% - 1px));
+        }
+
+        img {
+          transform: scale(1, 1.23);
+          transform-origin: center;
+        }
       }
 
-      .panel-img {
-        clip-path: polygon(calc(20% + 1px) 1px, calc(100% - 1px) 1px, calc(100% - 1px) calc(100% - 1px), 1px calc(100% - 1px));
-      }
+      .col:nth-child(3) {
+        .panel-inner {
+          clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+          transform: scale(1.1, 1);
+          transform-origin: center right;
+        }
 
-      img {
-        transform: scale(1, 1.1);
-        transform-origin: center;
+        .panel-img {
+          clip-path: polygon(calc(20% + 1px) 1px, calc(100% - 1px) 1px, calc(100% - 1px) calc(100% - 1px), 1px calc(100% - 1px));
+        }
+
+        img {
+          transform: scale(1, 1.1);
+          transform-origin: center;
+        }
       }
     }
 
     img {
       display: block;
       width: 100%;
+      border: 1px solid $navy;
     }
 
     .mini-splat {
@@ -151,6 +182,17 @@
           left: -15px;
           top: -50px;
         }
+
+        @media #{$small-and-down} {
+          padding: 0 5px;
+
+          .mini-splat {
+            right: -20px;
+            bottom: -50px;
+            left: auto;
+            top: auto;
+          }
+        }
       }
 
       &:nth-child(odd) {
@@ -163,23 +205,18 @@
   }
 }
 
-@media only screen and (max-width: 425px) {
-  .see-snap-share .row.panels .col:nth-child(even) .mini-splat {
-    left: 250px;
-    top: 250px;
-  }
-}
-
 //Events
 .rotate-wrap {
   overflow: hidden;
   position: relative;
   padding: 50px 0;
 
-  .rotate-straighten {
-    position: relative;
-    transform: rotate(-2deg);
-    transform-origin: top left;
+  @media #{$medium-and-up} {
+    .rotate-straighten {
+      position: relative;
+      transform: rotate(-2deg);
+      transform-origin: top left;
+    }
   }
 }
 
@@ -189,12 +226,19 @@
   border-top: 1px solid $navy;
   padding-top: 10px;
   position: relative;
-  transform: rotate(2deg);
-  transform-origin: center center;
-  left: -20px;
-  right: -20px;
-  width: calc(100% + 40px);
   margin-bottom: 40px;
+
+  @media #{$medium-and-up} {
+    transform: rotate(2deg);
+    transform-origin: center center;
+    left: -20px;
+    right: -20px;
+    width: calc(100% + 40px);
+
+    .gray-halftone::before {
+      transform: rotate(-6deg) scale(1.05);
+    }
+  }
 
   .row {
     margin: 0 -6px 10px;
@@ -208,18 +252,18 @@
     background-color: white;
 
     &::before {
-      transform: rotate(-6deg) scale(1.05);
+      background-size: contain;
     }
   }
 
   .season-content {
     border: 1px solid $navy;
     height: 100%;
-    padding: 50px;
+    padding: 20px;
 
     .date {
       font-size: 14px;
-      padding-left: 80px;
+      padding-left: 10%;
     }
 
     h2 {
@@ -227,12 +271,20 @@
       font-family: $font-family-serif;
       color: $navy;
       margin: 0 0 20px;
-      padding-left: 80px;
+      padding-left: 10%;
     }
 
     .badge {
       float: left;
       margin-right: 20px;
+      max-width: 30%;
+    }
+
+    @media #{$small-and-down} {
+      font-size: 13px;
+    }
+    @media #{$medium-and-up} {
+      padding: 50px;
     }
   }
 
@@ -265,8 +317,11 @@
       text-align: center;
       top: 15px;
       width: 100px;
-      transform: rotate(-2deg);
-      transform-origin: top right;
+
+      @media #{$medium-and-up} {
+        transform: rotate(-2deg);
+        transform-origin: top right;
+      }
 
       &::before {
         content: " ";
@@ -321,6 +376,14 @@
 
   .gray-halftone {
     padding-bottom: 10%;
+
+    @media #{$small-and-down} {
+      padding-bottom: 80px;
+
+      &::before {
+        display: none;
+      }
+    }
   }
 
   h2 {
@@ -336,6 +399,10 @@
     text-align: center;
     text-transform: uppercase;
     transition: all ease 0.3s;
+
+    @media #{$small-and-down} {
+      margin-bottom: 40px;
+    }
 
     a {
       color: $green-dark;
@@ -384,31 +451,37 @@
 
   .rank {
     text-align: center;
+    font-size: 12px;
   }
 
   .name {
     color: $navy;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: bold;
   }
 
   .score {
     color: $navy;
     font-family: $font-family-serif;
-    font-size: 36px;
+    font-size: 32px;
     font-weight: bold;
     padding: 1px;
     text-shadow: 2px 2px $shadow;
   }
+
+  @media #{$medium-and-up} {
+    .rank {
+      font-size: 18px;
+    }
+
+    .name {
+      font-size: 18px;
+    }
+
+    .score {
+      font-size: 32px;
+    }
+  }
 }
 
-@media only screen and (max-width: 425px) {
-  .leaderboard {
-    margin-bottom: 200px;
-  }
-
-  .gray-halftone::before {
-    left: -50px;
-  }
-}
 //Footer

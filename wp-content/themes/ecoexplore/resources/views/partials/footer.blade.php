@@ -23,7 +23,7 @@
         </div>
       </div>
 
-      <div class="col s12 m4 l3 footer-logo">
+      <div class="col s6 m4 l3 footer-logo">
         <p>An initiative of</p>
         <a href="http://www.ncarboretum.org/" target="_blank" rel="noopener">
           {!! file_get_contents(App\asset_path('images/TNCA_logo.svg')) !!}
@@ -35,8 +35,8 @@
   <div class="bottom-bar">
     <div class="container">
       <div class="row">
-        <div class="col s8 left-align">&copy; {{ date('Y') }} The North Carolina Arboretum</div>
-        <div class="col s4 right-align">@include('partials.unity')</div>
+        <div class="col m8 left-align">&copy; {{ date('Y') }} The North Carolina Arboretum</div>
+        <div class="col m4 right-align">@include('partials.unity')</div>
       </div>
     </div>
   </div>
