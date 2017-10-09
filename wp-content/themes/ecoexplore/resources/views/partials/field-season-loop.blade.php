@@ -28,11 +28,13 @@
 
     <div class="page-header" style="background-image: url('{{ $banner }}')"></div>
 
-    <div @php(post_class('container current-season ' . get_post_field('post_name')))>
-          <p class="h6">{{ date('F j, Y', get_field('start_date')) }} - {{ date('F j, Y', get_field('end_date')) }}</p>
-          <h1>It's @php(the_title()) Season!</h1>
+    <div @php(post_class('current-season ' . get_post_field('post_name')))>
+      <div class="container">
+        <p class="h6">{{ date('F j, Y', get_field('start_date')) }} - {{ date('F j, Y', get_field('end_date')) }}</p>
+        <h1>It's @php(the_title()) Season!</h1>
+      </div>
 
-          @include('partials.content-single-field-season')
+      @include('partials.content-single-field-season')
     </div>
 
   @endwhile

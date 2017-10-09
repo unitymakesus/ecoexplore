@@ -37,7 +37,7 @@
 }
 
 .badge {
-  border-radius: 100%;
+  border-radius: 100% !important;
   box-shadow: 5px 5px 0 $shadow;
 }
 
@@ -80,6 +80,25 @@
     z-index: 2;
   }
 }
+@mixin color-card($which-light, $which-med, $which-dark) {
+  background: $which-med;
+  border: 2px solid $which-dark;
+  transition: all 0.3s ease;
+
+  h3, a, .card-title {
+    color: $white;
+    text-shadow: 2px 2px $which-dark;
+  }
+
+  &:hover, &:focus {
+    background: $which-light;
+    border: 2px solid $which-med;
+  }
+
+  .card-reveal {
+    background: $which-med;
+  }
+}
 @mixin photo-card {
   background-color: $ice;
   border: 1px solid $navy;
@@ -93,8 +112,8 @@
   .card-image {
     border-radius: 0;
 
-    img {
-      border: none;
+    img:not(.badge) {
+      border: 1px solid $navy;
       border-radius: 0;
     }
   }
@@ -116,12 +135,6 @@
     }
 
     @media only screen and (max-width: 768px) {
-      padding: 25px;
-
-      .card-title {
-        font-size: 30px;
-      }
-
       p {
         font-size: 16px;
       }
@@ -131,10 +144,5 @@
   .card-reveal {
     background-color: $ice;
     padding: 10px;
-  }
-
-  .mini-scientist {
-    padding: 12px;
-    width: 175%;
   }
 }

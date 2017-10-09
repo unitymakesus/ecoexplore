@@ -47,6 +47,39 @@
 
 // Entomology ($aqua)
 .entomology {
+  h1 {
+    color: $aqua;
+  }
+
+  h2 {
+    color: $aqua-dark;
+  }
+
+  .entry-content .l8 {
+    a {
+      color: $aqua;
+
+      &:hover {
+        background-color: $aqua-light;
+        color: $aqua-dark;
+      }
+
+      &:active, &:focus {
+        background-color: $aqua;
+        color: $white;
+      }
+    }
+  }
+
+  .card.scientist, &.card.scientist {
+    @include color-card($aqua-light, $aqua, $aqua-dark);
+
+    a {
+      color: $navy;
+      text-shadow: none;
+    }
+  }
+
   .learn-more-btn {
     @include learn-more-btn;
 
@@ -104,6 +137,39 @@
 // Herpetology ($orange-med)
 
 .herpetology {
+  h1 {
+    color: $orange-med;
+  }
+
+  h2 {
+    color: $orange-dark;
+  }
+
+  .entry-content .l8 {
+    a {
+      color: $orange-med;
+
+      &:hover {
+        background-color: $orange-light;
+        color: $orange-dark;
+      }
+
+      &:active, &:focus {
+        background-color: $orange-med;
+        color: $white;
+      }
+    }
+  }
+
+  .card.scientist, &.card.scientist {
+    @include color-card($orange-light, $orange-med, $orange-dark);
+
+    a {
+      color: $navy;
+      text-shadow: none;
+    }
+  }
+
   .learn-more-btn {
     @include learn-more-btn;
 
@@ -160,6 +226,39 @@
 //Ornithology ($red-med)
 
 .ornithology {
+  h1 {
+    color: $red-med;
+  }
+
+  h2 {
+    color: $red-dark;
+  }
+
+  .entry-content .l8 {
+    a {
+      color: $red-med;
+
+      &:hover {
+        background-color: $red-light;
+        color: $red-dark;
+      }
+
+      &:active, &:focus {
+        background-color: $red-med;
+        color: $white;
+      }
+    }
+  }
+
+  .card.scientist, &.card.scientist {
+    @include color-card($red-light, $red-med, $red-dark);
+
+    a {
+      color: $navy;
+      text-shadow: none;
+    }
+  }
+
   .learn-more-btn {
     @include learn-more-btn;
 
@@ -216,6 +315,39 @@
 //Botany ($green-med)
 
 .botany {
+  h1 {
+    color: $green-dark;
+  }
+
+  h2 {
+    color: $green-med;
+  }
+
+  .entry-content .l8 {
+    a {
+      color: $green-med;
+
+      &:hover {
+        background-color: $green-light;
+        color: $green-dark;
+      }
+
+      &:active, &:focus {
+        background-color: $green-med;
+        color: $white;
+      }
+    }
+  }
+
+  .card.scientist, &.card.scientist {
+    @include color-card($green-light, $green-med, $green-dark);
+
+    a {
+      color: $navy;
+      text-shadow: none;
+    }
+  }
+
   .learn-more-btn {
     @include learn-more-btn;
 
@@ -275,5 +407,16 @@
     @include photo-card;
 
     margin-bottom: 20px;
+
+    &.scientist {
+      .card-image {
+        flex-basis: 20%;
+      }
+
+      .card-content {
+        flex-basis: 80%;
+        padding-left: 10px;
+      }
+    }
   }
 }

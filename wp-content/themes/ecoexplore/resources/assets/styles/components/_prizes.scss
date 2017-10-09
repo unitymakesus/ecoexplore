@@ -5,17 +5,9 @@
 }
 
 @media only screen and (max-width: 425px) {
-  .card .card-content, .card .card-reveal {
-    padding: 25px;
-  }
-
-  .card .card-title {
-    font-size: 30px;
-  }
-
-  .prize-card .card {
-    .card-content p, .card-reveal p {
-      font-size: 16px;
+  .prize-card {
+    .col.col {
+      width: 100%;
     }
   }
 }

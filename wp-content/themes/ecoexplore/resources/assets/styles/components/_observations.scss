@@ -111,66 +111,22 @@
 
     // 1, 5, 9, etc
     &:nth-child(4n-7) {
-      background: $orange-med;
-      border: 2px solid $orange-dark;
-      transition: all 0.3s ease;
-
-      h3, a {
-        text-shadow: 2px 2px $orange-dark;
-      }
-
-      &:hover {
-        background: $orange-light;
-        border: 2px solid $orange-med;
-      }
+      @include color-card($orange-light, $orange-med, $orange-dark);
     }
 
     // 2, 6, 10, etc
     &:nth-child(4n-6) {
-      background: $green-med;
-      border: 2px solid $green-dark;
-      transition: all 0.3s ease;
-
-      h3, a {
-        text-shadow: 2px 2px $green-dark;
-      }
-
-      &:hover {
-        background: $green-light;
-        border: 2px solid $green-med;
-      }
+      @include color-card($green-light, $green-med, $green-dark);
     }
 
     // 3, 7, 11, etc
     &:nth-child(4n-5) {
-      background: $red-med;
-      border: 2px solid $red-dark;
-      transition: all 0.3s ease;
-
-      h3, a {
-        text-shadow: 2px 2px $red-dark;
-      }
-
-      &:hover {
-        background: $red-light;
-        border: 2px solid $red-med;
-      }
+      @include color-card($red-light, $red-med, $red-dark);
     }
 
     // 4, 8, 12, etc
     &:nth-child(4n) {
-      background: $aqua;
-      border: 2px solid $aqua-dark;
-      transition: all 0.3s ease;
-
-      h3, a {
-        text-shadow: 2px 2px $aqua-dark;
-      }
-
-      &:hover {
-        background: $aqua-light;
-        border: 2px solid $aqua;
-      }
+      @include color-card($aqua-light, $aqua, $aqua-dark);
     }
   }
 }

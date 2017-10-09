@@ -5,10 +5,11 @@
 
 @if ($format !== 'horizontal')
   @php ($activator = 'activator')
+  @php ($waves = 'waves-effect waves-block waves-light')
 @endif
 
-<div class="card {{ $format }}">
-  <div class="card-image waves-effect waves-block waves-light mini-scientist">
+<div class="card {{ $format }} {{ get_post_field('post_name', $season_id) }} scientist">
+  <div class="card-image {{ $waves }}">
     @include('partials.lazy-image', [
       'src'   => get_the_post_thumbnail_url(get_the_id(), 'event-square'),
       'alt' => '',

@@ -13,6 +13,14 @@ h1 {
   font-family: $font-family-serif;
   font-size: 60px;
   font-weight: 600;
+
+  @media #{$small-and-down} {
+    font-size: 46px;
+
+    br {
+      display: none;
+    }
+  }
 }
 
 h2 {
@@ -20,6 +28,10 @@ h2 {
   font-family: $font-family-sans-serif;
   font-size: 46px;
   font-weight: 600;
+
+  @media #{$small-and-down} {
+    font-size: 36px;
+  }
 }
 
 h3 {
