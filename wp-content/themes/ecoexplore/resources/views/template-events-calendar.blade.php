@@ -9,7 +9,7 @@
 @extends('layouts.app')
 
 @section('content')
-	<div id="tribe-events-pg-template" class="tribe-event-pg-template">
+	<div id="tribe-events-pg-template" class="container tribe-event-pg-template">
 		{{ tribe_events_before_html() }}
 		{{ tribe_get_view() }}
 		{{ tribe_events_after_html() }}
