@@ -1,5 +1,4 @@
 //Hero section
-
 .hero {
   position: relative;
 
@@ -47,34 +46,36 @@
   padding: 10% 0 13%;
   max-width: 540px;
   position: relative;
+  margin: 0 auto;
 
   @media #{$small-and-down} {
-    margin-top: -50px;
+    margin-top: -15%;
   }
 
   .scientists {
     position: relative;
     overflow: hidden;
+    margin-top: -20px;
 
     svg {
-      margin: -20px auto 0;
+      margin: 0 auto;
       max-width: 80%;
       display: block;
       position: relative;
+    }
 
-      @media #{$medium-and-up} {
-        margin: 0 auto 10px;
-        transform: translate3d(-20px, 0, 0);
-      }
+    @media #{$medium-and-up} {
+      margin: 0 auto 10px;
+      transform: translate3d(-20px, 0, 0);
     }
   }
 
   h1 {
     clear: both;
     color: $gray;
-    font-size: 13px;
+    font-size: 16px;
     font-family: $font-family-sans-serif;
-    margin: -10px 20% 40px;
+    margin: 0 20% 40px;
 
     @media #{$medium-and-up} {
       font-size: 18px;
@@ -82,14 +83,15 @@
     }
   }
 }
-//See-Snap-Share
 
+//See-Snap-Share
 .see-snap-share {
   margin-top: 60px;
   overflow: hidden;
 
   @media #{$medium-and-up} {
-    margin-top: 130px;
+    margin-top: 180px;
+    overflow: visible;
   }
 
   .row.panels {
@@ -105,6 +107,59 @@
       background: $navy;
     }
 
+    img {
+      display: block;
+      width: 100%;
+      border: 1px solid $navy;
+    }
+
+    .mini-splat {
+      position: absolute;
+      z-index: 1;
+    }
+
+    .col {
+      position: relative;
+      padding: 10px 5px;
+
+      &:nth-child(even) {
+        .mini-splat {
+          left: -15px;
+          top: -50px;
+        }
+
+        @media #{$small-and-down} {
+          padding: 0 5px;
+
+          .mini-splat {
+            right: -20px;
+            bottom: -50px;
+            left: auto;
+            top: auto;
+          }
+        }
+      }
+
+      &:nth-child(odd) {
+        .mini-splat {
+          bottom: -50px;
+          left: -15px;
+        }
+      }
+    }
+
+    @media #{$small-and-down} {
+      .panel-inner {
+        height: 0;
+        padding-bottom: 60%;
+
+        img {
+          position: relative;
+          margin-top: 50%;
+          transform: translate3d(0, -50%, 0);
+        }
+      }
+    }
     @media #{$large-and-up} {
       img {
         border: none;
@@ -158,47 +213,6 @@
         img {
           transform: scale(1, 1.1);
           transform-origin: center;
-        }
-      }
-    }
-
-    img {
-      display: block;
-      width: 100%;
-      border: 1px solid $navy;
-    }
-
-    .mini-splat {
-      position: absolute;
-      z-index: 1;
-    }
-
-    .col {
-      position: relative;
-      padding: 10px 5px;
-
-      &:nth-child(even) {
-        .mini-splat {
-          left: -15px;
-          top: -50px;
-        }
-
-        @media #{$small-and-down} {
-          padding: 0 5px;
-
-          .mini-splat {
-            right: -20px;
-            bottom: -50px;
-            left: auto;
-            top: auto;
-          }
-        }
-      }
-
-      &:nth-child(odd) {
-        .mini-splat {
-          bottom: -50px;
-          left: -15px;
         }
       }
     }
@@ -260,6 +274,7 @@
     border: 1px solid $navy;
     height: 100%;
     padding: 20px;
+    font-size: 13px;
 
     .date {
       font-size: 14px;
@@ -280,11 +295,11 @@
       max-width: 30%;
     }
 
-    @media #{$small-and-down} {
-      font-size: 13px;
-    }
     @media #{$medium-and-up} {
       padding: 50px;
+    }
+    @media #{$large-and-up} {
+      font-size: 18px;
     }
   }
 
@@ -351,6 +366,10 @@
       font-family: $font-family-sans-serif;
       font-size: 24px;
       font-weight: normal;
+
+      @media #{$medium-only} {
+        font-size: 18px;
+      }
     }
 
     .label {

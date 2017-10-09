@@ -44,11 +44,14 @@
 .nav-wrapper {
   display: flex;
   align-items: stretch;
-  background: white;
-  border-bottom: 1px solid $navy;
 
   & > * {
     flex: 1 1 auto;
+  }
+
+  @media #{$medium-and-down} {
+    background: white;
+    border-bottom: 1px solid $navy;
   }
 }
 
@@ -64,7 +67,7 @@ nav {
     position: relative;
     padding: 10px;
 
-    @media #{$medium-and-up} {
+    @media #{$large-and-up} {
       background: $white;
       height: 100%;
       padding: 10px 25px;
@@ -84,12 +87,19 @@ nav {
     padding: 10px 25px;
     border: 1px solid $navy;
 
-    @media #{$medium-and-up} {
+    @media #{$large-and-up} {
       height: 100%;
       border-top: none;
       z-index: 1;
 
       @include triangle("left");
+
+      a {
+        line-height: 1.2em;
+      }
+    }
+    @media only screen and (min-width: #{$medium-screen-up}) and (max-width: #{$large-screen}) {
+      padding: 10px;
     }
 
     li {
@@ -103,6 +113,10 @@ nav {
       font-weight: bold;
       font-size: 24px;
       color: $navy;
+
+      @media only screen and (min-width: #{$medium-screen-up}) and (max-width: #{$large-screen}) {
+        font-size: 22px;
+      }
 
       &:hover {
         background: $aqua-light;
@@ -143,6 +157,10 @@ nav {
         &:focus, &:active {
           background: $shadow;
         }
+
+        @media only screen and (min-width: #{$medium-screen-up}) and (max-width: #{$large-screen}) {
+          font-size: 18px;
+        }
       }
 
       .menu-log-in::after {
@@ -154,7 +172,7 @@ nav {
         height: 15px;
       }
 
-      @media #{$medium-and-up} {
+      @media #{$large-and-up} {
         border-right: none;
 
         a {
@@ -172,9 +190,9 @@ nav {
   }
 
   .button-collapse {
-    text-align: center;
+    text-align: right;
     margin: 0;
-    padding: 10px 0;
+    padding: 10px 20px;
     height: auto;
 
     i {
