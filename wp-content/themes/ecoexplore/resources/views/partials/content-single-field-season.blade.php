@@ -1,4 +1,4 @@
-<article @php(post_class('container'))>
+<article @php(post_class('container ' . get_post_field('post_name')))>
   @if ($post->post_type == 'field-season')
     <header>
       <p class="h6">{{ date('F j, Y', get_field('start_date')) }} - {{ date('F j, Y', get_field('end_date')) }}</p>
@@ -56,11 +56,11 @@
             @while ($other_seasons->have_posts())
               @php ($other_seasons->the_post())
 
-              <div class="card">
+              <div class="card {{ get_post_field('post_name') }}">
                 <a href="{{ the_permalink() }}" class="mega-link"></a>
                 <div class="card-image">
                   @php ($badge = get_field('badge'))
-                  <img src="{{ $badge['sizes']['medium'] }}" alt="{{ get_the_title() }} Season Badge" />
+                  <img src="{{ $badge['sizes']['medium'] }}" alt="{{ get_the_title() }} Season Badge" class="badge" />
                 </div>
 
                 <div class="card-content">
@@ -71,6 +71,7 @@
 
             @endwhile
           @endif
+          @php(wp_reset_postdata())
         </div>
       </div>
   </div>

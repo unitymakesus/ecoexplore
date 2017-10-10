@@ -48,6 +48,11 @@
   & > * {
     flex: 1 1 auto;
   }
+
+  @media #{$medium-and-down} {
+    background: white;
+    border-bottom: 1px solid $navy;
+  }
 }
 
 nav {
@@ -57,31 +62,45 @@ nav {
   box-shadow: none;
   padding-bottom: 8px;
 
-  .brand-logo {
+  .brand-logo.brand-logo {
     display: block;
     position: relative;
-    background: $white;
-    height: 100%;
-    padding: 10px 25px;
-    margin-right: 29px;
-    border-bottom: 1px solid $navy;
-    border-right: 1px solid $navy;
-    z-index: 0;
+    padding: 10px;
 
-    @include triangle("right");
+    @media #{$large-and-up} {
+      background: $white;
+      height: 100%;
+      padding: 10px 25px;
+      margin-right: 29px;
+      border-bottom: 1px solid $navy;
+      border-right: 1px solid $navy;
+      z-index: 0;
+
+      @include triangle("right");
+    }
   }
 
   ul.menu {
     position: relative;
     display: block;
     background: $white;
-    height: 100%;
     padding: 10px 25px;
     border: 1px solid $navy;
-    border-top: none;
-    z-index: 1;
 
-    @include triangle("left");
+    @media #{$large-and-up} {
+      height: 100%;
+      border-top: none;
+      z-index: 1;
+
+      @include triangle("left");
+
+      a {
+        line-height: 1.2em;
+      }
+    }
+    @media only screen and (min-width: #{$medium-screen-up}) and (max-width: #{$large-screen}) {
+      padding: 10px;
+    }
 
     li {
       &.active {
@@ -94,6 +113,10 @@ nav {
       font-weight: bold;
       font-size: 24px;
       color: $navy;
+
+      @media only screen and (min-width: #{$medium-screen-up}) and (max-width: #{$large-screen}) {
+        font-size: 22px;
+      }
 
       &:hover {
         background: $aqua-light;
@@ -124,11 +147,8 @@ nav {
     }
 
     &.secondary {
-      border-right: none;
-
       a {
         color: $red-dark;
-        display: inline-block;
 
         &:hover {
           background: $orange-light;
@@ -136,6 +156,10 @@ nav {
 
         &:focus, &:active {
           background: $shadow;
+        }
+
+        @media only screen and (min-width: #{$medium-screen-up}) and (max-width: #{$large-screen}) {
+          font-size: 18px;
         }
       }
 
@@ -147,6 +171,14 @@ nav {
         width: 17px;
         height: 15px;
       }
+
+      @media #{$large-and-up} {
+        border-right: none;
+
+        a {
+          display: inline-block;
+        }
+      }
     }
 
     .dropdown-content {
@@ -155,5 +187,33 @@ nav {
         font-size: 18px;
       }
     }
+  }
+
+  .button-collapse {
+    text-align: right;
+    margin: 0;
+    padding: 10px 20px;
+    height: auto;
+
+    i {
+      color: $navy;
+      font-size: 36px;
+    }
+
+    & + div {
+      max-width: 0;
+    }
+  }
+}
+
+.side-nav.right-aligned {
+  border: 1px solid $navy;
+  background: $ice;
+  padding: 10px;
+  border-radius: 0;
+
+  ul.menu {
+    padding: 0;
+    margin-bottom: 10px;
   }
 }
