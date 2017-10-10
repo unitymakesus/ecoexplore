@@ -93,10 +93,6 @@ nav {
       z-index: 1;
 
       @include triangle("left");
-
-      a {
-        line-height: 1.2em;
-      }
     }
     @media only screen and (min-width: #{$medium-screen-up}) and (max-width: #{$large-screen}) {
       padding: 10px;

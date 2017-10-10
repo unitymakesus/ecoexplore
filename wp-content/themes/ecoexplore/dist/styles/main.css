@@ -13497,10 +13497,6 @@ nav ul.menu {
     border-bottom-color: #FFF;
     z-index: -1;
   }
-
-  nav ul.menu a {
-    line-height: 1.2em;
-  }
 }
 
 @media only screen and (min-width: 993px) and (max-width: 1200px) {
