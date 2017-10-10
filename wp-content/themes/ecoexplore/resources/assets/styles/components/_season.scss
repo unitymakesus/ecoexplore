@@ -101,6 +101,12 @@
   }
 }
 
+.tribe-events-category-entomology {
+  .tribe-event-url {
+    color: $aqua;
+  }
+}
+
 // Herpetology ($orange-med)
 
 .herpetology {
@@ -157,6 +163,13 @@
     }
   }
 }
+
+.tribe-events-category-herpetology {
+  .tribe-event-url {
+    color: $orange-med;
+  }
+}
+
 //Ornithology ($red-med)
 
 .ornithology {
@@ -213,6 +226,13 @@
     }
   }
 }
+
+.tribe-events-category-ornithology {
+  .tribe-event-url {
+    color: $red-med;
+  }
+}
+
 //Botany ($green-med)
 
 .botany {
@@ -267,6 +287,12 @@
       border-top: 9px solid $green-light;
       background-color: $green-med;
     }
+  }
+}
+
+.tribe-events-category-botany {
+  .tribe-event-url {
+    color: $green-med;
   }
 }
 
