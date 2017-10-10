@@ -12850,6 +12850,10 @@ body.admin-bar .modal {
   background-color: #4CBED8;
 }
 
+.tribe-events-category-entomology .tribe-event-url {
+  color: #4CBED8;
+}
+
 .herpetology h1 {
   color: #E98B3B;
 }
@@ -12986,6 +12990,10 @@ body.admin-bar .modal {
 .herpetology.event .title {
   border-top: 9px solid #EDC57B;
   background-color: #E98B3B;
+}
+
+.tribe-events-category-herpetology .tribe-event-url {
+  color: #E98B3B;
 }
 
 .ornithology h1 {
@@ -13126,6 +13134,10 @@ body.admin-bar .modal {
   background-color: #C93B3E;
 }
 
+.tribe-events-category-ornithology .tribe-event-url {
+  color: #C93B3E;
+}
+
 .botany h1 {
   color: #688127;
 }
@@ -13262,6 +13274,10 @@ body.admin-bar .modal {
 .botany.event .title {
   border-top: 9px solid #C4DE95;
   background-color: #9AB83C;
+}
+
+.tribe-events-category-botany .tribe-event-url {
+  color: #9AB83C;
 }
 
 .field-season .card {
@@ -14319,6 +14335,85 @@ nav .button-collapse + div {
   -webkit-clip-path: polygon(0 calc(100% - 69px), 100% calc(100% - 9px), 100% calc(100% - 1px), 0 calc(100% - 61px));
           clip-path: polygon(0 calc(100% - 69px), 100% calc(100% - 9px), 100% calc(100% - 1px), 0 calc(100% - 61px));
   z-index: 2;
+}
+
+.tribe-events-list-separator-month {
+  color: #000349;
+  font-family: "Zilla Slab", serif;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.tribe-events-event-image img {
+  float: left;
+  width: 40%;
+  -webkit-box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
+          box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
+  margin-right: 50px;
+  margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 768px) {
+  .tribe-events-event-image img {
+    width: 100%;
+  }
+}
+
+.single-tribe_events .tribe-events-event-meta {
+  background-color: #CFF3FF;
+  border: 1px solid #000349;
+  font-size: 16px;
+  float: left;
+  width: 100%;
+}
+
+.tribe-events-read-more {
+  color: #000349;
+  font-family: "Zilla Slab", serif;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.tribe-events-venue-details,
+.tribe-event-schedule-details {
+  font-size: 18px;
+}
+
+.tribe-events-list-event-description {
+  font-size: 16px;
+}
+
+.tribe-event-date-start {
+  color: #000349;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.tribe-events-schedule h2,
+.tribe-events-schedule .um.um .um-name.um-name a,
+.um.um .um-name.um-name .tribe-events-schedule a {
+  margin: 0;
+}
+
+.single-tribe_events .tribe-events-single-event-title {
+  font-size: 50px;
+}
+
+.single-tribe_events .tribe-events-schedule,
+.tribe-events-loop .tribe-events-event-meta {
+  background: none;
+  background-color: none;
+  border: none;
+}
+
+.tribe-events-event-image img {
+  -webkit-box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
+          box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
+}
+
+.tribe-bar-disabled .tribe-bar-filters .tribe-bar-date-filter {
+  display: none;
 }
 
 .content-info .row {
