@@ -134,14 +134,31 @@
   }
 }
 
-.tribe-events-category-entomology {
+.tribe-events-category-entomology, .taxonomy-tribe_events_cat-entomology-data {
   .tribe-event-url {
     color: $aqua;
+  }
+
+  h1.tribe-events-single-event-title, h2.tribe-events-page-title {
+    color: $aqua;
+  }
+
+  #tribe-events .tribe-events-button {
+    background-color: $aqua-dark;
+
+    &:hover {
+      background-color: $aqua-light;
+      color: $aqua-dark;
+    }
+
+    &:active, &:focus {
+      background-color: $aqua;
+      color: $white;
+    }
   }
 }
 
 // Herpetology ($orange-med)
-
 .herpetology {
   h1 {
     color: $orange-med;
@@ -230,14 +247,31 @@
   }
 }
 
-.tribe-events-category-herpetology {
+.tribe-events-category-herpetology, .taxonomy-tribe_events_cat-herpetology-data {
   .tribe-event-url {
     color: $orange-med;
+  }
+
+  h1.tribe-events-single-event-title, h2.tribe-events-page-title {
+    color: $orange-med;
+  }
+
+  #tribe-events .tribe-events-button {
+    background-color: $orange-dark;
+
+    &:hover {
+      background-color: $orange-light;
+      color: $orange-dark;
+    }
+
+    &:active, &:focus {
+      background-color: $orange-med;
+      color: $white;
+    }
   }
 }
 
 //Ornithology ($red-med)
-
 .ornithology {
   h1 {
     color: $red-med;
@@ -326,14 +360,37 @@
   }
 }
 
-.tribe-events-category-ornithology {
+.tribe-events-category-ornithology, .taxonomy-tribe_events_cat-ornithology-data {
   .tribe-event-url {
     color: $red-med;
+  }
+
+  h1.tribe-events-single-event-title, h2.tribe-events-page-title {
+    color: $red-med;
+  }
+
+  #tribe-events .tribe-events-button {
+    background-color: $red-dark;
+
+    &:hover {
+      background-color: $red-light;
+      color: $red-dark;
+    }
+
+    &:active, &:focus {
+      background-color: $red-med;
+      color: $white;
+    }
+  }
+
+  .tribe-events-loop &.tribe-event-featured {
+    background: $red-med;
+    border: 1px solid $red-dark;
+    padding: 10px;
   }
 }
 
 //Botany ($green-med)
-
 .botany {
   h1 {
     color: $green-dark;
@@ -422,9 +479,27 @@
   }
 }
 
-.tribe-events-category-botany {
+.tribe-events-category-botany, .taxonomy-tribe_events_cat-botany-data {
   .tribe-event-url {
     color: $green-med;
+  }
+
+  h1.tribe-events-single-event-title, h2.tribe-events-page-title {
+    color: $green-med;
+  }
+
+  #tribe-events .tribe-events-button {
+    background-color: $green-dark;
+
+    &:hover {
+      background-color: $green-light;
+      color: $green-dark;
+    }
+
+    &:active, &:focus {
+      background-color: $green-med;
+      color: $white;
+    }
   }
 }
 

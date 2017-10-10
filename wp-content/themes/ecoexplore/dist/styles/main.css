@@ -2297,7 +2297,11 @@ dfn {
  * contexts in Firefox 4+, Safari, and Chrome.
  */
 
-h1 {
+h1,
+.tribe-events-list h2.tribe-events-page-title,
+.tribe-events-list .um.um .um-name.um-name a.tribe-events-page-title,
+.um.um .um-name.um-name .tribe-events-list a.tribe-events-page-title,
+.single-tribe_events h1.tribe-events-single-event-title {
   font-size: 2em;
   margin: 0.67em 0;
 }
@@ -4820,9 +4824,14 @@ html {
 }
 
 h1,
+.tribe-events-list h2.tribe-events-page-title,
+.tribe-events-list .um.um .um-name.um-name a.tribe-events-page-title,
+.um.um .um-name.um-name .tribe-events-list a.tribe-events-page-title,
+.single-tribe_events h1.tribe-events-single-event-title,
 h2,
 .um.um .um-name.um-name a,
 h3,
+.single-tribe_events .tribe-events-event-meta h3,
 h4,
 h5,
 h6,
@@ -4832,9 +4841,14 @@ label {
 }
 
 h1 a,
+.tribe-events-list h2.tribe-events-page-title a,
+.tribe-events-list .um.um .um-name.um-name a.tribe-events-page-title a,
+.um.um .um-name.um-name .tribe-events-list a.tribe-events-page-title a,
+.single-tribe_events h1.tribe-events-single-event-title a,
 h2 a,
 .um.um .um-name.um-name a a,
 h3 a,
+.single-tribe_events .tribe-events-event-meta h3 a,
 h4 a,
 h5 a,
 h6 a,
@@ -4842,7 +4856,11 @@ label a {
   font-weight: inherit;
 }
 
-h1 {
+h1,
+.tribe-events-list h2.tribe-events-page-title,
+.tribe-events-list .um.um .um-name.um-name a.tribe-events-page-title,
+.um.um .um-name.um-name .tribe-events-list a.tribe-events-page-title,
+.single-tribe_events h1.tribe-events-single-event-title {
   font-size: 4.2rem;
   line-height: 110%;
   margin: 2.1rem 0 1.68rem 0;
@@ -4855,7 +4873,8 @@ h2,
   margin: 1.78rem 0 1.424rem 0;
 }
 
-h3 {
+h3,
+.single-tribe_events .tribe-events-event-meta h3 {
   font-size: 2.92rem;
   line-height: 110%;
   margin: 1.46rem 0 1.168rem 0;
@@ -6066,10 +6085,20 @@ button.btn-floating {
 }
 
 .modal h1,
+.modal .tribe-events-list h2.tribe-events-page-title,
+.tribe-events-list .modal h2.tribe-events-page-title,
+.modal .tribe-events-list .um.um .um-name.um-name a.tribe-events-page-title,
+.tribe-events-list .um.um .um-name.um-name .modal a.tribe-events-page-title,
+.modal .um.um .um-name.um-name .tribe-events-list a.tribe-events-page-title,
+.um.um .um-name.um-name .tribe-events-list .modal a.tribe-events-page-title,
+.modal .single-tribe_events h1.tribe-events-single-event-title,
+.single-tribe_events .modal h1.tribe-events-single-event-title,
 .modal h2,
 .modal .um.um .um-name.um-name a,
 .um.um .um-name.um-name .modal a,
 .modal h3,
+.modal .single-tribe_events .tribe-events-event-meta h3,
+.single-tribe_events .tribe-events-event-meta .modal h3,
 .modal h4 {
   margin-top: 0;
 }
@@ -11625,7 +11654,11 @@ html {
   text-transform: uppercase;
 }
 
-h1 {
+h1,
+.tribe-events-list h2.tribe-events-page-title,
+.tribe-events-list .um.um .um-name.um-name a.tribe-events-page-title,
+.um.um .um-name.um-name .tribe-events-list a.tribe-events-page-title,
+.single-tribe_events h1.tribe-events-single-event-title {
   color: #4CBED8;
   font-family: "Zilla Slab", serif;
   font-size: 60px;
@@ -11633,11 +11666,19 @@ h1 {
 }
 
 @media only screen and (max-width: 768px) {
-  h1 {
+  h1,
+  .tribe-events-list h2.tribe-events-page-title,
+  .tribe-events-list .um.um .um-name.um-name a.tribe-events-page-title,
+  .um.um .um-name.um-name .tribe-events-list a.tribe-events-page-title,
+  .single-tribe_events h1.tribe-events-single-event-title {
     font-size: 46px;
   }
 
-  h1 br {
+  h1 br,
+  .tribe-events-list h2.tribe-events-page-title br,
+  .tribe-events-list .um.um .um-name.um-name a.tribe-events-page-title br,
+  .um.um .um-name.um-name .tribe-events-list a.tribe-events-page-title br,
+  .single-tribe_events h1.tribe-events-single-event-title br {
     display: none;
   }
 }
@@ -11657,7 +11698,8 @@ h2,
   }
 }
 
-h3 {
+h3,
+.single-tribe_events .tribe-events-event-meta h3 {
   color: #000349;
   font-family: "Zilla Slab", serif;
   font-size: 30px;
@@ -11715,6 +11757,23 @@ label,
 .hentry a:not(.btn-primary):active {
   color: #000349;
   background: rgba(11, 0, 75, 0.19);
+}
+
+.content a {
+  color: #308593;
+  text-decoration: underline;
+}
+
+.content a:hover {
+  background: #AAE1EA;
+  text-decoration: none;
+}
+
+.content a:focus,
+.content a:active {
+  background: rgba(11, 0, 75, 0.19);
+  color: #000349;
+  text-decoration: none;
 }
 
 input[type="submit"].um-button {
@@ -12296,7 +12355,9 @@ body.admin-bar .modal {
   border: 1px solid #000349;
 }
 
-.modal h3 {
+.modal h3,
+.modal .single-tribe_events .tribe-events-event-meta h3,
+.single-tribe_events .tribe-events-event-meta .modal h3 {
   margin-bottom: 0;
 }
 
@@ -12712,7 +12773,15 @@ body.admin-bar .modal {
   font-weight: bold;
 }
 
-.entomology h1 {
+.entomology h1,
+.entomology .tribe-events-list h2.tribe-events-page-title,
+.tribe-events-list .entomology h2.tribe-events-page-title,
+.entomology .tribe-events-list .um.um .um-name.um-name a.tribe-events-page-title,
+.tribe-events-list .um.um .um-name.um-name .entomology a.tribe-events-page-title,
+.entomology .um.um .um-name.um-name .tribe-events-list a.tribe-events-page-title,
+.um.um .um-name.um-name .tribe-events-list .entomology a.tribe-events-page-title,
+.entomology .single-tribe_events h1.tribe-events-single-event-title,
+.single-tribe_events .entomology h1.tribe-events-single-event-title {
   color: #4CBED8;
 }
 
@@ -12850,11 +12919,62 @@ body.admin-bar .modal {
   background-color: #4CBED8;
 }
 
-.tribe-events-category-entomology .tribe-event-url {
+.tribe-events-category-entomology .tribe-event-url,
+.taxonomy-tribe_events_cat-entomology-data .tribe-event-url {
   color: #4CBED8;
 }
 
-.herpetology h1 {
+.tribe-events-category-entomology h1.tribe-events-single-event-title,
+.tribe-events-category-entomology .tribe-events-list h2.tribe-events-single-event-title.tribe-events-page-title,
+.tribe-events-list .tribe-events-category-entomology h2.tribe-events-single-event-title.tribe-events-page-title,
+.tribe-events-category-entomology .tribe-events-list .um.um .um-name.um-name a.tribe-events-single-event-title.tribe-events-page-title,
+.tribe-events-list .um.um .um-name.um-name .tribe-events-category-entomology a.tribe-events-single-event-title.tribe-events-page-title,
+.tribe-events-category-entomology .um.um .um-name.um-name .tribe-events-list a.tribe-events-single-event-title.tribe-events-page-title,
+.um.um .um-name.um-name .tribe-events-list .tribe-events-category-entomology a.tribe-events-single-event-title.tribe-events-page-title,
+.tribe-events-category-entomology h2.tribe-events-page-title,
+.tribe-events-category-entomology .um.um .um-name.um-name a.tribe-events-page-title,
+.um.um .um-name.um-name .tribe-events-category-entomology a.tribe-events-page-title,
+.taxonomy-tribe_events_cat-entomology-data h1.tribe-events-single-event-title,
+.taxonomy-tribe_events_cat-entomology-data .tribe-events-list h2.tribe-events-single-event-title.tribe-events-page-title,
+.tribe-events-list .taxonomy-tribe_events_cat-entomology-data h2.tribe-events-single-event-title.tribe-events-page-title,
+.taxonomy-tribe_events_cat-entomology-data .tribe-events-list .um.um .um-name.um-name a.tribe-events-single-event-title.tribe-events-page-title,
+.tribe-events-list .um.um .um-name.um-name .taxonomy-tribe_events_cat-entomology-data a.tribe-events-single-event-title.tribe-events-page-title,
+.taxonomy-tribe_events_cat-entomology-data .um.um .um-name.um-name .tribe-events-list a.tribe-events-single-event-title.tribe-events-page-title,
+.um.um .um-name.um-name .tribe-events-list .taxonomy-tribe_events_cat-entomology-data a.tribe-events-single-event-title.tribe-events-page-title,
+.taxonomy-tribe_events_cat-entomology-data h2.tribe-events-page-title,
+.taxonomy-tribe_events_cat-entomology-data .um.um .um-name.um-name a.tribe-events-page-title,
+.um.um .um-name.um-name .taxonomy-tribe_events_cat-entomology-data a.tribe-events-page-title {
+  color: #4CBED8;
+}
+
+.tribe-events-category-entomology #tribe-events .tribe-events-button,
+.taxonomy-tribe_events_cat-entomology-data #tribe-events .tribe-events-button {
+  background-color: #308593;
+}
+
+.tribe-events-category-entomology #tribe-events .tribe-events-button:hover,
+.taxonomy-tribe_events_cat-entomology-data #tribe-events .tribe-events-button:hover {
+  background-color: #AAE1EA;
+  color: #308593;
+}
+
+.tribe-events-category-entomology #tribe-events .tribe-events-button:active,
+.tribe-events-category-entomology #tribe-events .tribe-events-button:focus,
+.taxonomy-tribe_events_cat-entomology-data #tribe-events .tribe-events-button:active,
+.taxonomy-tribe_events_cat-entomology-data #tribe-events .tribe-events-button:focus {
+  background-color: #4CBED8;
+  color: #FFF;
+}
+
+.herpetology h1,
+.herpetology .tribe-events-list h2.tribe-events-page-title,
+.tribe-events-list .herpetology h2.tribe-events-page-title,
+.herpetology .tribe-events-list .um.um .um-name.um-name a.tribe-events-page-title,
+.tribe-events-list .um.um .um-name.um-name .herpetology a.tribe-events-page-title,
+.herpetology .um.um .um-name.um-name .tribe-events-list a.tribe-events-page-title,
+.um.um .um-name.um-name .tribe-events-list .herpetology a.tribe-events-page-title,
+.herpetology .single-tribe_events h1.tribe-events-single-event-title,
+.single-tribe_events .herpetology h1.tribe-events-single-event-title {
   color: #E98B3B;
 }
 
@@ -12992,11 +13112,62 @@ body.admin-bar .modal {
   background-color: #E98B3B;
 }
 
-.tribe-events-category-herpetology .tribe-event-url {
+.tribe-events-category-herpetology .tribe-event-url,
+.taxonomy-tribe_events_cat-herpetology-data .tribe-event-url {
   color: #E98B3B;
 }
 
-.ornithology h1 {
+.tribe-events-category-herpetology h1.tribe-events-single-event-title,
+.tribe-events-category-herpetology .tribe-events-list h2.tribe-events-single-event-title.tribe-events-page-title,
+.tribe-events-list .tribe-events-category-herpetology h2.tribe-events-single-event-title.tribe-events-page-title,
+.tribe-events-category-herpetology .tribe-events-list .um.um .um-name.um-name a.tribe-events-single-event-title.tribe-events-page-title,
+.tribe-events-list .um.um .um-name.um-name .tribe-events-category-herpetology a.tribe-events-single-event-title.tribe-events-page-title,
+.tribe-events-category-herpetology .um.um .um-name.um-name .tribe-events-list a.tribe-events-single-event-title.tribe-events-page-title,
+.um.um .um-name.um-name .tribe-events-list .tribe-events-category-herpetology a.tribe-events-single-event-title.tribe-events-page-title,
+.tribe-events-category-herpetology h2.tribe-events-page-title,
+.tribe-events-category-herpetology .um.um .um-name.um-name a.tribe-events-page-title,
+.um.um .um-name.um-name .tribe-events-category-herpetology a.tribe-events-page-title,
+.taxonomy-tribe_events_cat-herpetology-data h1.tribe-events-single-event-title,
+.taxonomy-tribe_events_cat-herpetology-data .tribe-events-list h2.tribe-events-single-event-title.tribe-events-page-title,
+.tribe-events-list .taxonomy-tribe_events_cat-herpetology-data h2.tribe-events-single-event-title.tribe-events-page-title,
+.taxonomy-tribe_events_cat-herpetology-data .tribe-events-list .um.um .um-name.um-name a.tribe-events-single-event-title.tribe-events-page-title,
+.tribe-events-list .um.um .um-name.um-name .taxonomy-tribe_events_cat-herpetology-data a.tribe-events-single-event-title.tribe-events-page-title,
+.taxonomy-tribe_events_cat-herpetology-data .um.um .um-name.um-name .tribe-events-list a.tribe-events-single-event-title.tribe-events-page-title,
+.um.um .um-name.um-name .tribe-events-list .taxonomy-tribe_events_cat-herpetology-data a.tribe-events-single-event-title.tribe-events-page-title,
+.taxonomy-tribe_events_cat-herpetology-data h2.tribe-events-page-title,
+.taxonomy-tribe_events_cat-herpetology-data .um.um .um-name.um-name a.tribe-events-page-title,
+.um.um .um-name.um-name .taxonomy-tribe_events_cat-herpetology-data a.tribe-events-page-title {
+  color: #E98B3B;
+}
+
+.tribe-events-category-herpetology #tribe-events .tribe-events-button,
+.taxonomy-tribe_events_cat-herpetology-data #tribe-events .tribe-events-button {
+  background-color: #C27811;
+}
+
+.tribe-events-category-herpetology #tribe-events .tribe-events-button:hover,
+.taxonomy-tribe_events_cat-herpetology-data #tribe-events .tribe-events-button:hover {
+  background-color: #EDC57B;
+  color: #C27811;
+}
+
+.tribe-events-category-herpetology #tribe-events .tribe-events-button:active,
+.tribe-events-category-herpetology #tribe-events .tribe-events-button:focus,
+.taxonomy-tribe_events_cat-herpetology-data #tribe-events .tribe-events-button:active,
+.taxonomy-tribe_events_cat-herpetology-data #tribe-events .tribe-events-button:focus {
+  background-color: #E98B3B;
+  color: #FFF;
+}
+
+.ornithology h1,
+.ornithology .tribe-events-list h2.tribe-events-page-title,
+.tribe-events-list .ornithology h2.tribe-events-page-title,
+.ornithology .tribe-events-list .um.um .um-name.um-name a.tribe-events-page-title,
+.tribe-events-list .um.um .um-name.um-name .ornithology a.tribe-events-page-title,
+.ornithology .um.um .um-name.um-name .tribe-events-list a.tribe-events-page-title,
+.um.um .um-name.um-name .tribe-events-list .ornithology a.tribe-events-page-title,
+.ornithology .single-tribe_events h1.tribe-events-single-event-title,
+.single-tribe_events .ornithology h1.tribe-events-single-event-title {
   color: #C93B3E;
 }
 
@@ -13134,11 +13305,69 @@ body.admin-bar .modal {
   background-color: #C93B3E;
 }
 
-.tribe-events-category-ornithology .tribe-event-url {
+.tribe-events-category-ornithology .tribe-event-url,
+.taxonomy-tribe_events_cat-ornithology-data .tribe-event-url {
   color: #C93B3E;
 }
 
-.botany h1 {
+.tribe-events-category-ornithology h1.tribe-events-single-event-title,
+.tribe-events-category-ornithology .tribe-events-list h2.tribe-events-single-event-title.tribe-events-page-title,
+.tribe-events-list .tribe-events-category-ornithology h2.tribe-events-single-event-title.tribe-events-page-title,
+.tribe-events-category-ornithology .tribe-events-list .um.um .um-name.um-name a.tribe-events-single-event-title.tribe-events-page-title,
+.tribe-events-list .um.um .um-name.um-name .tribe-events-category-ornithology a.tribe-events-single-event-title.tribe-events-page-title,
+.tribe-events-category-ornithology .um.um .um-name.um-name .tribe-events-list a.tribe-events-single-event-title.tribe-events-page-title,
+.um.um .um-name.um-name .tribe-events-list .tribe-events-category-ornithology a.tribe-events-single-event-title.tribe-events-page-title,
+.tribe-events-category-ornithology h2.tribe-events-page-title,
+.tribe-events-category-ornithology .um.um .um-name.um-name a.tribe-events-page-title,
+.um.um .um-name.um-name .tribe-events-category-ornithology a.tribe-events-page-title,
+.taxonomy-tribe_events_cat-ornithology-data h1.tribe-events-single-event-title,
+.taxonomy-tribe_events_cat-ornithology-data .tribe-events-list h2.tribe-events-single-event-title.tribe-events-page-title,
+.tribe-events-list .taxonomy-tribe_events_cat-ornithology-data h2.tribe-events-single-event-title.tribe-events-page-title,
+.taxonomy-tribe_events_cat-ornithology-data .tribe-events-list .um.um .um-name.um-name a.tribe-events-single-event-title.tribe-events-page-title,
+.tribe-events-list .um.um .um-name.um-name .taxonomy-tribe_events_cat-ornithology-data a.tribe-events-single-event-title.tribe-events-page-title,
+.taxonomy-tribe_events_cat-ornithology-data .um.um .um-name.um-name .tribe-events-list a.tribe-events-single-event-title.tribe-events-page-title,
+.um.um .um-name.um-name .tribe-events-list .taxonomy-tribe_events_cat-ornithology-data a.tribe-events-single-event-title.tribe-events-page-title,
+.taxonomy-tribe_events_cat-ornithology-data h2.tribe-events-page-title,
+.taxonomy-tribe_events_cat-ornithology-data .um.um .um-name.um-name a.tribe-events-page-title,
+.um.um .um-name.um-name .taxonomy-tribe_events_cat-ornithology-data a.tribe-events-page-title {
+  color: #C93B3E;
+}
+
+.tribe-events-category-ornithology #tribe-events .tribe-events-button,
+.taxonomy-tribe_events_cat-ornithology-data #tribe-events .tribe-events-button {
+  background-color: #99140C;
+}
+
+.tribe-events-category-ornithology #tribe-events .tribe-events-button:hover,
+.taxonomy-tribe_events_cat-ornithology-data #tribe-events .tribe-events-button:hover {
+  background-color: #F4989A;
+  color: #99140C;
+}
+
+.tribe-events-category-ornithology #tribe-events .tribe-events-button:active,
+.tribe-events-category-ornithology #tribe-events .tribe-events-button:focus,
+.taxonomy-tribe_events_cat-ornithology-data #tribe-events .tribe-events-button:active,
+.taxonomy-tribe_events_cat-ornithology-data #tribe-events .tribe-events-button:focus {
+  background-color: #C93B3E;
+  color: #FFF;
+}
+
+.tribe-events-loop .tribe-events-category-ornithology.tribe-event-featured,
+.tribe-events-loop .taxonomy-tribe_events_cat-ornithology-data.tribe-event-featured {
+  background: #C93B3E;
+  border: 1px solid #99140C;
+  padding: 10px;
+}
+
+.botany h1,
+.botany .tribe-events-list h2.tribe-events-page-title,
+.tribe-events-list .botany h2.tribe-events-page-title,
+.botany .tribe-events-list .um.um .um-name.um-name a.tribe-events-page-title,
+.tribe-events-list .um.um .um-name.um-name .botany a.tribe-events-page-title,
+.botany .um.um .um-name.um-name .tribe-events-list a.tribe-events-page-title,
+.um.um .um-name.um-name .tribe-events-list .botany a.tribe-events-page-title,
+.botany .single-tribe_events h1.tribe-events-single-event-title,
+.single-tribe_events .botany h1.tribe-events-single-event-title {
   color: #688127;
 }
 
@@ -13276,8 +13505,51 @@ body.admin-bar .modal {
   background-color: #9AB83C;
 }
 
-.tribe-events-category-botany .tribe-event-url {
+.tribe-events-category-botany .tribe-event-url,
+.taxonomy-tribe_events_cat-botany-data .tribe-event-url {
   color: #9AB83C;
+}
+
+.tribe-events-category-botany h1.tribe-events-single-event-title,
+.tribe-events-category-botany .tribe-events-list h2.tribe-events-single-event-title.tribe-events-page-title,
+.tribe-events-list .tribe-events-category-botany h2.tribe-events-single-event-title.tribe-events-page-title,
+.tribe-events-category-botany .tribe-events-list .um.um .um-name.um-name a.tribe-events-single-event-title.tribe-events-page-title,
+.tribe-events-list .um.um .um-name.um-name .tribe-events-category-botany a.tribe-events-single-event-title.tribe-events-page-title,
+.tribe-events-category-botany .um.um .um-name.um-name .tribe-events-list a.tribe-events-single-event-title.tribe-events-page-title,
+.um.um .um-name.um-name .tribe-events-list .tribe-events-category-botany a.tribe-events-single-event-title.tribe-events-page-title,
+.tribe-events-category-botany h2.tribe-events-page-title,
+.tribe-events-category-botany .um.um .um-name.um-name a.tribe-events-page-title,
+.um.um .um-name.um-name .tribe-events-category-botany a.tribe-events-page-title,
+.taxonomy-tribe_events_cat-botany-data h1.tribe-events-single-event-title,
+.taxonomy-tribe_events_cat-botany-data .tribe-events-list h2.tribe-events-single-event-title.tribe-events-page-title,
+.tribe-events-list .taxonomy-tribe_events_cat-botany-data h2.tribe-events-single-event-title.tribe-events-page-title,
+.taxonomy-tribe_events_cat-botany-data .tribe-events-list .um.um .um-name.um-name a.tribe-events-single-event-title.tribe-events-page-title,
+.tribe-events-list .um.um .um-name.um-name .taxonomy-tribe_events_cat-botany-data a.tribe-events-single-event-title.tribe-events-page-title,
+.taxonomy-tribe_events_cat-botany-data .um.um .um-name.um-name .tribe-events-list a.tribe-events-single-event-title.tribe-events-page-title,
+.um.um .um-name.um-name .tribe-events-list .taxonomy-tribe_events_cat-botany-data a.tribe-events-single-event-title.tribe-events-page-title,
+.taxonomy-tribe_events_cat-botany-data h2.tribe-events-page-title,
+.taxonomy-tribe_events_cat-botany-data .um.um .um-name.um-name a.tribe-events-page-title,
+.um.um .um-name.um-name .taxonomy-tribe_events_cat-botany-data a.tribe-events-page-title {
+  color: #9AB83C;
+}
+
+.tribe-events-category-botany #tribe-events .tribe-events-button,
+.taxonomy-tribe_events_cat-botany-data #tribe-events .tribe-events-button {
+  background-color: #688127;
+}
+
+.tribe-events-category-botany #tribe-events .tribe-events-button:hover,
+.taxonomy-tribe_events_cat-botany-data #tribe-events .tribe-events-button:hover {
+  background-color: #C4DE95;
+  color: #688127;
+}
+
+.tribe-events-category-botany #tribe-events .tribe-events-button:active,
+.tribe-events-category-botany #tribe-events .tribe-events-button:focus,
+.taxonomy-tribe_events_cat-botany-data #tribe-events .tribe-events-button:active,
+.taxonomy-tribe_events_cat-botany-data #tribe-events .tribe-events-button:focus {
+  background-color: #9AB83C;
+  color: #FFF;
 }
 
 .field-season .card {
@@ -13768,7 +14040,15 @@ nav .button-collapse + div {
   }
 }
 
-.splat h1 {
+.splat h1,
+.splat .tribe-events-list h2.tribe-events-page-title,
+.tribe-events-list .splat h2.tribe-events-page-title,
+.splat .tribe-events-list .um.um .um-name.um-name a.tribe-events-page-title,
+.tribe-events-list .um.um .um-name.um-name .splat a.tribe-events-page-title,
+.splat .um.um .um-name.um-name .tribe-events-list a.tribe-events-page-title,
+.um.um .um-name.um-name .tribe-events-list .splat a.tribe-events-page-title,
+.splat .single-tribe_events h1.tribe-events-single-event-title,
+.single-tribe_events .splat h1.tribe-events-single-event-title {
   clear: both;
   color: #2F2F2F;
   font-size: 16px;
@@ -13777,7 +14057,15 @@ nav .button-collapse + div {
 }
 
 @media only screen and (min-width: 769px) {
-  .splat h1 {
+  .splat h1,
+  .splat .tribe-events-list h2.tribe-events-page-title,
+  .tribe-events-list .splat h2.tribe-events-page-title,
+  .splat .tribe-events-list .um.um .um-name.um-name a.tribe-events-page-title,
+  .tribe-events-list .um.um .um-name.um-name .splat a.tribe-events-page-title,
+  .splat .um.um .um-name.um-name .tribe-events-list a.tribe-events-page-title,
+  .um.um .um-name.um-name .tribe-events-list .splat a.tribe-events-page-title,
+  .splat .single-tribe_events h1.tribe-events-single-event-title,
+  .single-tribe_events .splat h1.tribe-events-single-event-title {
     font-size: 18px;
     margin: 0 20% 40px 23%;
   }
@@ -14306,6 +14594,12 @@ nav .button-collapse + div {
   }
 }
 
+.tribe-events-list h2.tribe-events-page-title,
+.tribe-events-list .um.um .um-name.um-name a.tribe-events-page-title,
+.um.um .um-name.um-name .tribe-events-list a.tribe-events-page-title {
+  margin-bottom: 0;
+}
+
 .page-template-template-events-calendar-blade-php .wrap {
   position: relative;
   padding-bottom: 80px;
@@ -14337,34 +14631,68 @@ nav .button-collapse + div {
   z-index: 2;
 }
 
-.tribe-events-list-separator-month {
-  color: #000349;
-  font-family: "Zilla Slab", serif;
-  font-size: 35px;
-  font-weight: bold;
+.tribe-events-list-separator-month::after {
+  height: 60px;
+  background-image: url(/wp-content/themes/ecoexplore/dist/images/dots-horizontal.svg);
+  background-color: transparent;
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-bottom: 0;
+  -webkit-transform: translate3d(0, -50%, 0);
+          transform: translate3d(0, -50%, 0);
 }
 
-.tribe-events-event-image img {
+.tribe-events-list-separator-month span {
+  padding: 0;
+  color: #000349;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+}
+
+.tribe-events-list .type-tribe_events {
+  margin-bottom: 3rem;
+}
+
+.tribe-events-event-meta abbr {
+  text-decoration: none;
+}
+
+.tribe-events-event-meta a.tribe-events-gmap {
+  display: none;
+}
+
+.tribe-events-event-meta .tribe-venue {
+  font-weight: bold;
+  margin-bottom: 0 !important;
+}
+
+.tribe-events-event-meta address.tribe-events-address,
+.tribe-events-event-meta .tribe-events-venue-details {
+  font-style: normal;
+}
+
+.tribe-events-event-image.tribe-events-event-image.tribe-events-event-image {
   float: left;
-  width: 40%;
+  width: 30%;
+  margin: 0 50px 30px 0;
+}
+
+.tribe-events-event-image.tribe-events-event-image.tribe-events-event-image img {
   -webkit-box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
           box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
-  margin-right: 50px;
-  margin-bottom: 30px;
 }
 
 @media only screen and (max-width: 768px) {
-  .tribe-events-event-image img {
+  .tribe-events-event-image.tribe-events-event-image.tribe-events-event-image {
+    width: 100%;
+    float: none;
+    margin: 0 0 30px;
+  }
+
+  .tribe-events-event-image.tribe-events-event-image.tribe-events-event-image img {
     width: 100%;
   }
-}
-
-.single-tribe_events .tribe-events-event-meta {
-  background-color: #CFF3FF;
-  border: 1px solid #000349;
-  font-size: 16px;
-  float: left;
-  width: 100%;
 }
 
 .tribe-events-read-more {
@@ -14372,11 +14700,6 @@ nav .button-collapse + div {
   font-family: "Zilla Slab", serif;
   font-size: 20px;
   font-weight: bold;
-}
-
-.tribe-events-venue-details,
-.tribe-event-schedule-details {
-  font-size: 18px;
 }
 
 .tribe-events-list-event-description {
@@ -14396,24 +14719,79 @@ nav .button-collapse + div {
   margin: 0;
 }
 
-.single-tribe_events .tribe-events-single-event-title {
-  font-size: 50px;
+.single-tribe_events .tribe-events-back {
+  display: none;
+}
+
+.single-tribe_events .tribe-events-list h2.tribe-events-single-event-title.tribe-events-page-title,
+.tribe-events-list .single-tribe_events h2.tribe-events-single-event-title.tribe-events-page-title,
+.single-tribe_events .tribe-events-list .um.um .um-name.um-name a.tribe-events-single-event-title.tribe-events-page-title,
+.tribe-events-list .um.um .um-name.um-name .single-tribe_events a.tribe-events-single-event-title.tribe-events-page-title,
+.single-tribe_events .um.um .um-name.um-name .tribe-events-list a.tribe-events-single-event-title.tribe-events-page-title,
+.um.um .um-name.um-name .tribe-events-list .single-tribe_events a.tribe-events-single-event-title.tribe-events-page-title,
+.single-tribe_events h1.tribe-events-single-event-title {
+  margin-bottom: 0;
+}
+
+.single-tribe_events .tribe-events-schedule {
+  background: none;
+  border: none;
+  padding-bottom: 1em;
 }
 
 .single-tribe_events .tribe-events-schedule,
-.tribe-events-loop .tribe-events-event-meta {
-  background: none;
-  background-color: none;
-  border: none;
+.single-tribe_events .tribe-events-schedule h2,
+.single-tribe_events .tribe-events-schedule .um.um .um-name.um-name a,
+.um.um .um-name.um-name .single-tribe_events .tribe-events-schedule a {
+  margin: 0;
+  line-height: 1;
 }
 
-.tribe-events-event-image img {
-  -webkit-box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
-          box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
+.single-tribe_events .tribe-events-event-meta {
+  background-color: #CFF3FF;
+  border: 1px solid #000349;
+  font-size: 16px;
+  float: left;
+  width: 100%;
+}
+
+.single-tribe_events .tribe-events-meta-group {
+  padding: 0 10px;
+}
+
+.single-tribe_events .tribe-events-meta-group-gmap.tribe-events-meta-group-gmap {
+  padding: 0 10px;
+  margin-bottom: 10px;
+}
+
+.single-tribe_events .tribe-events-meta-group-gmap.tribe-events-meta-group-gmap .tribe-events-venue-map {
+  margin: 0;
+  border: 1px solid #000349;
+  border-radius: 0;
+}
+
+.single-tribe_events #tribe-events .tribe-events-button {
+  border-radius: 0;
+}
+
+.single-tribe_events #tribe-events-footer {
+  display: none;
 }
 
 .tribe-bar-disabled .tribe-bar-filters .tribe-bar-date-filter {
   display: none;
+}
+
+.tribe-events-list .tribe-events-loop .tribe-event-featured .tribe-events-event-image {
+  float: left;
+  width: 40%;
+  margin: 0 50px 30px 0;
+}
+
+.tribe-events-list .tribe-events-loop .tribe-event-featured .tribe-events-event-meta,
+.tribe-events-list .tribe-events-loop .tribe-event-featured .tribe-events-content {
+  clear: none;
+  float: none;
 }
 
 .content-info .row {
@@ -14617,7 +14995,23 @@ nav .button-collapse + div {
 }
 
 .page-field-season-data h1,
-.single-field-season h1 {
+.page-field-season-data .tribe-events-list h2.tribe-events-page-title,
+.tribe-events-list .page-field-season-data h2.tribe-events-page-title,
+.page-field-season-data .tribe-events-list .um.um .um-name.um-name a.tribe-events-page-title,
+.tribe-events-list .um.um .um-name.um-name .page-field-season-data a.tribe-events-page-title,
+.page-field-season-data .um.um .um-name.um-name .tribe-events-list a.tribe-events-page-title,
+.um.um .um-name.um-name .tribe-events-list .page-field-season-data a.tribe-events-page-title,
+.page-field-season-data .single-tribe_events h1.tribe-events-single-event-title,
+.single-tribe_events .page-field-season-data h1.tribe-events-single-event-title,
+.single-field-season h1,
+.single-field-season .tribe-events-list h2.tribe-events-page-title,
+.tribe-events-list .single-field-season h2.tribe-events-page-title,
+.single-field-season .tribe-events-list .um.um .um-name.um-name a.tribe-events-page-title,
+.tribe-events-list .um.um .um-name.um-name .single-field-season a.tribe-events-page-title,
+.single-field-season .um.um .um-name.um-name .tribe-events-list a.tribe-events-page-title,
+.um.um .um-name.um-name .tribe-events-list .single-field-season a.tribe-events-page-title,
+.single-field-season .single-tribe_events h1.tribe-events-single-event-title,
+.single-tribe_events .single-field-season h1.tribe-events-single-event-title {
   margin-top: 0;
 }
 
