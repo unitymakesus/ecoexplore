@@ -379,6 +379,7 @@
     a {
       color: white;
       text-shadow: 4px 2px $shadow;
+      text-decoration: none;
     }
   }
 
@@ -424,11 +425,7 @@
     }
 
     a {
-      color: $green-dark;
-
-      &:hover, &:focus, &:active {
-        font-size: 30px;
-      }
+      font-size: 30px;
     }
   }
 

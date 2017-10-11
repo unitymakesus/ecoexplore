@@ -91,20 +91,19 @@ h6, .h6 {
   }
 }
 
-.content {
-  a {
-    color: $aqua-dark;
-    text-decoration: underline;
+a {
+  transition: all 0.3s ease;
+  color: $aqua-dark;
+  text-decoration: underline;
 
-    &:hover {
-      background: $aqua-light;
-      text-decoration: none;
-    }
+  &:hover {
+    background: $aqua-light;
+    text-decoration: none;
+  }
 
-    &:focus, &:active {
-      background: $shadow;
-      color: $navy;
-      text-decoration: none;
-    }
+  &:focus, &:active {
+    background: $shadow;
+    color: $navy;
+    text-decoration: none;
   }
 }

@@ -1,15 +1,17 @@
 //Global mixins for seasons
 @mixin learn-more-btn {
   box-shadow: 7px 8px $shadow;
-  color: white;
+  color: white !important;
   display: inline-block;
   font-family: $font-comic;
   font-size: 26px;
+  text-decoration: none !important;
   text-transform: uppercase;
   transform: translate(0, 0);
   transition: all 0.3s ease;
   padding: 5px 30px;
   position: relative;
+  will-change: transform;
 }
 @mixin learn-more-btn-before {
   content: " ";

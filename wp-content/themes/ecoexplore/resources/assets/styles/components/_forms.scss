@@ -1,6 +1,7 @@
 input {
   font-family: $font-family-serif;
   color: $aqua-dark;
+  font-size: 16px;
 }
 
 label {
@@ -29,6 +30,84 @@ label {
     &:hover, &:focus, &:active {
       background: $orange-dark;
     }
+  }
+}
+
+// Registration form styles
+.um.um.um {
+  .um-form {
+    input[type=number], input[type=password], input[type=tel], input[type=text] {
+      font-size: 18px !important;
+      color: $aqua-dark;
+
+      &.um-validate-not-matched {
+        color: $red-dark;
+      }
+    }
+
+    input[type=number] {
+      height: 40px !important;
+      padding: 0 12px !important;
+    }
+
+    .select2.select2-container .select2-selection {
+      border: 2px solid $navy !important;
+      border-radius: 0 !important;
+      font-family: $font-family-serif;
+      font-size: 18px !important;
+
+      .select2-selection__rendered {
+        color: $aqua-dark;
+        line-height: 35px;
+      }
+
+      &.select2-selection--multiple {
+        line-height: normal !important;
+      }
+    }
+  }
+}
+
+.select2-container.select2-container--open {
+  .select2-dropdown {
+    border: 2px solid $shadow !important;
+    border-radius: 0;
+  }
+}
+
+.select2-search--dropdown {
+  .select2-search__field {
+    display: none;
+  }
+}
+
+.select2-container--default {
+  .select2-search__field {
+    margin: 0 !important;
+    line-height: normal !important;
+    font-size: 18px !important;
+  }
+}
+
+.select2-results li {
+  font-family: $font-family-serif;
+  color: $navy !important;
+  font-size: 16px;
+
+  &.select2-results__option.select2-results__option--highlighted {
+    background: $ice !important;
+    color: $navy !important;
+  }
+}
+
+.um-field-radio-option {
+  font-family: $font-family-serif;
+  color: $gray !important;
+  text-transform: none;
+  font-weight: normal;
+
+  .um-field-radio.active & {
+    color: $aqua-dark !important;
   }
 }
 
