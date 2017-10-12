@@ -32,22 +32,22 @@
             'panels'     => [
               [
                 'title'   => 'See It',
-                'img-lg'  => App\asset_path('images/see-it-binocs.jpg'),
-                'img-sm'  => App\asset_path('images/see-it-binocs-300.jpg'),
+                'img-lg'  => App\asset_path('images/see-it@2x.jpg'),
+                'img-sm'  => App\asset_path('images/see-it.jpg'),
                 'alt'     => 'Girl peering through binoculars',
                 'splat'   => App\asset_path('images/see-it.svg'),
               ],
               [
                 'title'   => 'Snap It',
-                'img-lg'  => App\asset_path('images/snap-it-boy.jpg'),
-                'img-sm'  => App\asset_path('images/snap-it-boy-300.jpg'),
+                'img-lg'  => App\asset_path('images/snap-it@2x.jpg'),
+                'img-sm'  => App\asset_path('images/snap-it.jpg'),
                 'alt'     => 'Boy taking picture with iPhone',
                 'splat'   => App\asset_path('images/snap-it.svg'),
               ],
               [
                 'title'   => 'Share It',
-                'img-lg'  => App\asset_path('images/share-it-ipad.jpg'),
-                'img-sm'  => App\asset_path('images/share-it-ipad-300.jpg'),
+                'img-lg'  => App\asset_path('images/share-it@2x.jpg'),
+                'img-sm'  => App\asset_path('images/share-it.jpg'),
                 'alt'     => 'Girl sharing observation on iPad',
                 'splat'   => App\asset_path('images/share-it.svg'),
               ],

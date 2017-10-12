@@ -45,6 +45,21 @@ label {
       }
     }
 
+    span[id=password-strength] {
+      width: 100%;
+      display: block;
+
+      &.bad, &.short, &.medium {
+        background: $red-light;
+        color: $red-dark;
+      }
+
+      &.strong {
+        background: $green-light;
+        color: $green-dark;
+      }
+    }
+
     input[type=number] {
       height: 40px !important;
       padding: 0 12px !important;
@@ -113,9 +128,19 @@ label {
 
 // Submission form styles
 .wpcf7-form {
-  input[type="text"] {
+  input[type="text"], input[type="email"] {
     margin-bottom: 0;
     font-size: 25px;
+    font-weight: normal;
+  }
+
+  textarea.wpcf7-textarea {
+    overflow-y: auto;
+    resize: vertical;
+    font-size: 25px;
+    font-weight: normal;
+    color: $aqua-dark;
+    font-family: $font-family-serif;
   }
 
   fieldset {

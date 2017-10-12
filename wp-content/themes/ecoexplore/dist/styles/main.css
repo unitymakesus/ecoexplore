@@ -11731,6 +11731,10 @@ label,
   text-transform: uppercase;
 }
 
+strong {
+  font-weight: 600;
+}
+
 .hentry ul:not(.collection) {
   list-style-type: disc;
   padding-left: 2em;
@@ -12115,6 +12119,23 @@ input {
   color: #99140C;
 }
 
+.um.um.um .um-form span[id=password-strength] {
+  width: 100%;
+  display: block;
+}
+
+.um.um.um .um-form span[id=password-strength].bad,
+.um.um.um .um-form span[id=password-strength].short,
+.um.um.um .um-form span[id=password-strength].medium {
+  background: #F4989A;
+  color: #99140C;
+}
+
+.um.um.um .um-form span[id=password-strength].strong {
+  background: #C4DE95;
+  color: #688127;
+}
+
 .um.um.um .um-form input[type=number] {
   height: 40px !important;
   padding: 0 12px !important;
@@ -12182,9 +12203,20 @@ input {
   /* Disabled style */
 }
 
-.wpcf7-form input[type="text"] {
+.wpcf7-form input[type="text"],
+.wpcf7-form input[type="email"] {
   margin-bottom: 0;
   font-size: 25px;
+  font-weight: normal;
+}
+
+.wpcf7-form textarea.wpcf7-textarea {
+  overflow-y: auto;
+  resize: vertical;
+  font-size: 25px;
+  font-weight: normal;
+  color: #308593;
+  font-family: "Zilla Slab", serif;
 }
 
 .wpcf7-form fieldset {

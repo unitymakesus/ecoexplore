@@ -63,6 +63,10 @@ h6, .h6 {
   text-transform: uppercase;
 }
 
+strong {
+  font-weight: 600;
+}
+
 .hentry {
   ul:not(.collection) {
     list-style-type: disc;
