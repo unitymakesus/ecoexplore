@@ -413,22 +413,6 @@
     margin: 10px;
   }
 
-  .explore-more {
-    font-family: $font-comic;
-    font-size: 26px;
-    text-align: center;
-    text-transform: uppercase;
-    transition: all ease 0.3s;
-
-    @media #{$small-and-down} {
-      margin-bottom: 40px;
-    }
-
-    a {
-      font-size: 30px;
-    }
-  }
-
   .row:nth-child(2) {
     margin-top: 25px;
   }

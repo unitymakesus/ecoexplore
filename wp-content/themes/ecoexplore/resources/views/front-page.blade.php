@@ -122,13 +122,7 @@
               $big_event = tribe_get_events([
                 'posts_per_page' => 1,
                 'eventDisplay' => 'upcoming',
-                'tax_query' => [
-                  [
-                    'taxonomy' => TribeEvents::TAXONOMY,
-                    'field' => 'slug',
-                    'terms' => 'season-ending-event'
-                  ]
-                ]
+                'featured' => true
               ]);
             @endphp
 
@@ -219,8 +213,8 @@
               <div>
                 @include('partials.observations-loop')
               </div>
-            <div class="explore-more">
-              <a href="https://www.inaturalist.org/projects/ecoexplore" target="_blank" rel="noopener">Explore More</a>
+            <div class="center">
+              <a class="explore-more" href="https://www.inaturalist.org/projects/ecoexplore" target="_blank" rel="noopener">Explore More</a>
             </div>
           </div>
 

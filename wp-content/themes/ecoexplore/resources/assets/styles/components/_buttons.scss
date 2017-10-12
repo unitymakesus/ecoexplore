@@ -137,3 +137,15 @@ input[type="submit"].um-button {
     box-shadow: 0 0;
   }
 }
+
+a.explore-more {
+  font-family: $font-comic;
+  font-size: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: all ease 0.3s;
+
+  @media #{$small-and-down} {
+    margin-bottom: 40px;
+  }
+}

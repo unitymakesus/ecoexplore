@@ -108,26 +108,104 @@
     }
   }
 
-  .badge.col {
-    padding: 5px;
-    position: relative;
+  .updates {
+    .card-image {
+      padding: 10px;
+      flex-basis: 20%;
 
-    img {
-      width: 100%;
-      height: auto;
+      img {
+        width: 100%;
+        height: auto;
+      }
     }
 
-    .btn-floating {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      text-align: center;
-      display: block;
-      border: 1px solid $navy;
-      background: $ice;
-      color: $navy;
-      font-family: $font-family-serif;
-      cursor: default;
+    .card-content {
+      flex-basis: 80%;
+    }
+
+    .card-meta {
+      color: $gray;
+    }
+
+    h3 {
+      margin: 0;
+    }
+
+    p {
+      color: $gray;
+      font-size: 18px;
+    }
+  }
+
+  .badges {
+    margin-bottom: 0;
+
+    .col {
+      padding: 5px;
+      position: relative;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+
+      .btn-floating {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        text-align: center;
+        display: block;
+        border: 1px solid $navy;
+        background: $ice;
+        color: $navy;
+        font-family: $font-family-serif;
+        cursor: default;
+      }
+    }
+  }
+
+  .progress {
+    background: $ice;
+    border: 1px solid $navy;
+    border-radius: 0;
+
+    .determinate {
+      background: $navy;
+    }
+  }
+
+  .badge-progress {
+    font-size: 18px;
+
+    p {
+      margin: 0;
+    }
+
+    .event {
+      background: none;
+
+      .date {
+        float: left;
+        width: 100px;
+        padding: 10px;
+        box-sizing: border-box;
+        margin-right: 10px;
+
+        span {
+          display: block;
+          text-align: center;
+          line-height: 1;
+        }
+      }
+
+      .title {
+        background: none;
+        border: none;
+
+        h4 {
+          margin-bottom: 0;
+        }
+      }
     }
   }
 }
