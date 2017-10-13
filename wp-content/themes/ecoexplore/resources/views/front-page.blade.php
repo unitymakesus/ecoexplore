@@ -143,8 +143,8 @@
                 <a href="{{ get_the_permalink($event_id) }}" class="mega-link" aria-hidden="true"></a>
                 {!! get_the_post_thumbnail($event_id, 'event-landscape') !!}
                 <div class="date">
-                  <span class="month">{{ date('M', strtotime($big_event->EventStartDate)) }}</span>
-                  <span class="day">{{ date('j', strtotime($big_event->EventStartDate)) }}</span>
+                  <span class="month">{{ date('M', strtotime($big_event[0]->EventStartDate)) }}</span>
+                  <span class="day">{{ date('j', strtotime($big_event[0]->EventStartDate)) }}</span>
                   <div class="save-date">{!! file_get_contents(App\asset_path('images/save-date-' . $season . '.svg')) !!}</div>
                 </div>
                 <div class="title">

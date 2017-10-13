@@ -12627,6 +12627,7 @@ body.admin-bar .modal {
   -webkit-box-shadow: 5px 5px rgba(11, 0, 75, 0.19);
           box-shadow: 5px 5px rgba(11, 0, 75, 0.19);
   margin: 0;
+  height: auto;
   margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -15200,6 +15201,10 @@ nav .button-collapse + div {
 .um.um .um-cover.um-trigger-menu-on-click .um-cover-e .um-cover-overlay {
   display: block;
   z-index: 1;
+}
+
+.um.um .um-postmessage {
+  font-size: 18px !important;
 }
 
 .um.um .um-cover-e {

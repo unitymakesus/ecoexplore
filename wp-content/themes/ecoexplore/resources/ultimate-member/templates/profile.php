@@ -220,11 +220,11 @@ include('observations-loop.php');
 							<h3>Earn Your <?php echo $this_season->posts[0]->post_title; ?> Badge:</h3>
 
 							<div class="progress">
-								<div class="determinate" style="width: <?php echo ($season_observations->found_posts/4)*100; ?>%"></div>
+								<div class="determinate" style="width: <?php echo ($season_observations->found_posts/7)*100; ?>%"></div>
 							</div>
 
 							<ol class="badge-progress">
-								<li>You have submitted <strong><?php echo $season_observations->found_posts; ?> of 3</strong> observations for the current field season. <a href="/submit-new-observation/">Submit an observation!</a></li>
+								<li>You have submitted <strong><?php echo $season_observations->found_posts; ?> of 6</strong> observations for the current field season. <a href="/submit-new-observation/">Submit an observation!</a></li>
 								<li>Complete the <?php echo $this_season->posts[0]->post_title; ?> challenge:<br />
 									<?php echo get_field('challenge', $season_id); ?>
 								</li>

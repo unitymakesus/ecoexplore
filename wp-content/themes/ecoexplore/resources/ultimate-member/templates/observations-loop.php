@@ -14,11 +14,13 @@ function observations_loop($number, $username, $format = null, $wrapper = null) 
       $recent_obs->the_post();
       $obs_time = get_field('observation_time');
       $points = get_field('points');
-      $slug = get_post_field('post_name', get_the_ID());
 
       $status = '';
       if (get_post_status() == 'pending') {
         $status = 'pending';
+        $slug = 'pending' . get_the_ID();
+      } else {
+        $slug = get_post_field('post_name', get_the_ID());
       }
 
       if (!empty($wrapper)) {
