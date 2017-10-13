@@ -11,7 +11,7 @@
     }
 
     &.um-trigger-menu-on-click {
-      .um-cover-e:hover {
+      .um-cover-e {
         .um-cover-overlay {
           display: block;
           z-index: 1;
@@ -64,10 +64,40 @@
     }
   }
 
+  &.um-profile.um-viewing .um-dropdown {
+    display: none !important;
+  }
+
   .um-profile-photo {
     &.um-trigger-menu-on-click:hover {
+      a {
+        cursor: default;
+      }
+
       .um-profile-photo-overlay {
+        display: none;
+      }
+    }
+  }
+
+  &.um-editing {
+    .um-profile-photo.um-trigger-menu-on-click {
+      .um-profile-photo-overlay.um-profile-photo-overlay {
         display: block;
+      }
+    }
+
+    .um-dropdown {
+      li {
+        a {
+          border-top: 1px solid #E5E5E5;
+        }
+
+        &:first-child {
+          a {
+            border-top: 0;
+          }
+        }
       }
     }
   }
@@ -106,6 +136,10 @@
         color: $white !important;
       }
     }
+  }
+
+  .um-profile-body {
+    max-width: 100%;
   }
 
   .updates {
@@ -207,5 +241,9 @@
         }
       }
     }
+  }
+
+  .um-account-meta-img a {
+    border-radius: 100%;
   }
 }

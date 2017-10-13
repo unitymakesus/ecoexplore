@@ -2,19 +2,19 @@
 
 @mixin btn-global {
   box-shadow: 7px 8px $shadow;
-  color: white;
+  color: white !important;
   display: inline-block;
   font-family: $font-comic;
   font-weight: normal;
   font-size: 36px;
   overflow: visible;
-  text-decoration: none !important;
-  text-transform: uppercase !important;
+  text-decoration: none;
+  text-transform: uppercase;
   transform: translate(0, 0);
   transition: all 0.3s ease;
   padding: 5px 25px;
   position: relative;
-  border-radius: 0 !important;
+  border-radius: 0;
   border-width: 8px;
   border-style: solid;
   cursor: pointer;
@@ -44,28 +44,38 @@
 }
 
 // Ultimate member buttons
-// input[type="submit"].um-button {
-//   border: 2px solid $aqua-dark !important;
-// }
-//
-// .um-button.um-alt {
-//   border: 2px solid $green-dark !important;
-// }
+.um.um .um-button {
+  box-shadow: 7px 8px $shadow;
+  border-radius: 0 !important;
+  text-transform: uppercase !important;
+  font-family: $font-comic !important;
+  font-size: 24px !important;
 
-input[type="submit"].um-button {
-  border: 2px solid $aqua-dark !important;
+  &:not(.um-alt) {
+    text-shadow: 4px 2px $green-dark;
+    border: 2px solid $green-dark !important;
 
-  &::before {
-    display: none !important;
+    &:focus, &:active {
+      background: $green-med !important;
+    }
+  }
+
+  &.um-alt {
+    text-shadow: 4px 2px $aqua-dark;
+    border: 2px solid $aqua-dark !important;
+
+    &:focus, &:active {
+      background: $aqua !important;
+    }
   }
 
   &:hover {
-    transform: translate(0, 0) !important;
+    box-shadow: 2px 4px $shadow;
   }
 }
 
 //Primary $aqua CTA Button
-.btn-primary, input[type="submit"].um-button {
+.btn-primary {
   @include btn-global;
 
   background-color: $aqua;
@@ -90,7 +100,7 @@ input[type="submit"].um-button {
 
 //Secondary $green-med CTA button
 
-.btn-secondary, a.um-button.um-alt, .wpcf7-submit {
+.btn-secondary, .wpcf7-submit {
   @include btn-global;
 
   background-color: $green-med;

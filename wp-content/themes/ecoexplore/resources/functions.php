@@ -60,6 +60,7 @@ array_map(function ($file) use ($sage_error) {
     }
 }, [
     'helpers',
+    'wp-filters-extras',
     'setup',
     'filters',
     'admin',

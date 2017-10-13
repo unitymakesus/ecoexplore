@@ -22,7 +22,7 @@ include('observations-loop.php');
 
 		<?php do_action('um_profile_before_header', $args ); ?>
 
-		<?php if ( um_is_on_edit_profile() ) { ?>
+		<?php if ( isset($_GET['um_action']) && $_GET['um_action'] == 'edit' ) { ?>
 			<form method="post" action="">
 		<?php } ?>
 
@@ -38,7 +38,7 @@ include('observations-loop.php');
 
 			<div class="um-profile-body <?php echo $nav; ?> <?php echo $nav . '-' . $subnav; ?>">
 
-				<?php if ($nav !== 'posts') { ?>
+				<?php if ($nav !== 'posts' && $nav !== 'edit') { ?>
 					<div class="row">
 						<div class="col m7 updates">
 							<?php
@@ -102,7 +102,7 @@ include('observations-loop.php');
 
 										<div class="comment card horizontal">
 											<a class="mega-link" href="<?php echo get_permalink($note->comment_post_ID); ?>"></a>
-											
+
 											<div class="card-image">
 												<?php echo get_the_post_thumbnail($note->comment_post_ID, 'thumbnail'); ?>
 											</div>
@@ -271,17 +271,37 @@ include('observations-loop.php');
 							</ol>
 						</div>
 					</div>
-				<?php } else { ?>
+				<?php } elseif ($nav == 'posts') { ?>
 					<div class="row block-grid up-s1 up-m3 up-l4">
 
 						<?php observations_loop(-1, $username, 'has-modal solid', 'col'); ?>
 
 					</div>
+				<?php } elseif ($nav == 'edit') { ?>
+
+					<div class="row">
+						<div class="col s12 m9 xl6 col-centered">
+							<?php
+								do_action("um_before_form", $args);
+
+								do_action("um_before_{$mode}_fields", $args);
+
+								do_action("um_main_{$mode}_fields", $args);
+
+								do_action("um_after_form_fields", $args);
+
+								do_action("um_after_{$mode}_fields", $args);
+
+								do_action("um_after_form", $args);
+							?>
+						</div>
+					</div>
+
 				<?php } ?>
 
 			</div>
 
-		<?php if ( um_is_on_edit_profile() ) { ?>
+		<?php if ( isset($_GET['um_action']) && $_GET['um_action'] == 'edit' ) { ?>
 			</form>
 		<?php } ?>
 

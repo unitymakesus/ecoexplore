@@ -9,44 +9,64 @@ add_filter( 'wp_dropdown_users_args', function( $query_args, $r ) {
 }, 10, 2);
 
 // Replace avatar upload with avatar picker
+add_filter('um_user_photo_menu_edit', __NAMESPACE__ . '\\eco_user_photo_menu');
+add_filter('um_user_photo_menu_view', __NAMESPACE__ . '\\eco_user_photo_menu');
 
-add_filter('um_user_photo_menu_view', function($items) {
-  $items = [
-    '<a href="#" class="um-manual-trigger" data-modal="um_avatar_picker">' . __( 'Pick an Avatar','um-avatar-suggestions' ) . '</a>',
-    '<a href="#" class="um-dropdown-hide">'.__('Cancel','ultimate-member').'</a>',
-  ];
+function eco_user_photo_menu($items) {
+  if (current_user_can('administrator')) {
+    $items = [
+      '<a href="#" class="um-manual-trigger" data-parent=".um-profile-photo" data-child=".um-btn-auto-width">'.__('Upload photo','ultimate-member').'</a>',
+      '<a href="#" class="um-manual-trigger" data-modal="um_avatar_picker">' . __( 'Pick an Avatar','um-avatar-suggestions' ) . '</a>',
+      '<a href="#" class="um-dropdown-hide">'.__('Cancel','ultimate-member').'</a>',
+    ];
+  } else {
+    $items = [
+      '<a href="#" class="um-manual-trigger" data-modal="um_avatar_picker">' . __( 'Pick an Avatar','um-avatar-suggestions' ) . '</a>',
+      '<a href="#" class="um-dropdown-hide">'.__('Cancel','ultimate-member').'</a>',
+    ];
+  }
 
   return $items;
-});
+}
 
-
-// Profile tabs\
-
+// Profile tabs
 add_filter('um_user_profile_tabs', function($tabs) {
   $tabs = [
     'main' => [
       'name' => 'Updates',
-      'icon' => 'um-faicon-pencil'
+      'icon' => 'um-faicon-comment'
     ],
     'posts' => [
       'name' => 'Observations',
       'icon' => 'um-faicon-camera'
+    ],
+    'edit' => [
+      'name' => 'Edit Profile',
+      'icon' => 'um-faicon-pencil'
     ]
   ];
 
   return $tabs;
 });
 
+add_filter('um_profile_menu_link_edit', function($nav_link) {
+	$nav_link = add_query_arg( [
+    'profiletab' => 'edit',
+    'um_action' => 'edit'
+  ], $nav_link );
+
+  return $nav_link;
+});
 
 // Add observation button to profile header
-
 add_action('um_after_header_meta', function() {
-  echo '<a class="btn-submit-obs btn-primary" href="/submit-new-observation/"><i class="material-icons" aria-hidden="true">photo_camera</i> Submit Observation</a>';
+  if ( !isset($_GET['um_action']) && $_GET['um_action'] !== 'edit' ) {
+    echo '<a class="btn-submit-obs btn-primary" href="/submit-new-observation/"><i class="material-icons" aria-hidden="true">photo_camera</i> Submit Observation</a>';
+  }
 });
 
 
 // Let users edit header cover image without going to edit profile page
-
 add_action('eco_um_profile_header_cover_area', function($args) {
 	global $ultimatemember;
 
@@ -71,7 +91,7 @@ add_action('eco_um_profile_header_cover_area', function($args) {
 
 			<?php
 
-				// if ( $ultimatemember->fields->editing ) {
+				if ( $ultimatemember->fields->editing ) {
 
 					$items = array(
 								'<a href="#" class="um-manual-trigger" data-parent=".um-cover" data-child=".um-btn-auto-width">'.__('Change cover photo','ultimate-member').'</a>',
@@ -81,7 +101,7 @@ add_action('eco_um_profile_header_cover_area', function($args) {
 
 					echo $ultimatemember->menu->new_ui( 'bc', 'div.um-cover', 'click', $items );
 
-				// }
+				}
 			?>
 
 			<?php $ultimatemember->fields->add_hidden_field( 'cover_photo' ); ?>
@@ -123,8 +143,6 @@ add_action('eco_um_profile_header_cover_area', function($args) {
 				} ?>
 
 			</div>
-
-      <!-- <a class="btn-primary"><i class="material-icons left" aria-hidden="true">photo_camera</i> Submit Observation</a> -->
 
 		</div>
 

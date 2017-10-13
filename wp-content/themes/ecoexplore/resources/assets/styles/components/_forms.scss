@@ -45,6 +45,12 @@ label {
       }
     }
 
+    textarea {
+      font-family: $font-family-serif;
+      color: $aqua-dark;
+      font-size: 18px !important;
+    }
+
     span[id=password-strength] {
       width: 100%;
       display: block;

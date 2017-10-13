@@ -17,7 +17,26 @@ add_action('wp_enqueue_scripts', function () {
   if (is_page('register') || is_page('register-group')) {
     wp_enqueue_script( 'password-strength-meter' );
   }
+
+  // Prevent conflicting map JS from loading on events page
+  if (!is_page('submit-new-observation')) {
+    wp_dequeue_script('cf7-mapjs');
+  }
+
+  if (!is_page('locations')) {
+    wp_dequeue_script('google-maps-builder-gmaps');
+    wp_dequeue_script('google-maps-builder-clusterer');
+    wp_dequeue_script('google-maps-builder-infowindows');
+    wp_dequeue_script('google-maps-builder-maps-icons');
+    wp_dequeue_script('google-maps-builder-plugin-script');
+    wp_dequeue_script('google-maps-builder-plugin-script-pro');
+  }
 }, 100);
+
+/**
+ * Make sure the Map scripts show up on event pages
+ */
+remove_filters_with_method_name('wp_print_scripts', 'check_for_multiple_google_maps_api_calls', 10);
 
 /**
  * Theme setup

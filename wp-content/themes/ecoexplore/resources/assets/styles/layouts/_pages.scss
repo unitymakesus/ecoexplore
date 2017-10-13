@@ -8,12 +8,18 @@
   @include slanted('right');
 }
 
-.page:not(.home) {
+.page:not(.home), .error404 {
   .wrap {
     position: relative;
     padding-bottom: 80px;
 
     @include slanted('shallow');
+  }
+}
+
+.error404 {
+  .wrap {
+    padding-bottom: 160px;
   }
 }
 

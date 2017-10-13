@@ -8,6 +8,12 @@
   }
 }
 
+.row .col-centered {
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+}
+
 // Flex grid
 .flex-grid {
   display: flex;

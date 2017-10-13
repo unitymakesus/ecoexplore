@@ -11494,6 +11494,12 @@ span.flatpickr-weekday {
   }
 }
 
+.row .col-centered {
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+}
+
 .flex-grid {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11735,16 +11741,16 @@ strong {
   font-weight: 600;
 }
 
-.hentry ul:not(.collection) {
+.wrap .hentry ul:not(.collection) {
   list-style-type: disc;
   padding-left: 2em;
 }
 
-.hentry li {
+.wrap .hentry li {
   list-style-type: inherit !important;
 }
 
-.hentry a:not(.btn-primary) {
+.wrap .hentry a:not(.btn-primary) {
   color: #308593;
   text-decoration: underline;
   font-weight: bold;
@@ -11753,13 +11759,13 @@ strong {
   transition: 0.2s;
 }
 
-.hentry a:not(.btn-primary):hover,
-.hentry a:not(.btn-primary):focus {
+.wrap .hentry a:not(.btn-primary):hover,
+.wrap .hentry a:not(.btn-primary):focus {
   background: #AAE1EA;
   text-decoration: none;
 }
 
-.hentry a:not(.btn-primary):active {
+.wrap .hentry a:not(.btn-primary):active {
   color: #000349;
   background: rgba(11, 0, 75, 0.19);
 }
@@ -11784,32 +11790,51 @@ a:active {
   text-decoration: none;
 }
 
-input[type="submit"].um-button {
+.um.um .um-button {
+  -webkit-box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
+          box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
+  border-radius: 0 !important;
+  text-transform: uppercase !important;
+  font-family: "Boogaloo" !important;
+  font-size: 24px !important;
+}
+
+.um.um .um-button:not(.um-alt) {
+  text-shadow: 4px 2px #688127;
+  border: 2px solid #688127 !important;
+}
+
+.um.um .um-button:not(.um-alt):focus,
+.um.um .um-button:not(.um-alt):active {
+  background: #9AB83C !important;
+}
+
+.um.um .um-button.um-alt {
+  text-shadow: 4px 2px #308593;
   border: 2px solid #308593 !important;
 }
 
-input[type="submit"].um-button::before {
-  display: none !important;
+.um.um .um-button.um-alt:focus,
+.um.um .um-button.um-alt:active {
+  background: #4CBED8 !important;
 }
 
-input[type="submit"].um-button:hover {
-  -webkit-transform: translate(0, 0) !important;
-       -o-transform: translate(0, 0) !important;
-          transform: translate(0, 0) !important;
+.um.um .um-button:hover {
+  -webkit-box-shadow: 2px 4px rgba(11, 0, 75, 0.19);
+          box-shadow: 2px 4px rgba(11, 0, 75, 0.19);
 }
 
-.btn-primary,
-input[type="submit"].um-button {
+.btn-primary {
   -webkit-box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
           box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
-  color: white;
+  color: white !important;
   display: inline-block;
   font-family: "Boogaloo";
   font-weight: normal;
   font-size: 36px;
   overflow: visible;
-  text-decoration: none !important;
-  text-transform: uppercase !important;
+  text-decoration: none;
+  text-transform: uppercase;
   -webkit-transform: translate(0, 0);
        -o-transform: translate(0, 0);
           transform: translate(0, 0);
@@ -11818,7 +11843,7 @@ input[type="submit"].um-button {
   transition: all 0.3s ease;
   padding: 5px 25px;
   position: relative;
-  border-radius: 0 !important;
+  border-radius: 0;
   border-width: 8px;
   border-style: solid;
   cursor: pointer;
@@ -11828,14 +11853,12 @@ input[type="submit"].um-button {
   text-shadow: 4px 2px #308593;
 }
 
-.btn-primary .material-icons,
-input[type="submit"].um-button .material-icons {
+.btn-primary .material-icons {
   font-size: 36px;
   vertical-align: -6px;
 }
 
-.btn-primary::before,
-input[type="submit"].um-button::before {
+.btn-primary::before {
   content: " ";
   position: absolute;
   z-index: -1;
@@ -11847,8 +11870,7 @@ input[type="submit"].um-button::before {
   border-style: solid;
 }
 
-.btn-primary:hover,
-input[type="submit"].um-button:hover {
+.btn-primary:hover {
   -webkit-box-shadow: 2px 4px rgba(11, 0, 75, 0.19);
           box-shadow: 2px 4px rgba(11, 0, 75, 0.19);
   -webkit-transform: translate(2px, 2px);
@@ -11856,21 +11878,17 @@ input[type="submit"].um-button:hover {
           transform: translate(2px, 2px);
 }
 
-.btn-primary::before,
-input[type="submit"].um-button::before {
+.btn-primary::before {
   border-color: #308593;
 }
 
-.btn-primary:hover,
-input[type="submit"].um-button:hover {
+.btn-primary:hover {
   background-color: #AAE1EA;
   border-color: #4CBED8;
 }
 
 .btn-primary:active,
-.btn-primary:focus,
-input[type="submit"].um-button:active,
-input[type="submit"].um-button:focus {
+.btn-primary:focus {
   background-color: #4CBED8;
   border-color: #308593;
   -webkit-box-shadow: 0 0;
@@ -11878,18 +11896,17 @@ input[type="submit"].um-button:focus {
 }
 
 .btn-secondary,
-a.um-button.um-alt,
 .wpcf7-submit {
   -webkit-box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
           box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
-  color: white;
+  color: white !important;
   display: inline-block;
   font-family: "Boogaloo";
   font-weight: normal;
   font-size: 36px;
   overflow: visible;
-  text-decoration: none !important;
-  text-transform: uppercase !important;
+  text-decoration: none;
+  text-transform: uppercase;
   -webkit-transform: translate(0, 0);
        -o-transform: translate(0, 0);
           transform: translate(0, 0);
@@ -11898,7 +11915,7 @@ a.um-button.um-alt,
   transition: all 0.3s ease;
   padding: 5px 25px;
   position: relative;
-  border-radius: 0 !important;
+  border-radius: 0;
   border-width: 8px;
   border-style: solid;
   cursor: pointer;
@@ -11909,14 +11926,12 @@ a.um-button.um-alt,
 }
 
 .btn-secondary .material-icons,
-a.um-button.um-alt .material-icons,
 .wpcf7-submit .material-icons {
   font-size: 36px;
   vertical-align: -6px;
 }
 
 .btn-secondary::before,
-a.um-button.um-alt::before,
 .wpcf7-submit::before {
   content: " ";
   position: absolute;
@@ -11930,7 +11945,6 @@ a.um-button.um-alt::before,
 }
 
 .btn-secondary:hover,
-a.um-button.um-alt:hover,
 .wpcf7-submit:hover {
   -webkit-box-shadow: 2px 4px rgba(11, 0, 75, 0.19);
           box-shadow: 2px 4px rgba(11, 0, 75, 0.19);
@@ -11940,13 +11954,11 @@ a.um-button.um-alt:hover,
 }
 
 .btn-secondary::before,
-a.um-button.um-alt::before,
 .wpcf7-submit::before {
   border-color: #688127;
 }
 
 .btn-secondary:hover,
-a.um-button.um-alt:hover,
 .wpcf7-submit:hover {
   background-color: #C4DE95;
   border-color: #9AB83C;
@@ -11954,8 +11966,6 @@ a.um-button.um-alt:hover,
 
 .btn-secondary:active,
 .btn-secondary:focus,
-a.um-button.um-alt:active,
-a.um-button.um-alt:focus,
 .wpcf7-submit:active,
 .wpcf7-submit:focus {
   background-color: #9AB83C;
@@ -11967,14 +11977,14 @@ a.um-button.um-alt:focus,
 .btn-tertiary {
   -webkit-box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
           box-shadow: 7px 8px rgba(11, 0, 75, 0.19);
-  color: white;
+  color: white !important;
   display: inline-block;
   font-family: "Boogaloo";
   font-weight: normal;
   font-size: 36px;
   overflow: visible;
-  text-decoration: none !important;
-  text-transform: uppercase !important;
+  text-decoration: none;
+  text-transform: uppercase;
   -webkit-transform: translate(0, 0);
        -o-transform: translate(0, 0);
           transform: translate(0, 0);
@@ -11983,7 +11993,7 @@ a.um-button.um-alt:focus,
   transition: all 0.3s ease;
   padding: 5px 25px;
   position: relative;
-  border-radius: 0 !important;
+  border-radius: 0;
   border-width: 8px;
   border-style: solid;
   cursor: pointer;
@@ -12117,6 +12127,12 @@ input {
 .um.um.um .um-form input[type=tel].um-validate-not-matched,
 .um.um.um .um-form input[type=text].um-validate-not-matched {
   color: #99140C;
+}
+
+.um.um.um .um-form textarea {
+  font-family: "Zilla Slab", serif;
+  color: #308593;
+  font-size: 18px !important;
 }
 
 .um.um.um .um-form span[id=password-strength] {
@@ -13956,7 +13972,7 @@ nav ul.menu a {
   font-weight: bold;
   font-size: 24px;
   color: #000349;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 @media only screen and (min-width: 993px) and (max-width: 1200px) {
@@ -15075,7 +15091,8 @@ nav .button-collapse + div {
   z-index: 2;
 }
 
-.page:not(.home) .wrap {
+.page:not(.home) .wrap,
+.error404 .wrap {
   position: relative;
   padding-bottom: 80px;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 60px));
@@ -15083,7 +15100,9 @@ nav .button-collapse + div {
 }
 
 .page:not(.home) .wrap::before,
-.page:not(.home) .wrap::after {
+.page:not(.home) .wrap::after,
+.error404 .wrap::before,
+.error404 .wrap::after {
   content: '';
   position: absolute;
   left: 0;
@@ -15092,18 +15111,24 @@ nav .button-collapse + div {
   height: 100%;
 }
 
-.page:not(.home) .wrap::before {
+.page:not(.home) .wrap::before,
+.error404 .wrap::before {
   background: #000349;
   -webkit-clip-path: polygon(0 calc(100% - 70px), 100% calc(100% - 10px), 100% 100%, 0 calc(100% - 60px));
           clip-path: polygon(0 calc(100% - 70px), 100% calc(100% - 10px), 100% 100%, 0 calc(100% - 60px));
   z-index: 1;
 }
 
-.page:not(.home) .wrap::after {
+.page:not(.home) .wrap::after,
+.error404 .wrap::after {
   background: #CFF3FF;
   -webkit-clip-path: polygon(0 calc(100% - 69px), 100% calc(100% - 9px), 100% calc(100% - 1px), 0 calc(100% - 61px));
           clip-path: polygon(0 calc(100% - 69px), 100% calc(100% - 9px), 100% calc(100% - 1px), 0 calc(100% - 61px));
   z-index: 2;
+}
+
+.error404 .wrap {
+  padding-bottom: 160px;
 }
 
 .google-maps-builder-wrap {
@@ -15172,7 +15197,7 @@ nav .button-collapse + div {
   z-index: 100;
 }
 
-.um.um .um-cover.um-trigger-menu-on-click .um-cover-e:hover .um-cover-overlay {
+.um.um .um-cover.um-trigger-menu-on-click .um-cover-e .um-cover-overlay {
   display: block;
   z-index: 1;
 }
@@ -15245,8 +15270,28 @@ nav .button-collapse + div {
   border-bottom-color: #4CBED8 !important;
 }
 
+.um.um.um-profile.um-viewing .um-dropdown {
+  display: none !important;
+}
+
+.um.um .um-profile-photo.um-trigger-menu-on-click:hover a {
+  cursor: default;
+}
+
 .um.um .um-profile-photo.um-trigger-menu-on-click:hover .um-profile-photo-overlay {
+  display: none;
+}
+
+.um.um.um-editing .um-profile-photo.um-trigger-menu-on-click .um-profile-photo-overlay.um-profile-photo-overlay {
   display: block;
+}
+
+.um.um.um-editing .um-dropdown li a {
+  border-top: 1px solid #E5E5E5;
+}
+
+.um.um.um-editing .um-dropdown li:first-child a {
+  border-top: 0;
 }
 
 .um.um .um-main-meta {
@@ -15281,6 +15326,10 @@ nav .button-collapse + div {
 
 .um.um .um-profile-nav-item.active a {
   color: #FFF !important;
+}
+
+.um.um .um-profile-body {
+  max-width: 100%;
 }
 
 .um.um .updates .card-image {
@@ -15383,6 +15432,10 @@ nav .button-collapse + div {
 
 .um.um .badge-progress .event .title h4 {
   margin-bottom: 0;
+}
+
+.um.um .um-account-meta-img a {
+  border-radius: 100%;
 }
 
 body#tinymce {
