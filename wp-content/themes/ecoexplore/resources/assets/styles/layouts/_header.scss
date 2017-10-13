@@ -53,6 +53,11 @@
     background: white;
     border-bottom: 1px solid $navy;
   }
+  @media #{$small-and-down} {
+    a {
+      background: none !important;
+    }
+  }
 }
 
 nav {
@@ -212,5 +217,13 @@ nav {
   ul.menu {
     padding: 0;
     margin-bottom: 10px;
+
+    li {
+      a {
+        line-height: 1;
+        padding: 12px 20px;
+        height: auto;
+      }
+    }
   }
 }

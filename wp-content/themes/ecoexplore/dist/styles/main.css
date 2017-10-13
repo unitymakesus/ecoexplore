@@ -13865,6 +13865,12 @@ body.admin-bar .modal {
   }
 }
 
+@media only screen and (max-width: 768px) {
+  .nav-wrapper a {
+    background: none !important;
+  }
+}
+
 nav {
   background: #CFF3FF;
   height: 94px;
@@ -14108,6 +14114,12 @@ nav .button-collapse + div {
 .side-nav.right-aligned ul.menu {
   padding: 0;
   margin-bottom: 10px;
+}
+
+.side-nav.right-aligned ul.menu li a {
+  line-height: 1;
+  padding: 12px 20px;
+  height: auto;
 }
 
 .hero {
