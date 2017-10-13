@@ -1,3 +1,4 @@
+TEST
 ### 9.0.0-beta.4: August 11th, 2017
 * Update to Bootstrap 4.0.0-beta ([#1943](https://github.com/roots/sage/pull/1943))
 * PHP 7+ is now required ([#1935](https://github.com/roots/sage/pull/1935))
