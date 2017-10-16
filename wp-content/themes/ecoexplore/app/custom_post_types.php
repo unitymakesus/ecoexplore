@@ -30,7 +30,7 @@ add_action( 'init', function() {
 			'menu_icon' => 'dashicons-camera',
 			'capability_type' => 'post',
 			'hierarchical' => false,
-			'supports' => array( 'title', 'thumbnail', 'custom-fields', 'author', 'comments'),
+			'supports' => array( 'title', 'editor', 'thumbnail', 'custom-fields', 'author', 'comments'),
 			'public' => true,
 			'has_archive' => true,
 			'rewrite' => true,

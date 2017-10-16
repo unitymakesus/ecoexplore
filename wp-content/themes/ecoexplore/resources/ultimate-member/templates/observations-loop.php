@@ -9,11 +9,15 @@ function observations_loop($number, $username, $format = null, $wrapper = null) 
     'post_status' => ['publish', 'pending']
   ]);
 
+  $inat_ids = array();
+
   if ($recent_obs->have_posts()) {
     while ($recent_obs->have_posts()) {
       $recent_obs->the_post();
       $obs_time = get_field('observation_time');
       $points = get_field('points');
+      $inav_id = get_field('inat_id');
+      $inat_ids[] = $inat_id;
 
       $status = '';
       if (get_post_status() == 'pending') {
@@ -32,7 +36,7 @@ function observations_loop($number, $username, $format = null, $wrapper = null) 
         <?php if (stristr($format, 'has-modal') !== FALSE) { ?>
           <a href="#obs<?php echo $slug; ?>" class="mega-link modal-trigger" aria-hidden="true"></a>
         <?php } else { ?>
-          <?php if (get_field('add_to_inaturalist') == 1 && !empty($inat_id = get_field('inat_id'))) { ?>
+          <?php if (get_field('add_to_inaturalist') == 1 && !empty($inat_id)) { ?>
             <a href="https://www.inaturalist.org/observations/<?php echo $inat_id; ?>" target="_blank" rel="noopener" class="mega-link" aria-hidden="true"></a>
           <?php } ?>
         <?php } ?>
@@ -95,9 +99,9 @@ function observations_loop($number, $username, $format = null, $wrapper = null) 
             <?php } ?>
           </ul>
 
-          <?php if ($status !== 'pending') { ?>
-            <ul class="collection">
-              <?php
+          <ul class="collection">
+            <?php
+              if ($status !== 'pending') {
                 wp_list_comments(
                   [
                     'style' => 'ul',
@@ -108,16 +112,31 @@ function observations_loop($number, $username, $format = null, $wrapper = null) 
                     'number' => -1
                   ])
                 );
-              ?>
+              }
+
+              $content = trim(str_replace("&nbsp;","",strip_tags(get_the_content())));
+              if (!empty($content)) {
+                ?>
+                  <li class="comment collection-item avatar">
+                    <?php echo get_avatar(um_profile_id()); ?>
+                    <div class="comment-author vcard">
+                      <cite class="fn"><?php echo $username; ?></cite>
+                      <span class="says">says:</span>
+                    </div>
+                    <?php the_content(); ?>
+                    <div class="comment-meta commentmetadata"><?php echo the_time('F j, Y \a\t  j:i a'); ?></div>
+                  </li>
+                <?php
+              } ?>
             </ul>
 
-            <?php
+            <?php if ($status !== 'pending') {
               comment_form([
                 'logged_in_as' => '',
                 'title_reply' => ''
               ]);
-            ?>
-          <?php } ?>
+            }
+          ?>
         </div>
         <div class="modal-footer">
           <?php if (get_field('add_to_inaturalist') == 1 && !empty($inat_id = get_field('inat_id'))) { ?>
@@ -131,12 +150,16 @@ function observations_loop($number, $username, $format = null, $wrapper = null) 
         echo '</div>';
       }
     }
-  } else {
-    echo $user_id;
-    $observations = App\get_observations($number, $username);
+  }
 
-    if (!empty($observations)) {
-      foreach($observations as $o) {
+  wp_reset_postdata();
+
+  // Show the observations from iNaturalist
+  $observations = App\get_observations($number, $username);
+
+  if (!empty($observations)) {
+    foreach($observations as $o) {
+      if (!in_array($o->id, $inat_ids)) {
         if (!empty($wrapper)) {
           echo '<div class="' . $wrapper . '">';
         }
@@ -200,16 +223,17 @@ function observations_loop($number, $username, $format = null, $wrapper = null) 
           echo '</div>';
         }
       }
-    } else {
-      ?>
-
-      <p>You haven't submitted any observations yet.<br />
-      <a href="/submit-new-observation/">Send us your first one now!</a></p>
-
-      <?php
     }
   }
 
-  wp_reset_postdata();
+  if (empty($observations) && !$recent_obs->have_posts) {
+    ?>
 
+    <div class="col-centered">
+      <p class="center">You haven't submitted any observations yet.<br />
+      <a href="/submit-new-observation/">Send us your first one now!</a></p>
+    </div>
+
+    <?php
+  }
 }

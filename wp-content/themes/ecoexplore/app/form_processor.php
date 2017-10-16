@@ -16,7 +16,7 @@ add_filter( 'wpcf7_before_send_mail', function( $form ) {
 		$args = array(
 			'post_type' => 'observation',
 			'post_title' => wp_strip_all_tags($posted_data['identification']),
-      'post_content' => '',
+      'post_content' => wp_strip_all_tags($posted_data['description']),
 			'post_author' => get_current_user_id(),
       'post_status' => 'pending'
 		);
