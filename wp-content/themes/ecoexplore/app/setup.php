@@ -39,6 +39,16 @@ add_action('wp_enqueue_scripts', function () {
 remove_filters_with_method_name('wp_print_scripts', 'check_for_multiple_google_maps_api_calls', 10);
 
 /**
+ * Remove avatar picker from all pages except user edit page
+ */
+add_action('init', function() {
+  if (!isset($_GET['um_action']) && $_GET['um_action'] !== 'edit' ) {
+    remove_filters_with_method_name('wp_footer', 'add_modal_content', 10);
+  }
+});
+
+
+/**
  * Theme setup
  */
 add_action('after_setup_theme', function () {
