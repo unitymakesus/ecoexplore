@@ -191,7 +191,7 @@ include('observations-loop.php');
 								$season_observations = new WP_Query([
 									'post_type' => 'observation',
 									'posts_per_page' => -1,
-									'post_author' => $user_id,
+									'author' => $user_id,
 									'date_query' => [
 										[
 											'after' => [
