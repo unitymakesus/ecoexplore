@@ -82,9 +82,11 @@ add_action('save_post_observation', function($post_id, $post, $update) {
         }
       }
       $coords = $hotspot_coords[$coord_key]['coordinates'];
+      $geoprivacy = "open";
     } else {
       // Use the coords provided by user in submission
       $coords = $_POST['acf']['field_59a75086b34b4'];
+      $geoprivacy = "obsured";
     }
 
     // Separate latitude and longitude
@@ -105,7 +107,8 @@ add_action('save_post_observation', function($post_id, $post, $update) {
           'observed_on_string' => $_POST['acf']['field_59a7511ab34b5'],
           'latitude' => $lat[1][0],
           'longitude' => $long[1][0],
-          'location_is_exact' => false
+          'location_is_exact' => false,
+          'geoprivacy' => $geoprivacy
         ]
       ]
     ];
