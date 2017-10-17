@@ -19,6 +19,18 @@ function observations_loop($number, $username, $format = null, $wrapper = null) 
       $inav_id = get_field('inat_id');
       $inat_ids[] = $inat_id;
 
+      $at_hotspot = get_field('at_hotspot');
+      if (is_array($at_hotspot)) {
+        $at_hotspot = $at_hotspot[0];
+      }
+
+      // Was this at a hotspot?
+      if ($at_hotspot == "Yes") {
+        $location = get_field('which_hotspot');
+      } else {
+        $location = get_field('city_state');
+      }
+
       $status = '';
       if (get_post_status() == 'pending') {
         $status = 'pending';
@@ -59,7 +71,9 @@ function observations_loop($number, $username, $format = null, $wrapper = null) 
           <div class="card-content">
             <h3><?php the_title(); ?></h3>
             <ul>
-              <li><i class="material-icons" aria-label="Where">location_on</i> <?php the_field('city_state'); ?></li>
+              <?php if (!empty($location)) { ?>
+                <li><i class="material-icons" aria-label="Where">location_on</i> <?php echo $location; ?></li>
+              <?php } ?>
               <li><i class="material-icons" aria-label="When">access_time</i> <?php echo date("M j, Y", strtotime($obs_time)); ?></li>
             </ul>
           </div>
@@ -90,7 +104,9 @@ function observations_loop($number, $username, $format = null, $wrapper = null) 
           <h3><?php the_title(); ?></h3>
 
           <ul class="obs-meta">
-            <li><i class="material-icons" aria-label="Where">location_on</i> <?php the_field('city_state'); ?></li>
+            <?php if (!empty($location)) { ?>
+              <li><i class="material-icons" aria-label="Where">location_on</i> <?php echo $location; ?></li>
+            <?php } ?>
             <li><i class="material-icons" aria-label="When">access_time</i> <?php echo date("M j, Y", strtotime($obs_time)); ?></li>
             <?php if ($status == 'pending') { ?>
               <li><i class="material-icons" aria-hidden="true">hourglass_empty</i> This observation is pending review!</li>
