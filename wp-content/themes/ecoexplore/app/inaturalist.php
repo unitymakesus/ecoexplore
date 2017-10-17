@@ -86,7 +86,7 @@ add_action('save_post_observation', function($post_id, $post, $update) {
     } else {
       // Use the coords provided by user in submission
       $coords = $_POST['acf']['field_59a75086b34b4'];
-      $geoprivacy = "obsured";
+      $geoprivacy = "obscured";
     }
 
     // Separate latitude and longitude
@@ -232,7 +232,8 @@ add_action('save_post_observation', function($post_id, $post, $update) {
       // Get the address and remove USA
       $address = $response_body->results[0]->formatted_address;
       $address = str_replace(', USA', '', $address);
-
+      $address = str_replace(', US', '', $address);
+      $address = str_replace('US-', '', $address);
 
       // Save new meta data
       $_POST['acf']['field_59caa3fa222d5'] = $address;
