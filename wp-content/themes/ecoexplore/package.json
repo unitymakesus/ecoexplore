@@ -147,6 +147,7 @@
     "jquery": "1.12.4 - 3",
     "materialize-css": "^0.100.2",
     "nouislider": "^10.1.0",
+    "string-hash": "^1.1.3",
     "webfontloader": "^1.6.28"
   }
 }
