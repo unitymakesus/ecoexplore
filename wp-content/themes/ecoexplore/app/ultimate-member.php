@@ -65,6 +65,12 @@ add_action('um_after_header_meta', function() {
   }
 });
 
+add_action('um_profile_before_header', function() {
+  if ( isset( $_GET['notice'] ) && $_GET['notice'] == 'incomplete_access' && $_GET['profilttab'] !== 'edit' ) {
+    wp_redirect('/user/?profiletab=edit&um_action=edit');
+  	exit;
+  }
+});
 
 // Let users edit header cover image without going to edit profile page
 add_action('eco_um_profile_header_cover_area', function($args) {
