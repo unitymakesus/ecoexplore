@@ -49,6 +49,18 @@ add_action('init', function() {
 
 
 /**
+ * Change WordPress email sender name and email
+ */
+add_filter( 'wp_mail_from_name', function( $original_email_from ) {
+  return 'ecoEXPLORE';
+});
+
+add_filter('wp_mail_from', function($original_email_from) {
+  return 'ecoexplore@ncarboretum.org';
+}
+
+
+/**
  * Theme setup
  */
 add_action('after_setup_theme', function () {
