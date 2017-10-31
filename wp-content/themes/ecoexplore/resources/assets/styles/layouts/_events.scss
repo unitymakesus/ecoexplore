@@ -11,7 +11,9 @@
     position: relative;
     padding-bottom: 80px;
 
-    @include slanted('shallow');
+    @supports (-webkit-clip-path: polygon(0 0, 0 0, 0 0, 0 0)) or (clip-path: polygon(0 0, 0 0, 0 0, 0 0)) {
+      @include slanted('shallow');
+    }
   }
 }
 

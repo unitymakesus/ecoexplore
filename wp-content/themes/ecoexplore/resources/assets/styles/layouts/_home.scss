@@ -4,6 +4,7 @@
 
   .img-wrapper {
     position: relative;
+    z-index: 0;
 
     @include slanted('normal');
   }
@@ -11,10 +12,15 @@
   img {
     width: 100%;
     display: block;
+    position: relative;
+    z-index: 3;
   }
 }
 
 .hero-text {
+  position: relative;
+  z-index: 5;
+
   .col {
     position: relative;
   }
@@ -28,6 +34,7 @@
     top: 50%;
     left: 5%;
     right: 5%;
+    z-index: 5;
 
     .btn-primary {
       font-size: 46px;
@@ -167,52 +174,82 @@
 
       .col:nth-child(1) {
         .panel-inner {
-          clip-path: polygon(0 0, 80% 0, 100% 100%, 0 100%);
-          transform: scale(1.1, 1);
-          transform-origin: center left;
+          $panel1-clip-path: polygon(0 0, 80% 0, 100% 100%, 0 100%);
+
+          @supports (-webkit-clip-path: $panel1-clip-path) or (clip-path: $panel1-clip-path) {
+            clip-path: $panel1-clip-path;
+            transform: scale(1.1, 1);
+            transform-origin: center left;
+          }
         }
 
         .panel-img {
-          clip-path: polygon(1px 1px, calc(80% - 1px) 1px, calc(100% - 1px) calc(100% - 1px), 1px calc(100% - 1px));
-        }
+          border: 1px solid $navy;
+          $img1-clip-path: polygon(1px 1px, calc(80% - 1px) 1px, calc(100% - 1px) calc(100% - 1px), 1px calc(100% - 1px));
 
-        img {
-          transform: scale(1, 1.1);
-          transform-origin: center;
+          @supports (-webkit-clip-path: $img1-clip-path) or (clip-path: $img1-clip-path) {
+            border: none;
+            clip-path: $img1-clip-path;
+
+            img {
+              transform: scale(1, 1.1);
+              transform-origin: center;
+            }
+          }
         }
       }
 
       .col:nth-child(2) {
         .panel-inner {
-          clip-path: polygon(0 0, 100% 0, 82% 100%, 18% 100%);
-          transform: scale(1.23, 1);
-          transform-origin: center center;
+          $panel2-clip-path: polygon(0 0, 100% 0, 82% 100%, 18% 100%);
+
+          @supports (-webkit-clip-path: $panel2-clip-path) or (clip-path: $panel2-clip-path) {
+            clip-path: $panel2-clip-path;
+            transform: scale(1.23, 1);
+            transform-origin: center center;
+          }
         }
 
         .panel-img {
-          clip-path: polygon(1px 1px, calc(100% - 1px) 1px, calc(82% - 1px) calc(100% - 1px), calc(18% + 1px) calc(100% - 1px));
-        }
+          border: 1px solid $navy;
+          $img2-clip-path: polygon(1px 1px, calc(100% - 1px) 1px, calc(82% - 1px) calc(100% - 1px), calc(18% + 1px) calc(100% - 1px));
 
-        img {
-          transform: scale(1, 1.23);
-          transform-origin: center;
+          @supports (-webkit-clip-path: $img2-clip-path) or (clip-path: $img2-clip-path) {
+            border: none;
+            clip-path: $img2-clip-path;
+
+            img {
+              transform: scale(1, 1.23);
+              transform-origin: center;
+            }
+          }
         }
       }
 
       .col:nth-child(3) {
         .panel-inner {
-          clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
-          transform: scale(1.1, 1);
-          transform-origin: center right;
+          $panel3-clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+
+          @supports (-webkit-clip-path: $panel3-clip-path) or (clip-path: $panel3-clip-path) {
+            clip-path: $panel3-clip-path;
+            transform: scale(1.1, 1);
+            transform-origin: center right;
+          }
         }
 
         .panel-img {
-          clip-path: polygon(calc(20% + 1px) 1px, calc(100% - 1px) 1px, calc(100% - 1px) calc(100% - 1px), 1px calc(100% - 1px));
-        }
+          border: 1px solid $navy;
+          $img3-clip-path: polygon(calc(20% + 1px) 1px, calc(100% - 1px) 1px, calc(100% - 1px) calc(100% - 1px), 1px calc(100% - 1px));
 
-        img {
-          transform: scale(1, 1.1);
-          transform-origin: center;
+          @supports (-webkit-clip-path: $img3-clip-path) or (clip-path: $img3-clip-path) {
+            border: none;
+            clip-path: $img3-clip-path;
+
+            img {
+              transform: scale(1, 1.1);
+              transform-origin: center;
+            }
+          }
         }
       }
     }
@@ -390,7 +427,9 @@
 
 //Observations/Leaderboard
 .buzzing-leaders {
-  @include slanted('shallow');
+  @supports (-webkit-clip-path: polygon(0 0, 0 0, 0 0, 0 0)) or (clip-path: polygon(0 0, 0 0, 0 0, 0 0)) {
+    @include slanted('shallow');
+  }
 
   position: relative;
 

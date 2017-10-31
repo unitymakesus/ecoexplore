@@ -6,7 +6,7 @@
 
   <div class="panel-inner">
     <div class="panel-img">
-      <img data-src="{{ $panel['img-sm'] }}"
+      <img src="{{ $panel['img-sm'] }}"
            srcset="{{ $panel['img-sm'] }} 1x, {{ $panel['img-lg'] }} 2x"
            alt="{{ $panel['alt'] }}">
     </div>

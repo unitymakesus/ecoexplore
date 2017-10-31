@@ -57,7 +57,20 @@
     $ice-clip-path: polygon(0 calc(100% - 69px), 100% calc(100% - 9px), 100% calc(100% - 1px), 0 calc(100% - 61px));
   }
 
-  clip-path: $main-clip-path;
+  background-color: $ice;
+  padding-bottom: 10px;
+  border-bottom: 1px solid $navy;
+
+  @supports (-webkit-clip-path: $main-clip-path) or (clip-path: $main-clip-path) {
+    clip-path: $main-clip-path;
+    background: transparent;
+    padding-bottom: 0;
+    border-bottom: none;
+
+    img {
+      z-index: auto;
+    }
+  }
 
   &::before, &::after {
     content: '';
@@ -70,14 +83,20 @@
 
   &::before {
     background: $navy;
-    clip-path: $navy-clip-path;
     z-index: 1;
+
+    @supports (-webkit-clip-path: $navy-clip-path) or (clip-path: $navy-clip-path) {
+      clip-path: $navy-clip-path;
+    }
   }
 
   &::after {
     background: $ice;
-    clip-path: $ice-clip-path;
     z-index: 2;
+
+    @supports (-webkit-clip-path: $ice-clip-path) or (clip-path: $ice-clip-path) {
+      clip-path: $ice-clip-path;
+    }
   }
 }
 @mixin color-card($which-light, $which-med, $which-dark) {

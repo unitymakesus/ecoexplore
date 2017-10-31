@@ -30,7 +30,9 @@
     padding-bottom: 8px;
     position: relative;
 
-    @include slanted('shallow');
+    @supports (-webkit-clip-path: polygon(0 0, 0 0, 0 0, 0 0)) or (clip-path: polygon(0 0, 0 0, 0 0, 0 0)) {
+      @include slanted('shallow');
+    }
 
     img {
       position: relative;

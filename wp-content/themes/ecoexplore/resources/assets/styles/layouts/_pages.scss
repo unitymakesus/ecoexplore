@@ -5,7 +5,9 @@
   min-height: 250px;
   overflow: hidden;
 
-  @include slanted('right');
+  @supports (-webkit-clip-path: polygon(0 0, 0 0, 0 0, 0 0)) or (clip-path: polygon(0 0, 0 0, 0 0, 0 0)) {
+    @include slanted('right');
+  }
 }
 
 .page:not(.home), .error404 {
@@ -13,7 +15,9 @@
     position: relative;
     padding-bottom: 80px;
 
-    @include slanted('shallow');
+    @supports (-webkit-clip-path: polygon(0 0, 0 0, 0 0, 0 0)) or (clip-path: polygon(0 0, 0 0, 0 0, 0 0)) {
+      @include slanted('shallow');
+    }
   }
 }
 
