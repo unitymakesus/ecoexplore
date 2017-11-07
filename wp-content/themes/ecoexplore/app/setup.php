@@ -56,7 +56,7 @@ add_filter( 'wp_mail_from_name', function( $original_email_from ) {
 });
 
 add_filter('wp_mail_from', function($original_email_from) {
-  return 'ecoexplore@ncarboretum.org';
+  return 'info@ecoexplore.net';
 });
 
 
