@@ -63,7 +63,7 @@
 
   @supports (-webkit-clip-path: $main-clip-path) or (clip-path: $main-clip-path) {
     clip-path: $main-clip-path;
-    background: transparent;
+    background-color: transparent;
     padding-bottom: 0;
     border-bottom: none;
 

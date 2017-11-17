@@ -13,7 +13,7 @@
 .page:not(.home), .error404 {
   .wrap {
     position: relative;
-    padding-bottom: 80px;
+    padding-bottom: 80px !important;
 
     @supports (-webkit-clip-path: polygon(0 0, 0 0, 0 0, 0 0)) or (clip-path: polygon(0 0, 0 0, 0 0, 0 0)) {
       @include slanted('shallow');
