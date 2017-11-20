@@ -8,6 +8,7 @@ Thumbs.db
 
 .htaccess
 adminer.php
+local-adminer-*.*
 local-phpinfo.php
 sitemap.xml
 sitemap.xml.gz
