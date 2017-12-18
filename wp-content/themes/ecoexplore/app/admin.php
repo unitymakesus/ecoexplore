@@ -94,3 +94,28 @@ function obs_pending_review_widget() {
   </table>
 <?php
 }
+
+
+function global_notice_meta_box() {
+    add_meta_box(
+        'image-notice',
+        __( 'Observation Image', 'sitepoint' ),
+        __NAMESPACE__.'\\observation_image_meta_box_callback',
+        'observation',
+        'normal',
+        'high',
+        null
+    );
+}
+
+add_action( 'add_meta_boxes', __NAMESPACE__.'\\global_notice_meta_box' );
+
+
+function observation_image_meta_box_callback( $post ) {
+
+    $value = get_the_post_thumbnail( $post->ID, '_image_notice', true );
+
+    echo '<img style="max-width:100%; height:auto;" id="image_notice" name="image_notice" src="'.$value.'"></img>';
+}
+
+?>

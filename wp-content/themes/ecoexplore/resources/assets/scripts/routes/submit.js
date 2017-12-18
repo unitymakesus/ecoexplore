@@ -11,7 +11,6 @@ export default {
       defaultDate: Date.now(),
       disableMobile: true,
     });
-
     // Prevent form submit when pressing enter in location search field
     $('#cf7_location_picker_postcode').on('keydown', function(e) {
       if (e.keyCode == 13) {
