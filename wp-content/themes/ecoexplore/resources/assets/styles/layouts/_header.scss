@@ -141,6 +141,10 @@ nav {
       li {
         float: none;
         display: block;
+
+        a {
+          white-space: nowrap;
+        }
       }
 
       & > li:last-child {

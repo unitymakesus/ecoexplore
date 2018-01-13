@@ -13099,6 +13099,7 @@ Router.prototype.loadEvents = function loadEvents () {
       defaultDate: Date.now(),
       disableMobile: true,
     });
+
     // Prevent form submit when pressing enter in location search field
     $('#cf7_location_picker_postcode').on('keydown', function(e) {
       if (e.keyCode == 13) {
@@ -13120,10 +13121,17 @@ Router.prototype.loadEvents = function loadEvents () {
       }
     });
 
-    // // Redirect to dashboard after form successfully submitted
-    // document.addEventListener( 'wpcf7mailsent', function() {
-    //   window.location.href = '/user/';
-    // }, false );
+    // Add loading icon when submit button clicked and prevent double form submissions
+    $(document).on('click', '.wpcf7-submit', function(e){
+      // If loader already added to DOM, don't submit form
+      if( $('.loading-spinner').length ) {
+        e.preventDefault();
+        return false;
+      } else {
+        // Add loader to DOM
+        $(this).after('<div class="loading-spinner"></div>');
+      }
+    });
   },
 });
 

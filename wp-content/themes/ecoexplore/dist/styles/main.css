@@ -12480,6 +12480,54 @@ div[id="map_canvas"] .gm-style-pbt {
   text-align: center;
 }
 
+@-webkit-keyframes spinner {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@-o-keyframes spinner {
+  to {
+    -o-transform: rotate(360deg);
+       transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner {
+  to {
+    -webkit-transform: rotate(360deg);
+         -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.loading-spinner {
+  position: relative;
+  display: inline-block;
+  vertical-align: text-top;
+  margin: 0 30px;
+}
+
+.loading-spinner::before {
+  content: '';
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  margin-top: -10px;
+  margin-left: -10px;
+  border-radius: 50%;
+  border: 10px solid #9AB83C;
+  border-top-color: #688127;
+  -webkit-animation: spinner 0.6s linear infinite;
+       -o-animation: spinner 0.6s linear infinite;
+          animation: spinner 0.6s linear infinite;
+}
+
 .modal {
   border: 2px solid #000349;
   background: #CFF3FF;
@@ -14018,6 +14066,10 @@ nav ul.menu.primary {
 nav ul.menu.primary li {
   float: none;
   display: block;
+}
+
+nav ul.menu.primary li a {
+  white-space: nowrap;
 }
 
 nav ul.menu.primary > li:last-child::before,
