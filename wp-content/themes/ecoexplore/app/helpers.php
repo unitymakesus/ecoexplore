@@ -3,6 +3,8 @@
 namespace App;
 
 use Roots\Sage\Container;
+use BladeSvgSage;
+use BladeSvg;
 
 /**
  * Get the sage container.
@@ -77,6 +79,25 @@ function template_path($file, $data = [])
 function asset_path($asset)
 {
     return sage('assets')->getUri($asset);
+}
+
+/**
+ * Fix for BladeSvgSage in production
+ * @link https://github.com/Log1x/blade-svg-sage/issues/11
+ */
+function svg_image($icon, $class = '', $attrs = []) {
+    $extension = '.svg'; // Extension of SVG files
+    $base_dist_path = BladeSvgSage\get_dist_path(''); // Base path to "dist" folder
+    $svg_path = apply_filters('bladesvg_image_path', BladeSvgSage\get_dist_path('images/svg/icons')); // SVG path that has been set
+    $relative_path = trailingslashit(str_replace($base_dist_path, '', $svg_path)); // The relative path inside the dist folder (needed for sage('assets')->get())
+    $relative_icon_path = $relative_path . $icon . $extension;
+
+    // Convert the final asset name back to original format (no extension or extra path added)
+    // It's possible that we might use @icon('subdir/name') so we can't use the basename() function
+    $icon = str_replace($extension, '', sage('assets')->get($relative_icon_path));
+    $icon = str_replace($relative_path, '', $icon);
+
+    return sage(BladeSvg\SvgFactory::class)->svg($icon, $class, $attrs);
 }
 
 /**

@@ -12,7 +12,7 @@
           <div class="col s12 m8 l6">
             <div class="splat">
               <div class="scientists">
-                {!! file_get_contents(App\asset_path('images/scientists-need-your-help.svg')) !!}
+                {{ App\svg_image('scientists-need-your-help') }}
               </div>
               <h1>Be an ecoEXPLORER! Share wildlife observations to earn points, badges &amp; prizes.</h1>
             </div>
@@ -35,21 +35,21 @@
                 'img-lg'  => App\asset_path('images/see-it@2x.jpg'),
                 'img-sm'  => App\asset_path('images/see-it.jpg'),
                 'alt'     => 'Girl peering through binoculars',
-                'splat'   => App\asset_path('images/see-it.svg'),
+                'splat'   => 'see-it',
               ],
               [
                 'title'   => 'Snap It',
                 'img-lg'  => App\asset_path('images/snap-it@2x.jpg'),
                 'img-sm'  => App\asset_path('images/snap-it.jpg'),
                 'alt'     => 'Boy taking picture with iPhone',
-                'splat'   => App\asset_path('images/snap-it.svg'),
+                'splat'   => 'snap-it',
               ],
               [
                 'title'   => 'Share It',
                 'img-lg'  => App\asset_path('images/share-it@2x.jpg'),
                 'img-sm'  => App\asset_path('images/share-it.jpg'),
                 'alt'     => 'Girl sharing observation on iPad',
-                'splat'   => App\asset_path('images/share-it.svg'),
+                'splat'   => 'share-it',
               ],
             ]
           ])
@@ -145,7 +145,7 @@
                 <div class="date">
                   <span class="month">{{ date('M', strtotime($big_event[0]->EventStartDate)) }}</span>
                   <span class="day">{{ date('j', strtotime($big_event[0]->EventStartDate)) }}</span>
-                  <div class="save-date">{!! file_get_contents(App\asset_path('images/save-date-' . $season . '.svg')) !!}</div>
+                  <div class="save-date">{{ App\svg_image('save-date-' . $season) }}</div>
                 </div>
                 <div class="title">
                   <span class="label">Season Ending Event</span>
@@ -221,7 +221,7 @@
             <div class="col s12 m6 l6 push-l1">
               <div class="leaderboard">
                 <h2>
-                  {!! file_get_contents(App\asset_path('images/leaderboard.svg')) !!}
+                  {{ App\svg_image('leaderboard') }}
                   Leaderboard
                 </h2>
                 <div class="leaders">

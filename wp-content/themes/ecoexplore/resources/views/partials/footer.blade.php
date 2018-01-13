@@ -26,7 +26,7 @@
       <div class="col s6 m4 l3 footer-logo">
         <p>An initiative of</p>
         <a href="http://www.ncarboretum.org/" target="_blank" rel="noopener">
-          {!! file_get_contents(App\asset_path('images/TNCA_logo.svg')) !!}
+          {{ App\svg_image('TNCA_logo') }}
         </a>
       </div>
     </div>

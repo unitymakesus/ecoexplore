@@ -6,6 +6,7 @@ use Roots\Sage\Container;
 use Roots\Sage\Assets\JsonManifest;
 use Roots\Sage\Template\Blade;
 use Roots\Sage\Template\BladeProvider;
+use BladeSvgSage;
 
 /**
  * Theme assets
@@ -189,5 +190,12 @@ add_action('after_setup_theme', function () {
      */
     sage('blade')->compiler()->directive('asset', function ($asset) {
         return "<?= " . __NAMESPACE__ . "\\asset_path({$asset}); ?>";
+    });
+
+    /**
+     * Configure SVG location for @svg() Blade directive
+     */
+    add_filter('bladesvg_image_path', function () {
+      return BladeSvgSage\get_dist_path('images');
     });
 });

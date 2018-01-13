@@ -1,7 +1,7 @@
 @foreach ($panels as $panel)
 <div class="col s12 m4">
   <div class="mini-splat">
-    {!! file_get_contents($panel['splat']) !!}
+    {{ App\svg_image($panel['splat']) }}
   </div>
 
   <div class="panel-inner">
