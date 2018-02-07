@@ -1,12 +1,14 @@
 <?php
-
 function observations_loop($number, $username, $format = null, $wrapper = null) {
+  $page = $_GET['pg'];
 
   $recent_obs = new WP_Query([
     'post_type' => 'observation',
     'posts_per_page' => $number,
     'author_name' => $username,
-    'post_status' => ['publish', 'pending']
+    'post_status' => ['publish', 'pending'],
+    'posts_per_page' => 12,
+    'paged' => $page
   ]);
 
   $inat_ids = array();
@@ -166,83 +168,105 @@ function observations_loop($number, $username, $format = null, $wrapper = null) 
         echo '</div>';
       }
     }
+    ?>
+
+    <nav class="pagination" role="navigation">
+      <h2 class="screen-reader-text">Posts navigation</h2>
+      <div class="nav-links">
+        <?php
+        echo paginate_links( array(
+          'base' => '%_%',
+          'format' => '?pg=%#%',
+          'current' => max( 1, $page ),
+          'total' => $recent_obs->max_num_pages,
+          'before_page_number' => '<span class="screen-reader-text">Page </span>',
+          'prev_text' => '&laquo; Previous <span class="screen-reader-text">page</span>',
+          'next_text' => 'Next <span class="screen-reader-text">page</span> &raquo;',
+        ) );
+        ?>
+      </div>
+    </nav>
+    <?php
   }
 
   wp_reset_postdata();
 
-  // Show the observations from iNaturalist
-  $observations = App\get_observations($number, $username);
+  if (max(1, $page) == $recent_obs->max_num_pages) {
 
-  if (!empty($observations)) {
-    foreach($observations as $o) {
-      if (!in_array($o->id, $inat_ids)) {
-        if (!empty($wrapper)) {
-          echo '<div class="' . $wrapper . '">';
-        }
-        ?>
+    // Show the observations from iNaturalist
+    $observations = App\get_observations($number, $username);
 
-        <div class="observation card <?php echo $format; ?>">
-          <?php if (stristr($format, 'has-modal') !== FALSE) { ?>
-            <a href="#obs<?php echo $o->id; ?>" class="mega-link modal-trigger" aria-hidden="true"></a>
-          <?php } else { ?>
-            <a href="<?php echo $o->uri; ?>" target="_blank" rel="noopener" class="mega-link" aria-hidden="true"></a>
-          <?php } ?>
-
-          <?php
-            if (stristr($format, 'horizontal') !== FALSE) {
-              ?>
-                <div class="card-image">
-                  <img src="<?php echo $o->photos[0]->square_url; ?>" alt="" />
-                </div>
-              <?php
-            } else {
-              ?>
-                <div class="card-image square" style="background-image: url('<?php echo $o->photos[0]->medium_url; ?>')"></div>
-              <?php
-            }
+    if (!empty($observations)) {
+      foreach($observations as $o) {
+        if (!in_array($o->id, $inat_ids)) {
+          if (!empty($wrapper)) {
+            echo '<div class="' . $wrapper . '">';
+          }
           ?>
 
-          <div class="card-stacked">
-            <div class="card-content">
+          <div class="observation card <?php echo $format; ?>">
+            <?php if (stristr($format, 'has-modal') !== FALSE) { ?>
+              <a href="#obs<?php echo $o->id; ?>" class="mega-link modal-trigger" aria-hidden="true"></a>
+            <?php } else { ?>
+              <a href="<?php echo $o->uri; ?>" target="_blank" rel="noopener" class="mega-link" aria-hidden="true"></a>
+            <?php } ?>
+
+            <?php
+              if (stristr($format, 'horizontal') !== FALSE) {
+                ?>
+                  <div class="card-image">
+                    <img src="<?php echo $o->photos[0]->square_url; ?>" alt="" />
+                  </div>
+                <?php
+              } else {
+                ?>
+                  <div class="card-image square" style="background-image: url('<?php echo $o->photos[0]->medium_url; ?>')"></div>
+                <?php
+              }
+            ?>
+
+            <div class="card-stacked">
+              <div class="card-content">
+                <h3><?php echo $o->species_guess; ?></h3>
+                <ul>
+                  <li><i class="material-icons" aria-label="Where">location_on</i> <?php echo $o->place_guess; ?></li>
+                  <li><i class="material-icons" aria-label="When">access_time</i> <?php echo date("M j, Y", strtotime($o->created_at)); ?></li>
+                </ul>
+              </div>
+
+              <div class="card-action">
+                <ul>
+                  <li><a href="<?php echo $o->uri; ?>" target="_blank" rel="noopener"><i class="material-icons" aira-hidden="true">cloud_upload</i> See on iNaturalist</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal" id="obs<?php echo $o->id; ?>">
+            <div class="modal-content">
+              <img src="<?php echo $o->photos[0]->medium_url; ?>" alt=""
+                srcset="<?php echo $o->photos[0]->large_url; ?>768w" />
               <h3><?php echo $o->species_guess; ?></h3>
-              <ul>
+              <ul class="obs-meta">
                 <li><i class="material-icons" aria-label="Where">location_on</i> <?php echo $o->place_guess; ?></li>
                 <li><i class="material-icons" aria-label="When">access_time</i> <?php echo date("M j, Y", strtotime($o->created_at)); ?></li>
               </ul>
             </div>
-
-            <div class="card-action">
-              <ul>
-                <li><a href="<?php echo $o->uri; ?>" target="_blank" rel="noopener"><i class="material-icons" aira-hidden="true">cloud_upload</i> See on iNaturalist</a></li>
-              </ul>
+            <div class="modal-footer">
+              <a href="<?php echo $o->uri; ?>" target="_blank" rel="noopener" class="modal-action modal-close btn-secondary"><i class="material-icons" aira-hidden="true">cloud_upload</i> See on iNaturalist</a>
             </div>
           </div>
-        </div>
 
-        <div class="modal" id="obs<?php echo $o->id; ?>">
-          <div class="modal-content">
-            <img src="<?php echo $o->photos[0]->medium_url; ?>" alt=""
-              srcset="<?php echo $o->photos[0]->large_url; ?>768w" />
-            <h3><?php echo $o->species_guess; ?></h3>
-            <ul class="obs-meta">
-              <li><i class="material-icons" aria-label="Where">location_on</i> <?php echo $o->place_guess; ?></li>
-              <li><i class="material-icons" aria-label="When">access_time</i> <?php echo date("M j, Y", strtotime($o->created_at)); ?></li>
-            </ul>
-          </div>
-          <div class="modal-footer">
-            <a href="<?php echo $o->uri; ?>" target="_blank" rel="noopener" class="modal-action modal-close btn-secondary"><i class="material-icons" aira-hidden="true">cloud_upload</i> See on iNaturalist</a>
-          </div>
-        </div>
-
-        <?php
-        if (!empty($wrapper)) {
-          echo '</div>';
+          <?php
+          if (!empty($wrapper)) {
+            echo '</div>';
+          }
         }
       }
     }
   }
 
-  if (empty($observations) && !$recent_obs->have_posts) {
+  if (empty($observations) && $recent_obs->found_posts == 0) {
     ?>
 
     <div class="col-centered">

@@ -256,6 +256,7 @@ add_action('save_post_observation', function($post_id, $post, $update) {
  * @return object the observations from the iNat API. False if error or none.
  */
 function get_observations($number = 4, $username = '') {
+  // delete_transient('inat_obs_' . $username . $number);
   // Use WP transients for caching
   if ( false === ( $observations = get_transient( 'inat_obs_' . $username . $number ) ) ) {
     // iNaturalist API stuff
@@ -275,16 +276,18 @@ function get_observations($number = 4, $username = '') {
     $inat_url = add_query_arg($params, $inat_base_url . '/observations/project/ecoexplore.json');
     $observations = wp_remote_get($inat_url, $args);
 
-    // If the POST is a success
-    if ($observations['response']['code'] == '200') {
+    // Check the response code
+  	$response_code = wp_remote_retrieve_response_code( $observations );
+
+    if ( 200 != $response_code || ! empty( $response_message ) ) {
+      // This didn't work
+      $observations = false;
+    } else {
       // Get the returned JSON object
       $response_json = $observations['body'];
       $observations = json_decode($response_json);
 
       set_transient( 'inat_obs_' . $username . $number, $observations, 1 * HOUR_IN_SECONDS );
-    } else {
-      // If this didn't work...
-      $observations = false;
     }
   }
 

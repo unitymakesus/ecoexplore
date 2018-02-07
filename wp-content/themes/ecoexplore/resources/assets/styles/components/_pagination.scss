@@ -1,0 +1,39 @@
+.pagination {
+  background: none;
+  border-bottom: none;
+  height: auto;
+  padding-bottom: 0;
+
+  .nav-links {
+    @extend .container;
+
+    text-align: center;
+
+    .page-numbers {
+      display: inline-block;
+      min-width: 40px;
+      padding: 0 15px;
+      height: 40px;
+      line-height: 40px;
+      font-weight: 300;
+      font-size: 1.2em;
+      background: $aqua-light;
+      border: 1px solid $aqua-dark;
+
+      &.current {
+        background: $ice;
+        color: $navy;
+        font-weight: bold;
+      }
+    }
+
+    a {
+      color: $navy;
+
+      &:hover, &:focus {
+        background: $aqua-dark;
+        color: $white;
+      }
+    }
+  }
+}
