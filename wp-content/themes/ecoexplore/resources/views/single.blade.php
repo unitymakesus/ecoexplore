@@ -12,7 +12,7 @@
 
 @section('content')
   @while(have_posts()) @php(the_post())
-    @if (get_post_type() == 'field-season')
+    @if (get_post_type() == 'field-season' || get_post_type() == 'badge')
       @include('partials.page-header')
     @endif
     @include('partials.content-single-'.get_post_type())

@@ -9,7 +9,7 @@ $badges = [];
 
 if (!empty($earned_badges)) {
 	foreach ($earned_badges as $k => $badge) {
-		$badges[$badge['badge']][] = $k;
+		$badges[$badge['badge_name']->ID][] = $k;
 	}
 }
 
@@ -142,12 +142,7 @@ include('observations-loop.php');
 										<?php foreach ($badges as $badge => $val) { ?>
 
 											<div class="col">
-												<?php
-													$season = get_page_by_title($badge, 'OBJECT', 'field-season');
-													$badge = get_field('badge', $season->ID);
-												?>
-
-												<img class="alignleft badge" src="<?php echo $badge['sizes']['thumbnail']; ?>" alt="<?php echo get_the_title($season->ID); ?> Season Badge" />
+												<img class="alignleft badge" src="<?php echo get_the_post_thumbnail_url($badge, 'thumbnail'); ?>" alt="<?php echo get_the_title($badge); ?> Season Badge" />
 
 												<?php
 													if (count($val) > 1) {
@@ -220,7 +215,7 @@ include('observations-loop.php');
 							<h3>Earn Your <?php echo $this_season->posts[0]->post_title; ?> Badge:</h3>
 
 							<div class="progress">
-								<div class="determinate" style="width: <?php echo ($season_observations->found_posts/7)*100; ?>%"></div>
+								<div class="determinate" style="width: <?php echo min($season_observations->found_posts/7, '0.95')*100; ?>%"></div>
 							</div>
 
 							<ol class="badge-progress">

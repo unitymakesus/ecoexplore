@@ -50,13 +50,21 @@
   }
 }
 
-.page-field-season-data, .single-field-season {
+.page-field-season-data, .single-field-season, .page-badges-data, .single-badge {
   h1 {
     margin-top: 0;
   }
 
   .h6 {
     margin-bottom: 0;
+  }
+
+  .col.m4 h3 {
+    margin-top: 3rem;
+
+    &:first-child {
+      margin-top: 0;
+    }
   }
 
   .alignleft.badge {

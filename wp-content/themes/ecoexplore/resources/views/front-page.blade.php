@@ -103,8 +103,11 @@
                   <div class="rotate-straighten">
                     <div class="date">{{ date('F j', get_field('start_date')) }} - {{ date('F j', get_field('end_date')) }}</div>
                     <h2>It's @php(the_title()) Season!</h2>
-                    @php($badge = get_field('badge'))
-                    <img class="alignleft badge" src="{{ $badge['sizes']['medium'] }}" alt="{{ get_the_title() }} Season Badge" />
+                    @php
+                      $badge = get_field('badge_season');
+                      $badge_id = $badge[0];
+                    @endphp
+                    <img class="alignleft badge" src="{{ get_the_post_thumbnail_url($badge_id, 'medium') }}" alt="{{ get_the_title() }} Season Badge" />
                     <p>Complete challenges to earn a badge and share observations of wildlife belonging to this season for a bonus point!</p>
                     <p><a href="{{ the_permalink() }}" class="learn-more-btn">Learn More</a>
                   </div>

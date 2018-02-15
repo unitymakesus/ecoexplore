@@ -10,11 +10,13 @@
     @if ($scientists->have_posts())
       @while ($scientists->have_posts())
         @php ($scientists->the_post())
-        
+
         <div class="col">
           @include('partials.content-scientist')
         </div>
       @endwhile
     @endif
+
+    @php (wp_reset_postdata())
   </div>
 </div>

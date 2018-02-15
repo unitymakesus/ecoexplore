@@ -505,7 +505,96 @@
   }
 }
 
-.field-season {
+//Mammalogy ($purple-med)
+.mammalogy {
+  h1 {
+    color: $purple-dark;
+  }
+
+  h2 {
+    color: $purple-med;
+  }
+
+  .entry-content .l8 {
+    a {
+      color: $purple-med;
+
+      &:hover {
+        background-color: $purple-light;
+        color: $purple-dark;
+      }
+
+      &:active, &:focus {
+        background-color: $purple-med;
+        color: $white;
+      }
+    }
+  }
+
+  .card.scientist, &.card.scientist {
+    @include color-card($purple-light, $purple-med, $purple-dark);
+
+    a {
+      color: $navy;
+      text-shadow: none;
+    }
+  }
+
+  .learn-more-btn {
+    @include learn-more-btn;
+
+    background-color: $purple-med;
+    border: 6px solid $purple-light;
+    text-shadow: 4px 2px $purple-dark;
+
+    &::before {
+      @include learn-more-btn-before;
+
+      border: 2px solid $purple-dark;
+    }
+
+    &:hover {
+      @include learn-more-btn-hover;
+
+      background-color: $purple-light;
+      border: 6px solid $purple-med;
+    }
+
+    &:active {
+      background-color: $purple-med;
+      border: 6px solid $purple-dark;
+      box-shadow: 0 0;
+    }
+  }
+
+  &.event {
+    background: $purple-med;
+
+    .date {
+      background-color: $purple-med;
+      border: 6px solid $purple-light;
+
+      &::before {
+        border: 2px solid $purple-dark;
+      }
+    }
+
+    .month {
+      text-shadow: 4px 2px $purple-dark;
+    }
+
+    .day {
+      text-shadow: 4px 2px $purple-dark;
+    }
+
+    .title {
+      border-top: 9px solid $purple-light;
+      background-color: $purple-med;
+    }
+  }
+}
+
+.field-season, .type-badge {
   .card {
     @include photo-card;
 
@@ -519,6 +608,7 @@
       .card-content {
         flex-basis: 80%;
         padding-left: 10px;
+        padding-bottom: 10px;
       }
     }
   }

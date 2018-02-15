@@ -54,7 +54,7 @@
                       $available = 'any GetSpot during regular business hours and certain ecoEXPLORE events and field programs.';
                   }
                 ?>
-                
+
               <p>Limit: {{ $name }}</p>
               <p>*Available at {{ $available }}</p>
             </div>
@@ -62,5 +62,7 @@
         </div>
       @endwhile
     @endif
+
+    @php (wp_reset_postdata())
   </div>
 </div>

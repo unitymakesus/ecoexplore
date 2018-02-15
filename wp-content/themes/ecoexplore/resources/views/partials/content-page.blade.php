@@ -15,6 +15,10 @@
   @include('partials.field-season-loop')
 @endif
 
+@if (is_page('badges'))
+  @include('partials.badges-loop')
+@endif
+
 @if (is_page('science-mentors'))
   @include('partials.scientists-loop')
 @endif

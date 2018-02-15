@@ -13,6 +13,10 @@ $aqua:              #4CBED8;
 $aqua-light:        #AAE1EA;
 $brand-primary:     $aqua;
 
+$purple-dark:       #482B6B;
+$purple-med:        lighten(#654C81, 10%);
+$purple-light:      lighten($purple-med, 20%);
+
 /** Neutral Colors */
 $gray:              #2F2F2F;
 $navy:              #000349;

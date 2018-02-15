@@ -69,36 +69,36 @@ add_action( 'init', function() {
 		)
 	);
 
-	// register_post_type( 'badge',
-	// 	array('labels' => array(
-	// 			'name' => 'Badges',
-	// 			'singular_name' => 'Badge',
-	// 			'add_new' => 'Add New',
-	// 			'add_new_item' => 'Add New Badge',
-	// 			'edit' => 'Edit',
-	// 			'edit_item' => 'Edit Badge',
-	// 			'new_item' => 'New Badge',
-	// 			'view_item' => 'View Badge',
-	// 			'search_items' => 'Search Badges',
-	// 			'not_found' =>  'Nothing found in the Database.',
-	// 			'not_found_in_trash' => 'Nothing found in Trash',
-	// 			'parent_item_colon' => ''
-	// 		), /* end of arrays */
-	// 		'exclude_from_search' => false,
-	// 		'publicly_queryable' => true,
-	// 		'show_ui' => true,
-	// 		'show_in_nav_menus' => false,
-	// 		'menu_position' => 8,
-	// 		'menu_icon' => 'dashicons-awards',
-	// 		'capability_type' => 'page',
-	// 		'hierarchical' => true,
-	// 		'supports' => array( 'title', 'editor', 'thumbnail'),
-	// 		'public' => true,
-	// 		'has_archive' => true,
-	// 		'rewrite' => true,
-	// 		'query_var' => true
-	// 	)
-	// );
+	register_post_type( 'badge',
+		array('labels' => array(
+				'name' => 'Badges',
+				'singular_name' => 'Badge',
+				'add_new' => 'Add New',
+				'add_new_item' => 'Add New Badge',
+				'edit' => 'Edit',
+				'edit_item' => 'Edit Badge',
+				'new_item' => 'New Badge',
+				'view_item' => 'View Badge',
+				'search_items' => 'Search Badges',
+				'not_found' =>  'Nothing found in the Database.',
+				'not_found_in_trash' => 'Nothing found in Trash',
+				'parent_item_colon' => ''
+			), /* end of arrays */
+			'exclude_from_search' => false,
+			'publicly_queryable' => true,
+			'show_ui' => true,
+			'show_in_nav_menus' => false,
+			'menu_position' => 8,
+			'menu_icon' => 'dashicons-awards',
+			'capability_type' => 'page',
+			'hierarchical' => true,
+			'supports' => array( 'title', 'editor', 'thumbnail'),
+			'public' => true,
+			'has_archive' => true,
+			'rewrite' => true,
+			'query_var' => true
+		)
+	);
 
 	register_post_type( 'field-season',
 		array('labels' => array(
@@ -123,7 +123,7 @@ add_action( 'init', function() {
 			'menu_icon' => 'dashicons-admin-site',
 			'capability_type' => 'page',
 			'hierarchical' => true,
-			'supports' => array( 'title', 'editor', 'thumbnail', 'revisions'),
+			'supports' => array( 'title', 'thumbnail', 'revisions'),
 			'public' => true,
 			'has_archive' => false,
 			'rewrite' => true,
@@ -159,6 +159,16 @@ add_action( 'init', function() {
 			'has_archive' => false,
 			'rewrite' => true,
 			'query_var' => true
+		)
+	);
+
+	register_taxonomy(
+		'badge-type',
+		'badge',
+		array(
+			'label' => __( 'Badge Type' ),
+			'rewrite' => false,
+			'hierarchical' => true,
 		)
 	);
 

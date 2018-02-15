@@ -96,26 +96,76 @@ function obs_pending_review_widget() {
 }
 
 
-function global_notice_meta_box() {
-    add_meta_box(
-        'image-notice',
-        __( 'Observation Image', 'sitepoint' ),
-        __NAMESPACE__.'\\observation_image_meta_box_callback',
-        'observation',
-        'normal',
-        'high',
-        null
-    );
+/**
+ * Add large meta box to show observation image in edit page
+ */
+function observation_image_meta_box() {
+  add_meta_box(
+      'image-notice',
+      __( 'Observation Image', 'sitepoint' ),
+      __NAMESPACE__.'\\observation_image_meta_box_callback',
+      'observation',
+      'normal',
+      'high',
+      null
+  );
 }
 
-add_action( 'add_meta_boxes', __NAMESPACE__.'\\global_notice_meta_box' );
-
+add_action( 'add_meta_boxes', __NAMESPACE__.'\\observation_image_meta_box' );
 
 function observation_image_meta_box_callback( $post ) {
-
-    $value = get_the_post_thumbnail( $post->ID, '_image_notice', true );
-
-    echo '<img style="max-width:100%; height:auto;" id="image_notice" name="image_notice" src="'.$value.'"></img>';
+  $value = get_the_post_thumbnail( $post->ID, '_image_notice', true );
+  echo '<img style="max-width:100%; height:auto;" id="image_notice" name="image_notice" src="'.$value.'"></img>';
 }
+
+
+/**
+ * Add sortable column to users list showing points
+ */
+function eco_user_table($column) {
+  $column['running_points'] = 'Running Points';
+  $column['total_points'] = 'Total Points';
+  return $column;
+}
+add_filter('manage_users_columns', __NAMESPACE__.'\\eco_user_table');
+
+function eco_sortable_columns($columns) {
+  $columns['running_points'] = 'running_points';
+  $columns['total_points'] = 'total_points';
+  return $columns;
+}
+add_filter('manage_users_sortable_columns', __NAMESPACE__.'\\eco_sortable_columns');
+
+function eco_add_points_user_table($val, $column, $user_id) {
+  switch ($column) {
+    case 'running_points':
+      return get_field('running_points', "user_$user_id");
+      break;
+    case 'total_points':
+      return get_field('total_points', "user_$user_id");
+      break;
+    default:
+  }
+
+  return $val;
+}
+add_action('manage_users_custom_column', __NAMESPACE__.'\\eco_add_points_user_table', 10, 3);
+
+function eco_points_user_table_order($query) {
+  global $wpdb, $current_screen;
+
+  if ( 'users' != $current_screen->id ) {
+    return;
+  }
+
+  $orderby = $query->get('orderby');
+  $order = $query->get('order');
+
+  if ($orderby == 'running_points' || $orderby == 'total_points') {
+    $query->query_from .= " INNER JOIN {$wpdb->usermeta} m1 ON {$wpdb->users}.ID=m1.user_id AND (m1.meta_key = '$orderby')";
+    $query->query_orderby = " ORDER BY CAST(m1.meta_value AS unsigned) $order";
+  }
+}
+add_action('pre_user_query', __NAMESPACE__.'\\eco_points_user_table_order');
 
 ?>

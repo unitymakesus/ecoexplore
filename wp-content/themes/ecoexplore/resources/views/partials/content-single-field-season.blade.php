@@ -10,26 +10,27 @@
     <div class="row">
         <div class="col s12 m8 l8">
           @php
-            $badge = get_field('badge');
             $season = get_the_id();
+            $badge = get_field('badge_season');
+            $badge_id = $badge[0];
           @endphp
-          <img class="alignleft badge" src="{{ $badge['sizes']['medium'] }}" alt="{{ get_the_title() }} Season Badge" />
+          <img class="alignleft badge" src="{{ get_the_post_thumbnail_url($badge_id, 'medium') }}" alt="{{ get_the_title() }} Season Badge" />
 
-          @php(the_content())
+          @php(the_content($badge_id))
 
           <h2>@php(the_title()) Fun Fact</h2>
-          @php(the_field('fun_fact'))
+          @php(the_field('fun_fact', $badge_id))
 
           <h2>More @php(the_title()) Tips</h2>
-          @php(the_field('tips'))
+          @php(the_field('tips', $badge_id))
 
           <h2>@php(the_title()) Challenge</h2>
-          @php(the_field('challenge'))
+          @php(the_field('challenge', $badge_id))
 
           <h2>Science Mentor</h2>
           @php
             global $post;
-            $mentor = get_field('season_mentor');
+            $mentor = get_field('season_mentor', $badge_id);
             $post = $mentor[0];
             setup_postdata($post);
             $format = 'horizontal';
@@ -39,7 +40,49 @@
         </div>
 
         <div class="col s12 m4 l3 offset-l1">
-          <h3>Learn About Other Field Seasons</h3>
+          <h3>Bonus Badges</h3>
+
+          @php
+            $bonus_badges = new WP_Query([
+              'post_type' => 'badge',
+              'posts_per_page' => -1,
+              'tax_query' => [
+                [
+                  'taxonomy' => 'badge-type',
+                  'field' => 'slug',
+                  'terms' => 'bonus-badge'
+                ]
+              ],
+              'orderby' => 'title',
+              'order' => 'ASC'
+            ]);
+          @endphp
+
+          @if ($bonus_badges->have_posts())
+            @while ($bonus_badges->have_posts())
+              @php ($bonus_badges->the_post())
+
+              <div class="card {{ get_post_field('post_name') }}">
+                <a href="{{ the_permalink() }}" class="mega-link"></a>
+
+                <div class="card-content">
+                  <a href="{{ the_permalink() }}" class="card-title">@php (the_title())</a>
+                </div>
+
+                <div class="card-image">
+                  @php
+                    $badge = get_field('badge_season');
+                    $badge_id = $badge[0];
+                  @endphp
+                  <img src="{{ get_the_post_thumbnail_url($badge_id, 'medium') }}" alt="{{ get_the_title() }} Badge" class="badge" />
+                </div>
+              </div>
+
+            @endwhile
+          @endif
+          @php(wp_reset_postdata())
+
+          <h3>Other Field Season Badges</h3>
 
           @php
             $other_seasons = new WP_Query([
@@ -58,14 +101,18 @@
 
               <div class="card {{ get_post_field('post_name') }}">
                 <a href="{{ the_permalink() }}" class="mega-link"></a>
-                <div class="card-image">
-                  @php ($badge = get_field('badge'))
-                  <img src="{{ $badge['sizes']['medium'] }}" alt="{{ get_the_title() }} Season Badge" class="badge" />
-                </div>
 
                 <div class="card-content">
                   <a href="{{ the_permalink() }}" class="card-title">@php (the_title())</a>
                   <p>{{ date('F j, Y', get_field('start_date')) }} - {{ date('F j, Y', get_field('end_date')) }}</p>
+                </div>
+                
+                <div class="card-image">
+                  @php
+                    $badge = get_field('badge_season');
+                    $badge_id = $badge[0];
+                  @endphp
+                  <img src="{{ get_the_post_thumbnail_url($badge_id, 'medium') }}" alt="{{ get_the_title() }} Season Badge" class="badge" />
                 </div>
               </div>
 
