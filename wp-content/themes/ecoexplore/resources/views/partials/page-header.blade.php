@@ -4,8 +4,13 @@
     @php
       $season = get_field('badge_season');
       $season_id = $season[0];
-      $banner = get_the_post_thumbnail_url($season_id, 'full')
     @endphp
+
+    @if (!empty($season_id))
+      @php ($banner = get_the_post_thumbnail_url($season_id, 'full'))
+    @else
+      @php ($banner = get_the_post_thumbnail_url(354, 'full'))
+    @endif
   @else
     @php ($banner = get_the_post_thumbnail_url(get_the_id(), 'full'))
   @endif

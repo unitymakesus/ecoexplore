@@ -91,6 +91,9 @@ add_filter( 'wpcf7_before_send_mail', function( $form ) {
 
         // Set post thumbnail to uploaded photo
         set_post_thumbnail( $parent_post_id, $attach_id );
+
+				// Clear transients
+				delete_transient( 'notes_' . $args['post_author'] );
       }
 		}
 
