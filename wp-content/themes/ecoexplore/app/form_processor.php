@@ -23,27 +23,63 @@ add_filter( 'wpcf7_before_send_mail', function( $form ) {
 
 		$post_id = wp_insert_post($args, $wp_error);
 
-		if (!is_wp_error($post_id)){
-			if (isset($posted_data['location'])) {
-			  // Let's geocode the coordinates to get town, state
-		    $google_api_url = 'https://maps.googleapis.com/maps/api/geocode/json';
-		    $geocode_api_key = 'AIzaSyD5IF_rp6nUrCw6ficzMBgFApZtucUfjdk';
+		if (!is_wp_error($post_id)) {
+			// Set custom fields
+			update_post_meta($post_id, 'observation_time', $posted_data['datetime']);
+			update_post_meta($post_id, 'at_hotspot', $posted_data['choice']);
+			update_post_meta($post_id, 'observation_location', $posted_data['location']);
+			update_post_meta($post_id, 'which_hotspot', $posted_data['hotspot']);
 
+			// Process photo
+      if (isset($posted_data['photo']) && isset($uploaded_files['photo'])) {
+        $photo_name = $posted_data['photo'];
+				$photo_file = $uploaded_files['photo'];
+
+				// Copy file to uploads directory
+				$wp_upload_dir = wp_upload_dir();
+				$new_filename = $post_id . '_' . $photo_name;
+				$new_filepath = $wp_upload_dir['path'] . '/' . $new_filename;
+				copy($photo_file, $new_filepath);
+
+        // Set up params to add to media library
+        $filetype = wp_check_filetype( $new_filename, null );
+        $attachment = array(
+        	'guid'           => $wp_upload_dir['url'] . '/' . $new_filename,
+        	'post_mime_type' => $filetype['type'],
+        	'post_title'     => preg_replace( '/\.[^.]+$/', '', $new_filename ),
+        	'post_content'   => '',
+        	'post_status'    => 'inherit'
+        );
+
+        // Insert to media library
+        $attach_id = wp_insert_attachment( $attachment, $new_filepath, $post_id );
+
+        // Generate the metadata for the attachment, and update the database record.
+        require_once( ABSPATH . 'wp-admin/includes/image.php' );
+        $attach_data = wp_generate_attachment_metadata( $attach_id, $filename );
+        wp_update_attachment_metadata( $attach_id, $attach_data );
+
+        // Set post thumbnail to uploaded photo
+        set_post_thumbnail( $post_id, $attach_id );
+      }
+
+			// Map pin location geocoding
+			if (isset($posted_data['location'])) {
 		    // Separate latitude and longitude
 		    $coords = $posted_data['location'];
 		    preg_match("/\((.*?),/", $coords, $lat, PREG_OFFSET_CAPTURE, 0);
 		    preg_match("/, (.*?)\)/", $coords, $lng, PREG_OFFSET_CAPTURE, 0);
 
+				// Set up API url with parameters
 		    $params = [
 		      'latlng' => round($lat[1][0], 6) . ',' . round($lng[1][0], 6),
 		      'location_type' => 'APPROXIMATE',
 		      'result_type' => 'political',
-		      'key' => $geocode_api_key
+		      'key' => 'AIzaSyD5IF_rp6nUrCw6ficzMBgFApZtucUfjdk'
 		    ];
-		    $args = [];
-
+				$google_api_url = 'https://maps.googleapis.com/maps/api/geocode/json';
 		    $reverse_geocode_url = add_query_arg($params, $google_api_url);
-		    $geocode_results = wp_remote_get($reverse_geocode_url, $args);
+		    $geocode_results = wp_remote_get($reverse_geocode_url, []);
 
 		    if ($geocode_results['response']['code'] == '200') {
 		      $response_body = json_decode($geocode_results['body']);
@@ -54,48 +90,12 @@ add_filter( 'wpcf7_before_send_mail', function( $form ) {
 
 					// Set custom fields
 		      update_post_meta($post_id, 'city_state', $address);
-					update_post_meta($post_id, 'observation_location', $coords);
-					update_post_meta($post_id, 'observation_time', $posted_data['datetime']);
-					update_post_meta($post_id, 'at_hotspot', $posted_data['choice']);
-					update_post_meta($post_id, 'which_hotspot', $posted_data['hotspot']);
 		    }
 			}
-
-      if (isset($posted_data['photo']) && isset($uploaded_files['photo'])) {
-        $photo_name = $posted_data['photo'];
-        $photo_content = file_get_contents($uploaded_files['photo']);
-
-        // Put photo in uploads directory
-        $upload = wp_upload_bits($photo_name, '', $photo_content);
-
-        // Set up params to add to media library
-        $filename= $upload['file'];
-        $parent_post_id = $post_id;
-        $filetype = wp_check_filetype( basename( $filename ), null );
-        $wp_upload_dir = wp_upload_dir();
-        $attachment = array(
-        	'guid'           => $wp_upload_dir['url'] . '/' . basename( $filename ),
-        	'post_mime_type' => $filetype['type'],
-        	'post_title'     => preg_replace( '/\.[^.]+$/', '', basename( $filename ) ),
-        	'post_content'   => '',
-        	'post_status'    => 'inherit'
-        );
-
-        // Insert to media library
-        $attach_id = wp_insert_attachment( $attachment, $filename, $parent_post_id );
-
-        // Generate the metadata for the attachment, and update the database record.
-        require_once( ABSPATH . 'wp-admin/includes/image.php' );
-        $attach_data = wp_generate_attachment_metadata( $attach_id, $filename );
-        wp_update_attachment_metadata( $attach_id, $attach_data );
-
-        // Set post thumbnail to uploaded photo
-        set_post_thumbnail( $parent_post_id, $attach_id );
-
-				// Clear transients
-				delete_transient( 'notes_' . $args['post_author'] );
-      }
 		}
+
+		// Clear transients
+		delete_transient( 'notes_' . $args['post_author'] );
 
 		return $form;
 	}
