@@ -102,7 +102,7 @@ function obs_pending_review_widget() {
 function observation_image_meta_box() {
   add_meta_box(
       'image-notice',
-      __( 'Observation Image', 'sitepoint' ),
+      __( 'Observation Image' ),
       __NAMESPACE__.'\\observation_image_meta_box_callback',
       'observation',
       'normal',
@@ -114,7 +114,7 @@ function observation_image_meta_box() {
 add_action( 'add_meta_boxes', __NAMESPACE__.'\\observation_image_meta_box' );
 
 function observation_image_meta_box_callback( $post ) {
-  $value = get_the_post_thumbnail( $post->ID, '_image_notice', true );
+  $value = get_the_post_thumbnail_url( $post->ID, '_image_notice', true );
   echo '<img style="max-width:100%; height:auto;" id="image_notice" name="image_notice" src="'.$value.'"></img>';
 }
 
