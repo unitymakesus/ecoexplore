@@ -201,3 +201,12 @@ add_filter( 'wp_insert_post_data', function( $data ) {
 
   return $data;
 });
+
+// Clear transients after observation saved
+add_action('save_post', function($post_id) {
+	if ( "observation" == get_post_type($post_id) ) {
+		$user_id = get_post_field('post_author', $post_id);
+		delete_transient('season_obs_' . $user_id);
+		delete_transient('bonus_badges_' . $user_id);
+	}
+});

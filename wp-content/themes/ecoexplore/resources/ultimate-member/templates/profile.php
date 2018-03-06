@@ -305,7 +305,7 @@ include('observations-loop.php');
 
 								if ($bonus_badges->have_posts()) : while ($bonus_badges->have_posts()) : $bonus_badges->the_post();
 
-									if ( false === ( $badge_observations = get_transient( 'badge_obs_' . get_the_ID() . '_' . $user_id ) ) ) {
+									// if ( false === ( $badge_observations = get_transient( 'badge_obs_' . get_the_ID() . '_' . $user_id ) ) ) {
 										$badge_observations = new WP_Query([
 											'post_type' => 'observation',
 											'posts_per_page' => -1,
@@ -324,8 +324,8 @@ include('observations-loop.php');
 												]
 											]
 										]);
-										set_transient( 'badge_obs_' . get_the_ID() . '_' . $user_id, $badge_observations, 1 * HOUR_IN_SECONDS );
-									}
+									// 	set_transient( 'badge_obs_' . get_the_ID() . '_' . $user_id, $badge_observations, 1 * HOUR_IN_SECONDS );
+									// }
 									?>
 									<div class="clearfix"></div>
 
