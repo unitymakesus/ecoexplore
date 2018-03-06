@@ -54,9 +54,24 @@ add_filter( 'wpcf7_before_send_mail', function( $form ) {
         // Insert to media library
         $attach_id = wp_insert_attachment( $attachment, $new_filepath, $post_id );
 
-        // Generate the metadata for the attachment, and update the database record.
+        // Generate the metadata for the attachment
         require_once( ABSPATH . 'wp-admin/includes/image.php' );
         $attach_data = wp_generate_attachment_metadata( $attach_id, $filename );
+
+				// Generate image sizes for default image sizes
+				$sizes = get_intermediate_image_sizes();
+				global $_wp_additional_image_sizes;
+				foreach ( get_intermediate_image_sizes() as $_size ) {
+					if ( in_array( $_size, array('thumbnail', 'medium', 'large') ) ) {
+						$size['width']  = get_option( "{$_size}_size_w" );
+						$size['height'] = get_option( "{$_size}_size_h" );
+						$size['crop']   = (bool) get_option( "{$_size}_crop" );
+						$intermediate_size = image_make_intermediate_size($new_filepath, $size['width'], $size['height'], $size['crop']);;
+						$attach_data['sizes'][$_size] = $intermediate_size;
+					}
+				}
+
+				// Update the database record
         wp_update_attachment_metadata( $attach_id, $attach_data );
 
         // Set post thumbnail to uploaded photo
@@ -64,7 +79,11 @@ add_filter( 'wpcf7_before_send_mail', function( $form ) {
       }
 
 			// Map pin location geocoding
-			if (isset($posted_data['location'])) {
+			if (!empty($posted_data['location'])) {
+				error_log(print_r($posted_data, true));
+				$google_api_url = 'https://maps.googleapis.com/maps/api/geocode/json';
+				$geocode_api_key = 'AIzaSyD5IF_rp6nUrCw6ficzMBgFApZtucUfjdk';
+
 		    // Separate latitude and longitude
 		    $coords = $posted_data['location'];
 		    preg_match("/\((.*?),/", $coords, $lat, PREG_OFFSET_CAPTURE, 0);
@@ -75,9 +94,9 @@ add_filter( 'wpcf7_before_send_mail', function( $form ) {
 		      'latlng' => round($lat[1][0], 6) . ',' . round($lng[1][0], 6),
 		      'location_type' => 'APPROXIMATE',
 		      'result_type' => 'political',
-		      'key' => 'AIzaSyD5IF_rp6nUrCw6ficzMBgFApZtucUfjdk'
+					'key' => $geocode_api_key
 		    ];
-				$google_api_url = 'https://maps.googleapis.com/maps/api/geocode/json';
+
 		    $reverse_geocode_url = add_query_arg($params, $google_api_url);
 		    $geocode_results = wp_remote_get($reverse_geocode_url, []);
 
@@ -87,6 +106,8 @@ add_filter( 'wpcf7_before_send_mail', function( $form ) {
 		      // Get the address and remove USA
 		      $address = $response_body->results[0]->formatted_address;
 		      $address = str_replace(', USA', '', $address);
+		      $address = str_replace(', US', '', $address);
+		      $address = str_replace('US-', '', $address);
 
 					// Set custom fields
 		      update_post_meta($post_id, 'city_state', $address);
