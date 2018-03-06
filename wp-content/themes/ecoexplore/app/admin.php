@@ -114,7 +114,7 @@ function observation_image_meta_box() {
 add_action( 'add_meta_boxes', __NAMESPACE__.'\\observation_image_meta_box' );
 
 function observation_image_meta_box_callback( $post ) {
-  $value = get_the_post_thumbnail_url( $post->ID, '_image_notice', true );
+  $value = get_the_post_thumbnail_url( $post->ID, 'large', true );
   echo '<img style="max-width:100%; height:auto;" id="image_notice" name="image_notice" src="'.$value.'"></img>';
 }
 
@@ -167,5 +167,21 @@ function eco_points_user_table_order($query) {
   }
 }
 add_action('pre_user_query', __NAMESPACE__.'\\eco_points_user_table_order');
+
+function eco_admin_thumb_column($columns) {
+  $columns['thumbnail'] = 'Thumbnail';
+  return $columns;
+}
+add_filter('manage_observation_posts_columns', __NAMESPACE__.'\\eco_admin_thumb_column');
+
+function eco_admin_thumb_column_view($column, $post_id) {
+  switch ($column) {
+    case 'thumbnail':
+      echo get_the_post_thumbnail($post_id, 'thumbnail');
+      break;
+    default:
+  }
+}
+add_action('manage_observation_posts_custom_column', __NAMESPACE__.'\\eco_admin_thumb_column_view', 10, 2);
 
 ?>
