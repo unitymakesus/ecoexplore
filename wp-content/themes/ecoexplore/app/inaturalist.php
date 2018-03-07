@@ -45,8 +45,8 @@ function post_observation($library) {
  */
 add_action('save_post_observation', function($post_id, $post, $update) {
   $status = get_post_status($post_id);
-  $inat_push = $_POST['acf']['field_59c27c4ddb770'];
-  $inat_id = $_POST['acf']['field_59c2cdc4b2634'];
+  $inat_push = $_POST['acf']['field_5a90b1853e381'];
+  $inat_id = get_post_meta($post_id, 'inat_id', true);
   $user_id = $_POST['post_author'];
   $user = get_userdata($user_id);
 
@@ -178,7 +178,7 @@ add_action('save_post_observation', function($post_id, $post, $update) {
     // exit;
     $post_obs = wp_remote_post($inat_base_url . '/observations.json', $payload);
 
-    error_log(print_r($post_obs, true));
+    // error_log(print_r($post_obs, true));
 
     // If the POST is a success
     if ($post_obs['response']['code'] == '200') {
@@ -189,9 +189,7 @@ add_action('save_post_observation', function($post_id, $post, $update) {
       $inat_id = $response[0]->id;
 
       // Save new meta data
-      $_POST['acf']['field_59c2cdc4b2634'] = $inat_id;
       update_post_meta($post_id, 'inat_id', $inat_id);
-      update_post_meta($post_id, '_inat_id', 'field_59c2cdc4b2634');
       update_post_meta($post_id, 'inat_data', $response_json);
 
       // Gather data for photo
