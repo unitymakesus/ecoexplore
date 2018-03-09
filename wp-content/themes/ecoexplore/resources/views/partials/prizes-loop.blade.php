@@ -19,7 +19,7 @@
             <?php $post_id = get_the_id() ?>
             <div class="card-image waves-effect waves-block waves-light">
               @include('partials.lazy-image', [
-                'src'   => get_the_post_thumbnail_url($post_id, 'thumbnail'),
+                'src'   => get_the_post_thumbnail_url($post_id, 'event-square'),
                 'alt' => '',
                 'class' => 'activator'
               ])
