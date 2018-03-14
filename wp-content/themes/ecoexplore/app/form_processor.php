@@ -6,6 +6,52 @@ namespace App;
  * This file manages custom functions for forms
  */
 
+// Dynamically populate the counties dropdown
+add_filter('wpcf7_dynamic_select_counties', function($choices, $args=array()) {
+	$hotspot_coords = get_field('hotspot_coordinates', 'options');
+	$choices = array(
+		'Select One' => ''
+	);
+
+	// Add each county to the dropdown select options
+	foreach ($hotspot_coords as $hsc) {
+		$choices[$hsc['county']] = $hsc['county'];
+	}
+
+	return $choices;
+});
+
+// Dynamically populate the hotspots dropdown based on selected county
+add_filter('wpcf7_dynamic_select_hotspots', function($choices, $args=array()) {
+	$choices = array(
+		'You must first select the county' => ''
+	);
+	return $choices;
+});
+
+// AJAX processing to populate the hotspots dropdown
+add_action('wp_ajax_cf7_county_hotspots', __NAMESPACE__ . '\\cf7_county_hotspots');
+add_action('wp_ajax_nopriv_cf7_county_hotspots', __NAMESPACE__ . '\\cf7_county_hotspots');
+
+function cf7_county_hotspots() {
+	$county = $_POST['county'];
+
+	$hotspot_coords = get_field('hotspot_coordinates', 'options');
+	$choices[] = 'Select One';
+
+	foreach ($hotspot_coords as $hsc) {
+		if ($hsc['county'] == $county) {
+			foreach ($hsc['hotspots'] as $hs) {
+				$choices[] = $hs['hotspot_name'];
+			}
+		}
+	}
+
+	echo json_encode($choices);
+	die();
+}
+
+
 // Create a new observation post from submitted form
 add_filter( 'wpcf7_before_send_mail', function( $form ) {
 	if ( '36' == $form->id ) {
@@ -28,6 +74,7 @@ add_filter( 'wpcf7_before_send_mail', function( $form ) {
 			update_post_meta($post_id, 'observation_time', $posted_data['datetime']);
 			update_post_meta($post_id, 'at_hotspot', $posted_data['choice']);
 			update_post_meta($post_id, 'observation_location', $posted_data['location']);
+			update_post_meta($post_id, 'county', $posted_data['county']);
 			update_post_meta($post_id, 'which_hotspot', $posted_data['hotspot']);
 
 			// Process photo

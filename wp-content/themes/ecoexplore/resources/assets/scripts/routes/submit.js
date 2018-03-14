@@ -24,12 +24,38 @@ export default {
     // Conditional fields -- show HotSpot dropdown or map depending on answer
     $('#choice input[type="radio"]').on('change', function() {
       if (this.value == "Yes") {
-        $('#hotspot-wrap').addClass('active');
+        $('#county-wrap').addClass('active');
         $('#location-wrap').removeClass('active');
       } else if (this.value == "No") {
+        $('#county-wrap').removeClass('active');
         $('#hotspot-wrap').removeClass('active');
         $('#location-wrap').addClass('active');
         // google.maps.event.trigger(map, 'resize');
+      }
+    });
+
+    $('select#county').on('change', function() {
+      let val = $(this).val();
+      const hotselect = $('select#hotspot');
+
+      if (val.length) {
+        jQuery.ajax({
+          type: 'POST',
+          // eslint-disable-next-line no-undef
+          url: eco_ajax_vars.ajax_url,
+          data: {
+            action: 'cf7_county_hotspots',
+            county: val,
+          },
+          dataType: 'json',
+        }).done(function(response) {
+          console.log(response);
+          hotselect.empty();
+          Object.keys(response).forEach(function(key) {
+            hotselect.append('<option value="'+response[key]+'">'+response[key]+'</option>');
+          });
+          $('#hotspot-wrap').addClass('active');
+        });
       }
     });
 

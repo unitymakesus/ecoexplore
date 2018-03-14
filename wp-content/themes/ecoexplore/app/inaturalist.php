@@ -45,7 +45,7 @@ function post_observation($library) {
  */
 add_action('save_post_observation', function($post_id, $post, $update) {
   $status = get_post_status($post_id);
-  $inat_push = $_POST['acf']['field_5a90b1853e381'];
+  $inat_push = $_POST['acf']['field_5aa9a8cbcf244'];
   $inat_id = get_post_meta($post_id, 'inat_id', true);
   $user_id = $_POST['post_author'];
   $user = get_userdata($user_id);
@@ -134,15 +134,21 @@ add_action('save_post_observation', function($post_id, $post, $update) {
     // Was this at a HotSpot?
     if ($_POST['acf']['field_59d8e80c867f5'] == "Yes") {
       $hotspot_coords = get_field('hotspot_coordinates', 'option');
+      $county = $_POST['acf']['field_5aa98106cedd9'];
       $hotspot = $_POST['acf']['field_59d8e86f867f6'];
 
       // Get the coordinates for this HotSpot
-      foreach ($hotspot_coords as $key => $hsc) {
-        if ($hsc['hotspot_name'] == $hotspot) {
-          $coord_key = $key;
+      foreach ($hotspot_coords as $ckey => $hsc) {
+        if ($hsc['county'] == $county) {
+          $county_key = $ckey;
+          foreach ($hsc['hotspots'] as $hskey => $hs) {
+            if ($hs['hotspot_name'] == $hotspot) {
+              $coord_key = $hskey;
+            }
+          }
         }
       }
-      $coords = $hotspot_coords[$coord_key]['coordinates'];
+      $coords = $hotspot_coords[$county_key]['hotspots'][$coord_key]['coordinates'];
       $geoprivacy = "open";
     } else {
       // Use the coords provided by user in submission

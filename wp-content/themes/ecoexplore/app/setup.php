@@ -14,6 +14,7 @@ use BladeSvgSage;
 add_action('wp_enqueue_scripts', function () {
   wp_enqueue_style('sage/main.css', asset_path('styles/main.css'), false, null);
   wp_enqueue_script('sage/main.js', asset_path('scripts/main.js'), ['jquery'], null, true);
+  wp_localize_script('sage/main.js', 'eco_ajax_vars', ['ajax_url' => admin_url('admin-ajax.php')]);
 
   if (is_page('register') || is_page('register-group')) {
     wp_enqueue_script( 'password-strength-meter' );
