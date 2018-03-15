@@ -69,7 +69,10 @@ add_filter( 'wpcf7_before_send_mail', function( $form ) {
 
 		$post_id = wp_insert_post($args, $wp_error);
 
-		if (!is_wp_error($post_id)) {
+		if (is_wp_error($post_id)) {
+			// Output error
+			error_log($post_id);
+		} else {
 			// Set custom fields
 			update_post_meta($post_id, 'observation_time', $posted_data['datetime']);
 			update_post_meta($post_id, 'at_hotspot', $posted_data['choice']);
@@ -127,7 +130,7 @@ add_filter( 'wpcf7_before_send_mail', function( $form ) {
 
 			// Map pin location geocoding
 			if (!empty($posted_data['location'])) {
-				error_log(print_r($posted_data, true));
+				// error_log(print_r($posted_data, true));
 				$google_api_url = 'https://maps.googleapis.com/maps/api/geocode/json';
 				$geocode_api_key = 'AIzaSyD5IF_rp6nUrCw6ficzMBgFApZtucUfjdk';
 
