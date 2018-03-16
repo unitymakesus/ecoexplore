@@ -71,7 +71,7 @@ add_filter( 'wpcf7_before_send_mail', function( $form ) {
 
 		if (is_wp_error($post_id)) {
 			// Output error
-			error_log($post_id);
+			error_log(print_r($post_id, true));
 		} else {
 			// Set custom fields
 			update_post_meta($post_id, 'observation_time', $posted_data['datetime']);
@@ -79,6 +79,9 @@ add_filter( 'wpcf7_before_send_mail', function( $form ) {
 			update_post_meta($post_id, 'observation_location', $posted_data['location']);
 			update_post_meta($post_id, 'county', $posted_data['county']);
 			update_post_meta($post_id, 'which_hotspot', $posted_data['hotspot']);
+
+error_log(print_r($posted_data, true));
+error_log(print_r($uploaded_files, true));
 
 			// Process photo
       if (isset($posted_data['photo']) && isset($uploaded_files['photo'])) {
@@ -93,6 +96,7 @@ add_filter( 'wpcf7_before_send_mail', function( $form ) {
 
         // Set up params to add to media library
         $filetype = wp_check_filetype( $new_filename, null );
+error_log(print_r($filetype, true));
         $attachment = array(
         	'guid'           => $wp_upload_dir['url'] . '/' . $new_filename,
         	'post_mime_type' => $filetype['type'],
@@ -100,6 +104,7 @@ add_filter( 'wpcf7_before_send_mail', function( $form ) {
         	'post_content'   => '',
         	'post_status'    => 'inherit'
         );
+error_log(print_r($attachment, true));
 
         // Insert to media library
         $attach_id = wp_insert_attachment( $attachment, $new_filepath, $post_id );
@@ -130,7 +135,6 @@ add_filter( 'wpcf7_before_send_mail', function( $form ) {
 
 			// Map pin location geocoding
 			if (!empty($posted_data['location'])) {
-				// error_log(print_r($posted_data, true));
 				$google_api_url = 'https://maps.googleapis.com/maps/api/geocode/json';
 				$geocode_api_key = 'AIzaSyD5IF_rp6nUrCw6ficzMBgFApZtucUfjdk';
 
