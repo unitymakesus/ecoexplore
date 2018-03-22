@@ -54,6 +54,7 @@ function cf7_county_hotspots() {
 
 // Create a new observation post from submitted form
 add_filter( 'wpcf7_before_send_mail', function( $form ) {
+	error_log('Start form processing');
 	if ( '36' == $form->id ) {
     $instance = \WPCF7_Submission::get_instance();
     $posted_data = $instance->get_posted_data();
@@ -80,8 +81,8 @@ add_filter( 'wpcf7_before_send_mail', function( $form ) {
 			update_post_meta($post_id, 'county', $posted_data['county']);
 			update_post_meta($post_id, 'which_hotspot', $posted_data['hotspot']);
 
-error_log(print_r($posted_data, true));
-error_log(print_r($uploaded_files, true));
+			error_log(print_r($posted_data, true));
+			error_log(print_r($uploaded_files, true));
 
 			// Process photo
       if (isset($posted_data['photo']) && isset($uploaded_files['photo'])) {
@@ -96,7 +97,6 @@ error_log(print_r($uploaded_files, true));
 
         // Set up params to add to media library
         $filetype = wp_check_filetype( $new_filename, null );
-error_log(print_r($filetype, true));
         $attachment = array(
         	'guid'           => $wp_upload_dir['url'] . '/' . $new_filename,
         	'post_mime_type' => $filetype['type'],
@@ -104,7 +104,8 @@ error_log(print_r($filetype, true));
         	'post_content'   => '',
         	'post_status'    => 'inherit'
         );
-error_log(print_r($attachment, true));
+
+				error_log(print_r($attachment, true));
 
         // Insert to media library
         $attach_id = wp_insert_attachment( $attachment, $new_filepath, $post_id );
@@ -131,10 +132,12 @@ error_log(print_r($attachment, true));
 
         // Set post thumbnail to uploaded photo
         set_post_thumbnail( $post_id, $attach_id );
+				error_log('Image has been added to WP and set to observation post');
       }
 
 			// Map pin location geocoding
 			if (!empty($posted_data['location'])) {
+				error_log('Start Geocoding');
 				$google_api_url = 'https://maps.googleapis.com/maps/api/geocode/json';
 				$geocode_api_key = 'AIzaSyD5IF_rp6nUrCw6ficzMBgFApZtucUfjdk';
 
@@ -166,11 +169,14 @@ error_log(print_r($attachment, true));
 					// Set custom fields
 		      update_post_meta($post_id, 'city_state', $address);
 		    }
+				error_log('End Geocoding');
 			}
 		}
 
 		// Clear transients
 		delete_transient( 'notes_' . $args['post_author'] );
+
+		error_log('End form processing');
 
 		return $form;
 	}
