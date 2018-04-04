@@ -86,33 +86,65 @@ add_filter( 'wpcf7_before_send_mail', function( $form ) {
 
 			// Process photo
       if (isset($posted_data['photo']) && isset($uploaded_files['photo'])) {
+				require_once( ABSPATH . 'wp-admin/includes/file.php' );
+				require_once( ABSPATH . 'wp-admin/includes/image.php' );
+
+				$wp_upload_dir = wp_upload_dir();
         $photo_name = $posted_data['photo'];
 				$photo_file = $uploaded_files['photo'];
-
-				// Copy file to uploads directory
-				$wp_upload_dir = wp_upload_dir();
 				$new_filename = $post_id . '_' . $photo_name;
-				$new_filepath = $wp_upload_dir['path'] . '/' . $new_filename;
-				copy($photo_file, $new_filepath);
+
+				/**
+				 * Copy file to uploads directory
+				 * Issue: Doesn't do some kind of process that allows the image to be editable through WP
+				 */
+				// $new_filepath = $wp_upload_dir['path'] . '/' . $new_filename;
+				// copy($photo_file, $new_filepath);
+				// $filetype = wp_check_filetype( $new_filename, null );
+
+				/**
+				 * Upload file again
+				 * Issue: Doesn't trigger iOS Images Fixer plugin
+				 */
+				$upload = wp_upload_bits($new_filename, null, file_get_contents($photo_file));
+				$new_filepath = $upload['file'];
+				$filetype = wp_check_filetype( basename($new_filepath), null );
 
         // Set up params to add to media library
-        $filetype = wp_check_filetype( $new_filename, null );
         $attachment = array(
-        	'guid'           => $wp_upload_dir['url'] . '/' . $new_filename,
+        	'guid'           => $wp_upload_dir['baseurl'] . '/' . _wp_relative_upload_path($new_filepath),
         	'post_mime_type' => $filetype['type'],
         	'post_title'     => preg_replace( '/\.[^.]+$/', '', $new_filename ),
         	'post_content'   => '',
         	'post_status'    => 'inherit'
         );
 
-				error_log(print_r($attachment, true));
+				/**
+				 * Use built-in WP upload handler
+				 * This doesn't work
+				 */
+				// $overrides = array('test_form' => false);
+				// $upload = wp_handle_upload(file_get_contents($photo_file), $overrides);
+				// $new_filepath = $upload['file'];
+				//
+				// error_log(print_r($upload, true));
+				//
+        // // Set up params to add to media library
+        // $attachment = array(
+        // 	'guid'           => $upload['url'],
+        // 	'post_mime_type' => $upload['type'],
+        // 	'post_title'     => preg_replace( '/\.[^.]+$/', '', $photo_name ),
+        // 	'post_content'   => '',
+        // 	'post_status'    => 'inherit'
+        // );
+				//
+				// error_log(print_r($attachment, true));
 
         // Insert to media library
         $attach_id = wp_insert_attachment( $attachment, $new_filepath, $post_id );
 
         // Generate the metadata for the attachment
-        require_once( ABSPATH . 'wp-admin/includes/image.php' );
-        $attach_data = wp_generate_attachment_metadata( $attach_id, $filename );
+        $attach_data = wp_generate_attachment_metadata( $attach_id, $new_filepath );
 
 				// Generate image sizes for default image sizes
 				$sizes = get_intermediate_image_sizes();
