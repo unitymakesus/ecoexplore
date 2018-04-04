@@ -44,6 +44,13 @@ function post_observation($library) {
  * @param bool $update Whether this is an existing post being updated or not.
  */
 add_action('save_post_observation', function($post_id, $post, $update) {
+
+  // Only run this on updates, not on the initial post creation
+  if ($update == false)
+    return;
+
+  error_log('still doing inat stuff...');
+
   $status = get_post_status($post_id);
   $inat_push = $_POST['acf']['field_5aa9a8cbcf244'];
   $inat_id = get_post_meta($post_id, 'inat_id', true);
