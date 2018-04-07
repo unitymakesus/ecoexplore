@@ -13,6 +13,7 @@
 add_action( 'wp_enqueue_scripts', function() {
   wp_enqueue_script( 'dropzone', plugin_dir_url( __FILE__ ) . 'scripts/dropzone.min.js', array('jquery'), '5.2.0', true );
   wp_enqueue_script( 'cf7-dropzone', plugin_dir_url( __FILE__ ) . 'scripts/cf7-dropzone.js', array(), '1.0', true );
+  wp_localize_script('cf7-dropzone', 'cf7dz_ajax_vars', ['ajax_url' => admin_url('admin-ajax.php')]);
   wp_enqueue_style( 'dropzone', plugin_dir_url( __FILE__ ) . 'styles/dropzone.css', array(), '5.2.0' );
 });
 

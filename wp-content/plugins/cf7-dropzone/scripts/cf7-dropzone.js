@@ -1,12 +1,9 @@
 jQuery(document).ready(function($) {
   // Dropzone handling
   window.Dropzone.options.cf7dropzone = {
-    url: function() {
-      return $(this.element).closest('.wpcf7-form').attr('action');
-    },
-    url: '/submit-new-observation/#wpcf7-f36-p35-o1',
+    url: cf7dz_ajax_vars.ajax_url + '?action=cf7dz',
     method: 'post',
-    autoProcessQueue: false,
+    autoProcessQueue: true,
     uploadMultiple: true,
     parallelUploads: 5,
     maxFiles: 5,
