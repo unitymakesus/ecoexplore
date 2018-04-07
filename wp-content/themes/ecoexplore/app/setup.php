@@ -20,6 +20,11 @@ add_action('wp_enqueue_scripts', function () {
     wp_enqueue_script( 'password-strength-meter' );
   }
 
+  if (is_page('submit-new-observation')) {
+    $gmaps_url = add_query_arg( 'key', 'AIzaSyD5IF_rp6nUrCw6ficzMBgFApZtucUfjdk', 'https://maps.google.com/maps/api/js' );
+    wp_enqueue_script( 'google-maps', $gmaps_url, array(), null, true );
+  }
+
   // Prevent conflicting map JS from loading on events page
   if (!is_page('submit-new-observation')) {
     wp_dequeue_script('cf7-mapjs');

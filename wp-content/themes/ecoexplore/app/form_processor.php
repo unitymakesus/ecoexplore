@@ -58,7 +58,7 @@ add_filter( 'wpcf7_before_send_mail', function( $form ) {
 	if ( '36' == $form->id ) {
     $instance = \WPCF7_Submission::get_instance();
     $posted_data = $instance->get_posted_data();
-    $uploaded_files = $instance->uploaded_files();
+    // $uploaded_files = $instance->uploaded_files();
 
 		$args = array(
 			'post_type' => 'observation',
@@ -82,90 +82,122 @@ add_filter( 'wpcf7_before_send_mail', function( $form ) {
 			update_post_meta($post_id, 'which_hotspot', $posted_data['hotspot']);
 
 			error_log(print_r($posted_data, true));
-			error_log(print_r($uploaded_files, true));
+			// error_log(print_r($uploaded_files, true));
 
 			// Process photo
-      if (isset($posted_data['photo']) && isset($uploaded_files['photo'])) {
-				require_once( ABSPATH . 'wp-admin/includes/file.php' );
-				require_once( ABSPATH . 'wp-admin/includes/image.php' );
+      // if (isset($posted_data['photo']) && isset($uploaded_files['photo'])) {
+			// 	require_once( ABSPATH . 'wp-admin/includes/file.php' );
+			// 	require_once( ABSPATH . 'wp-admin/includes/image.php' );
+			//
+			// 	$wp_upload_dir = wp_upload_dir();
+      //   $photo_name = $posted_data['photo'];
+			// 	$photo_file = $uploaded_files['photo'];
+			// 	$new_filename = $post_id . '_' . $photo_name;
+			//
+			// 	/**
+			// 	 * Check and fix image rotation on temp image
+			// 	 */
+			// 	$rotation = __NAMESPACE__ . '\\' . is_image_broken($photo_file);
+			// 	if ( $rotation ) {
+		 	// 		if ( class_exists( 'Imagick' ) ) {
+		 	// 			$imagick = new Imagick();
+		 	// 			$ImagickPixel = new ImagickPixel();
+		 	// 			$imagick->readImage( $photo_file );
+		 	// 			$imagick->rotateImage( $ImagickPixel, $rotation );
+		 	// 			$imagick->setImageOrientation( 1 );
+		 	// 			$imagick->writeImage( $photo_file );
+		 	// 			$imagick->clear();
+		 	// 			$imagick->destroy();
+		 	// 		} else {
+		 	// 			$rotation = -$rotation;
+		 	// 			$source = imagecreatefromjpeg( $photo_file );
+		 	// 			$rotated = imagerotate( $source, $rotation, 0 );
+		 	// 			imagejpeg( $rotated, $photo_file );
+		 	// 		}
+			// 	}
+			//
+			// 	/**
+			// 	 * Copy file to uploads directory
+			// 	 * Issue: Doesn't do some kind of process that allows the image to be editable through WP
+			// 	 */
+			// 	// $new_filepath = $wp_upload_dir['path'] . '/' . $new_filename;
+			// 	// copy($photo_file, $new_filepath);
+			// 	// $filetype = wp_check_filetype( $new_filename, null );
+			//
+			// 	/**
+			// 	 * Upload file again
+			// 	 * Issue: Doesn't trigger iOS Images Fixer plugin
+			// 	 */
+			// 	$upload = wp_upload_bits($new_filename, null, file_get_contents($photo_file));
+			// 	$new_filepath = $upload['file'];
+			// 	$filetype = wp_check_filetype( basename($new_filepath), null );
+			//
+      //   // Set up params to add to media library
+      //   $attachment = array(
+      //   	'guid'           => $wp_upload_dir['baseurl'] . '/' . _wp_relative_upload_path($new_filepath),
+      //   	'post_mime_type' => $filetype['type'],
+      //   	'post_title'     => preg_replace( '/\.[^.]+$/', '', $new_filename ),
+      //   	'post_content'   => '',
+      //   	'post_status'    => 'inherit'
+      //   );
+			//
+			// 	/**
+			// 	 * Use built-in WP upload handler
+			// 	 * This doesn't work
+			// 	 */
+			// 	// $file_array = array(
+			// 	// 	'name' => $photo_name,
+			// 	// 	'tmp_name' => download_url($photo_file)
+			// 	// );
+			// 	// $overrides = array('test_form' => false);
+			// 	// $upload = wp_handle_upload($file_array, $overrides);
+			// 	// $new_filepath = $upload['file'];
+			// 	//
+			// 	// error_log(print_r($upload, true));
+			// 	//
+      //   // // Set up params to add to media library
+      //   // $attachment = array(
+      //   // 	'guid'           => $upload['url'],
+      //   // 	'post_mime_type' => $upload['type'],
+      //   // 	'post_title'     => preg_replace( '/\.[^.]+$/', '', $photo_name ),
+      //   // 	'post_content'   => '',
+      //   // 	'post_status'    => 'inherit'
+      //   // );
+			//
+			// 	error_log(print_r($attachment, true));
+			//
+      //   // Insert to media library
+      //   $attach_id = wp_insert_attachment( $attachment, $new_filepath, $post_id );
+			//
+      //   // Generate the metadata for the attachment
+      //   $attach_data = wp_generate_attachment_metadata( $attach_id, $new_filepath );
+			//
+			// 	// Generate image sizes for default image sizes
+			// 	$sizes = get_intermediate_image_sizes();
+			// 	global $_wp_additional_image_sizes;
+			// 	foreach ( get_intermediate_image_sizes() as $_size ) {
+			// 		if ( in_array( $_size, array('thumbnail', 'medium', 'large') ) ) {
+			// 			$size['width']  = get_option( "{$_size}_size_w" );
+			// 			$size['height'] = get_option( "{$_size}_size_h" );
+			// 			$size['crop']   = (bool) get_option( "{$_size}_crop" );
+			// 			$intermediate_size = image_make_intermediate_size($new_filepath, $size['width'], $size['height'], $size['crop']);;
+			// 			$attach_data['sizes'][$_size] = $intermediate_size;
+			// 		}
+			// 	}
+			//
+			// 	// Update the database record
+      //   wp_update_attachment_metadata( $attach_id, $attach_data );
+			//
+      //   // Set post thumbnail to uploaded photo
+      //   set_post_thumbnail( $post_id, $attach_id );
+			// 	 error_log('Image has been added to WP and set to observation post');
+      // }
 
-				$wp_upload_dir = wp_upload_dir();
-        $photo_name = $posted_data['photo'];
-				$photo_file = $uploaded_files['photo'];
-				$new_filename = $post_id . '_' . $photo_name;
-
-				/**
-				 * Copy file to uploads directory
-				 * Issue: Doesn't do some kind of process that allows the image to be editable through WP
-				 */
-				// $new_filepath = $wp_upload_dir['path'] . '/' . $new_filename;
-				// copy($photo_file, $new_filepath);
-				// $filetype = wp_check_filetype( $new_filename, null );
-
-				/**
-				 * Upload file again
-				 * Issue: Doesn't trigger iOS Images Fixer plugin
-				 */
-				$upload = wp_upload_bits($new_filename, null, file_get_contents($photo_file));
-				$new_filepath = $upload['file'];
-				$filetype = wp_check_filetype( basename($new_filepath), null );
-
-        // Set up params to add to media library
-        $attachment = array(
-        	'guid'           => $wp_upload_dir['baseurl'] . '/' . _wp_relative_upload_path($new_filepath),
-        	'post_mime_type' => $filetype['type'],
-        	'post_title'     => preg_replace( '/\.[^.]+$/', '', $new_filename ),
-        	'post_content'   => '',
-        	'post_status'    => 'inherit'
-        );
-
-				/**
-				 * Use built-in WP upload handler
-				 * This doesn't work
-				 */
-				// $overrides = array('test_form' => false);
-				// $upload = wp_handle_upload(file_get_contents($photo_file), $overrides);
-				// $new_filepath = $upload['file'];
-				//
-				// error_log(print_r($upload, true));
-				//
-        // // Set up params to add to media library
-        // $attachment = array(
-        // 	'guid'           => $upload['url'],
-        // 	'post_mime_type' => $upload['type'],
-        // 	'post_title'     => preg_replace( '/\.[^.]+$/', '', $photo_name ),
-        // 	'post_content'   => '',
-        // 	'post_status'    => 'inherit'
-        // );
-				//
-				// error_log(print_r($attachment, true));
-
-        // Insert to media library
-        $attach_id = wp_insert_attachment( $attachment, $new_filepath, $post_id );
-
-        // Generate the metadata for the attachment
-        $attach_data = wp_generate_attachment_metadata( $attach_id, $new_filepath );
-
-				// Generate image sizes for default image sizes
-				$sizes = get_intermediate_image_sizes();
-				global $_wp_additional_image_sizes;
-				foreach ( get_intermediate_image_sizes() as $_size ) {
-					if ( in_array( $_size, array('thumbnail', 'medium', 'large') ) ) {
-						$size['width']  = get_option( "{$_size}_size_w" );
-						$size['height'] = get_option( "{$_size}_size_h" );
-						$size['crop']   = (bool) get_option( "{$_size}_crop" );
-						$intermediate_size = image_make_intermediate_size($new_filepath, $size['width'], $size['height'], $size['crop']);;
-						$attach_data['sizes'][$_size] = $intermediate_size;
-					}
-				}
-
-				// Update the database record
-        wp_update_attachment_metadata( $attach_id, $attach_data );
-
-        // Set post thumbnail to uploaded photo
-        set_post_thumbnail( $post_id, $attach_id );
-				error_log('Image has been added to WP and set to observation post');
-      }
+			// Attach image as post thumbnail
+			global $wpdb;
+			$attachment = $wpdb->get_col($wpdb->prepare("SELECT ID FROM $wpdb->posts WHERE guid='%s';", $posted_data['dropzone-files'] ));
+			set_post_thumbnail($post_id, $attachment);
+			error_log('Image has been added to WP and set to observation post');
 
 			// Map pin location geocoding
 			if (!empty($posted_data['location'])) {
@@ -213,3 +245,30 @@ add_filter( 'wpcf7_before_send_mail', function( $form ) {
 		return $form;
 	}
 });
+
+
+/**
+ * Checks if the image rotation needs to be corrected (borrowed from iOS Images Fixer plugin)
+ * @since  1.2
+ * @param  string  $path_to_image
+ * @return boolean
+ */
+function is_image_broken( $path_to_image ) {
+	$exif = @exif_read_data( $path_to_image );
+	$exif_orient = isset($exif['Orientation'])?$exif['Orientation']:0;
+	$rotateImage = 0;
+
+	if ( 6 == $exif_orient ) {
+		$rotateImage = 90;
+	} elseif ( 3 == $exif_orient ) {
+		$rotateImage = 180;
+	} elseif ( 8 == $exif_orient ) {
+		$rotateImage = 270;
+	}
+
+	if ( $rotateImage ) {
+		return $rotateImage;
+	} else {
+		return 0;
+	}
+}

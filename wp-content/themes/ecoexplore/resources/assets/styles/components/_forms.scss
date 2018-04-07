@@ -132,8 +132,43 @@ label {
   }
 }
 
+// Dropzone styles
+.dz-message {
+  h2 {
+    font-size: 1.5em;
+    color: $gray;
+  }
+}
+
+.dropzone .dz-preview.dz-complete .dz-success-mark {
+  opacity: 1;
+}
+
+@keyframes MOVE-BG {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(46px);
+  }
+}
+
+.dropzone .dz-preview .dz-progress .dz-upload {
+  left: -46px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: auto !important;
+  background: repeating-linear-gradient(-55deg, $aqua-dark 1px, $aqua 2px, $aqua 11px, $aqua-dark 12px, $aqua-dark 20px);
+  animation-name: MOVE-BG;
+  animation-duration: 0.6s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
 // Submission form styles
-.wpcf7-form {
+.wpcf7-form, .observation-form {
   input[type="text"], input[type="email"] {
     margin-bottom: 0;
     font-size: 25px;
@@ -149,15 +184,19 @@ label {
     font-family: $font-family-serif;
   }
 
-  fieldset {
+  .form-section {
     position: relative;
     border: 1px solid $navy;
     padding: 10px 10px 0;
     margin-bottom: 20px;
     background: $ice;
+
+    &.hidden {
+      display: none;
+    }
   }
 
-  .row {
+  .form-row {
     position: relative;
     margin: 0 0 10px;
     border: 1px solid $navy;
@@ -165,37 +204,19 @@ label {
     padding: 20px;
   }
 
-  .wpcf7-form-control-wrap {
-    display: block;
+  .input-wrapper {
     position: relative;
+    margin: 1.5em 0;
 
     &.photo {
       position: static;
     }
 
-    &.choice {
-      margin-bottom: 1em;
+    & ~ div[id*="-wrap"] {
+      display: none;
 
-      .wpcf7-list-item, [type="radio"] + .wpcf7-list-item-label {
+      &.active {
         display: block;
-        line-height: 1.5em;
-      }
-
-      & ~ div[id*="-wrap"] {
-        height: 0;
-        overflow: hidden;
-
-        &.active {
-          height: auto;
-        }
-
-        &#hotspot-wrap {
-          padding-top: 20px;
-        }
-
-        select {
-          display: block;
-        }
       }
     }
   }
@@ -344,6 +365,10 @@ label {
     background-color: $input-disabled-color;
     border-color: $input-disabled-solid-color;
   }
+
+  .form-buttons {
+    margin: 1.5em 0;
+  }
 }
 
 // Hidden input fields
@@ -420,4 +445,112 @@ div[id="map_canvas"] {
     border-top-color: $green-dark;
     animation: spinner 0.6s linear infinite;
   }
+}
+
+// Form Progress
+ol.form-progress {
+  list-style: none;
+  display: table;
+  margin: 1.5rem 0;
+  table-layout: fixed;
+  width: 100%;
+  padding: 0;
+  counter-reset: progressStep;
+}
+
+@media screen and (max-width: 767px) {
+  ol.form-progress {
+    padding: 0;
+  }
+}
+
+ol.form-progress:focus {
+  outline: 0;
+}
+
+ol.form-progress:focus li[data-step-current] {
+  outline: $gray dotted 1px;
+}
+
+ol.form-progress li {
+  text-transform: uppercase;
+  text-align: center;
+  display: table-cell;
+  list-style: none;
+  margin: 0;
+  padding: 2rem 0 0;
+  position: relative;
+  width: 100%;
+  counter-increment: progressStep;
+}
+
+ol.form-progress li[data-step-current] {
+  color: $aqua-dark;
+  font-weight: bold;
+}
+
+ol.form-progress li::before,
+ol.form-progress li::after {
+  background: $ice;
+  color: $navy;
+  display: block;
+  position: absolute;
+}
+
+ol.form-progress li::before {
+  content: counter(progressStep);
+  border-radius: 3px;
+  font-weight: bold;
+  height: 1.5rem;
+  left: 50%;
+  margin-left: -0.75rem;
+  line-height: 1.5rem;
+  padding-left: 0.1rem;
+  top: 0;
+  transform: scale(1, 1);
+  width: 1.5rem;
+  z-index: 1;
+}
+
+ol.form-progress li[data-step-current]::before {
+  background: $aqua-dark;
+  color: $white;
+}
+
+ol.form-progress li[data-step-complete]::before {
+  background: $aqua;
+  color: $white;
+}
+
+ol.form-progress li::after {
+  content: '';
+  height: 0.25rem;
+  left: -50%;
+  top: 0.65rem;
+  width: 100%;
+}
+
+ol.form-progress li[data-step-complete]::after,
+ol.form-progress li[data-step-current]::after {
+  background: $ice;
+}
+
+ol.form-progress li:first-child::after {
+  display: none;
+}
+
+.wp-mappicker-map-canvas-wrap {
+  width: 480px;
+  max-width: 100%;
+}
+
+.wp-mappicker-map-canvas {
+  position: relative;
+  margin-top: 10px;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  background-color: #EEE;
+  border: 1px solid #888;
 }
