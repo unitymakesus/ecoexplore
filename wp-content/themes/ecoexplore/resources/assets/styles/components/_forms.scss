@@ -8,6 +8,12 @@ label {
   @extend h6;
 }
 
+form {
+  p {
+    margin: 10px 0;
+  }
+}
+
 .comment-form {
   textarea {
     background: white;
@@ -175,13 +181,29 @@ label {
     font-weight: normal;
   }
 
-  textarea.wpcf7-textarea {
+  textarea.materialize-textarea {
     overflow-y: auto;
     resize: vertical;
-    font-size: 25px;
+    font-size: 25px !important;
+    padding-bottom: 0.8rem;
     font-weight: normal;
     color: $aqua-dark;
     font-family: $font-family-serif;
+  }
+
+  label.active {
+    color: $navy;
+  }
+
+  fieldset {
+    border: none;
+    padding: 0;
+  }
+
+  legend {
+    @extend h6;
+
+    color: $navy;
   }
 
   .form-section {
@@ -210,6 +232,18 @@ label {
 
     &.photo {
       position: static;
+    }
+
+    &.disabled {
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba($white, 0.5);
+      }
     }
 
     & ~ div[id*="-wrap"] {
@@ -369,6 +403,15 @@ label {
   .form-buttons {
     margin: 1.5em 0;
   }
+
+  .validate.validate.invalid {
+    border-bottom-color: $red-med;
+    box-shadow: 0 1px 0 0 $red-med;
+
+    & + label {
+      color: $red-med;
+    }
+  }
 }
 
 // Hidden input fields
@@ -410,7 +453,7 @@ label {
   }
 }
 
-div[id="map_canvas"] {
+div[id="google-map"] {
   width: 100% !important;
 
   .gm-style-pbt {
