@@ -247,7 +247,7 @@ function obsform_submit() {
 			$address = str_replace(', USA', '', $address);
 			$address = str_replace(', US', '', $address);
 			$address = str_replace('US-', '', $address);
-			update_post_meta($post_id, 'city_state', $posted_data['picker-address']);
+			update_post_meta($post_id, 'city_state', $address);
 		}
 
 		// Attach image as post thumbnail
