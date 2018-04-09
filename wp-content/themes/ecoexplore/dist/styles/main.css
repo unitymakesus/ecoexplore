@@ -12482,18 +12482,25 @@ form p {
 }
 
 .wpcf7-form .input-wrapper,
-.observation-form .input-wrapper {
+.wpcf7-form .wpcf7-form-control-wrap,
+.observation-form .input-wrapper,
+.observation-form .wpcf7-form-control-wrap {
+  display: block;
   position: relative;
   margin: 1.5em 0;
 }
 
 .wpcf7-form .input-wrapper.photo,
-.observation-form .input-wrapper.photo {
+.wpcf7-form .wpcf7-form-control-wrap.photo,
+.observation-form .input-wrapper.photo,
+.observation-form .wpcf7-form-control-wrap.photo {
   position: static;
 }
 
 .wpcf7-form .input-wrapper.disabled::before,
-.observation-form .input-wrapper.disabled::before {
+.wpcf7-form .wpcf7-form-control-wrap.disabled::before,
+.observation-form .input-wrapper.disabled::before,
+.observation-form .wpcf7-form-control-wrap.disabled::before {
   content: '';
   position: absolute;
   top: 0;
@@ -12504,13 +12511,51 @@ form p {
 }
 
 .wpcf7-form .input-wrapper ~ div[id*="-wrap"],
-.observation-form .input-wrapper ~ div[id*="-wrap"] {
+.wpcf7-form .wpcf7-form-control-wrap ~ div[id*="-wrap"],
+.observation-form .input-wrapper ~ div[id*="-wrap"],
+.observation-form .wpcf7-form-control-wrap ~ div[id*="-wrap"] {
   display: none;
 }
 
 .wpcf7-form .input-wrapper ~ div[id*="-wrap"].active,
-.observation-form .input-wrapper ~ div[id*="-wrap"].active {
+.wpcf7-form .wpcf7-form-control-wrap ~ div[id*="-wrap"].active,
+.observation-form .input-wrapper ~ div[id*="-wrap"].active,
+.observation-form .wpcf7-form-control-wrap ~ div[id*="-wrap"].active {
   display: block;
+}
+
+.wpcf7-form .input-wrapper ~ div[id*="-wrap"] select,
+.wpcf7-form .wpcf7-form-control-wrap ~ div[id*="-wrap"] select,
+.observation-form .input-wrapper ~ div[id*="-wrap"] select,
+.observation-form .wpcf7-form-control-wrap ~ div[id*="-wrap"] select {
+  display: block;
+}
+
+.wpcf7-form .input-wrapper.choice,
+.wpcf7-form .input-wrapper.county,
+.wpcf7-form .input-wrapper.hotspot,
+.wpcf7-form .wpcf7-form-control-wrap.choice,
+.wpcf7-form .wpcf7-form-control-wrap.county,
+.wpcf7-form .wpcf7-form-control-wrap.hotspot,
+.observation-form .input-wrapper.choice,
+.observation-form .input-wrapper.county,
+.observation-form .input-wrapper.hotspot,
+.observation-form .wpcf7-form-control-wrap.choice,
+.observation-form .wpcf7-form-control-wrap.county,
+.observation-form .wpcf7-form-control-wrap.hotspot {
+  margin: 0 0 1em;
+}
+
+.wpcf7-form .input-wrapper .wpcf7-list-item,
+.wpcf7-form .input-wrapper [type="radio"] + .wpcf7-list-item-label,
+.wpcf7-form .wpcf7-form-control-wrap .wpcf7-list-item,
+.wpcf7-form .wpcf7-form-control-wrap [type="radio"] + .wpcf7-list-item-label,
+.observation-form .input-wrapper .wpcf7-list-item,
+.observation-form .input-wrapper [type="radio"] + .wpcf7-list-item-label,
+.observation-form .wpcf7-form-control-wrap .wpcf7-list-item,
+.observation-form .wpcf7-form-control-wrap [type="radio"] + .wpcf7-list-item-label {
+  display: block;
+  line-height: 1.5em;
 }
 
 .wpcf7-form .file-field .btn,
@@ -12762,11 +12807,13 @@ input[name="datetime"] {
   height: auto;
 }
 
-div[id="google-map"] {
+div[id="google-map"],
+div[id="map_canvas"] {
   width: 100% !important;
 }
 
-div[id="google-map"] .gm-style-pbt {
+div[id="google-map"] .gm-style-pbt,
+div[id="map_canvas"] .gm-style-pbt {
   text-align: center;
 }
 

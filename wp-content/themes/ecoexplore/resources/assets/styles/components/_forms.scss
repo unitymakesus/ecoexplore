@@ -164,7 +164,7 @@ form {
   }
 }
 
-.dropzone .dz-preview .dz-progress .dz-upload {
+.dropzone.dropzone .dz-preview .dz-progress .dz-upload {
   left: -46px;
   right: 0;
   top: 0;
@@ -230,7 +230,8 @@ form {
     padding: 20px;
   }
 
-  .input-wrapper {
+  .input-wrapper, .wpcf7-form-control-wrap {
+    display: block;
     position: relative;
     margin: 1.5em 0;
 
@@ -256,6 +257,19 @@ form {
       &.active {
         display: block;
       }
+
+      select {
+        display: block;
+      }
+    }
+
+    &.choice, &.county, &.hotspot {
+      margin: 0 0 1em;
+    }
+
+    .wpcf7-list-item, [type="radio"] + .wpcf7-list-item-label {
+      display: block;
+      line-height: 1.5em;
     }
   }
 
@@ -457,7 +471,7 @@ form {
   }
 }
 
-div[id="google-map"] {
+div[id="google-map"], div[id="map_canvas"] {
   width: 100% !important;
 
   .gm-style-pbt {
