@@ -146,12 +146,20 @@ form {
   }
 }
 
-.dropzone.dz-drag-hover {
-  background: rgba($green-light, 0.5);
-}
+.dropzone.dropzone {
+  border-style: dashed;
 
-.dropzone .dz-preview.dz-complete .dz-success-mark {
-  opacity: 1;
+  &.dz-drag-hover {
+    background: rgba($green-light, 0.5);
+  }
+
+  .dz-preview.dz-complete .dz-success-mark {
+    opacity: 1;
+  }
+
+  .dz-preview.dz-complete.dz-error .dz-success-mark {
+    opacity: 0;
+  }
 }
 
 @keyframes MOVE-BG {
