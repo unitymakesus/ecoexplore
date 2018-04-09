@@ -154,7 +154,7 @@ function wp_dz_ajax_upload_handle() {
 		}
 
 		// Uploading file to server
-		$movefile = wp_handle_upload($_FILES['file'], ['test_form' => false]);
+		$movefile = wp_handle_upload($_FILES['file'], ['test_form' => false, 'action' => 'none']);
 
 		// If uploading success & No error
 		if ($movefile && !isset($movefile['error'])) {
