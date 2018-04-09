@@ -103,7 +103,7 @@ add_filter( 'wpcf7_before_send_mail', function( $form ) {
 
         // Generate the metadata for the attachment
         require_once( ABSPATH . 'wp-admin/includes/image.php' );
-        $attach_data = wp_generate_attachment_metadata( $attach_id, $filename );
+        $attach_data = wp_generate_attachment_metadata( $attach_id, $new_filename );
 
 				// Generate image sizes for default image sizes
 				$sizes = get_intermediate_image_sizes();
