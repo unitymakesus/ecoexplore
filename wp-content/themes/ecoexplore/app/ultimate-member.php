@@ -60,7 +60,7 @@ add_filter('um_profile_menu_link_edit', function($nav_link) {
 
 // Add observation button to profile header
 add_action('um_after_header_meta', function() {
-  if ( !isset($_GET['um_action']) && $_GET['um_action'] !== 'edit' ) {
+  if ( !isset($_GET['um_action']) || $_GET['um_action'] !== 'edit' ) {
     echo '<a class="btn-submit-obs btn-primary" href="/submit-new-observation/"><i class="material-icons" aria-hidden="true">photo_camera</i> Submit Observation</a>';
   }
 });

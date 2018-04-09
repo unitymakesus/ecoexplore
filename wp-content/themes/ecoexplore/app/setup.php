@@ -49,9 +49,9 @@ remove_filters_with_method_name('wp_print_scripts', 'check_for_multiple_google_m
  * Remove avatar picker from all pages except user edit page
  */
 add_action('init', function() {
-  // if (!isset($_GET['um_action']) && $_GET['um_action'] !== 'edit' ) {
-  //   remove_filters_with_method_name('wp_footer', 'add_modal_content', 10);
-  // }
+  if (!isset($_GET['um_action']) || $_GET['um_action'] !== 'edit' ) {
+    remove_filters_with_method_name('wp_footer', 'add_modal_content', 10);
+  }
 });
 
 

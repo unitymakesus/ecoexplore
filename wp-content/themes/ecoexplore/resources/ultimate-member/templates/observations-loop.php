@@ -1,6 +1,6 @@
 <?php
 function observations_loop($number, $username, $format = null, $wrapper = null) {
-  $page = $_GET['pg'];
+  $page = (!empty($_GET['pg']) ? $_GET['pg'] : 1);
 
   $recent_obs = new WP_Query([
     'post_type' => 'observation',
@@ -18,7 +18,7 @@ function observations_loop($number, $username, $format = null, $wrapper = null) 
       $recent_obs->the_post();
       $obs_time = get_field('observation_time');
       $points = get_field('points');
-      $inav_id = get_field('inat_id');
+      $inat_id = get_field('inat_id');
       $inat_ids[] = $inat_id;
 
       $at_hotspot = get_field('at_hotspot');

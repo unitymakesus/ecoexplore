@@ -1,3 +1,4 @@
+@php ($class = '')
 @if (!is_page('user'))
   @php($class = 'container')
 @endif
