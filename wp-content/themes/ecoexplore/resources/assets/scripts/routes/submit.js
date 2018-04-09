@@ -99,10 +99,10 @@ export default {
 
     // Conditional fields -- show HotSpot dropdown or map depending on answer
     $('#choice-wrap input[type="radio"]').on('change', function() {
-      if (this.value == "yes") {
+      if (this.value == "Yes") {
         $('#county-wrap').addClass('active');
         $('#location-wrap').removeClass('active');
-      } else if (this.value == "no") {
+      } else if (this.value == "No") {
         $('#county-wrap').removeClass('active');
         $('#hotspot-wrap').removeClass('active');
         $('#location-wrap').addClass('active');
@@ -186,8 +186,20 @@ export default {
     });
 
     function mapclicked(loc) {
-      $('#picker-coords').val(loc);
+      var latlng = loc.toString();
+      $('#picker-coords').val(latlng);
 
+      // Place marker
+      if (marker != null) {
+        marker.setPosition(loc);
+      } else {
+        marker = new google.maps.Marker({
+          map: map,
+          position: loc,
+        });
+      }
+
+      // Geocode pin location
       var geocoder = new google.maps.Geocoder;
       geocoder.geocode({'location': loc}, function(results, status) {
         if (status === google.maps.GeocoderStatus.OK) {
@@ -207,25 +219,21 @@ export default {
             $('#picker-address').val(results[i].formatted_address);
             $('#btn-submit').removeClass('disabled');
           } else {
-            window.alert('No results found');
+            $('#picker-coords').val('');
+            $('#picker-address').val('');
+            $('#btn-submit').addClass('disabled');
+            marker.setMap(null);
+            marker = null;
           }
         } else {
-          window.alert('Geocoder failed due to: ' + status);
+          $('#picker-coords').val('');
+          $('#picker-address').val('');
+          $('#btn-submit').addClass('disabled');
+          marker.setMap(null);
+          marker = null;
+          console.log('Geocoder failed due to: ' + status);
         }
       });
-
-      var latlng = loc.toString();
-      $('#picker-coords').val(latlng);
-
-      // Place marker
-      if (marker != null) {
-        marker.setPosition(loc);
-      } else {
-        marker = new google.maps.Marker({
-          map: map,
-          position: loc,
-        });
-      }
     }
     /* eslint-enable */
 
@@ -258,8 +266,11 @@ export default {
         },
         dataType: 'json',
       }).done(function(response) {
-        console.log(response);
-        alert('done!');
+        if (response.status == "error") {
+          alert (response.message);
+        } else {
+          window.location = "/user/?profiletab=posts";
+        }
         return false;
       });
     });

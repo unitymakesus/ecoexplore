@@ -146,6 +146,10 @@ form {
   }
 }
 
+.dropzone.dz-drag-hover {
+  background: rgba($green-light, 0.5);
+}
+
 .dropzone .dz-preview.dz-complete .dz-success-mark {
   opacity: 1;
 }

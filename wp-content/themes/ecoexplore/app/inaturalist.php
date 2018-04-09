@@ -45,11 +45,15 @@ function post_observation($library) {
  */
 add_action('save_post_observation', function($post_id, $post, $update) {
 
+  error_log("Start iNat process");
+  error_log($post_id);
+  error_log($update);
+
   // Only run this on updates, not on the initial post creation
   if ($update == false)
     return;
 
-  error_log('still doing inat stuff...');
+  error_log("This should only be on post update");
 
   $status = get_post_status($post_id);
   $inat_push = $_POST['acf']['field_5aa9a8cbcf244'];
@@ -61,13 +65,21 @@ add_action('save_post_observation', function($post_id, $post, $update) {
   $points_old = get_post_meta($post_id, 'points', true);  // Old value
   $points_new = $_POST['acf']['field_59a880cd6c1ac'];     // New value
 
+  // Set empty to zero for both points
+  if (empty($points_old)) { $points_old = 0; }
+  if (empty($points_new)) { $points_new = 0; }
+
   if ($points_old !== $points_new) {
     // Get user points
     $running_points = get_user_meta($user_id, 'running_points', true);
     $total_points = get_user_meta($user_id, 'total_points', true);
 
     // Get difference in points for this observation
-    $points_change = $points_new - $points_old;
+    if (!empty($points_old)) {
+      $points_change = $points_new - $points_old;
+    } else {
+      $points_change = $points_new;
+    }
 
     // Calculate new points values
     $running_points_new = $running_points + $points_change;
@@ -76,49 +88,6 @@ add_action('save_post_observation', function($post_id, $post, $update) {
     // Save new points total for this user
     $test1 = update_user_meta($user_id, 'running_points', $running_points_new);
     $test2 = update_user_meta($user_id, 'total_points', $total_points_new);
-  }
-
-  // If this was not at a Hotspot and the coords haven't been geocoded,
-  // let's try using the coordinates to get town, state
-  if (($_POST['acf']['field_59d8e80c867f5'] == "Yes") && (empty($_POST['acf']['field_59caa3fa222d5']))) {
-    $google_api_url = 'https://maps.googleapis.com/maps/api/geocode/json';
-    $geocode_api_key = 'AIzaSyD5IF_rp6nUrCw6ficzMBgFApZtucUfjdk';
-
-    // Separate latitude and longitude
-    $coords = $_POST['acf']['field_59a75086b34b4'];
-    preg_match("/\((.*?),/", $coords, $lat, PREG_OFFSET_CAPTURE, 0);
-    preg_match("/, (.*?)\)/", $coords, $lng, PREG_OFFSET_CAPTURE, 0);
-
-    $params = [
-      'latlng' => round($lat[1][0], 6) . ',' . round($lng[1][0], 6),
-      'location_type' => 'APPROXIMATE',
-      'result_type' => 'political',
-      'key' => $geocode_api_key
-    ];
-    $args = [];
-
-    $reverse_geocode_url = add_query_arg($params, $google_api_url);
-    $geocode_results = wp_remote_get($reverse_geocode_url, $args);
-
-    if ($geocode_results['response']['code'] == '200') {
-      $response_body = json_decode($geocode_results['body']);
-
-      // Get the address and remove USA
-      $address = $response_body->results[0]->formatted_address;
-      $address = str_replace(', USA', '', $address);
-      $address = str_replace(', US', '', $address);
-      $address = str_replace('US-', '', $address);
-
-      // Save new meta data
-      $_POST['acf']['field_59caa3fa222d5'] = $address;
-      update_post_meta($post_id, 'city_state', $address);
-      update_post_meta($post_id, '_city_state', 'field_59caa3fa222d5');
-
-    } else {
-      $error = new \WP_Error('geocode-error', 'There was an error with the reverse geocode.', var_dump($geocode_results));
-      echo $error->get_error_message();
-      exit;
-    }
   }
 
   // Check if it needs to go to iNaturalist

@@ -34,7 +34,10 @@ add_action('wp_ajax_obsform_submit', __NAMESPACE__ . '\\obsform_submit');
 function obsform_submit() {
 	error_log('Start form processing');
 
-	$posted_data = $_POST['form'];
+	$posted_data = array();
+	foreach ($_POST['form'] as $post) {
+		$posted_data[$post['name']] = $post['value'];
+	}
 
 	error_log(print_r($posted_data, true));
 
@@ -49,16 +52,16 @@ function obsform_submit() {
 
 	if (is_wp_error($post_id)) {
 		// Output error
-		echo json_encode($post_id);
 		error_log(print_r($post_id, true));
+		echo json_encode(array('status' => 'error', 'message' => 'There was an error sending your observation. Please try again or contact <a href="mailto:ecoexplore@ncarboretum.org" target="_blank">ecoexplore@ncarboretum.org</a> for help.'));
 	} else {
 		// Keep processing
 		// Set custom fields
 		update_post_meta($post_id, 'observation_time', $posted_data['datetime']);
 		update_post_meta($post_id, 'at_hotspot', $posted_data['choice']);
-		update_post_meta($post_id, 'observation_location', $posted_data['location']);
 		update_post_meta($post_id, 'county', $posted_data['county']);
 		update_post_meta($post_id, 'which_hotspot', $posted_data['hotspot']);
+		update_post_meta($post_id, 'observation_location', $posted_data['picker-coords']);
 
 		// Sanitize address
 		if (!empty($posted_data['picker-address'])) {
@@ -72,14 +75,16 @@ function obsform_submit() {
 
 		// Attach image as post thumbnail
 		global $wpdb;
-		$attachment = $wpdb->get_col($wpdb->prepare("SELECT ID FROM $wpdb->posts WHERE guid='%s';", $posted_data['dz-files'] ));
-		set_post_thumbnail($post_id, $attachment);
+		$dz_file_rel = str_replace('https://files.ecoexplore.net', '', $posted_data['dz-files']);
+		$attachment = $wpdb->get_col($wpdb->prepare("SELECT ID FROM $wpdb->posts WHERE guid LIKE '%%%s';", $dz_file_rel));
+		error_log(print_r($attachment, true));
+		set_post_thumbnail($post_id, $attachment[0]);
 		error_log('Image has been added to WP and set to observation post');
 
 		// Clear transients
 		delete_transient( 'notes_' . $args['post_author'] );
 
-		echo json_encode($post_id);
+		echo json_encode(array('status' => 'success', 'ID' => $post_id));
 	}
 
 	die();

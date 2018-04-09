@@ -57,7 +57,8 @@ add_shortcode('observation_form', function ($atts, $content = null) {
         <p class="step-description">Let's begin by uploading a photograph of your observation.</p>
 
         <div class="dz-wrapper">
-          <?php echo do_shortcode('[wp-dropzone id="dropfile" max-file-size="10" accepted-files="image/*" max-files="1" dom-id="dz-files" title="Drop image here or click to upload" callback="success: function(file, response) { jQuery(\'#btn-first-next-step\').removeClass(\'disabled\'); }"]'); ?>
+          <?php echo do_shortcode('[wp-dropzone id="dropfile" max-file-size="10" accepted-files="image/*" max-files="1" dom-id="dz-files" title="Drop image here or click to upload" callback="success: function(file, response) { jQuery(\'#btn-first-next-step\').removeClass(\'disabled\'); jQuery(\'#dz-files\').val(response.data); }"]'); ?>
+          <?php //echo do_shortcode('[wp-dropzone id="dropfile" max-file-size="10" accepted-files="image/*" max-files="1" dom-id="dz-files" title="Drop image here or click to upload" callback="success: function(file, response) { console.log(file) }"]'); ?>
         </div>
 
         <div class="form-buttons">
@@ -102,11 +103,11 @@ add_shortcode('observation_form', function ($atts, $content = null) {
           <fieldset class="input-wrapper" id="choice-wrap">
             <legend>Did you snap this at a HotSpot?</legend>
             <div>
-              <input type="radio" name="choice" id="choice-yes" value="yes">
+              <input type="radio" name="choice" id="choice-yes" value="Yes">
               <label for="choice-yes">Yes</label>
             </div>
             <div>
-              <input type="radio" name="choice" id="choice-no" value="no">
+              <input type="radio" name="choice" id="choice-no" value="No">
               <label for="choice-no">No</label>
             </div>
           </fieldset>
