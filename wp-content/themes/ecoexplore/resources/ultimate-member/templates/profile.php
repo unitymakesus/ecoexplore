@@ -10,8 +10,10 @@ $badge_ids = [];
 
 if (!empty($earned_badges)) {
 	foreach ($earned_badges as $k => $badge) {
-		$badge_counts[$badge['badge_name']->ID][] = $k;
-		$badge_ids[] = $badge['badge_name']->ID;
+		if (!empty($badge['badge_name'])) {
+			$badge_counts[$badge['badge_name']->ID][] = $k;
+			$badge_ids[] = $badge['badge_name']->ID;
+		}
 	}
 }
 
