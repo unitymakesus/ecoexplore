@@ -225,7 +225,7 @@ function obsform_submit() {
 		'post_author' => get_current_user_id(),
 		'post_status' => 'pending'
 	);
-	$post_id = wp_insert_post($args, $wp_error);
+	$post_id = wp_insert_post($args, true);
 
 	if (is_wp_error($post_id)) {
 		// Output error
@@ -237,7 +237,9 @@ function obsform_submit() {
 		update_post_meta($post_id, 'observation_time', $posted_data['datetime']);
 		update_post_meta($post_id, 'at_hotspot', $posted_data['choice']);
 		update_post_meta($post_id, 'county', $posted_data['county']);
-		update_post_meta($post_id, 'which_hotspot', $posted_data['hotspot']);
+		if (array_key_exists('hotspot', $posted_data)) {
+			update_post_meta($post_id, 'which_hotspot', $posted_data['hotspot']);
+		}
 		update_post_meta($post_id, 'observation_location', $posted_data['picker-coords']);
 
 		// Sanitize address
@@ -252,8 +254,13 @@ function obsform_submit() {
 
 		// Attach image as post thumbnail
 		global $wpdb;
-		$dz_file_rel = str_replace('https://files.ecoexplore.net', '', $posted_data['dz-files']);
-		$attachment = $wpdb->get_col($wpdb->prepare("SELECT ID FROM $wpdb->posts WHERE guid LIKE '%%%s';", $dz_file_rel));
+		$dz_file_rel = str_replace(array('https://files.ecoexplore.net', 'http://files.ecoexplore.net'), array('',''), $posted_data['dz-files']);
+		error_log($dz_file_rel);
+
+		$query = $wpdb->prepare("SELECT ID FROM $wpdb->posts WHERE guid LIKE %s", '%' . $wpdb->esc_like($dz_file_rel) . '%');
+		error_log($query);
+
+		$attachment = $wpdb->get_col($query);
 		error_log(print_r($attachment, true));
 		set_post_thumbnail($post_id, $attachment[0]);
 		error_log('Image has been added to WP and set to observation post');

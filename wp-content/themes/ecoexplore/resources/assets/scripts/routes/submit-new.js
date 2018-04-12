@@ -70,9 +70,13 @@ export default {
         $('.form-progress .progress-step[data-step-current]').removeAttr('data-step-current').attr('data-step-complete', '')
           .next().removeAttr('data-step-incomplete').attr('data-step-current', '');
 
+      // Map search handler
+      } else if ($(this).attr('data-button-type') == "map-search") {
+        mapsearch();
+
       // Submit button handler
-      } else if ($(this).attr('data-button-type') == "submit") {
-        $('form#ecosubmit').submit();
+      // } else if ($(this).attr('data-button-type') == "submit") {
+      //   $('form#ecosubmit').submit();
       }
     });
 
@@ -184,6 +188,21 @@ export default {
     google.maps.event.addListener(map, 'click', function(event) {
       mapclicked(event.latLng);
     });
+
+    function mapsearch() {
+      var address = document.getElementById("map-search").value;
+      var geocoder = new google.maps.Geocoder;
+      geocoder.geocode( { 'address': address}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+
+          map.setCenter(results[0].geometry.location);
+          map.setZoom(15);
+
+        } else {
+          alert("Sorry! We couldn't find that location (error code " + status + ")");
+        }
+      });
+    }
 
     function mapclicked(loc) {
       var latlng = loc.toString();

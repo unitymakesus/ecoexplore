@@ -124,7 +124,7 @@
             @php
               $big_event = tribe_get_events([
                 'posts_per_page' => 1,
-                'eventDisplay' => 'upcoming',
+                'eventDisplay' => 'list',
                 'featured' => true
               ]);
             @endphp
@@ -164,7 +164,7 @@
           @php
             $events = tribe_get_events([
               'posts_per_page' => 3,
-              'eventDisplay' => 'upcoming'
+              'eventDisplay' => 'list'
             ]);
           @endphp
 

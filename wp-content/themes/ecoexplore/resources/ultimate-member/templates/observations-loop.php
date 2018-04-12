@@ -1,8 +1,11 @@
 <?php
+
+namespace App;
+
 function observations_loop($number, $username, $format = null, $wrapper = null) {
   $page = (!empty($_GET['pg']) ? $_GET['pg'] : 1);
 
-  $recent_obs = new WP_Query([
+  $recent_obs = new \WP_Query([
     'post_type' => 'observation',
     'posts_per_page' => $number,
     'author_name' => $username,
@@ -124,7 +127,7 @@ function observations_loop($number, $username, $format = null, $wrapper = null) 
                   [
                     'style' => 'ul',
                     'type' => 'comment',
-                    'callback' => App . '\\comments_callback'
+                    'callback' => __NAMESPACE__ . '\\comments_callback'
                   ], get_comments([
                     'post_id' => get_the_ID(),
                     'number' => -1
@@ -194,7 +197,7 @@ function observations_loop($number, $username, $format = null, $wrapper = null) 
   if (max(1, $page) == $recent_obs->max_num_pages) {
 
     // Show the observations from iNaturalist
-    $observations = App\get_observations($number, $username);
+    $observations = namespace\get_observations($number, $username);
 
     if (!empty($observations)) {
       foreach($observations as $o) {

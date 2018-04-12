@@ -1,4 +1,7 @@
 <?php
+
+namespace App;
+
 // This user's data
 $user_id = um_profile_id();
 $username = um_user('user_nicename');
@@ -244,7 +247,7 @@ include('observations-loop.php');
 										if ( false === ( $featured = get_transient( 'featured_event' ) ) ) {
 											$featured = tribe_get_events([
 												'posts_per_page' => 1,
-												'eventDisplay' => 'upcoming',
+												'eventDisplay' => 'list',
 												'featured' => true
 											]);
 											set_transient( 'featured_event', $featured, 24 * HOUR_IN_SECONDS );

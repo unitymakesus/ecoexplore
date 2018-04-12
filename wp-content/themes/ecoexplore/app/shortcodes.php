@@ -80,8 +80,8 @@ add_shortcode('observation_form', function ($atts, $content = null) {
           </div>
 
           <div class="input-field">
-            <textarea class="materialize-textarea validate" name="description" id="description"></textarea>
-            <label for="description">Description of Observation</label>
+            <textarea class="materialize-textarea" name="description" id="description"></textarea>
+            <label for="description">Description of Observation (Optional)</label>
           </div>
 
           <div class="form-buttons">
@@ -138,6 +138,10 @@ add_shortcode('observation_form', function ($atts, $content = null) {
             <input type="hidden" name="picker-coords" id="picker-coords">
             <p class="description">Click to drop a pin on the map.</p>
             <div id="google-map" style="height:400px;"></div>
+            <div class="form-buttons input-field inline">
+              <input type="text" name="map-search" value="" class="map-search" id="map-search" placeholder="Search for location">
+              <a class="btn-tertiary btn-small" data-button-type="map-search" href="#">Find on map</a>
+            </div>
           </div>
 
           <div class="form-buttons right-align">
