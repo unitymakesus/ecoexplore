@@ -53,7 +53,7 @@ include('observations-loop.php');
 								if ( false === ( $notes = get_transient( 'notes_' . $user_id ) ) ) {
 									$notes = array();
 
-									$announcements = new WP_Query([
+									$announcements = new \WP_Query([
 										'post_type' => 'post',
 										'posts_per_page' => 10,
 										'orderby' => 'date',
@@ -173,7 +173,7 @@ include('observations-loop.php');
 								$now = date('Ymd', current_time('timestamp'));
 
 								if ( false === ( $season_id = get_transient( 'season_id' ) ) ) {
-		              $this_season = new WP_Query([
+		              $this_season = new \WP_Query([
 		                'post_type' => 'field-season',
 		                'posts_per_page' => -1,
 		                'meta_query' => [
@@ -200,7 +200,7 @@ include('observations-loop.php');
 								$before = get_field('end_date', $season_id);
 
 								if ( false === ( $season_observations = get_transient( 'season_obs_' . $user_id ) ) ) {
-									$season_observations = new WP_Query([
+									$season_observations = new \WP_Query([
 										'post_type' => 'observation',
 										'posts_per_page' => -1,
 										'author' => $user_id,
@@ -291,7 +291,7 @@ include('observations-loop.php');
 							<?php
 								// Get progress towards bonus badges!
 								if ( false === ( $bonus_badges = get_transient( 'bonus_badges_' . $user_id ) ) ) {
-									$bonus_badges = new WP_Query([
+									$bonus_badges = new \WP_Query([
 										'post_type' => 'badge',
 										'posts_per_page' => -1,
 										'post__not_in' => $badge_ids,
@@ -311,7 +311,7 @@ include('observations-loop.php');
 								if ($bonus_badges->have_posts()) : while ($bonus_badges->have_posts()) : $bonus_badges->the_post();
 
 									// if ( false === ( $badge_observations = get_transient( 'badge_obs_' . get_the_ID() . '_' . $user_id ) ) ) {
-										$badge_observations = new WP_Query([
+										$badge_observations = new \WP_Query([
 											'post_type' => 'observation',
 											'posts_per_page' => -1,
 											'author' => $user_id,
