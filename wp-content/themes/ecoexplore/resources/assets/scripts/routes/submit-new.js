@@ -121,7 +121,6 @@ export default {
       time_24hr: false,
       dateFormat: "m/d/Y h:i",
       defaultDate: Date.now(),
-      disableMobile: true,
     });
 
     // Get HotSpots for the selected county
@@ -284,12 +283,8 @@ export default {
           form: $('#ecosubmit').serializeArray(),
         },
         dataType: 'json',
-      }).done(function(response) {
-        if (response.status == "error") {
-          alert (response.message);
-        } else {
-          window.location = "/user/?profiletab=posts";
-        }
+      }).done(function() {
+        window.location = "/user/?profiletab=posts";
         return false;
       });
     });

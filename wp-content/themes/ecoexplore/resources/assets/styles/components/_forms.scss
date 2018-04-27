@@ -226,7 +226,7 @@ form {
     background: $ice;
 
     &.hidden {
-      display: none;
+      // display: none;
     }
   }
 
@@ -447,6 +447,15 @@ form {
 
 .flatpickr-calendar {
   border-radius: 0;
+  max-width: 307px;
+
+  .flatpickr-rContainer {
+    width: 100%;
+  }
+
+  .flatpickr-days {
+    max-width: 100%;
+  }
 
   .numInputWrapper {
     &:hover {
@@ -459,13 +468,13 @@ form {
   }
 
   .flatpickr-day {
+    &:hover {
+      background: rgba($shadow, 0.1);
+    }
+
     &.selected {
       background: $aqua;
       border-color: $aqua-dark;
-    }
-
-    &:hover {
-      background: rgba($shadow, 0.1);
     }
   }
 

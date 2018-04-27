@@ -3,7 +3,7 @@
 namespace App;
 
 /**
- * THIS IS JUST FOR TESTING NEW SUBMISSION PROCESS
+ * THIS IS THE OLD FORM FUNCTIONS. KEEP UNTIL WE SWITCH TO NEW SUBMISSION PROCESS
  */
 
 // Dynamically populate the counties dropdown
@@ -209,7 +209,7 @@ function obsform_county_hotspots() {
 add_action('wp_ajax_obsform_submit', __NAMESPACE__ . '\\obsform_submit');
 
 function obsform_submit() {
-	error_log('Start form processing');
+	error_log('Start form processing - NEW');
 
 	$posted_data = array();
 	foreach ($_POST['form'] as $post) {

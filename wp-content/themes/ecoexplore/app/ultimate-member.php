@@ -66,7 +66,7 @@ add_action('um_after_header_meta', function() {
 });
 
 add_action('um_profile_before_header', function() {
-  if ( isset( $_GET['notice'] ) && $_GET['notice'] == 'incomplete_access' && $_GET['profilttab'] !== 'edit' ) {
+  if ( isset( $_GET['notice'] ) && $_GET['notice'] == 'incomplete_access' && $_GET['profiletab'] !== 'edit' ) {
     wp_redirect('/user/?profiletab=edit&um_action=edit');
   	exit;
   }
