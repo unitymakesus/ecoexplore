@@ -3,7 +3,7 @@ Contributors: sovstack, cfullsteam
 Tags: security, wp security, privacy, security audit, file permissions, brute force login
 Requires at least: 4
 Requires PHP: 5.3
-Tested up to: 4.9.4
+Tested up to: 4.9.5
 Stable tag: trunk
 
 A plugin to quickly implement WordPress hardening and security techniques.
@@ -46,16 +46,34 @@ Features:
 
 == Changelog ==
 
+= 1.1.6 =
+*Release Date - 8 May 2018*
+* Bug Fix: If a child theme is used, only the parent theme files were appearing in the theme files permissions audit list.
+* Improvement: Updated PHP version checks
+
+= 1.1.5 =
+*Release Date - 23 April 2018*
+* Added Feature: Prevent Access to readme.html and license.txt core files.
+* Added Feature: Notifications for file permissions displaying totals of vulnerable files.
+* Improvement: Updated file permission status color scheme to match WP notifications.
+* Improvement: Updated PHP version checks and added notifications.
+* Security: Added additional security measures when handling $_POST variables.
+* Bug Fix: Changed status of files from "good" to "secure" for all files that should only be 644 permissions.
+* Bug Fix: When using the Hide Script Versions feature, CSS and JS files cache would not update for the browser until the next day after a plugin or theme was updated.
+* Bug Fix: After the user pressed the Reset Settings button, the content on the page would not display.
+* Added support for Security Safe Pro Add-on.
+* Tested up to version 4.9.5
+
 = 1.1.3 =
 *Release Date - 25 February 2018*
 * Added Feature: Hide WordPress Version from the RSS feed.
 * Added Feature: Hide Script Versions from enqueued CSS and JS files
-* BUG FIX: Hide WordPress stays on despite the settings value
-* BUG FIX: An error is displayed when saving settings if the settings are the same in the database.
+* Bug Fix: Hide WordPress stays on despite the settings value
+* Bug Fix: An error is displayed when saving settings if the settings are the same in the database.
 
 = 1.1.2 =
 *Release Date - 20 February 2018*
-* BUG FIX: Icon CSS conflict with other icon plugins
+* Bug Fix: Icon CSS conflict with other icon plugins
 
 = 1.1.1 =
 *Release Date - 20 February 2018*
