@@ -1,6 +1,15 @@
 export default {
   init() {
+
+    // Add Date/Time picker
     const flatpickr = require('flatpickr');
+    flatpickr('#datetime', {
+      inline: true,
+      enableTime: true,
+      time_24hr: false,
+      dateFormat: "m/d/Y h:i",
+      defaultDate: Date.now(),
+    });
 
     // Simplified validation
     function simple_validation($field) {
@@ -114,15 +123,6 @@ export default {
       }
     });
 
-    // Add Date/Time picker
-    flatpickr('#datetime', {
-      inline: true,
-      enableTime: true,
-      time_24hr: false,
-      dateFormat: "m/d/Y h:i",
-      defaultDate: Date.now(),
-    });
-
     // Get HotSpots for the selected county
     $('select#county').on('change', function() {
       let val = $(this).val();
@@ -188,16 +188,42 @@ export default {
       mapclicked(event.latLng);
     });
 
+    function handle_geocode_error(status) {
+      // FAILURE: Clear fields and disable form submission
+      $('#picker-coords').val('');
+      $('#picker-address').val('');
+      $('#btn-submit').addClass('disabled');
+      marker.setMap(null);
+      marker = null;
+      console.log('Geocoder failed due to: ' + status);
+    }
+
     function mapsearch() {
       var address = document.getElementById("map-search").value;
       var geocoder = new google.maps.Geocoder;
       geocoder.geocode( { 'address': address}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
+          var latlng = results[0].geometry.location.toString();
+          $('#picker-coords').val(latlng);
+          $('#picker-address').val(results[0].formatted_address);
 
           map.setCenter(results[0].geometry.location);
           map.setZoom(15);
 
+          // Place marker
+          if (marker != null) {
+            marker.setPosition(results[0].geometry.location);
+          } else {
+            marker = new google.maps.Marker({
+              map: map,
+              position: results[0].geometry.location,
+            });
+          }
+
+          $('#btn-submit').removeClass('disabled');
+
         } else {
+          handle_geocode_error();
           alert("Sorry! We couldn't find that location (error code " + status + ")");
         }
       });
@@ -234,22 +260,15 @@ export default {
           }
 
           if (results[i]) {
+            // SUCCESS: Add address to hidden field and allow form submission
             $('#picker-address').val(results[i].formatted_address);
             $('#btn-submit').removeClass('disabled');
           } else {
-            $('#picker-coords').val('');
-            $('#picker-address').val('');
-            $('#btn-submit').addClass('disabled');
-            marker.setMap(null);
-            marker = null;
+            handle_geocode_error();
           }
+
         } else {
-          $('#picker-coords').val('');
-          $('#picker-address').val('');
-          $('#btn-submit').addClass('disabled');
-          marker.setMap(null);
-          marker = null;
-          console.log('Geocoder failed due to: ' + status);
+          handle_geocode_error();
         }
       });
     }

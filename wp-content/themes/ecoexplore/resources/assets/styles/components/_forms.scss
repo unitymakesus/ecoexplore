@@ -226,7 +226,7 @@ form {
     background: $ice;
 
     &.hidden {
-      // display: none;
+      display: none;
     }
   }
 
@@ -448,6 +448,7 @@ form {
 .flatpickr-calendar {
   border-radius: 0;
   max-width: 307px;
+  width: auto !important;
 
   .flatpickr-rContainer {
     width: 100%;
@@ -455,6 +456,7 @@ form {
 
   .flatpickr-days {
     max-width: 100%;
+    width: auto !important;
   }
 
   .numInputWrapper {
