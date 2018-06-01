@@ -15,19 +15,15 @@ add_action('wp_enqueue_scripts', function () {
   wp_enqueue_style('sage/main.css', asset_path('styles/main.css'), false, null);
   wp_enqueue_script('sage/main.js', asset_path('scripts/main.js'), ['jquery'], null, true);
   wp_localize_script('sage/main.js', 'eco_ajax_vars', ['ajax_url' => admin_url('admin-ajax.php')]);
+  wp_dequeue_script('cf7-mapjs'); // Prevent conflicting map JS from loading
 
   if (is_page('register') || is_page('register-group')) {
     wp_enqueue_script( 'password-strength-meter' );
   }
 
-  if (is_page('submit-test')) {
+  if (is_page('submit-new-observation')) {
     $gmaps_url = add_query_arg( 'key', 'AIzaSyD5IF_rp6nUrCw6ficzMBgFApZtucUfjdk', 'https://maps.google.com/maps/api/js' );
     wp_enqueue_script( 'google-maps', $gmaps_url, array(), null, true );
-  }
-
-  // Prevent conflicting map JS from loading on events page
-  if (!is_page('submit-new-observation')) {
-    wp_dequeue_script('cf7-mapjs');
   }
 
   if (!is_page('locations')) {

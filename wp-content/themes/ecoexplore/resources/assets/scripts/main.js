@@ -11,7 +11,7 @@ import common from './routes/common';
 import home from './routes/home';
 import user from './routes/user';
 import submitNewObservation from './routes/submit';
-import submitTest from './routes/submit-new';
+// import submitTest from './routes/submit-new';
 import register from './routes/register';
 import registerGroup from './routes/register';
 
@@ -34,7 +34,7 @@ const routes = new Router({
   home,
   // Submit new observation page
   submitNewObservation,
-  submitTest,
+  // submitTest,
   // User profile page
   user,
   // Registration page
