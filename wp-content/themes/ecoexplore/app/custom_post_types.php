@@ -116,7 +116,7 @@ add_action( 'init', function() {
 				'parent_item_colon' => ''
 			), /* end of arrays */
 			'exclude_from_search' => false,
-			'publicly_queryable' => true,
+			'publicly_queryable' => false,
 			'show_ui' => true,
 			'show_in_nav_menus' => false,
 			'menu_position' => 8,
@@ -124,9 +124,9 @@ add_action( 'init', function() {
 			'capability_type' => 'page',
 			'hierarchical' => true,
 			'supports' => array( 'title', 'thumbnail', 'revisions'),
-			'public' => true,
+			'public' => false,
 			'has_archive' => false,
-			'rewrite' => true,
+			'rewrite' => false,
 			'query_var' => true
 		)
 	);
