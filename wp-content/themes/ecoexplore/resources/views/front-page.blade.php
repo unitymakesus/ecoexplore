@@ -109,7 +109,7 @@
                     @endphp
                     <img class="alignleft badge" src="{{ get_the_post_thumbnail_url($badge_id, 'medium') }}" alt="{{ get_the_title() }} Season Badge" />
                     <p>Complete challenges to earn a badge and share observations of wildlife belonging to this season for a bonus point!</p>
-                    <p><a href="{{ the_permalink() }}" class="learn-more-btn">Learn More</a>
+                    <p><a href="/badges/" class="learn-more-btn">Learn More</a>
                   </div>
                 </div>
 
